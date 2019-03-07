@@ -492,17 +492,17 @@ You can also use other remote filesystems in a similar way. Just be careful, not
 
 <p>
 <b>The patterns.lst file could look like that:</b><br>
-# "sh:" pattern style is the default, so the following line is not needed:<br>
+<b># "sh:" pattern style is the default, so the following line is not needed:</b><br>
 P sh<br>
 R /<br>
-# can be rebuild<br>
+<b># can be rebuild</b><br>
 - /home/*/.cache<br>
-# they're downloads for a reason<br>
+<b># they're downloads for a reason</b><br>
 - /home/*/Downloads<br>
-# susan is a nice person<br>
-# include susans home<br>
+<b># susan is a nice person</b><br>
+<b># include susans home</b><br>
 + /home/susan<br>
-# don't backup the other home directories<br>
+<b># don't backup the other home directories</b><br>
 - /home/*
 </p>
 
