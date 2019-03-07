@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Creating a FSTAB Entry ======
+
+===== Volumes =====
+ **/dev/sdc? /path/to/mnt/point btrfs defaults**
+Do not setup compress on the whole device, instead use compress=lzo for subvolumes you want to compress.
+
+===== Subvolumes =====
+**/dev/sdc1 /Path/To/Mnt/Point	btrfs defaults,compress=lzo,subvolid=257	0		0**
+
+To get the subvolid you need to manually mount main btrfs partition first then get the subvoid's with the following
+command: 
+**$ btrfs subvolume list -p /path/to/mount/**
+| Statement                      | Results                                        |   |
+|:-------------------------------|:-----------------------------------------------|:--|
+| It will return something like: | ID 257 gen 378 parent 5 top level 5 path Data  |   |
+|                                | ID 258 gen 356 parent 5 top level 5 path Media |   |
+
+			 		

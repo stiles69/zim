@@ -1,0 +1,18 @@
+====== Mega-Cmd ======
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Mega-Cmd
+
+
+Created Wednesday 09 May 2018
+
+
+
++List of Commands

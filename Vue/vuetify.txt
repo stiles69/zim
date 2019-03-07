@@ -1,0 +1,41 @@
+====== vuetify ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+vuetify
+
+
+Created Monday 26 February 2018
+
+
+
+Just for web
+vue init vuetifyjs/webpack <projectname>
+
+
+
+PWA
+vue init vuetifyjs/pwa <projectname>
+
+
+
+NUXT
+vue init vuetifyjs/nuxt <projectname> Everything!**
+
+
+
+Webpack/Server Side Rendering
+vue init vuetifyjs/webpack-ssr <projectname>
+
+
+
+Electron For Desktop Applications
+vue init vuetifyjs/electron <projectname>
+
+
+
+Ala-cart (You pick the components you want Good for making size smaller)
+vue init vuetifyjs/a-la-carte <projectname>
+
+

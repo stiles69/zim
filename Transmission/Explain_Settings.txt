@@ -1,0 +1,78 @@
+====== Explain Settings ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Explain Settings
+
+
+Created Thursday 24 May 2018
+
+
+
+NameTypeRequiredDefaultOptionDescription
+config_dirpathWhere the configuration files are
+bind_address_ipv4IP Address
+bind_address_ipv6IPv6 Address
+download_dirpathWhere to store you downloaded files
+incomplete_dir_enabledbooleanWhether to store incomplete files somewhere else
+incomplete_dirpathWhere to store files untill they are finished
+dht_enabledbooleanWhether to enable dht (distributed hash tables)
+blocklist_enabledbooleanWhether to make use of the blocklist defined in config_dir
+encryptionintegerWhether to use encrypted connections only (allow encryption: 0, prefer encryption: 1, require
+encryption: 2)
+pex_enabledboolean
+speed_limit_down_enabledbooleanWhether transmission should limit its download speed
+speed_limit_downintegerin KByte/s
+speed_limit_up_enabledbooleanWhether transmission should limit its download speed
+speed_limit_upintegerin KByte/s
+alt_speed_enabledbooleanWhether transmission should use two speed limit settings
+alt_speed_downintegerin KByte/s
+alt_speed_upintegerin KByte/s
+alt_speed_time_enabledbooleanWhether to switch between the two speed-setting on a time table
+alt_speed_time_day7-bit bitmask, 0000001=sunday, 1000000=saturday
+alt_speed_time_begindefault = 540, in minutes from midnight, 9am
+alt_speed_time_enddefault = 1020, in minutes from midnight, 5pm
+upload_slots_per_torrenthow many peers can download a torrent at a time
+open_file_limitintegerremember the low system memory
+peer_limit_globalintegerthe max number of peers globaly
+peer_limit_per_torrentintegerthe max number of peers with connection per torrent
+peer_portintegerthe fixed port transmission listens to incomming connections
+peer_port_random_highintegerhighest port of the port range
+peer_port_random_lowintegerlowest port of the port range
+peer_port_random_on_startbooleanwhether to use random ports instead of a fixed one from the beginning
+peer_socket_tosbooleanwhether type of service is enabled
+port_forwarding_enabledboolean
+preallocationbooleanwhether to fill the space for chunks not yet downloaded with "0" (helps avoiding fragmentation)
+ratio_limit_enabledbooleanwhether to use a limit ratio
+ratio_limitintegerautomaticaly stop seeding a torrent when it reaches this ratio (with a GUI you can enable this for
+every torrent separately)
+rename_partial_filesboolean
+rpc_enabledbooleanWhether transmission-daemon should be remote controlled by a GUI on a host machine
+rpc_bind_addressIP Addressthe address on which transmission-daemon listens to rpcs
+rpc_portIP Portthe port on which transmission-daemon listens to rpcs
+rpc_authentication_requiredbooleanwhether rpc needs authentication
+rpc_usernamestringuser name
+rpc_passwordstringpassword
+rpc_whitelist_enabledbooleanwhether to make use of the whitelist
+rpc_whitelistIP Addressesthe IPs of the hosts allowed
+watch_dir_enabledbooleanWhether to check a directory for new torrents put there. Leave this disabled It requres inotify
+enabled in kernel to works, which is not enabled by default in openwrt.
+watch_dirpathPath to the directory
+script_torrent_done_enabledboolean
+script_torrent_done_filename
+start_added_torrentsboolean
+trash_original_torrent_files
+umask integerSets file mode creation mask. The mask should be in base 10 due to the json markup language used by
+Transmission. For instance, the standard umask octal notation 022 is written as 18. If you want to save downloaded
+torrents to be world-writable (equivalent to chmod 777 or chmod a+rwx) set this value to 0.
+lazy_bitfield_enabledboolean
+lpd_enabledboolean
+message_levelinteger
+proxy_enabledbooleanwhether to use a proxy
+proxyIP addressIP adress of the proxy
+proxy_portintegerIP port of the proxy
+proxy_typeintegerType of the proxy (http: 0, socks4: 1, socks5: 2)
+proxy_auth_enabledbooleanWhether proxy needs authentication
+proxy_auth_usernamestringusername for the proxy
+proxy_auth_passwordstringpassword for the proxy

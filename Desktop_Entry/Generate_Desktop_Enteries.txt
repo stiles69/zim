@@ -1,0 +1,13 @@
+====== Generate Desktop Enteries ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Generate Desktop Enteries
+
+
+Created Sunday 04 March 2018
+
+
+
+gendesk

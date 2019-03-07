@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30T12:05:37-06:00
+
+====== Check For Badblocks ======
+Created Friday 30 November 2018
+
+**# sudo badblocks -v /dev/sdb > $HOME/badsectors.txt**
+**/dev/sdb** //Must indicate which device to check//
+
+**GSmartControl** is gui version of smartctl
+
+Also see 
+[[../Check_Disk_Health.txt|Check Disk Health]]

@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-12-22T04:16:11-06:00
+
+====== DNS Listings ======
+Created Saturday 22 December 2018
+
+salemink.duckdns.org

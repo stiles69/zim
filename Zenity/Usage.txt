@@ -1,0 +1,64 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-02-16T20:34:26-06:00
+
+====== Usage ======
+Created Saturday 16 February 2019
+
+=== Make sure and remove ( ===
+**set -o nounset                              # Treat unset variables as an error**
+
+=== ) from script!!!!!!!!!!!!!!! ===
+
+# Types
+**zenity --notification --text "This is a notification.\nNote: the shell script does not stop here!"**
+**zenity --info         --text "This is a info!"**
+**zenity --warning      --text "This is a warning!"**
+**zenity --error        --text "This is a error!"**
+
+# Entry
+**value=$(zenity --entry --title "Entry of a value" --text "Enter a value")**
+**echo you have entered $value;**
+
+# Password
+**password=$(zenity --entry --hide-text --title "Entry of a password" --text "Enter your password.")**
+**echo The secret password is $password**
+
+# Note --step does not seem to have any influence
+**value=$(zenity --scale --text "Choose value between 10 and 42" --min-value 10 --max-value 42 --value 20 --step 2)**
+**echo value is $value**
+
+# Yes/No
+**zenity --question  --text "This is a question!"**
+**if [[ $? = 0 ]]; then**
+**  echo "You answered yes";**
+**else**
+**  echo "You answered no";**
+**fi**
+
+# Timeout
+**zenity --question  --text "This is a question!\nYou have five seconds to answer." --timeout 5**
+**case $? in**
+**  0) echo "You answered yes";;**
+**  1) echo "You answered no" ;;**
+**  5) echo "Time out"        ;;**
+**  *) echo "Unexpected!"     ;;**
+**esac**
+
+# File Selector
+**date=$(zenity --calendar --text "Choose your date")**
+**echo "You have chosen $date" # Format is dd.mm.yyyy**
+
+# Calendar
+**file=$(zenity --file-selection --text "Choose your file")**
+**echo "You have chosen $file"**
+
+# Progress Bar
+**percent=0;**
+**for num in zero one two three four five six seven eight nine ten; do**
+**  echo $percent**
+**  echo "# $num"**
+**  percent=$(($percent + 10));**
+**  sleep 1**
+**done | zenity --progress --text "Counting..." --percentage=0**
+

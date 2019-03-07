@@ -1,0 +1,20 @@
+====== RSYNC ======
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+RSYNC
+
+
+Created Wednesday 16 May 2018
+
+
+
++Use rsync
++Change
+Owner chown while using rsync
++rsync command
++Use rsync

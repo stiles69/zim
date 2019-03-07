@@ -1,0 +1,166 @@
+====== Youtube Downloader Usage ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Youtube Downloader Usage
+
+
+Created Monday 02 April 2018
+
+
+
+youtube-dl -f [Number of filetype can be gotten by (youtube-dl -F [URL])] -o '%(autonumber)s-%(title)s.%(ext)s'
+--playlist-end [Last Video You Want] [URL]
+
+
+
+youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' -o '%(autonumber)s-%(title)s.%(ext)s' -a
+Bigfoot.txt
+
+
+
+-a [List.txt of URL's to download.]
+
+
+
+# Download best mp4 format available or any other best if no mp4 available
+$ youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+
+
+
+# Download best format available but not better that 480p
+$ youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'
+
+
+
+# Download best video only format but no bigger than 50 MB
+$ youtube-dl -f 'best[filesize<50M]'
+
+
+
+# Download best format available via direct link over HTTP/HTTPS protocol
+$ youtube-dl -f '(bestvideo+bestaudio/best)[protocol^=http]'
+
+
+
+# Download the best video format and the best audio format without merging them
+$ youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'
+Download Playlist
+
+
+
+youtube-dl -f 'best' -o '%(autonumber)s-%(title)s.%(ext)s'
+[https://www.youtube.com/watch?v=nDDbTaWpwoc&amp;list=PLhd61JR5eSOiZw3sYHSukAkaTYBopLRrO]
+
+
+
+Output template examples
+Note that on Windows you may need to use double quotes instead of single.
+
+
+
+$ youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc
+youtube-dl test video ''_ä↭𝕐.mp4 # All kinds of weird characters
+
+
+
+$ youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc --restrict-filenames
+youtube-dl_test_video_.mp4 # A simple file name
+
+
+
+# Download YouTube playlist videos in separate directory indexed by video order in a playlist
+$ youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'
+https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re
+
+
+
+# Download all playlists of YouTube channel/user keeping each playlist in separate directory:
+$ youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'
+https://www.youtube.com/user/TheLinuxFoundation/playlists
+
+
+
+# Download Udemy course keeping each chapter in separate directory under MyVideos directory in your home
+$ youtube-dl -u user -p password -o '~/MyVideos/%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s'
+https://www.udemy.com/java-tutorial/
+
+
+
+# Download entire series season keeping each series and each season in separate directory under C:/MyVideos
+$ youtube-dl -o "C:/MyVideos/%(series)s/%(season_number)s - %(season)s/%(episode_number)s - %(episode)s.%(ext)s"
+https://videomore.ru/kino_v_detalayah/5_sezon/367617
+
+
+
+# Stream the video being downloaded to stdout
+$ youtube-dl -o - BaW_jenozKc
+
+
+
+
+
+--playlist-start NUMBER Playlist video to start at (default is 1)
+--playlist-end NUMBER Playlist video to end at (default is last)
+--playlist-items ITEM_SPEC Playlist video items to download. Specify
+<div style='padding-left: 240pt'>
+	indices of the videos in the playlist
+	separated by commas like: "--playlist-items
+	1,2,5,8" if you want to download videos
+	indexed 1, 2, 5, 8 in the playlist. You can
+	specify range: "--playlist-items
+	1-3,7,10-13", it will download the videos
+	at index 1, 2, 3, 7, 10, 11, 12 and 13.
+
+
+
+
+	VIDEO SELECTION
+	Videos can be filtered by their upload date using the options --date, --datebefore or --dateafter. They accept dates
+	in two formats:
+
+
+
+	Absolute dates: Dates in the format YYYYMMDD.
+	Relative dates: Dates in the format (now|today)[+-][0-9](day|week|month|year)(s)?
+	Examples:
+
+
+
+	# Download only the videos uploaded in the last 6 months
+	$ youtube-dl --dateafter now-6months
+
+
+
+	# Download only the videos uploaded on January 1, 1970
+	$ youtube-dl --date 19700101
+
+
+
+	$ # Download only the videos uploaded in the 200x decade
+	$ youtube-dl --dateafter 20000101 --datebefore 20091231
+
+
+
+	Geo Restriction:
+	--geo-verification-proxy URL Use this proxy to verify the IP address for
+	<div style='padding-left: 240pt'>
+		some geo-restricted sites. The default
+		proxy specified by --proxy (or none, if the
+		options is not present) is used for the
+		actual downloading.
+
+		--geo-bypass Bypass geographic restriction via faking
+		<div style='padding-left: 240pt'>
+			X-Forwarded-For HTTP header (experimental)
+
+			--no-geo-bypass Do not bypass geographic restriction via
+			<div style='padding-left: 240pt'>
+				faking X-Forwarded-For HTTP header
+				(experimental)
+
+				--geo-bypass-country CODE Force bypass geographic restriction with
+				<div style='padding-left: 240pt'>
+					explicitly provided two-letter ISO 3166-2
+					country code (experimental)

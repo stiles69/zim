@@ -1,0 +1,66 @@
+====== Download and Install Express ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Download and Install Express
+
+
+Created Sunday 08 April 2018
+
+
+
+Express application generator
+Use the application generator tool, express-generator, to quickly create an application skeleton.
+
+
+
+The express-generator package installs the express command-line tool. Use the following command to do so:
+
+
+
+$ npm install express-generator -g
+Display the command options with the -h option:
+
+
+
+Folder Public is Directory Server Serves Files
+
+
+
+$ express -c
+
+
+
+Usage: express [options] [dir]
+
+
+
+Options:
+
+
+
+
+  -h, --help output usage information
+
+  
+    --version output the version number
+
+    
+      -e, --ejs add ejs engine support
+
+      
+        --hbs add handlebars engine support
+        --pug add pug engine support
+
+        
+          -H, --hogan add hogan.js engine support
+          -v, --view <engine> add view <engine> support (ejs|hbs|hjs|jade|pug|twig|vash) (defaults to jade)
+          -c, --css <engine> add stylesheet <engine> support (less|stylus|compass|sass) (defaults to plain
+          css)
+
+          
+            --git add .gitignore
+
+            
+              -f, --force force on non-empty directory

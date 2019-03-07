@@ -1,0 +1,1030 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Using Yubikey</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>Using Yubikey</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+Using Yubikey
+</p>
+
+<br>
+
+<p>
+Created Sunday 20 May 2018
+</p>
+
+<br>
+
+<p>
+Using keys
+</p>
+
+<p>
+Create GPG configuration
+</p>
+
+<p>
+Paste the following text into a terminal window to create a recommended GPG configuration:
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+$ cat &lt;&lt; EOF &gt; ~/.gnupg/gpg.conf<br>
+auto-key-locate keyserver<br>
+keyserver <a href="hkps://hkps.pool.sks-keyservers.net" title="hkps://hkps.pool.sks-keyservers.net" class="hkps">hkps://hkps.pool.sks-keyservers.net</a><br>
+keyserver-options no-honor-keyserver-url<br>
+keyserver-options no-honor-keyserver-url<br>
+personal-cipher-preferences AES256 AES192 AES CAST5<br>
+personal-digest-preferences SHA512 SHA384 SHA256 SHA224<br>
+default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed<br>
+cert-digest-algo SHA512<br>
+s2k-cipher-algo AES256<br>
+s2k-digest-algo SHA512<br>
+charset utf-8<br>
+fixed-list-mode<br>
+no-comments<br>
+no-emit-version<br>
+keyid-format 0xlong<br>
+list-options show-uid-validity<br>
+verify-options show-uid-validity<br>
+with-fingerprint<br>
+use-agent<br>
+require-cross-certification<br>
+EOF<br>
+Ensure you change to correct rights of that file to at least avoid a warning message about incorrect file rights
+</p>
+
+<br>
+<br>
+
+<p>
+chmod 600 ~/.gnupg/gpg.conf
+</p>
+
+<br>
+
+<p>
+Import public key
+</p>
+
+<br>
+
+<p>
+Import it from a file:
+</p>
+
+<br>
+<br>
+
+<p>
+$ gpg --import &lt; /mnt/public-usb-key/pubkey.txt<br>
+gpg: key 0xFF3E7D88647EBCDB: public key "Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;" imported<br>
+gpg: Total number processed: 1<br>
+gpg: imported: 1 (RSA: 1)<br>
+Or download from a keyserver:
+</p>
+
+<br>
+<br>
+
+<p>
+$ gpg --recv 0xFF3E7D88647EBCDB<br>
+gpg: requesting key 0xFF3E7D88647EBCDB from hkps server hkps.pool.sks-keyservers.net<br>
+[...]<br>
+gpg: key 0xFF3E7D88647EBCDB: public key "Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;" imported<br>
+gpg: Total number processed: 1<br>
+gpg: imported: 1 (RSA: 1)<br>
+You may get an error gpgkeys: HTTP fetch error 1: unsupported protocol -- this means you need to install a special<br>
+version of curl which supports gnupg:
+</p>
+
+<br>
+<br>
+
+<p>
+$ sudo apt-get install gnupg-curl
+</p>
+
+<br>
+
+<p>
+Insert YubiKey
+</p>
+
+<p>
+Unplug and replug the Yubikey. Check the card's status:
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+$ gpg --card-status<br>
+Application ID ...: D2760001240102010006055532110000<br>
+Version ..........: 2.1<br>
+Manufacturer .....: Yubico<br>
+Serial number ....: 05553211<br>
+Name of cardholder: Dr Duh<br>
+Language prefs ...: en<br>
+Sex ..............: unspecified<br>
+URL of public key : [not set]<br>
+Login data .......: <a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a><br>
+Signature PIN ....: not forced<br>
+Key attributes ...: 4096R 4096R 4096R<br>
+Max. PIN lengths .: 127 127 127<br>
+PIN retry counter : 3 3 3<br>
+Signature counter : 0<br>
+Signature key ....: 07AA 7735 E502 C5EB E09E B8B0 BECF A3C1 AE19 1D15
+</p>
+
+<p>
+  created ....: 2016-05-24 23:22:01
+</p>
+
+<p>
+  Encryption key....: 6F26 6F46 845B BEB8 BDF3 7E9B 5912 A795 E90D D2CF
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+created ....: 2016-05-24 23:29:03
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+Authentication key: 82BE 7837 6A3F 2E7B E556 5E35 3F29 127E 7964 9A3D
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+  created ....: 2016-05-24 23:36:40
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+  General key info..: pub 4096R/0xBECFA3C1AE191D15 2016-05-24 Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;<br>
+  sec# 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never<br>
+  ssb&gt; 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never<br>
+  &lt;div style='padding-left: 150pt'&gt;
+</div>
+<div style='padding-left: 60pt'>
+card-no: 0006 05553211
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+ssb&gt; 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never<br>
+&lt;div style='padding-left: 150pt'&gt;<br>
+  card-no: 0006 05553211
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+  ssb&gt; 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never<br>
+  &lt;div style='padding-left: 150pt'&gt;
+</div>
+<div style='padding-left: 90pt'>
+card-no: 0006 05553211
+</div>
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+sec# indicates master key is not available (as it should be stored encrypted offline).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+Note If you see General key info..: [none] in the output instead, first import your public key using the<br>
+previous step.
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+GnuPG
+</div>
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+Trust master key
+</div>
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+Edit the imported key to assign it ultimate trust:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+$ gpg --edit-key 0xFF3E7D88647EBCDB
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+Secret key is available.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+pub 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never usage: SC<br>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  trust: unknown validity: unknown
+</div>
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+  sub 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never usage: S<br>
+  sub 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never usage: E<br>
+  sub 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never usage: A<br>
+  [ unknown] (1). Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+  gpg&gt; trust<br>
+  pub 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never usage: SC<br>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 120pt'>
+trust: unknown validity: unknown
+</div>
+</p>
+
+<p>
+<div style='padding-left: 120pt'>
+sub 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never usage: S<br>
+sub 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never usage: E<br>
+sub 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never usage: A<br>
+[ unknown] (1). Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+Please decide how far you trust this user to correctly verify other users' keys<br>
+(by looking at passports, checking fingerprints from different sources, etc.)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+1 = I don't know or won't say<br>
+2 = I do NOT trust<br>
+3 = I trust marginally<br>
+4 = I trust fully<br>
+5 = I trust ultimately<br>
+m = back to the main menu
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+Your decision? 5<br>
+Do you really want to set this key to ultimate trust? (y/N) y
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+pub 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never usage: SC<br>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  trust: ultimate validity: unknown
+</div>
+</p>
+
+<p>
+<div style='padding-left: 120pt'>
+  sub 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never usage: S<br>
+  sub 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never usage: E<br>
+  sub 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never usage: A<br>
+  [ unknown] (1). Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;<br>
+  Please note that the shown key validity is not necessarily correct<br>
+  unless you restart the program.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  gpg&gt; quit<br>
+  Encryption<br>
+  Encrypt some sample text:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  $ echo "$(uname -a)" | gpg --encrypt --armor --recipient 0xFF3E7D88647EBCDB<br>
+  -----BEGIN PGP MESSAGE-----
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  hQIMA1kSp5XpDdLPAQ/+JyYfLaUS/+llEzQaKDb5mWhG4HlUgD99dNJUXakm085h<br>
+  PSSt3I8Ac0ctwyMnenZvBEbHMqdRnfZJsj5pHidKcAZrhgs+he+B1tdZ/KPa8inx<br>
+  NIGqd8W1OraVSFmPEdC1kQ5he6R/WCDH1NNel9+fvLtQDCBQaFae/s3yXCSSQU6q<br>
+  HKCJLyHK8K9hDvgFmXOY8j1qTknBvDbmYdcCKVE1ejgpUCi3WatusobpWozsp0+b<br>
+  6DN8bXyfxLPYm1PTLfW7v4kwddktB8eVioV8A45lndJZvliSqDwxhrwyE5VGsArS<br>
+  NmqzBkCaOHQFr0ofL91xgwpCI5kM2ukIR5SxUO4hvzlHn58QVL9GfAyCHMFtJs3o<br>
+  Q9eiR0joo9TjTwR8XomVhRJShrrcPeGgu3YmIak4u7OndyBFpu2E79RQ0ehpl2gY<br>
+  tSECB6mNd/gt0Wy3y15ccaFI4CVP6jrMN6q3YhXqNC7GgI/OWkVZIAgUFYnbmIQe<br>
+  tQ3z3wlbvFFngeFy5IlhsPduK8T9XgPnOtgQxHaepKz0h3m2lJegmp4YZ4CbS9h6<br>
+  kcBTUjys5Vin1SLuqL4PhErzmlAZgVzG2PANsnHYPe2hwN4NlFtOND1wgBCtBFBs<br>
+  1pqz1I0O+jmyId+jVlAK076c2AwdkVbokKUcIT/OcTc0nwHjOUttJGmkUHlbt/nS<br>
+  iAFNniSfzf6fwAFHgsvWiRJMa3keolPiqoUdh0tBIiI1zxOMaiTL7C9BFdpnvzYw<br>
+  Krj0pDc7AlF4spWhm58WgAW20P8PGcVQcN6mSTG8jKbXVSP3bvgPXkpGAOLKMV/i<br>
+  pLORcRPbauusBqovgaBWU/i3pMYrbhZ+LQbVEaJlvblWu6xe8HhS/jo=<br>
+  =pzkv<br>
+  -----END PGP MESSAGE-----<br>
+  Decryption<br>
+  Decrypt the sample text by pasting it:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  $ gpg --decrypt --armor<br>
+  -----BEGIN PGP MESSAGE-----
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  hQIMA1kSp5XpDdLPAQ/+JyYfLaUS/+llEzQaKDb5mWhG4HlUgD99dNJUXakm085h<br>
+  PSSt3I8Ac0ctwyMnenZvBEbHMqdRnfZJsj5pHidKcAZrhgs+he+B1tdZ/KPa8inx<br>
+  NIGqd8W1OraVSFmPEdC1kQ5he6R/WCDH1NNel9+fvLtQDCBQaFae/s3yXCSSQU6q<br>
+  HKCJLyHK8K9hDvgFmXOY8j1qTknBvDbmYdcCKVE1ejgpUCi3WatusobpWozsp0+b<br>
+  6DN8bXyfxLPYm1PTLfW7v4kwddktB8eVioV8A45lndJZvliSqDwxhrwyE5VGsArS<br>
+  NmqzBkCaOHQFr0ofL91xgwpCI5kM2ukIR5SxUO4hvzlHn58QVL9GfAyCHMFtJs3o<br>
+  Q9eiR0joo9TjTwR8XomVhRJShrrcPeGgu3YmIak4u7OndyBFpu2E79RQ0ehpl2gY<br>
+  tSECB6mNd/gt0Wy3y15ccaFI4CVP6jrMN6q3YhXqNC7GgI/OWkVZIAgUFYnbmIQe<br>
+  tQ3z3wlbvFFngeFy5IlhsPduK8T9XgPnOtgQxHaepKz0h3m2lJegmp4YZ4CbS9h6<br>
+  kcBTUjys5Vin1SLuqL4PhErzmlAZgVzG2PANsnHYPe2hwN4NlFtOND1wgBCtBFBs<br>
+  1pqz1I0O+jmyId+jVlAK076c2AwdkVbokKUcIT/OcTc0nwHjOUttJGmkUHlbt/nS<br>
+  iAFNniSfzf6fwAFHgsvWiRJMa3keolPiqoUdh0tBIiI1zxOMaiTL7C9BFdpnvzYw<br>
+  Krj0pDc7AlF4spWhm58WgAW20P8PGcVQcN6mSTG8jKbXVSP3bvgPXkpGAOLKMV/i<br>
+  pLORcRPbauusBqovgaBWU/i3pMYrbhZ+LQbVEaJlvblWu6xe8HhS/jo=<br>
+  =pzkv<br>
+  -----END PGP MESSAGE-----<br>
+  gpg: encrypted with 4096-bit RSA key, ID 0x5912A795E90DD2CF, created<br>
+  2016-05-24
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+"Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;"
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+(Press Control-D)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux<br>
+Signing<br>
+Sign some sample text using the signing subkey:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+$ echo "$(uname -a)" | gpg --armor --clearsign --default-key 0xBECFA3C1AE191D15<br>
+-----BEGIN PGP SIGNED MESSAGE-----<br>
+Hash: SHA512
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux<br>
+-----BEGIN PGP SIGNATURE-----
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+iQIcBAEBCgAGBQJXRPo8AAoJEL7Po8GuGR0Vh8wP/jYXTR8SAZIZSMVCOyAjH37f<br>
+k6JxB0rF928WDYPihjo/d0Jd+XpoV1g+oipDRjP78xqR9H/CJZlE10IPQbNaomFs<br>
++3RGxA3Zr085cVFoixI8rxYOSu0Vs2cAzAbJHNcOcD7vXxTHcX4T8kfKoF9A4U1u<br>
+XTJ42eEjpO0fX76tFX2/Uzxl43ES0dO7Y82ho7xcnaYwakVUEcWfUpfDAroLKZOs<br>
+wCZGr8Z64QDQzxQ9L45Zc61wMx9JEIWD4BnagllfeOYrEwTJfYG8uhDDNYx0jjJp<br>
+j1PBHn5d556aX6DHUH05kq3wszvQ4W40RctLgAA3l1VnEKebhBKjLZA/EePAvQV4<br>
+QM7MFUV1X/pi2zlyoZSnHkVl8b5Q7RU5ZtRpq9fdkDDepeiUo5PNBUMJER1gn4bm<br>
+ri8DtavkwTNWBRLnVR2gHBmVQNN7ZDOkHcfyqR4I9chx6TMpfcxk0zATAHh8Donp<br>
+FVPKySifuXpunn+0MwdZl5XkhHGdpdYQz4/LAZUGhrA9JTnFtc4cl4JrTzufF8Sr<br>
+c3JJumMsyGvw9OQKQHF8gHme4PBu/4P31LpfX9wzPOTpJaI31Sg5kdJLTo9M9Ppo<br>
+uvkmJS7ETjLQZOsRyAEn7gcEKZQGPQcNAgfEgQPoepS/KvvI68u+JMJm4n24k2kQ<br>
+fEkp501u8kAZkWauhiL+<br>
+=+ylJ<br>
+-----END PGP SIGNATURE-----<br>
+Verifying signature<br>
+Verify the previous signature:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+$ gpg<br>
+gpg: Go ahead and type your message ...<br>
+-----BEGIN PGP SIGNED MESSAGE-----<br>
+Hash: SHA512
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux<br>
+-----BEGIN PGP SIGNATURE-----
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+iQIcBAEBCgAGBQJXRPo8AAoJEL7Po8GuGR0Vh8wP/jYXTR8SAZIZSMVCOyAjH37f<br>
++3RGxA3Zr085cVFoixI8rxYOSu0Vs2cAzAbJHNcOcD7vXxTHcX4T8kfKoF9A4U1u<br>
+XTJ42eEjpO0fX76tFX2/Uzxl43ES0dO7Y82ho7xcnaYwakVUEcWfUpfDAroLKZOs<br>
+wCZGr8Z64QDQzxQ9L45Zc61wMx9JEIWD4BnagllfeOYrEwTJfYG8uhDDNYx0jjJp<br>
+j1PBHn5d556aX6DHUH05kq3wszvQ4W40RctLgAA3l1VnEKebhBKjLZA/EePAvQV4<br>
+QM7MFUV1X/pi2zlyoZSnHkVl8b5Q7RU5ZtRpq9fdkDDepeiUo5PNBUMJER1gn4bm<br>
+ri8DtavkwTNWBRLnVR2gHBmVQNN7ZDOkHcfyqR4I9chx6TMpfcxk0zATAHh8Donp<br>
+FVPKySifuXpunn+0MwdZl5XkhHGdpdYQz4/LAZUGhrA9JTnFtc4cl4JrTzufF8Sr<br>
+c3JJumMsyGvw9OQKQHF8gHme4PBu/4P31LpfX9wzPOTpJaI31Sg5kdJLTo9M9Ppo<br>
+uvkmJS7ETjLQZOsRyAEn7gcEKZQGPQcNAgfEgQPoepS/KvvI68u+JMJm4n24k2kQ<br>
+fEkp501u8kAZkWauhiL+<br>
+=+ylJ<br>
+-----END PGP SIGNATURE-----
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+(Press Control-D)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+gpg: Signature made Wed 25 May 2016 00:00:00 AM UTC<br>
+gpg: using RSA key 0xBECFA3C1AE191D15<br>
+gpg: Good signature from "Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;" [ultimate]<br>
+Primary key fingerprint: 011C E16B D45B 27A5 5BA8 776D FF3E 7D88 647E BCDB
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+  Subkey fingerprint: 07AA 7735 E502 C5EB E09E B8B0 BECF A3C1 AE19 1D15
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+  Putting it all together:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+  $ echo "$(uname -a)" | gpg --encrypt --sign --armor --default-key 0xFF3E7D88647EBCDB --recipient<br>
+  0xBECFA3C1AE191D15 | gpg --decrypt --armor<br>
+  gpg: encrypted with 4096-bit RSA key, ID 0x5912A795E90DD2CF, created 2016-05-24
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+"Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;"
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux<br>
+gpg: Signature made Wed 25 May 2016 01:00:00 AM UTC<br>
+gpg: using RSA key 0xBECFA3C1AE191D15<br>
+gpg: Good signature from "Dr Duh &lt;<a href="mailto:doc@duh.to" title="doc@duh.to" class="mailto">doc@duh.to</a>&gt;" [ultimate]<br>
+Primary key fingerprint: 011C E16B D45B 27A5 5BA8 776D FF3E 7D88 647E BCDB
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+  Subkey fingerprint: 07AA 7735 E502 C5EB E09E B8B0 BECF A3C1 AE19 1D15
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+  SSH<br>
+  Update configuration<br>
+  Paste the following text into a terminal window to create a recommended GPG agent<br>
+  configuration:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  $ cat &lt;&lt; EOF &gt; ~/.gnupg/gpg-agent.conf<br>
+  enable-ssh-support<br>
+  pinentry-program /usr/bin/pinentry-curses<br>
+  default-cache-ttl 60<br>
+  max-cache-ttl 120<br>
+  EOF<br>
+  If you are using Linux on the desktop, you may want to use /usr/bin/pinentry-gnome3 to use a<br>
+  GUI manager. For macOS, try brew install pinentry-mac, and adjust the pinentry-program<br>
+  setting to suit.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  Replace ssh-agent with gpg-agent<br>
+  gpg-agent provides OpenSSH agent emulation. To launch the agent for use by ssh use the<br>
+  gpg-connect-agent /bye or gpgconf --launch gpg-agent commands.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  Depending on how your environment is set up, you might need to add these to your shell rc<br>
+  file:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  export GPG_TTY="$(tty)"<br>
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)<br>
+  gpgconf --launch gpg-agent<br>
+  Note On some systems, for example Arch Linux-based distributions, you may need to replace the<br>
+  second and the third line with:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"<br>
+  gpg-connect-agent updatestartuptty /bye<br>
+  Copy public key to server<br>
+  There is a -L option of ssh-add that lists public key parameters of all identities currently<br>
+  represented by the agent. Copy and paste the following output to the server authorized_keys<br>
+  file:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  $ ssh-add -L<br>
+  ssh-rsa AAAAB4NzaC1yc2EAAAADAQABAAACAz[...]zreOKM+HwpkHzcy9DQcVG2Nw== cardno:000605553211<br>
+  (Optional) Save public key for identity file configuration<br>
+  If IdentitiesOnly yes is used in your .ssh/config (for example to avoid being fingerprinted<br>
+  by untrusted ssh servers), ssh will not automatically enumerate public keys loaded into<br>
+  ssh-agent or gpg-agent. This means publickey authentication will not proceed unless<br>
+  explicitly named by ssh -i [identity_file] or in .ssh/config on a per-host basis.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  In the case of Yubikey usage, you do not have access to the private key, and identity_file<br>
+  can be pointed to the public key (.pub).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  $ ssh-add -L | grep "cardno:000605553211" &gt; ~/.ssh/id_rsa_yubikey.pub<br>
+  Then, you can explicitly associate this Yubikey-stored key for used with the domain<br>
+  github.com (for example) as follows:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  $ cat &lt;&lt; EOF &gt;&gt; ~/.ssh/config<br>
+  Host github.com
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+IdentityFile ~/.ssh/id_rsa_yubikey.pub
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+EOF<br>
+Connect with public key authentication<br>
+$ ssh <a href="mailto:git@github.com" title="git@github.com" class="mailto">git@github.com</a> -vvv<br>
+[...]<br>
+debug2: key: cardno:000605553211 (0x1234567890),<br>
+debug1: Authentications that can continue: publickey<br>
+debug3: start over, passed a different list publickey<br>
+debug3: preferred gssapi-keyex,gssapi-with-mic,publickey,keyboard-interactive,password<br>
+debug3: authmethod_lookup publickey<br>
+debug3: remaining preferred: keyboard-interactive,password<br>
+debug3: authmethod_is_enabled publickey<br>
+debug1: Next authentication method: publickey<br>
+debug1: Offering RSA public key: cardno:000605553211<br>
+debug3: send_pubkey_test<br>
+debug2: we sent a publickey packet, wait for reply<br>
+debug1: Server accepts key: pkalg ssh-rsa blen 535<br>
+debug2: input_userauth_pk_ok: fp e5:de:a5:74:b1:3e:96:9b:85:46:e7:28:53:b4:82:c3<br>
+debug3: sign_and_send_pubkey: RSA e5:de:a5:74:b1:3e:96:9b:85:46:e7:28:53:b4:82:c3<br>
+debug1: Authentication succeeded (publickey).<br>
+[...]<br>
+Note To make multiple connections or securely transfer many files, consider using the<br>
+ControlMaster ssh option. Also see drduh/config/ssh_config.
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+Requiring touch to authenticate
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+By default the Yubikey will perform key operations without requiring a touch from the user.<br>
+To require a touch for every SSH connection, use the Yubikey Manager (you'll need the Admin<br>
+PIN):
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+ykman openpgp touch aut on
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+To require a touch for the signing and encrypting keys as well:
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+ykman openpgp touch sig on
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+ykman openpgp touch enc on<br>
+The Yubikey will blink when it's waiting for the touch.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+OpenBSD<br>
+On OpenBSD, you will need to install pcsc-tools and enable with sudo rcctl enable pcscd,<br>
+then reboot in order to recognize the key.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+Troubleshooting<br>
+If you don't understand some option, read man gpg.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you encounter problems connecting to YubiKey with GPG, simply try unplugging and<br>
+re-inserting your YubiKey, and restarting the gpg-agent process.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you receive the error, gpg: decryption failed: secret key not available - you likely<br>
+need to install GnuPG version 2.x.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you receive the error, Yubikey core error: no yubikey present - make sure the YubiKey is<br>
+inserted correctly. It should blink once when plugged in.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you still receive the error, Yubikey core error: no yubikey present - you likely need to<br>
+install newer versions of yubikey-personalize as outlined in Install required software.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you receive the error, Yubikey core error: write error - YubiKey is likely locked.<br>
+Install and run yubikey-personalization-gui to unlock it.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you receive the error, Key does not match the card's capability - you likely need to use<br>
+2048 bit RSA key sizes.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you receive the error, sign_and_send_pubkey: signing failed: agent refused operation -<br>
+you probably have ssh-agent running. Make sure you replaced ssh-agent with gpg-agent as<br>
+noted above.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you still receive the error, sign_and_send_pubkey: signing failed: agent refused<br>
+operation - On Debian, try gpg-connect-agent updatestartuptty /bye
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you receive the error, Error connecting to agent: No such file or directory from ssh-add<br>
+-L, the UNIX file socket that the agent uses for communication with other processes may not<br>
+be set up correctly. On Debian, try export<br>
+SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you receive the error, Permission denied (publickey), increase ssh verbosity with the -v<br>
+flag and ensure the public key from the card is being offered: Offering public key: RSA<br>
+SHA256:abcdefg... cardno:00060123456. If it is, ensure you are connecting as the right user<br>
+on the target system, rather than as the user on the local system. Otherwise, be sure<br>
+IdentitiesOnly is not enabled for this host.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+If you totally screw up, you can reset the card.
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+Yubikey OTP Mode and cccccccc....
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+The Yubikey has two configurations, one invoked with a short press, and the other with<br>
+  a long press. By default the short-press mode is configured for HID OTP - a brief touch<br>
+  will emit an OTP string starting with cccccccc. If you rarely use the OTP mode, you can<br>
+  swap it to the second configuration via the Yubikey Personalization tool. If you never<br>
+  use OTP, you can disable it entirely using the Yubikey Manager application (note, this<br>
+  not the similarly named Yubikey NEO Manager).
+</div>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

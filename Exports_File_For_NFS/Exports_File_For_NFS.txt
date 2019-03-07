@@ -1,0 +1,13 @@
+====== Exports File For NFS ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Exports File For NFS
+
+
+Created Sunday 07 January 2018
+
+
+
+/srv/nfsv4/Stretch-Share 192.168.1.0/24(rw,fsid=0,no_subtree_check,sync)

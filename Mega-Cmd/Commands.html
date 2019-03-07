@@ -1,0 +1,2083 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Commands</title>
+	<meta name='Generator' content='Zim 0.68'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>Commands</h1>
+
+<p>
+Created Sunday 11 November 2018
+</p>
+
+<h2>MEGAcmd User Guide</h2>
+
+<br>
+
+<p>
+Here is an example of downloading a file using MEGAcmd. In this case we are downloading a file specified by a public link, which does not require being logged in:
+</p>
+
+<p>
+<b> mega-get https://mega.nz/#F!ABcD1E2F!gHiJ23k-LMno45PqrSTUvw /path/to/local/folder </b>
+</p>
+
+<br>
+
+<p>
+And here is an example of uploading a file using MEGAcmd, and making a link available to share it, that will expire after 10 minutes.
+</p>
+
+<p>
+<b>mega-put /path/to/my/temporary_resource /exportedstuff/</b><br>
+<b>mega-export -a  /exportedstuff/temporary_resource --expire=10M | awk '{print $4}'</b>
+</p>
+
+<p>
+And here is an example of the power of using scriptable MEGAcmd commands in bash. In this case we are going to share some promotional videos previously uploaded to MEGA:
+</p>
+
+<p>
+<b> for i in $(mega-find /enterprise/video/promotional2015/may --pattern="*mpeg") </b><br>
+<b> do </b> <br>
+<b> mega-export -a $i | awk '{print $4}'; </b><br>
+<b> done </b>
+</p>
+
+<p>
+In addition to running commands on request, MEGAcmd can also be configured to synchronise folders between your local device and your MEGA account, or perform regular backups from your device to your MEGA account.
+</p>
+
+<p>
+In order to enable synchronisation and backup features, and for efficiency running commands, MEGAcmd runs a server process in the background which the MEGAcmd shell or the script commands forward requests to. The server keeps running in the background until it is told to close with the quit command. If you want it to keep running when you quit the interactive shell (to keep sync and backup runnign for example), use quit --only-shell.
+</p>
+
+<p>
+Working with your MEGA account requires signing in with your email and password using the login command, though you can download public links or upload to public folders without logging in. Logging in with your username and password starts a Session, and causes some of your account such as the folder structure to be downloaded to your Local Cache.
+</p>
+
+<h2>Terminology and Descriptions</h2>
+
+<br>
+
+<h3>Interactive</h3>
+
+<br>
+
+<h2>Contact</h2>
+
+<br>
+
+<p>
+A contact is someone (identified by their email address) that also has a MEGA account, who you can share files or folders with, and can chat with on MEGAchat.
+</p>
+
+<h2>Remote Path</h2>
+
+<br>
+
+<p>
+This refers to a file or a folder stored in your MEGA account, or a publicly available file or folder in the MEGA cloud. Remote paths always use the '/' character as the separator between folder and file elements.
+</p>
+
+<p>
+Some MEGAcmd commands allow the use of regular expressions in remote paths. You can check if the command supports those by using the --help flag with the command. If you use these in the scriptable way, you need to escape characters that would otherwise be intercepted and interpreted by the shell.
+</p>
+
+<h2>Local Path</h2>
+
+<br>
+
+<p>
+This refers to a file or folder on the PC or device that MEGAcmd is running in.
+</p>
+
+<h2>Session</h2>
+
+<br>
+
+<p>
+When you log in with your email and MEGA account password, that creates a session. The session exists until you log out of it or kill it from another client. In MEGAcmd, use whoami -l to see all your open sessions across all devices, and use killsession to close them. You can use other MEGA clients such as the phone app, or webclient to close these also. Devices that were using a killed session will have their connection to MEGA closed immediately and will no longer have access to your account, until you log in on them again. Syncs, backups, and webdavs are specific to a session, so logging out will cause them to be cancelled.
+</p>
+
+<h2>Local Cache</h2>
+
+<br>
+
+<p>
+Logging in with MEGAcmd creates your Local Cache, a subfolder of your home folder. MEGAcmd downloads and stores some data in your Local Cache relating to your account, such as folder structure and contacts, for performance reasons. The MEGAcmd background server keeps the local cache up to date when changes to your account occur from other clients. The cache does contain a way for MEGAcmd to access your MEGA account when it starts up again if you have not specifically logged out. The Local Cache also contains information from your Session, including sync, backup, and webdav configurations. Logging out cleans the Local Cache, but also closes your session and the sync, backup, and webdav configurations are wiped.
+</p>
+
+<h2>Synchronisation configurations</h2>
+
+<br>
+
+<p>
+MEGAcmd can set up a synchronisation between a folder on your local machine and a folder in your MEGA account, using the sync command. This is the same mechanism that MEGAsync uses. The synchronisation is two-way: the folders you nominate to be synced will mirror any action! Whatever you add or delete in your sync folder on your device gets added or deleted in your sync folder in your MEGA account. And additions or deletions in your synced folder in your MEGA account will similarly be applied to your local synced folder. Files that are removed from sync folders are moved to a hidden local folder (Rubbish/.debris inside your local sync folder, or SyncDebris folder in the Rubbish Bin of your MEGA account).
+</p>
+
+<p>
+Here is a very simple example of setting up a synchronisation with MEGAcmd:
+</p>
+
+<p>
+<b> sync /path/to/local/folder /folder/in/mega </b>
+</p>
+
+<p>
+You can set up more than one pair or folders to be synced, and you can also set a sync from another device to the same folder, to achieve folder synchronisations between different devices. The changes are sent via your MEGA account rather than directly between the devices in that case.
+</p>
+
+<p>
+Additional information about synchronising folders is available in our Help Centre: <a href="https://mega.nz/help/client/megasync/syncing" title="https://mega.nz/help/client/megasync/syncing" class="https">https://mega.nz/help/client/megasync/syncing</a>
+</p>
+
+<h2>Backup configurations</h2>
+
+<br>
+
+<p>
+MEGAcmd can set up a periodic copy of a local folder to your MEGA account using the backup command. Here is a simple example that will back up a folder immediately and then at 4am each day, keeping the 10 most recent backups:
+</p>
+
+<p>
+<b> backup /path/to/myfolder /remote/path --period="0 0 4 * * *" --num-backups=10 </b>
+</p>
+
+<p>
+For further information on backups, please see the backup command and the tutorial.
+</p>
+
+<h2>WebDAV configurations</h2>
+
+<br>
+
+<p>
+MEGAcmd can set up access to folders or files in your MEGA account as if they were local folders and files on your device using the webdav command. For example making the folder appear like a local drive on your PC, or providing a hyperlink a browser can access, where the hyperlink is to your PC.
+</p>
+
+<p>
+For further information on WebDAV, please see the webdav command and the tutorial.
+</p>
+
+<h2>Linux</h2>
+
+<br>
+
+<p>
+On Linux, MEGAcmd commands are installed at /usr/bin and so will already be on your PATH. The interactive shell is mega-cmd and the background server is mega-cmd-server, which will be automatically started on demand. The various scriptable commands are installed at the same location, and invoke mega-exec to send the command to mega-cmd-server.
+</p>
+
+<p>
+If you are using the scriptable commands in bash (or using the interactive commands in mega-cmd), the commands will auto-complete.
+</p>
+
+<h2>MEGAcmdShell</h2>
+
+<br>
+
+<p>
+For scriptable usage, the MEGAcmd commands are provided via installed .bat files which pass the command to the MEGAcmdServer.exe. Provided you have set the PATH as above, you can use these like normal command line tools in PowerShell:
+</p>
+
+<p>
+<b> $env:PATH += ";$env:LOCALAPPDATA\MEGAcmd" </b><br>
+<b> mega-cd /my/favourite/folder </b><br>
+<b> mega-ls  </b>
+</p>
+
+<p>
+Or in Command Prompt:
+</p>
+
+<p>
+<b> set PATH=%LOCALAPPDATA%\MEGAcmd;%PATH% </b><br>
+<b> mega-cd /my/favourite/folder </b> <br>
+<b> mega-ls  </b>
+</p>
+
+<p>
+And of course those can be invoked in your own .bat or .cmd files. Autocompletion is not available for the scriptable commands, but is in the interactive shell.
+</p>
+
+<p>
+Unicode is supported though it currently in the interactive shell it needs to be switched on, and to have a suitable font selected; please execute help --unicode for the latest information. There are plans to improve this. Please report any issues experienced to our support team.
+</p>
+
+<h2>Command Summary</h2>
+
+<br>
+
+<p>
+These summaries use the usual conventions - [] indicates its content is optional, | indicates you should choose either the item on the left or the one on the right (but not both)
+</p>
+
+<p>
+Each command is described as it would be used in the interactive MEGAcmd shell, and the corresponding scriptable command (which must be prefixed with mega-) works in the same way.
+</p>
+
+<p>
+Commands referring to a remote path are talking about a file in your MEGA account online, whereas a local path refers to a file or folder on your local device where MEGAcmd is running.
+</p>
+
+<p>
+Verbosity: You can increase the amount of information given by any command by passing -v (-vv, -vvv, ...)
+</p>
+
+<h3>Account / Contacts</h3>
+
+<br>
+
+<p>
+<b> signupemail [password] [--name="Your Name"] Register as user with a given email. </b><br>
+<b> confirmlink email [password] Confirm an account using the link provided after the "signup" process. </b><br>
+<b> invite[-d|-r] dstemail [--message="MESSAGE"] Invites a contact / deletes an invitation. </b><br>
+<b> showpcr[--in | --out] Shows incoming and outgoing contact requests. </b><br>
+<b> ipcemail|handle -a|-d|-i Manages contact incoming invitations. </b><br>
+<b> users[-s] [-h] [-n] [-d contact@email] List contacts </b><br>
+<b> userattr[-s attribute value|attribute] [--user=user@email] Lists/updates user attributes </b><br>
+<b> passwd[oldpassword newpassword] Modifies user password </b><br>
+<b> masterkeypathtosave Shows your master key. </b>
+</p>
+
+<h3>Login / Logout</h3>
+
+<br>
+
+<p>
+<b> login[email [password]] | exportedfolderurl#key | session Logs into MEGA </b><br>
+<b> logout[--keep-session] Logs out </b><br>
+<b> whoami[-l] Print info of the user </b><br>
+<b> session Prints (secret) session ID </b><br>
+<b>killsession[-a|sessionid] Kills a session of current user. </b>
+</p>
+
+<h3>Browse</h3>
+
+<br>
+
+<p>
+<b> cd[remotepath] Changes the current remote folder</b><br>
+<b> lcd[localpath] Changes the current local folder for the interactive console</b><br>
+<b> ls[-lRr] [remotepath] Lists files in a remote path </b><br>
+<b> pwd Prints the current remote folder </b><br>
+<b> lpwd Prints the current local folder for the interactive console </b><br>
+<b> attrremotepath [-s attribute value|-d attribute] Lists/updates node attributes </b><br>
+<b> du[-h] [remotepath remotepath2 remotepath3 ... ] Prints size used by files/folders </b><br>
+<b> find[remotepath] [-l] [--pattern=PATTERN] [--mtime=TIMECONSTRAIN] [--size=SIZECONSTRAIN] Find nodes matching a pattern </b><br>
+<b> mount Lists all the main nodes </b>
+</p>
+
+<h3>Moving/Copying Files</h3>
+
+<br>
+
+<p>
+<b> mkdir[-p] remotepath Creates a directory or a directory hierarchy </b><br>
+<b> cpsrcremotepath dstremotepath|dstemail Copies a file/folder into a new location (all remotes) </b><br>
+<b> put[-c] [-q] [--ignore-quota-warn] localfile [localfile2 localfile3 ...] [dstremotepath] Uploads files/folders to a remote folder </b><br>
+<b> get[-m] [-q] [--ignore-quota-warn] exportedlink#key|remotepath [localpath] Downloads a remote file/folder or a public link </b><br>
+<b> preview[-s] remotepath localpath To download/upload the preview of a file. </b><br>
+<b> thumbnail[-s] remotepath localpath To download/upload the thumbnail of a file. </b><br>
+<b> mvsrcremotepath [srcremotepath2 srcremotepath3 ..] dstremotepath Moves file(s)/folder(s) into a new location (all remotes) </b><br>
+<b> rm[-r] [-f] remotepath Deletes a remote file/folder </b><br>
+<b> transfers[-c TAG|-a] | [-r TAG|-a] | [-p TAG|-a] [--only-downloads | --only-uploads] [SHOWOPTIONS] List or operate with transfers </b><br>
+<b> speedlimit[-u|-d] [-h] [NEWLIMIT] Displays/modifies upload/download rate limits </b><br>
+<b> sync[localpath dstremotepath| [-dsr] [ID|localpath] Controls synchronizations </b><br>
+<b> exclude[(-a|-d) pattern1 pattern2 pattern3 [--restart-syncs]] Manages exclusions in syncs. </b><br>
+<b> backuplocalpath remotepath --period="PERIODSTRING" --num-backups=N Set up a new backup folder and/or schedule </b><br>
+<b> backup[-lhda] [TAG|localpath] [--period="PERIODSTRING"] [--num-backups=N]) View/Modify an existing backup schedule </b><br>
+<b> cpsrcremotepath dstremotepath|dstemail Moves a file/folder into a new location (all remotes) </b><br>
+<b> export[-d|-a [--expire=TIMEDELAY]] [remotepath] Prints/Modifies the status of current exports </b><br>
+<b> importexportedfilelink#key [remotepath] Imports the contents of a remote link into your account </b><br>
+<b> share[-p] [-d|-a --with=user@email.com [--level=LEVEL]] [remotepath] Prints/Modifies the status of current shares </b><br>
+<b> webdav[ [-d] remotepath [--port=PORT] [--public] [--tls --certificate=/path/to/certificate.pem --key=/path/to/certificate.key]] Sets up the ability to download a file from your MEGA account via your PC/device. </b>
+</p>
+
+<h3>Misc</h3>
+
+<br>
+
+<p>
+ <b>version[-l][-c] Prints MEGAcmd versioning and extra info</b><br>
+<b> deleteversions[-f] (--all | remotepath1 remotepath2 ...) Delete prior versions of files to save space. </b><br>
+<b> unicode Toggle unicode input enabled/disabled in interactive shell </b><br>
+<b> reload Forces a reload of the remote files of the user </b><br>
+<b> help[-f] Prints list of commands</b><br>
+<b> https[on|off] Shows if HTTPS is used for transfers. Use https on to enable it. </b><br>
+<b> clear Clear screen </b><br>
+<b> log[-sc] level Prints/Modifies the current logs level </b><br>
+<b> debug Enters debugging mode (HIGHLY VERBOSE) </b><br>
+<b> exit|quit[--only-shell] Quits MEGAcmd </b>
+</p>
+
+<h3>Command Detail</h3>
+
+<br>
+
+<h3>
+<a name='attr'>attr</a>
+</h3>
+
+<p>
+Lists/updates node attributes
+</p>
+
+<p>
+<b> Usage: attr remotepath [-s attribute value|-d attribute] </b>
+</p>
+
+<p>
+Options:<br>
+  -s attribute value    sets an attribute to a value<br>
+  -d attribute          removes the attribute
+</p>
+
+<br>
+
+<h3>
+<a name='backup'>backup</a>
+</h3>
+
+<p>
+Sets up or controls backups. (example) (tutorial)
+</p>
+
+<p>
+<b> Usage: backup (localpath remotepath --period="PERIODSTRING" --num-backups=N | [-lhda] [TAG|localpath] [--period="PERIODSTRING"] [--num-backups=N]) </b>
+</p>
+
+<p>
+This command can be used to configure which folders to back up, and how often to do so.
+</p>
+
+<p>
+If no argument is given it will list the configured backups.<br>
+To get extra info on backups use -l or -h (see Options below)
+</p>
+
+<p>
+When a backup of a folder (localfolder) is established in a remote folder (remotepath)<br>
+ MEGAcmd will create subfolder within the remote path with names like: "localfoldername_bk_TIME"<br>
+ which shall contain a backup of the local folder at that specific time<br>
+In order to configure a backup you need to specify the local and remote paths,<br>
+the period and max number of backups to store (see Configuration Options below).<br>
+Once configured, you can see extended info asociated to the backup (See Display Options)<br>
+Notice that MEGAcmd server need to be running for backups to be created.
+</p>
+
+<p>
+<b>Display Options:</b><br>
+-l      Show extended info: period, max number, next scheduled backup<br>
+<div style='padding-left: 60pt'>
+ or the status of current/last backup
+</div>
+-h      Show history of created backups<br>
+<div style='padding-left: 60pt'>
+Backup states:<br>
+While a backup is being performed, the backup will be considered and labeled as ONGOING<br>
+If a transfer is cancelled or fails, the backup will be considered INCOMPLETE<br>
+If a backup is aborted (see -a), all the transfers will be canceled and the backup be ABORTED<br>
+If MEGAcmd server stops during a transfer, it will be considered MISCARRIED<br>
+  Notice that currently when MEGAcmd server is restarted, ongoing and scheduled transfers<br>
+  will be carried out nevertheless.<br>
+If MEGAcmd server is not running when a backup is scheduled and the time for the next one has already arrived, an empty BACKUP will be created with state SKIPPED<br>
+If a backup(1) is ONGOING and the time for the next backup(2) arrives, it won't start untill the previous one(1)<br>
+ is completed, and if by the time the first one(1) ends the time for the next one(3) has already arrived,<br>
+ an empty BACKUP(2) will be created with state SKIPPED
+</div>
+ --path-display-size=N  Use a fixed size of N characters for paths
+</p>
+
+<p>
+<b>Configuration Options:</b><br>
+--period="PERIODSTRING" Period: either time in TIMEFORMAT (see below) or a cron like expresisions<br>
+<div style='padding-left: 180pt'>
+ Cron like period is formatted as follows<br>
+  - - - - - -<br>
+  | | | | | |<br>
+  | | | | | |<br>
+  | | | | | +---- Day of the Week   (range: 1-7, 1 standing for Monday)<br>
+  | | | | +------ Month of the Year (range: 1-12)<br>
+  | | | +-------- Day of the Month  (range: 1-31)<br>
+  | | +---------- Hour              (range: 0-23)<br>
+  | +------------ Minute            (range: 0-59)<br>
+  +-------------- Second            (range: 0-59)<br>
+ examples:<br>
+  - daily at 04:00:00 (UTC): "0 0 4 * * *"<br>
+  - every 15th day at 00:00:00 (UTC) "0 0 0 15 * *"<br>
+  - mondays at 04.30.00 (UTC): "0 30 4 * * 1"<br>
+ TIMEFORMAT can be expressed in hours(h), days(d),<br>
+   minutes(M), seconds(s), months(m) or years(y)<br>
+   e.g. "1m12d3h" indicates 1 month, 12 days and 3 hours<br>
+ Notice that this is an uncertain measure since not all months<br>
+  last the same and Daylight saving time changes are not considered<br>
+  If possible use a cron like expresion<br>
+ Notice: regardless of the period expresion, the first time you establish a backup,<br>
+  it will be created inmediately
+</div>
+--num-backups=N Maximum number of backups to store<br>
+<div style='padding-left: 180pt'>
+ After creating the backup (N+1) the oldest one will be deleted<br>
+ That might not be true in case there are incomplete backups:<br>
+  in order not to lose data, at least one COMPLETE backup will be kept
+</div>
+Use backup TAG|localpath --option=VALUE to modify existing backups
+</p>
+
+<p>
+<b>Management Options:</b><br>
+-d TAG|localpath        Removes a backup by its TAG or local path<br>
+<div style='padding-left: 180pt'>
+ Folders created by backup won't be deleted
+</div>
+-a TAG|localpath        Aborts ongoing backup
+</p>
+
+<p>
+Syncs are associated with your Session, so logging out will cancel them.
+</p>
+
+<p>
+Caveat: This functionality is in BETA state. If you experience any issue with this, please contact: <a href="mailto:support@mega.nz" title="support@mega.nz" class="mailto">support@mega.nz</a>
+</p>
+
+<h3>
+<b><a name='cd'>cd</a></b>
+</h3>
+
+<p>
+Changes the current remote folder (example)
+</p>
+
+<p>
+<b>Usage: cd [remotepath]</b>
+</p>
+
+<p>
+If no folder is provided, it will be changed to the root folder
+</p>
+
+<h3><a name='clear'>clear</a></h3>
+
+<br>
+
+<p>
+Clear screen
+</p>
+
+<p>
+<b>Usage: clear</b>
+</p>
+
+<h3><a name='confirm'>confirm</a></h3>
+
+<br>
+
+<p>
+Confirm an account using the link provided after the "signup" process. (example)
+</p>
+
+<p>
+Usage: confirm link email [password] It requires the email and the password used to obtain the link.
+</p>
+
+<h3><a name='cp'>cp</a></h3>
+
+<br>
+
+<p>
+Moves a file/folder into a new location (all remotes)
+</p>
+
+<p>
+<b>Usage: cp srcremotepath dstremotepath|dstemail:</b>
+</p>
+
+<p>
+If the location exists and is a folder, the source will be copied there.<br>
+If the location doesn't exist, the file/folder will be renamed to the destination name given.
+</p>
+
+<p>
+If "dstemail:" provided, the file/folder will be sent to that user's inbox (//in)<br>
+ e.g: cp /path/to/file <a href="mailto:user@doma.in" title="user@doma.in" class="mailto">user@doma.in</a>:<br>
+Remember the trailing ":", otherwise a file with the name of that user ("<a href="mailto:user@doma.in" title="user@doma.in" class="mailto">user@doma.in</a>") will be created
+</p>
+
+<h3><a name='debug'>debug</a></h3>
+
+<br>
+
+<p>
+Enters debugging mode (HIGHLY VERBOSE)
+</p>
+
+<p>
+<b>Usage: debug</b>
+</p>
+
+<p>
+For a finer control of log level see [`log`](#log)
+</p>
+
+<h3><a name='deleteversions'>deleteversions</a></h3>
+
+<br>
+
+<p>
+Deletes previous versions of files, keeping the current version.
+</p>
+
+<p>
+<b>Usage: deleteversions [-f] (--all | remotepath1 remotepath2 ...)</b>
+</p>
+
+<p>
+This will permanently delete all historical versions of a file.<br>
+The current version of the file will remain.<br>
+Note: any file version shared to you from a contact will need to be deleted by them.
+</p>
+
+<p>
+Options:<br>
+ -f     Force (no asking)<br>
+ --all  Delete versions of all nodes. This will delete the version histories of all files (not current files).
+</p>
+
+<p>
+To see versions of a file use `ls --versions`.<br>
+To see space occupied by file versions use `du --versions`.
+</p>
+
+<h3><a name='du'>du</a></h3>
+
+<br>
+
+<p>
+Prints size used by files/folders (example)
+</p>
+
+<p>
+<b>Usage: du [-h] [--versions] [remotepath remotepath2 remotepath3 ... ]</b>
+</p>
+
+<p>
+remotepath can be a pattern (it accepts wildcards: ? and *. e.g.: f*00?.txt)
+</p>
+
+<p>
+Options:<br>
+ -h             Human readable<br>
+ --versions     Calculate size including all versions.
+</p>
+
+<p>
+You can remove all versions with `deleteversions` and list them with `ls --versions `
+</p>
+
+<h3><a name='exclude'>exclude</a></h3>
+
+<br>
+
+<p>
+Manages exclusions in syncs.
+</p>
+
+<p>
+<b>Usage: exclude [(-a|-d) pattern1 pattern2 pattern3 [--restart-syncs]]</b>
+</p>
+
+<p>
+Options:<br>
+ -a pattern1 pattern2 ...       adds pattern(s) to the exclusion list<br>
+<div style='padding-left: 300pt'>
+  (* and ? wildcards allowed)
+</div>
+ -d pattern1 pattern2 ...       deletes pattern(s) from the exclusion list<br>
+ --restart-syncs        Try to restart synchronizations.
+</p>
+
+<p>
+Changes will not be applied inmediately to actions being performed in active syncs.<br>
+After adding/deleting patterns, you might want to:<br>
+ a) disable/reenable synchronizations manually<br>
+ b) restart MEGAcmd server<br>
+ c) use --restart-syncs flag. Caveats:<br>
+  This will cause active transfers to be restarted<br>
+  In certain cases --restart-syncs might be unable to re-enable a synchronization.<br>
+  In such case, you will need to manually resume it or restart MEGAcmd server.
+</p>
+
+<br>
+
+<h3><a name='exit'>exit</a></h3>
+
+<br>
+
+<p>
+Quits MEGAcmd
+</p>
+
+<p>
+<b>Usage: exit [--only-shell]</b>
+</p>
+
+<p>
+By default this command will exit both the interactive shell and the command server.<br>
+To only exit current shell and keep server running, use `exit --only-shell`
+</p>
+
+<p>
+Exiting the server does not cancel the session, and the encrypted local cache of your account is kept on your PC.<br>
+The session will be resumed when the service is restarted.
+</p>
+
+<h3><a name='export'>export</a></h3>
+
+<br>
+
+<p>
+Prints/Modifies the status of current exports (example)
+</p>
+
+<p>
+<b>Usage: export [-d|-a [--expire=TIMEDELAY] [-f]] [remotepath]</b>
+</p>
+
+<p>
+Options:<br>
+ -a     Adds an export (or modifies it if existing)<br>
+ --expire=TIMEDELAY     Determines the expiration time of a node.<br>
+<div style='padding-left: 180pt'>
+   It indicates the delay in hours(h), days(d),<br>
+   minutes(M), seconds(s), months(m) or years(y)<br>
+   e.g. "1m12d3h" establish an expiration time 1 month,<br>
+   12 days and 3 hours after the current moment
+</div>
+ -f     Implicitly accept copyright terms (only shown the first time an export is made)<br>
+<div style='padding-left: 60pt'>
+MEGA respects the copyrights of others and requires that users of the MEGA cloud service<br>
+comply with the laws of copyright.<br>
+You are strictly prohibited from using the MEGA cloud service to infringe copyrights.<br>
+You may not upload, download, store, share, display, stream, distribute, email, link to,<br>
+transmit or otherwise make available any files, data or content that infringes any copyright<br>
+or other proprietary rights of any person or entity.
+</div>
+ -d     Deletes an export
+</p>
+
+<p>
+If a remote path is given it'll be used to add/delete or in case of no option selected, it will display all the exports existing in the tree of that path
+</p>
+
+<h3><a name='find'>find</a></h3>
+
+<br>
+
+<p>
+Find nodes matching a pattern
+</p>
+
+<p>
+<b>Usage: find [remotepath] [-l] [--pattern=PATTERN] [--mtime=TIMECONSTRAIN] [--size=SIZECONSTRAIN]</b>
+</p>
+
+<p>
+Options:<br>
+  -l                     Prints file info<br>
+  --pattern=PATTERN      Pattern to match (it accepts wildcards: ? and *. e.g.: f*00?.txt)<br>
+  --mtime=TIMECONSTRAIN  Determines time constrains, in the form: [+-]TIMEVALUE<br>
+<div style='padding-left: 180pt'>
+ TIMEVALUE may include hours(h), days(d), minutes(M), seconds(s), months(m) or years(y)<br>
+ Examples:<br>
+   "+1m12d3h" shows files modified before 1 month, 12 days and 3 hours the current moment<br>
+   "-3h" shows files modified within the last 3 hours<br>
+   "-3d+1h" shows files modified in the last 3 days prior to the last hour
+</div>
+  --size=SIZECONSTRAIN   Determines size constrains, in the form: [+-]TIMEVALUE<br>
+<div style='padding-left: 180pt'>
+ TIMEVALUE may include (B)ytes, (K)ilobytes, (M)egabytes, (G)igabytes &amp; (T)erabytes<br>
+ Examples:<br>
+   "+1m12k3B" shows files bigger than 1 Mega, 12 Kbytes and 3Bytes<br>
+   "-3M" shows files smaller than 3 Megabytes<br>
+   "-4M+100K" shows files smaller than 4 Mbytes and bigger than 100 Kbytes
+</div>
+</p>
+
+<br>
+
+<h3><a name='get'>get</a></h3>
+
+<br>
+
+<p>
+Downloads a remote file/folder or a public link (example)
+</p>
+
+<p>
+<b>Usage: get [-m] [-q] [--ignore-quota-warn] exportedlink#key|remotepath [localpath]</b>
+</p>
+
+<p>
+If the remotepath is a file, it will be downloaded to folder specified in localpath (or to the current folder if not specified).<br>
+If the localpath (destination) already exists and is the same (by content) then nothing will be done. If it differs, it will create a new file appending " (NUM)".<br>
+If the remotepath or exportedlink is a folder, the folder and its entire contents will be downloaded into the destination folder.
+</p>
+
+<p>
+Options:<br>
+  -q                    queue download: execute in the background. <br>
+  -m                    if the folder already exists, the contents will be merged with the downloaded one (preserving the existing files)<br>
+  --ignore-quota-warn   ignore quota surpassing warning. The download will be attempted anyway.
+</p>
+
+<h3><a name='help'>help</a></h3>
+
+<br>
+
+<p>
+Prints list of commands
+</p>
+
+<p>
+<b>Usage: help [-f]</b>
+</p>
+
+<p>
+Options:<br>
+  -f     Include a brief description of the commands
+</p>
+
+<p>
+https
+</p>
+
+<p>
+Shows if HTTPS is used for transfers. Use https on to enable it.
+</p>
+
+<p>
+<b>Usage: https [on|off]</b>
+</p>
+
+<p>
+HTTPS is not necesary since all data is already encrypted before being stored or transfered anyway.<br>
+Enabling it will increase CPU usage and add network overhead.
+</p>
+
+<p>
+This setting is ephemeral: it will reset for the next time you open MEGAcmd
+</p>
+
+<h3><a name='import'>import</a></h3>
+
+<br>
+
+<p>
+Imports the contents of a remote link into your MEGA account or to a local folder. (example)
+</p>
+
+<p>
+<b>Usage: import exportedfilelink#key [remotepath]</b>
+</p>
+
+<p>
+If no remote path is provided, the current local folder will be used
+</p>
+
+<h3><a name='invite'>invite</a></h3>
+
+<br>
+
+<p>
+Invites a contact / deletes an invitation (example)
+</p>
+
+<p>
+<b>Usage: invite [-d|-r] dstemail [--message="MESSAGE"]</b>
+</p>
+
+<p>
+Options:<br>
+  -d                   Deletes invitation<br>
+  -r                   Resends the invitation<br>
+  --message="MESSAGE"  Sends the invitation, including your message.
+</p>
+
+<h3><a name='ipc'>ipc</a></h3>
+
+<br>
+
+<p>
+Manages contact incoming invitations. (example)
+</p>
+
+<p>
+<b>Usage: ipc email|handle -a|-d|-i</b>
+</p>
+
+<p>
+Options:<br>
+  -a     Accepts invitation<br>
+  -d     Rejects invitation<br>
+  -i     Ignores invitation [WARNING: do not use unless you know what you are doing]
+</p>
+
+<h3><a name='killsession'>killsession</a></h3>
+
+<br>
+
+<p>
+Kills a session of current user.
+</p>
+
+<p>
+<b>Usage: killsession [-a|sessionid]</b>
+</p>
+
+<p>
+Options:<br>
+  -a     kills all sessions except the current one
+</p>
+
+<p>
+To see all sessions use "whoami -l"
+</p>
+
+<h3><a name='lcd'>lcd</a></h3>
+
+<br>
+
+<p>
+Changes the current local folder for the interactive console
+</p>
+
+<p>
+<b>Usage: lcd [localpath]</b>
+</p>
+
+<p>
+It will be used for uploads and downloads
+</p>
+
+<p>
+If not using interactive console, the current local folder will be that of the shell executing mega comands
+</p>
+
+<h3><a name='log'>log</a></h3>
+
+<br>
+
+<p>
+Prints/Modifies the setting for how detailed log output is.
+</p>
+
+<p>
+<b>Usage: log [-sc] level</b>
+</p>
+
+<p>
+Options:<br>
+  -c     CMD log level (higher level messages).<br>
+<div style='padding-left: 60pt'>
+ Messages captured by MEGAcmd server.
+</div>
+  -s     SDK log level (lower level messages).<br>
+<div style='padding-left: 60pt'>
+ Messages captured by the engine and libs
+</div>
+</p>
+
+<p>
+Regardless of the log level of the  interactive shell, you can increase the amount of information given by any command by passing `-v` (`-vv`, `-vvv`, ...)
+</p>
+
+<h3><a name='login'>login</a></h3>
+
+<br>
+
+<p>
+Log into your MEGA account (example)
+</p>
+
+<p>
+<b>Usage: login [email [password]] | exportedfolderurl#key | session</b>
+</p>
+
+<p>
+You can log in either with email and password, with session ID, or into a folder (an exported/public folder).<br>
+If logging into a folder indicate url#key
+</p>
+
+<h3><a name='logout'>logout</a></h3>
+
+<br>
+
+<p>
+Closes your session for security or to allow subsequently logging into a different account. (example)
+</p>
+
+<p>
+<b>Usage: logout [--keep-session]</b>
+</p>
+
+<p>
+Options:<br>
+  --keep-session    The current session is not closed, allowing logging back into it later using the session ID rather than email/password.
+</p>
+
+<p>
+MEGAcmd will still log back into your account automatically on restart if you specify --keep-session, similar to exiting it without logging out.
+</p>
+
+<h3><a name='lpwd'>lpwd</a></h3>
+
+<br>
+
+<p>
+Prints the current local folder for the interactive console
+</p>
+
+<p>
+<b>Usage: lpwd</b>
+</p>
+
+<p>
+It will be used for uploads and downloads
+</p>
+
+<p>
+If not using interactive console, the current local folder will be<br>
+ that of the shell executing mega comands
+</p>
+
+<h3><a name='ls'>lpwd</a></h3>
+
+<br>
+
+<p>
+<b>Usage: ls [-halRr] [--versions] [remotepath] Lists files in a remote path</b>
+</p>
+
+<p>
+ remotepath can be a pattern (it accepts wildcards: ? and *. e.g.: f*00?.txt)<br>
+ Also, constructions like /PATTERN1/PATTERN2/PATTERN3 are allowed
+</p>
+
+<p>
+Options:<br>
+ -R|-r  list folders recursively<br>
+ -l     print summary<br>
+<div style='padding-left: 60pt'>
+ SUMMARY contents:<br>
+   FLAGS: Indicate type/status of an element:
+</div>
+<div style='padding-left: 90pt'>
+ xxxx<br>
+ |||+---- Sharing status: (s)hared, (i)n share or not shared(-)<br>
+ ||+----- if exported, whether it is (p)ermanent or (t)temporal<br>
+ |+------ e/- wheter node is (e)xported<br>
+ +-------- Type(d=folder,-=file,r=root,i=inbox,b=rubbish,x=unsupported)
+</div>
+<div style='padding-left: 60pt'>
+   VERS: Number of versions in a file<br>
+   SIZE: Size of the file in bytes:<br>
+   DATE: Modification date for files and creation date for folders:<br>
+   NAME: name of the node
+</div>
+ -h     Show human readable sizes in summary<br>
+ -a     include extra information<br>
+ --versions     show historical versions<br>
+<div style='padding-left: 60pt'>
+You can delete all versions of a file with "deleteversions"
+</div>
+</p>
+
+<br>
+
+<h3><a name='masterkey'>masterkey</a></h3>
+
+<br>
+
+<p>
+Shows your master key.
+</p>
+
+<p>
+<b>Usage: masterkey pathtosave</b>
+</p>
+
+<p>
+Getting the master key and keeping it in a secure location enables you to set a new password without data loss.<br>
+Always keep physical control of your master key (e.g. on a client device, external storage, or print)
+</p>
+
+<h3><a name='mkdir'>mkdir</a></h3>
+
+<br>
+
+<p>
+Creates a directory or a directories hierarchy (example)
+</p>
+
+<p>
+<b>Usage: mkdir [-p] remotepath</b>
+</p>
+
+<p>
+Options:<br>
+  -p     Allow recursive
+</p>
+
+<h3><a name='mount'>mount</a></h3>
+
+<br>
+
+<p>
+Lists all the main nodes (example)
+</p>
+
+<p>
+<b>Usage: mount</b>
+</p>
+
+<h3><a name='mv'>mv</a></h3>
+
+<br>
+
+<p>
+Copies files/folders to a new location in your MEGA account
+</p>
+
+<p>
+<b>Usage: mv srcremotepath [srcremotepath2 srcremotepath3 ..] dstremotepath</b>
+</p>
+
+<p>
+If the destination remote path exists and is a folder, the source will be copied there.<br>
+If the destination remote path doesn't exist, the source will be renamed to the given dstremotepath leaf name.
+</p>
+
+<h3><a name='passwd'>passwd</a></h3>
+
+<br>
+
+<p>
+Modifies user password
+</p>
+
+<p>
+<b>Usage: passwd [oldpassword newpassword]</b>
+</p>
+
+<h3><a name='preview'>preview</a></h3>
+
+<br>
+
+<p>
+To download/upload the preview of a file.
+</p>
+
+<p>
+<b>Usage: preview [-s] remotepath localpath</b>
+</p>
+
+<p>
+If no -s is inidicated, it will download the preview.
+</p>
+
+<p>
+Options:<br>
+  -s     Sets the preview to the specified file
+</p>
+
+<h3><a name='put'>put</a></h3>
+
+<br>
+
+<p>
+Uploads files/folders to a remote folder (example)
+</p>
+
+<p>
+<b>Usage: put [-c] [-q] [--ignore-quota-warn] localfile [localfile2 localfile3 ...] [dstremotepath]</b>
+</p>
+
+<p>
+Options:<br>
+  -c     Creates remote folder destination in case of not existing.<br>
+  -q     queue upload: execute in the background. Don't wait for it to end'<br>
+  --ignore-quota-warn    ignore quota surpassing warning.<br>
+<div style='padding-left: 180pt'>
+  The upload will be attempted anyway.
+</div>
+</p>
+
+<p>
+Notice that the dstremotepath can only be omitted when only one local path is provided.<br>
+In such case, the current remote working dir will be the destination for the upload.<br>
+Mind that using wildcards for local paths will result in multiple paths.
+</p>
+
+<h3><a name='pwd'>pwd</a></h3>
+
+<br>
+
+<p>
+Prints the current remote folder
+</p>
+
+<p>
+<b>Usage: pwd</b>
+</p>
+
+<h3><a name='quit'></a></h3>
+
+<br>
+
+<p>
+<b>Usage: quit [--only-shell]</b>
+</p>
+
+<p>
+Quits MEGAcmd
+</p>
+
+<p>
+Notice that the session will still be active, and local caches available<br>
+The session will be resumed when the service is restarted
+</p>
+
+<p>
+Be aware that this will exit both the interactive shell and the server.<br>
+To only exit current shell and keep server running, use "exit --only-shell"
+</p>
+
+<h3><a name='reload'>reload</a></h3>
+
+<br>
+
+<p>
+Forces re-downloading the Local Cache information from MEGA.
+</p>
+
+<p>
+<b>Usage: reload</b>
+</p>
+
+<p>
+It will also resume synchronizations.
+</p>
+
+<h3><a name='rm'>rm</a></h3>
+
+<br>
+
+<p>
+Deletes a remote file/folder
+</p>
+
+<p>
+<b>Usage: rm [-r] [-f] remotepath</b>
+</p>
+
+<p>
+Options:<br>
+  -r     Delete recursively (for folders)<br>
+  -f     Force (no asking)
+</p>
+
+<h3><a name='session'></a></h3>
+
+<br>
+
+<p>
+Prints (secret) session ID
+</p>
+
+<p>
+<b>Usage: session</b>
+</p>
+
+<h3><a name='share'>share</a></h3>
+
+<br>
+
+<p>
+Prints/Modifies the status of current shares
+</p>
+
+<p>
+<b>Usage: share [-p] [-d|-a --with=user@email.com [--level=LEVEL]] [remotepath]</b>
+</p>
+
+<p>
+Options:<br>
+  -p     Show pending shares<br>
+  --with=email   Determines the email of the user to [no longer] share with<br>
+  -d     Stop sharing with the selected user<br>
+  -a     Adds a share (or modifies it if existing)<br>
+  --level=LEVEL  Level of acces given to the user<br>
+<div style='padding-left: 120pt'>
+0: Read access<br>
+1: Read and write<br>
+2: Full access<br>
+3: Owner access
+</div>
+</p>
+
+<p>
+If a remote path is given it'll be used to add/delete or in case of no option selected, it will display all the shares existing in the tree of that path
+</p>
+
+<p>
+When sharing a folder with a user that is not a contact (see "users --help") the share will be in a pending state. You can list pending shares with `share -p`. Your contact will need to accept your invitation (see [`ipc`](#ipc))
+</p>
+
+<p>
+If someone has shared something with you, it will be listed as a root folder.<br>
+Use [`mount`](#mount) to list folders shared with you
+</p>
+
+<h3><a name='showpcr'>showpcr</a></h3>
+
+<br>
+
+<p>
+Shows incoming and outgoing contact requests. (example)
+</p>
+
+<p>
+<b>Usage: showpcr [--in | --out]</b>
+</p>
+
+<p>
+Options:<br>
+  --in   Shows incoming requests<br>
+  --out  Shows outgoing invitations
+</p>
+
+<h3><a name='signup'>signup</a></h3>
+
+<br>
+
+<p>
+Register as user with a given email (example)
+</p>
+
+<p>
+<b>Usage: signup email [password] [--name="Your Name"]</b>
+</p>
+
+<p>
+Options:<br>
+  --name="Your Name"     Name to register. e.g. "John Smith"
+</p>
+
+<p>
+You will receive an email to confirm your account.<br>
+Once you have received the email, please proceed to confirm the link included in that email with "confirm".
+</p>
+
+<h3><a name='speedlimit'>speedlimit</a></h3>
+
+<br>
+
+<p>
+Displays/modifies upload/download rate limits
+</p>
+
+<p>
+<b>Usage: speedlimit [-u|-d] [-h] [NEWLIMIT]</b>
+</p>
+
+<p>
+NEWLIMIT establish the new limit in size per second (0 = no limit)<br>
+NEWLIMIT may include (B)ytes, (K)ilobytes, (M)egabytes, (G)igabytes &amp; (T)erabytes.<br>
+Examples: "1m12k3B" "3M". If no units are given, bytes are assumed.
+</p>
+
+<p>
+Options:<br>
+  -d     Download speed limit<br>
+  -u     Upload speed limit<br>
+  -h     Human readable
+</p>
+
+<p>
+Notice: these limits are saved for the next time you execute MEGAcmd server.  They will be removed if you logout.
+</p>
+
+<h3><a name='sync'>sync</a></h3>
+
+<br>
+
+<p>
+Sets up synchronisation between a local folder and one in your MEGA account. (example)
+</p>
+
+<p>
+<b>Usage: sync [localpath dstremotepath| [-dsr] [ID|localpath]</b>
+</p>
+
+<p>
+If no argument is provided, it lists current configured synchronizations
+</p>
+
+<p>
+If provided local and remote paths, it will start synchronizing a local folder into a remote folder
+</p>
+
+<p>
+If an ID/local path is provided, it will list such synchronization unless an option is specified.
+</p>
+
+<p>
+Options:<br>
+  -d ID|localpath deletes a synchronization<br>
+  -s ID|localpath stops(pauses) a synchronization<br>
+  -r ID|localpath resumes a synchronization<br>
+  --path-display-size=N  Use a fixed size of N characters for paths
+</p>
+
+<p>
+Syncs are associated with your Session, so logging out will cancel them.
+</p>
+
+<h3><a name='thumbnail'>thumbnail</a></h3>
+
+<br>
+
+<p>
+To download/upload the thumbnail of a file.
+</p>
+
+<p>
+<b>Usage: thumbnail [-s] remotepath localpath</b>
+</p>
+
+<p>
+If no -s is inidicated, it will download the thumbnail.
+</p>
+
+<p>
+Options:<br>
+  -s     Sets the thumbnail to the specified file
+</p>
+
+<h3><a name='transfers'>transfers</a></h3>
+
+<br>
+
+<p>
+List or operate with queued transfers (example)
+</p>
+
+<p>
+<b>Usage: transfers [-c TAG|-a] | [-r TAG|-a] | [-p TAG|-a] [--only-downloads | --only-uploads] [SHOWOPTIONS]</b>
+</p>
+
+<p>
+If executed without option it will list the first 10 tranfers<br>
+Options:<br>
+  -c (TAG|-a)            Cancel transfer with TAG (or all with -a)<br>
+  -p (TAG|-a)            Pause transfer with TAG (or all with -a)<br>
+  -r (TAG|-a)            Resume transfer with TAG (or all with -a)<br>
+  -only-uploads          Show/Operate only upload transfers<br>
+  -only-downloads        Show/Operate only download transfers
+</p>
+
+<p>
+Show options:<br>
+  -show-syncs            Show synchronization transfers<br>
+  -show-completed        Show completed transfers<br>
+  -only-completed        Show only completed download<br>
+  --limit=N              Show only first N transfers<br>
+  --path-display-size=N  Use a fixed size of N characters for paths
+</p>
+
+<h3><a name='unicode'>unicode</a></h3>
+
+<br>
+
+<p>
+Toggle unicode input enabled/disabled in interactive shell
+</p>
+
+<p>
+<b>Usage: unicode</b>
+</p>
+
+<p>
+Unicode mode is experimental, you might experience some issues interacting with the console (e.g. history navigation fails).<br>
+Type "help --unicode" for further info.
+</p>
+
+<h3><a name='userattr'>userattr</a></h3>
+
+<br>
+
+<p>
+Lists/updates user attributes (example)
+</p>
+
+<p>
+<b>Usage: userattr [-s attribute value|attribute] [--user=user@email]</b>
+</p>
+
+<p>
+Options:<br>
+  -s attribute value     sets an attribute to a value<br>
+  --user=user@email      select the user to query
+</p>
+
+<h3><a name='users'>users</a></h3>
+
+<br>
+
+<p>
+List contacts (example)
+</p>
+
+<p>
+<b>Usage: users [-s] [-h] [-n] [-d contact@email]</b>
+</p>
+
+<p>
+Options:<br>
+  -s     Show shared folders with listed contacts<br>
+  -h     Show all contacts (hidden, blocked, ...)<br>
+  -n     Show users names<br>
+  -d     contact@email Deletes the specified contact
+</p>
+
+<h3><a name='version'>version</a></h3>
+
+<br>
+
+<p>
+Prints MEGAcmd versioning and extra info
+</p>
+
+<p>
+<b>Usage: version [-l][-c]</b>
+</p>
+
+<p>
+Options:<br>
+  -c     Shows changelog for the current version<br>
+  -l     Show extended info: MEGA SDK version and features enabled
+</p>
+
+<h3><a name='webdav'>webdav</a></h3>
+
+<br>
+
+<p>
+Configures a WEBDAV server to serve a location in MEGA. You can use feature to make a folder in your MEGA account appear as a virtual drive, or to stream files. (example) (tutorial)
+</p>
+
+<p>
+<b>Usage: webdav [ [-d] remotepath [--port=PORT] [--public] [--tls --certificate=/path/to/certificate.pem --key=/path/to/certificate.key]]</b>
+</p>
+
+<p>
+This can also be used for streaming files. The server will be running as long as MEGAcmd Server is.<br>
+If no argument is given, it will list the webdav enabled locations.
+</p>
+
+<p>
+Options:<br>
+  --d            Stops serving that location<br>
+  --public       *Allow access from outside localhost<br>
+  --port=PORT    *Port to serve. DEFAULT= 4443<br>
+  --tls          *Serve with TLS (HTTPS)<br>
+  --certificate=/path/to/certificate.pem *Path to PEM formated certificate<br>
+  --key=/path/to/certificate.key *Path to PEM formated key
+</p>
+
+<p>
+*If you serve more than one location, these parameters will be ignored and use those of the first location served.
+</p>
+
+<p>
+Webdav setup is associated with your Session, so logging out will cancel them.
+</p>
+
+<p>
+Caveat: This functionality is in BETA state. If you experience any issue with this, please contact: <a href="mailto:support@mega.nz" title="support@mega.nz" class="mailto">support@mega.nz</a>
+</p>
+
+<h3><a name='whoami'>whoami</a></h3>
+
+<br>
+
+<p>
+Print account information (example)
+</p>
+
+<p>
+<b>Usage: whoami [-l]</b>
+</p>
+
+<p>
+Options:<br>
+ -l     Show extended info: total storage used, storage per main folder<br>
+<div style='padding-left: 60pt'>
+(see mount), pro level, account balance, and also the active sessions
+</div>
+</p>
+
+<br>
+
+<h1>Examples</h1>
+
+<br>
+
+<h2>signup confirm invite showpcr ipc users userattr example</h2>
+
+<br>
+
+<p>
+<b>MEGA CMD> signup eg.email_1@example.co.nz --name="test1"</b><br>
+New Password:<br>
+Retype New Password:<br>
+Account  created succesfully. You will receive a confirmation link. Use "confirm" with the provided link to confirm that account
+</p>
+
+<hr>
+
+<br>
+
+<p>
+<b>MEGA CMD> confirm https://mega.nz/#confirmQFSfjtUkExc5M2Us6q5d-klx60RfxVbxjhk eg.email_1@example.co.nz</b><br>
+Password:<br>
+Account <a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a> confirmed succesfully. You can login with it now
+</p>
+
+<p>
+<b>MEGA CMD> signup eg.email_2@example.co.nz --name="test2"</b><br>
+New Password:<br>
+Retype New Password:<br>
+Account  created succesfully. You will receive a confirmation link. Use "confirm" with the provided link to confirm that account
+</p>
+
+<p>
+<b>MEGA CMD> confirm https://mega.nz/#confirmcz7Ss68ChhMKk8WEFTQCqLMHJg8esAEEpQE eg.email_2@example.co.nz</b><br>
+Password:<br>
+Account <a href="mailto:eg.email_2@example.co.nz" title="eg.email_2@example.co.nz" class="mailto">eg.email_2@example.co.nz</a> confirmed succesfully. You can login with it now
+</p>
+
+<p>
+<b>MEGA CMD> login eg.email_1@example.co.nz</b><br>
+Password:<br>
+[API:info: 23:19:14] Fetching nodes ...<br>
+[API:info: 23:19:17] Loading transfers from local cache<br>
+[API:info: 23:19:17] Login complete as <a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a>
+</p>
+
+<hr>
+
+<br>
+
+<p>
+<b>MEGA CMD></b><br>
+<b>eg.email_1@example.co.nz:/$ invite eg.email_2@example.co.nz</b><br>
+Invitation to user: <a href="mailto:eg.email_2@example.co.nz" title="eg.email_2@example.co.nz" class="mailto">eg.email_2@example.co.nz</a> sent
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ showpcr</b><br>
+Outgoing PCRs:<br>
+ <a href="mailto:eg.email_2@example.co.nz" title="eg.email_2@example.co.nz" class="mailto">eg.email_2@example.co.nz</a>  (id: 47Xhz6wvVTk, creation: Thu, 26 Apr 2018 11:20:09 +1200, modification: Thu, 26 Apr 2018 11:20:09 +1200)
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ logout</b><br>
+Logging out...
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$</b>
+</p>
+
+<hr>
+
+<br>
+
+<p>
+<b>MEGA CMD> login eg.email_2@example.co.nz</b><br>
+Password:<br>
+[API:info: 23:21:10] Fetching nodes ...<br>
+[API:info: 23:21:12] Loading transfers from local cache<br>
+[API:info: 23:21:12] Login complete as <a href="mailto:eg.email_2@example.co.nz" title="eg.email_2@example.co.nz" class="mailto">eg.email_2@example.co.nz</a>
+</p>
+
+<p>
+<b>MEGA CMD></b><br>
+<b>eg.email_2@example.co.nz:/$ showpcr</b><br>
+Incoming PCRs:<br>
+ <a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a>  (id: 47Xhz6wvVTk, creation: Thu, 26 Apr 2018 11:20:09 +1200, modification: Thu, 26 Apr 2018 11:20:09 +1200)
+</p>
+
+<hr>
+
+<br>
+
+<p>
+<b>eg.email_2@example.co.nz:/$ ipc 47Xhz6wvVTk -a</b><br>
+Accepted invitation by <a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a>
+</p>
+
+<p>
+<b>eg.email_2@example.co.nz:/$ users</b><br>
+<b>eg.email_1@example.co.nz, visible since Thu, 26 Apr 2018 11:22:02 +1200</b><br>
+<b>eg.email_2@example.co.nz:/$ userattr --user=eg.email_1@example.co.nz</b><br>
+<div style='padding-left: 60pt'>
+firstname = test1<br>
+ed25519 = 5Xl2-mUtsZkaATmSS88Ncepju5805uw66Hfdh_-SwpE<br>
+cu25519 = ejoYtpaJIZvlpmPsYviIa6tNvPTdVjfkYf9G1k8PKgM<br>
+rsa = AAAAAFrhDPPMS1AXAhJwScpJ_GKqFUJ42uIIcwxLp5RIalkWtsa5j87u2LFhoZlI_rHIzGXrdsbywgs7Msisw0CjodrtwtME<br>
+cu255 = AAAAAFrhDPPWUOP2tNByV72zU4M3EKNoddyVCT13VkkouMldniR2UZtLrPjUjUeOZOLvOL7H1C0W0Q_b3QqYSvAKo775pUwD
+</div>
+</p>
+
+<p>
+<b>eg.email_2@example.co.nz:/$ showpcr</b><br>
+<b>eg.email_2@example.co.nz:/$ logout</b><br>
+Logging out...
+</p>
+
+<p>
+<b>MEGA CMD> login eg.email_1@example.co.nz</b><br>
+Password:<br>
+[API:info: 23:24:26] Fetching nodes ...<br>
+[API:info: 23:24:27] Loading transfers from local cache<br>
+[API:info: 23:24:27] Login complete as <a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a>
+</p>
+
+<hr>
+
+<br>
+
+<p>
+<b>MEGA CMD></b><br>
+<b>eg.email_1@example.co.nz:/$ showpcr</b><br>
+<b>eg.email_1@example.co.nz:/$ users</b><br>
+<b>eg.email_2@example.co.nz, visible</b><br>
+<b>eg.email_1@example.co.nz:/$ userattr --user=eg.email_2@example.co.nz</b><br>
+<div style='padding-left: 60pt'>
+<b>firstname = test2</b><br>
+<b>ed25519 = M7SLy2RajwUAvynxJQaVkhe6hxGpbwJmvve3dgl8B1o</b><br>
+<b>cu25519 = VaXluGS2c5xbo0xOHHJciqLRxwMaWZHVK8iuxtlCBTk</b><br>
+<b>rsa = AAAAAFrhDWemabQ4JAOtP7zcoy6m74PsFTFCbj04Zh4G8K_TZB5Sm9T5Xj9CXYzwWnpfRd1McPdDouKdsASQ6Er7i4Y4LpEA</b><br>
+<b>cu255 = AAAAAFrhDWcXE_7AHZmvxk5Hk0G7V65UnvFO42tb1gM9SYy3BpsMCas0X-pbqkYwf6_2eBG-ZLvkonGfXB3DWonWNvnVehIB</b>
+</div>
+<b>eg.email_1@example.co.nz:/$</b>
+</p>
+
+<hr>
+
+<br>
+
+<h2>login logout whoami mkdir cd get put du mount example</h2>
+
+<br>
+
+<p>
+<b>MEGA CMD> login eg.email_1@example.co.nz</b><br>
+Password:<br>
+[API:info: 23:43:14] Fetching nodes ...<br>
+[API:info: 23:43:14] Loading transfers from local cache<br>
+[API:info: 23:43:14] Login complete as <a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a>
+</p>
+
+<hr>
+
+<br>
+
+<p>
+<b>MEGA CMD></b><br>
+<b>eg.email_1@example.co.nz:/$ whoami -l</b><br>
+Account e-mail: <a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a><br>
+<div style='padding-left: 30pt'>
+Available storage: 50.00 GBytes
+</div>
+<div style='padding-left: 60pt'>
+In ROOT:      146... KBytes in     1 file(s) and     0 folder(s)<br>
+In INBOX:       0.00  Bytes in     0 file(s) and     0 folder(s)<br>
+In RUBBISH:     0.00  Bytes in     0 file(s) and     0 folder(s)<br>
+Total size taken up by file versions:      0.00  Bytes
+</div>
+<div style='padding-left: 30pt'>
+Pro level: 0<br>
+Subscription type:<br>
+Account balance:
+</div>
+Current Active Sessions:<br>
+<ul style='padding-left: 30pt'>
+<li>Current Session</li>
+</ul>
+<div style='padding-left: 30pt'>
+Session ID: m3a8eluyPdo<br>
+Session start: 4/26/2018 11:43:12 AM<br>
+Most recent activity: 4/26/2018 11:43:13 AM<br>
+IP: 122.56.56.232<br>
+Country: NZ<br>
+User-Agent: MEGAcmd/0.9.9.0 (Windows 10.0.16299) MegaClient/3.3.5<br>
+-----
+</div>
+1 active sessions opened
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ mount</b><br>
+ROOT on /<br>
+INBOX on //in<br>
+RUBBISH on //bin
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ ls</b><br>
+Welcome to MEGA.pdf<br>
+<a href="mailto:eg.email_1@example.co.nz" title="eg.email_1@example.co.nz" class="mailto">eg.email_1@example.co.nz</a>:/$ get "Welcome to MEGA.pdf"<br>
+TRANSFERING ||################################################################################||(1/1 MB: 100.00 %)
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ mkdir my-pictures</b><br>
+<b>eg.email_1@example.co.nz:/$ cd my-pictures/</b><br>
+<b>eg.email_1@example.co.nz:/my-pictures$ put C:\Users\MYWINDOWSUSER\Pictures</b><br>
+TRANSFERING ||################################################################################||(1/1 MB: 100.00 %)
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/my-pictures$ pwd</b><br>
+<a href="file:///home/brettsalemink/Notes/my-pictures" title="/my-pictures" class="file">/my-pictures</a>
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/my-pictures$ ls</b><br>
+Pictures
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/my-pictures$ cd Pictures/</b><br>
+<b>eg.email_1@example.co.nz:/my-pictures/my-pictures$ ls</b><br>
+Camera Roll<br>
+Feedback<br>
+Saved Pictures<br>
+megacmdpkg.gif<br>
+megacmdpkg_80.gif<br>
+megacmdpkg_gray.gif
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/my-pictures/my-pictures$ pwd</b><br>
+<a href="file:///home/brettsalemink/Notes/my-pictures/Pictures" title="/my-pictures/Pictures" class="file">/my-pictures/Pictures</a>
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/my-pictures/my-pictures$ cd /</b><br>
+<b>eg.email_1@example.co.nz:/$ du my-pictures/</b><br>
+FILENAME                                        SIZE<br>
+my-pictures:                                 1376143
+</p>
+
+<hr>
+
+<p>
+Total storage used:                          1376143
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ logout</b><br>
+Logging out...
+</p>
+
+<p>
+<b>MEGA CMD></b>
+</p>
+
+<hr>
+
+<br>
+
+<h2>sync example</h2>
+
+<br>
+
+<p>
+<b>email_1@example.co.nz:/$ sync c:\Go go-backup/</b><br>
+<b>email_1@example.co.nz:/$ sync</b><br>
+ID LOCALPATH                                  REMOTEPATH                                 ActState   SyncState     SIZE  FILES   DIRS<br>
+ 0 \\?\c:\Go                                  /go-backup                                 InitScan   Syncing   119.13 KB     10     97 <br>
+<b>email_1@example.co.nz:/$ sync</b><br>
+ID LOCALPATH                                  REMOTEPATH                                 ActState   SyncState     SIZE  FILES   DIRS<br>
+ 0 \\?\c:\Go                                  /go-backup                                 InitScan   Syncing   61.22 MB   1252    463<br>
+<b>email_1@example.co.nz:/$ sync</b><br>
+ID LOCALPATH                                  REMOTEPATH                                 ActState   SyncState     SIZE  FILES   DIRS<br>
+ 0 \\?\c:\Go                                  /go-backup                                 InitScan   Syncing   232.94 MB   4942    773 <br>
+<b>email_1@example.co.nz:/$ sync</b><br>
+ID LOCALPATH                                  REMOTEPATH                                 ActState   SyncState     SIZE  FILES   DIRS<br>
+ 0 \\?\c:\Go                                  /go-backup                                 Active     Synced    285.91 MB   7710   1003 
+</p>
+
+<p>
+[back in MEGAcmd- update has been applied to MEGA already] <br>
+<b>email_1@example.co.nz:/$ sync</b><br>
+ID LOCALPATH                                  REMOTEPATH                                 ActState   SyncState     SIZE  FILES   DIRS<br>
+ 0 \\?\c:\Go                                  /go-backup                                 Active     Synced    268.53 MB   7306    961 
+</p>
+
+
+<hr>
+
+<br>
+
+<h2>backup example</h2>
+
+<br>
+
+<p>
+<b>eg.email@example.co.nz:/$ backup c:/cmake /cmake-backup --period="0 0 4 * * *" --num-backups=3</b><br>
+Backup established: c:/cmake into /cmake-backup period="0 0 4 * * *" Number-of-Backups=3
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/$ backup</b><br>
+TAG   LOCALPATH                                               REMOTEPARENTPATH                                                STATUS<br>
+166   \\?\c:\cmake                                            /cmake-backup                                                  ONGOING
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/$ backup -h</b><br>
+TAG   LOCALPATH                                               REMOTEPARENTPATH                                                STATUS<br>
+166   \\?\c:\cmake                                            /cmake-backup                                                  ONGOING<br>
+   -- SAVED BACKUPS --<br>
+  NAME                                                    DATE                    STATUS  FILES FOLDERS<br>
+  cmake_bk_20180426133300                                 26Apr2018 13:33:00     ONGOING      0      92
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/$</b>
+</p>
+
+<hr>
+
+<br>
+
+<h2>webdav example</h2>
+
+<br>
+
+<p>
+<b>eg.email@example.co.nz:/$ webdav myfile.tif --port=1024</b><br>
+Serving via webdav myfile.tif: <a href="http://127.0.0.1:1024/5mYHQT4B/myfile.tif" title="http://127.0.0.1:1024/5mYHQT4B/myfile.tif" class="http">http://127.0.0.1:1024/5mYHQT4B/myfile.tif</a>
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/$ webdav</b><br>
+WEBDAV SERVED LOCATIONS:<br>
+/myfile.tif: <a href="http://127.0.0.1:1024/5mYHQT4B/myfile.tif" title="http://127.0.0.1:1024/5mYHQT4B/myfile.tif" class="http">http://127.0.0.1:1024/5mYHQT4B/myfile.tif</a>
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/$ webdav -d myfile.tif</b><br>
+myfile.tif no longer served via webdav
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/$</b>
+</p>
+
+<hr>
+
+<br>
+
+<h2>export import example</h2>
+
+<br>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ export -a Pictures/</b><br>
+MEGA respects the copyrights of others and requires that users of the MEGA cloud service comply with the laws of copyright.<br>
+You are strictly prohibited from using the MEGA cloud service to infringe copyrights.<br>
+You may not upload, download, store, share, display, stream, distribute, email, link to, transmit or otherwise make available any files, data or content that infringes any copyright or other proprietary rights of any person or entity. Do you accept this terms? (Yes/No): Yes<br>
+Please enter [y]es/[n]o/[a]ll/none:yes<br>
+Exported /Pictures: <a href="https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg" title="https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg" class="https">https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg</a>
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ export</b><br>
+Pictures (folder, shared as exported permanent folder link: <a href="https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg" title="https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg" class="https">https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg</a>)
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ logout --keep-session</b><br>
+Logging out...<br>
+Session closed but not deleted. Warning: it will be restored the next time you execute the application. Execute "logout" to delete the session permanently.<br>
+You can also login with the session id: ARo7aiLAxK-jseOdVBYhj285Twb06ivWsFmT4XAnkTsiaDRRbm5oYS1zRm-V3I0FHHOvwj7P2RPvrSw_
+</p>
+
+<p>
+<b>MEGA CMD> login eg.email_2@example.co.nz</b><br>
+Password:<br>
+[API:info: 01:55:04] Fetching nodes ...<br>
+[API:info: 01:55:05] Loading transfers from local cache<br>
+[API:info: 01:55:05] Login complete as <a href="mailto:eg.email_2@example.co.nz" title="eg.email_2@example.co.nz" class="mailto">eg.email_2@example.co.nz</a>
+</p>
+
+<p>
+<b>MEGA CMD></b><br>
+<b>eg.email_2@example.co.nz:/$ ls</b><br>
+Welcome to MEGA.pdf
+</p>
+
+<p>
+<b>eg.email_2@example.co.nz:/$ import https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg</b><br>
+Imported folder complete: <a href="file:///home/brettsalemink/Notes/Pictures" title="/Pictures" class="file">/Pictures</a>
+</p>
+
+<p>
+<b>eg.email_2@example.co.nz:/$ ls</b><br>
+Pictures<br>
+Welcome to MEGA.pdf
+</p>
+
+<p>
+<b>eg.email_2@example.co.nz:/$ ls Pictures/</b><br>
+Camera Roll<br>
+Feedback<br>
+Saved Pictures<br>
+megacmdpkg.gif<br>
+megacmdpkg_80.gif<br>
+megacmdpkg_gray.gif
+</p>
+
+<p>
+<b>eg.email_2@example.co.nz:/$ logout</b><br>
+Logging out...
+</p>
+
+<p>
+<b>eg.email_2@example.co.nz:/$</b>
+</p>
+
+<p>
+<b>MEGA CMD> login ARo7aiLAxK-jseOdVBYhj285Twb06ivWsFmT4XAnkTsiaDRRbm5oYS1zRm-V3I0FHHOvwj7P2RPvrSw_</b>
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ export</b><br>
+Pictures (folder, shared as exported permanent folder link: <a href="https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg" title="https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg" class="https">https://mega.nz/#F!iaZlEBIL!mQD3rFuJhKov0sco-6s9xg</a>)
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ export -d Pictures/</b><br>
+Disabled export: <a href="file:///home/brettsalemink/Notes/Pictures" title="/Pictures" class="file">/Pictures</a>
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$ export</b><br>
+Couldn't find anything exported below current folder. Use -a to export it
+</p>
+
+<p>
+<b>eg.email_1@example.co.nz:/$</b>
+</p>
+
+<h2>transfers example</h2>
+
+<br>
+
+<p>
+<b>eg.email@example.co.nz:/tmp-test/Mega.dir$ transfers</b><br>
+DIR/SYNC TAG  SOURCEPATH                         DESTINYPATH                              PROGRESS           STATE<br>
+ U     17361 \\?\C:\Users\ME\...ebug\megaapi.obj /tmp-test/Mega.dir/Mega.dir/Debug    100.00% of 2016.62 KB  ACTIVE<br>
+ U     17362 \\?\C:\Users\ME\...megaapi_impl.obj /tmp-test/Mega.dir/Mega.dir/Debug     13.64% of   13.85 MB  ACTIVE<br>
+ U     17363 \\?\C:\Users\ME\...g\megaclient.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of   15.46 MB  QUEUED<br>
+ U     17364 \\?\C:\Users\ME\..._http_parser.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of   85.15 KB  QUEUED<br>
+ U     17365 \\?\C:\Users\ME\...ega_utf8proc.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  312.44 KB  QUEUED<br>
+ U     17366 \\?\C:\Users\ME\...\mega_zxcvbn.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  589.88 KB  QUEUED<br>
+ U     17367 \\?\C:\Users\ME\...ir\Debug\net.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of    3.20 MB  QUEUED<br>
+ U     17368 \\?\C:\Users\ME\...r\Debug\node.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of    3.73 MB  QUEUED<br>
+ U     17369 \\?\C:\Users\ME\...ntactrequest.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  352.22 KB  QUEUED<br>
+ U     17370 \\?\C:\Users\ME\...\Debug\proxy.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  203.57 KB  QUEUED<br>
+ ...  Showing first 10 transfers ...
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/tmp-test/Mega.dir$ transfers -p 17367</b><br>
+Transfer 17367 paused successfully.
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/tmp-test/Mega.dir$ transfers -c 17370</b><br>
+Transfer 17370 cancelled successfully.
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/tmp-test/Mega.dir$ transfers</b><br>
+DIR/SYNC TAG  SOURCEPATH                         DESTINYPATH                              PROGRESS           STATE<br>
+ U     17362 \\?\C:\Users\ME\...megaapi_impl.obj /tmp-test/Mega.dir/Mega.dir/Debug     96.32% of   13.85 MB  ACTIVE<br>
+ U     17363 \\?\C:\Users\ME\...g\megaclient.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.20% of   15.46 MB  ACTIVE<br>
+ U     17364 \\?\C:\Users\ME\..._http_parser.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of   85.15 KB  QUEUED<br>
+ U     17365 \\?\C:\Users\ME\...ega_utf8proc.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  312.44 KB  QUEUED<br>
+ U     17366 \\?\C:\Users\ME\...\mega_zxcvbn.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  589.88 KB  QUEUED<br>
+ U     17367 \\?\C:\Users\ME\...ir\Debug\net.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of    3.20 MB  PAUSED<br>
+ U     17368 \\?\C:\Users\ME\...r\Debug\node.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of    3.73 MB  QUEUED<br>
+ U     17369 \\?\C:\Users\ME\...ntactrequest.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  352.22 KB  QUEUED<br>
+ U     17371 \\?\C:\Users\ME\...pubkeyaction.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  355.75 KB  QUEUED<br>
+ U     17372 \\?\C:\Users\ME\...ebug\request.obj /tmp-test/Mega.dir/Mega.dir/Debug      0.00% of  933.14 KB  QUEUED<br>
+ ...  Showing first 10 transfers ...
+</p>
+
+<p>
+<b>eg.email@example.co.nz:/tmp-test/Mega.dir$</b>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

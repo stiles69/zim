@@ -1,0 +1,53 @@
+====== Change Owner chown while using rsync ======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Change Owner chown while using rsync
+
+
+Created Sunday 20 May 2018
+
+
+
+For permissions to propagate you need the --perms or -p flag and for owner/group you need --owner --group or -og
+    flags for the owner/group/permission information to be set.
+rsync --include="file*" --exclude="*" --chmod=ugo=rwX -avz --progress --usermap=USER:GROUP /Destination
+
+
+
+Highlighted part is optional and for also changing permissions.-

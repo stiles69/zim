@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Remove Light Locker and Use Gnome ======
+
+=== uninstall lightlocker ===
+**sudo pacman -Rsc light-locker**
+
+remove light-locker autostart settings:
+
+**rm ~/.config/autostart/screensaver-settings.desktop**
+
+

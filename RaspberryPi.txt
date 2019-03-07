@@ -1,0 +1,23 @@
+====== RaspberryPi ======
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+RaspberryPi
+
+
+Created Saturday 17 March 2018
+
+
+
++Backup Image
++Setup SSH on Raspbian
++Boot From USB
++OpenSUSE
++Stretch-Groups
++Stretch-Users
++Install
+nodejs on RaspberryPi

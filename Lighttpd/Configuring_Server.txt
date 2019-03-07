@@ -1,0 +1,138 @@
+====== Configuring Server ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Configuring Server
+
+
+Created Thursday 24 May 2018
+
+
+
+Create a configuration directory:
+# mkdir /etc/lighttpd/
+
+
+
+Create lighttpd user and group:
+# groupadd lighttpd
+# useradd -g lighttpd -d /var/www/html -s /sbin/nologin lighttpd
+
+
+
+OR
+# adduser -g lighttpd -d /var/www/html -s /sbin/nologin lighttpd
+
+
+
+Create a log directory:
+# mkdir /var/log/lighttpd
+# chown lighttpd:lighttpd /var/log/lighttpd
+
+
+
+Download sample config and startup files:
+# cd /etc/lighttpd
+# wget
+# mv lighttpd.conf.txt lighttpd.conf
+# chown lighttpd:root /etc/lighttpd/lighttpd.conf
+# cd /etc/init.d/
+# wget
+# mv lighttpd.txt lighttpd
+# chmod +x lighttpd
+
+
+
+
+
+Configuring lighttpd
+Following are important files for lighttpd server:
+
+
+
+The default lighttpd configuration file: /etc/lighttpd/lighttpd.conf (download sample lighttpd.conf file)
+Service startup script: /etc/init.d/lighttpd (download sample lighttpd file)
+These files are installed by default for all binary installations methods. Now lighttpd installed and it is time to
+configure lighttpd.
+
+
+
+REMOVE APACHE
+If you are not going to use Apache v1.3/2.x at all, then it is better to remove it (make sure you have a backup of
+Apache data and config file):
+# rpm -e httpd
+# yum remove httpd
+# apt-get remove apache2
+
+
+
+UNDERSTANDING CORE LIGHTTPD DIRECTIVES
+Following are core lighttpd Directives:
+
+
+
+server.document-root = “/var/www/html”: Specifies default document-root for your server.
+server.port = 80: Specifies default http port for your server.
+server.username = “lighttpd”
+server.groupname = “lighttpd”: Specifies default username and groups to start/stop lighttpd server. This is a security
+feature (as it drops root privileges).
+server.bind = “server-ip-address”: Specify server ip-address. You can also specify hostname such as theos.in.
+server.tag =”lighttpd”: Use to setup lighttpd name and version number (default). This is security feature. You can
+setup it as follows:
+server.tag ="myWebServer v1.0"
+
+
+
+Please note that this name is reported by the Server response header (you can see it using netcraft)
+server.errorlog = “/var/log/lighttpd/error.log”: Specify the error-log file.
+accesslog.filename = “/var/log/lighttpd”: Specify the accesslog file name (use to generate stats using stats software).
+index-file.names = ( “index.php”, “index.html” ): A list of files to search for if a directory is requested.
+server.modules = (
+“mod_access”,
+“mod_accesslog”,
+“mod_fastcgi”,
+“mod_rewrite”,
+“mod_auth”
+): Above modules are loaded by lighty:
+
+
+
+mod_access: The access module is used to deny access to files with given trailing path names.
+mod_accesslog: Use to write CLF log, flexible like apache
+mod_fastcgi : FastCGI for perl/PHP etc
+mod_rewrite : Good for writing SEO urls
+mod_auth: Authntication (password protected directory)
+mimetype.assign = (
+“.pdf” => “application/pdf”,
+“.sig” => “application/pgp-signature”
+): Use to setup mimetype mapping.
+
+
+
+Open file /etc/lighttpd/lighttpd.conf and setup all of the above directives:
+# vi /etc/lighttpd/lighttpd.conf
+
+
+
+Save the file and start the lighttpd:
+# /etc/init.d/lighttpd start
+
+
+
+Verify that lighttpd is running:
+$ netstat -ntulp
+
+
+
+Output:
+
+
+
+Proto Recv-Q Send-Q Local Address Foreign Address State PID/Program name
+tcp 0 0 0.0.0.0:22 0.0.0.0:* LISTEN 29855/sshd
+tcp 0 0 203.111.103.81:80 0.0.0.0:* LISTEN 5866/lighttpd
+...
+.....
+..
+Fire your web browser and test new setup by typing URL: http://server-ip/

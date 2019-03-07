@@ -1,0 +1,13 @@
+====== Find files have been modified within the last 30 minutes ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Find files have been modified within the last 30 minutes
+
+
+Created Sunday 13 May 2018
+
+
+
+$ find ~/Movies -mmin -30

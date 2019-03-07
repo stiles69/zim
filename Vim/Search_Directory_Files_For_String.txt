@@ -1,0 +1,12 @@
+====== Search_Directory_Files_For_String ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Search_Directory_Files_For_String
+
+
+
+
+:vimgrep "\<toUpperCase\_s*(" *.c
+:vimgrep "\STRING_TO_SEARCHFOR\_s" Which_Exts_ToSearch

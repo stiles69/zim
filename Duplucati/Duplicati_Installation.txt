@@ -1,0 +1,50 @@
+====== Duplicati Installation ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-06-08T01:30:23-05:00
+
+
+Duplicati Installation
+
+
+Created Sunday 24 June 2018
+
+
+
+#Installation
+Raspbian 9:
+
+
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+
+
+
+echo "deb http://download.mono-project.com/repo/debian raspbianstretch main" | sudo tee
+/etc/apt/sources.list.d/mono-official.list
+
+
+
+sudo apt-get update
+
+
+
+sudo apt-get install mono-devel
+
+
+
+or run
+# ~/bin/Install-Duplicati.sh
+
+
+
+You will have to download the latest version from this link:
+http://www.mono-project.com/download/
+
+

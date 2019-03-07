@@ -1,0 +1,90 @@
+====== Transform XML ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Transform XML
+
+
+Created Sunday 21 October 2018
+
+
+
+I am having one xml file (test.xml) looks like this:
+
+
+    <code class="xml"><hudson>
+<job>
+<name>cedge</name> 
+</job>
+<job>
+<name>techM</name> 
+</job>
+<job>
+<name>infy</name> 
+</job>
+<job>
+<name>DevP</name> 
+<job>
+<name>line</name> 
+<nextBuildNumber>14</nextBuildNumber> 
+</job>
+<job>
+<name>ment</name> 
+<nextBuildNumber>85</nextBuildNumber> 
+</job>
+<job>
+<name>FreeS</name> 
+<nextBuildNumber>96</nextBuildNumber> 
+</job>
+<job>
+<name>test</name> 
+</job>
+</job>
+<job>
+<name>Email</name> 
+</job>
+<job>
+<name>investigate</name> 
+<nextBuildNumber>26</nextBuildNumber> 
+</job>
+<job>
+<name>Java</name> 
+</job>
+<job>
+<name>Tools</name> 
+</job>
+</hudson>
+
+
+
+
+
+    xsltproc x.xslt test.xml
+
+
+
+    Try this XSLT
+
+    
+        <code class="xml"><xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+ <xsl:output method="text" />
+
+ <xsl:template match="/">
+ <xsl:apply-templates select="//job[nextBuildNumber]" />
+ </xsl:template>
+
+ <xsl:template match="job">
+<xsl:text>"</xsl:text>
+<xsl:value-of select="name"/>
+<xsl:text>" = "</xsl:text>
+<xsl:value-of select="nextBuildNumber"/>
+<xsl:text>"&amp;#10;</xsl:text>
+ </xsl:template>
+ </xsl:stylesheet>
+
+
+
+
+        xsltproc x.xslt test.xml

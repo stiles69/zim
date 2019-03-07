@@ -1,0 +1,52 @@
+====== Examples ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Examples
+
+
+Created Tuesday 15 May 2018
+
+
+
+Granting an additional user read access
+
+  setfacl -m u:lisa:r file
+
+
+
+
+  
+    Revoking write access from all groups and all named users (using the
+    effective rights mask)
+
+    
+      setfacl -m m::rx file
+
+
+
+
+      
+        Removing a named group entry from a file's ACL
+
+        
+          setfacl -x g:staff file
+
+
+
+
+          
+            Copying the ACL of one file to another
+
+            
+              getfacl file1 | setfacl --set-file=- file2
+
+
+
+
+              
+                Copying the access ACL into the Default ACL
+
+                
+                  getfacl --access dir | setfacl -d -M- dir

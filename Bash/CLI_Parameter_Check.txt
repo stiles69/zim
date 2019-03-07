@@ -1,0 +1,49 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-02-14T15:37:20-06:00
+
+====== CLI Parameter Check ======
+Created Thursday 14 February 2019
+
+
+=== Example 1 ===
+{{{code: lang="sh" linenumbers="True"
+FILETOCONVERT="$1"
+OUTPUTPATH=./
+#-----------------------------------
+function ConvertVideo ()
+{
+	USAGE="This take one parameter a video file and converts to mpg with ffmpeg it can made into a DVD. 1-Make-DVD-Part-1.sh <FILETOCONVERT>"
+	
+	if [ -z "$FILETOCONVERT" ]
+	then
+		echo "Parameter 1 is empty"
+		exit 0
+	else
+		echo "Ready to begin producing ISO image for $FILETOCONVERT"
+		Converter
+	fi
+
+}	# end ConvertVideo
+}}}
+
+
+=== Example 2 ===
+{{{code: lang="sh" linenumbers="True"
+timestamp="$1"
+
+# check if command line argument is empty or not present
+if [ -z $1 ]; then
+		echo "Parameter 1 is empty"
+		exit 0
+elif [ "${#timestamp}" -lt 10 ]; then
+		echo "Please enter at least a valid date"
+		echo "Example: 2018-08-14"
+		exit 0
+else
+		echo "THIS IS THE VALID BLOCK"
+fi
+
+}}}
+
+

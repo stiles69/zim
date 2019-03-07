@@ -1,0 +1,15 @@
+====== POSSIBLE PROBLEM ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+POSSIBLE PROBLEM
+
+
+Created Monday 16 April 2018
+
+
+
+
+
+warning: /etc/pacman.d/mirrorlist installed as /etc/pacman.d/mirrorlist.pacnew

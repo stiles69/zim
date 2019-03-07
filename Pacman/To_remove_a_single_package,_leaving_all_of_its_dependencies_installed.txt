@@ -1,0 +1,13 @@
+====== To remove a single package, leaving all of its dependencies installed ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+To remove a single package, leaving all of its dependencies installed
+
+
+Created Tuesday 13 February 2018
+
+
+
+pacman -R package_name

@@ -1,0 +1,13 @@
+====== List all the empty directories ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all the empty directories
+
+
+Created Sunday 13 May 2018
+
+
+
+$ find . -type d -empty

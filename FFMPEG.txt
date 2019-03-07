@@ -1,0 +1,46 @@
+====== FFMPEG ======
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+FFMPEG
+
+
+Created Saturday 20 January 2018
+
+
+
+<a href="./FFMPEG/15_Useful_'FFmpeg'_Commands_for_Video,_Audio_and_Image_Conversion_in_Linux.html" title="+15 Useful 'FFmpeg' Commands for Video, Audio and Image Conversion in Linux"
+ class="page">+15 Useful 'FFmpeg' Commands for Video, Audio and Image Conversion in Linux
+	<a href="./FFMPEG/Adjust_Frame_Rate_of_Video_Using_-r_Option.html" title="+Adjust Frame Rate of Video Using -r Option"
+	 class="page">+Adjust Frame Rate of Video Using -r Option
+		+Change
+		the Quality of Each Stream
+		+Changing A Container
+		+Changing
+		Dimensions of Video
+		+Concatenate
+		+Concat
+		Files With Same Formats
+		+Convert MKV to MP4
+		+Convert mp4 to mov
+		+Convert mp4 to webm
+		+Convert mp4 to webp VP9
+		+Convert Video to GIF
+		+Convert Video To VCD
+		+Create
+		An Animated GIF With FFmpeg
+		+Extracting Audio
+		+FFMPEG Documentation
+		+Increase Volume
+		+normalize
+		audio using ffmpeg
+		<a href="./FFMPEG/replace_the_audio_stream_in_a_.mp4_video_file_with_ffmpeg.html" title="+replace the audio stream in a .mp4 video file with ffmpeg"
+		 class="page">+replace the audio stream in a .mp4 video file with ffmpeg
+			+Trimming Video
+			+Webcam Info

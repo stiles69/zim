@@ -1,0 +1,76 @@
+====== Setup fstab on Pi ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Setup fstab on Pi
+
+
+Created Wednesday 10 January 2018
+
+
+
+Execute the following command to confirm your
+
+
+
+Raspberry Pi recognizes the hard drive that you plugged in.
+
+
+
+$sudo fdisk -l
+
+
+
+Execute the following command to create the path you
+
+
+
+want to use to mount the hard drive. The name "usbhdd" is for example, it can be whatever you like following Linux
+naming standards.
+$ sudo mkdir /media/usbhdd
+
+
+
+Execute the following command to set up the user rights for your hard drive path.
+$ sudo chown pi:pi /media/usbhdd
+
+
+
+Execute the following command to mount the hard drive so that you can use it. Specify // media / usbhdd path, using the
+name that you set up previously.
+$ sudo mount -t vfat -o uid=pi,gid=pi /dev/sda1
+/media/usbhdd
+
+
+
+$sudo blkid
+
+
+
+So in my example you will see /dev/sda1: LABEL = "HD256G" UUID = "1599-18FA" TYPE = "vfat". The information that we
+need is UUID = "1599-18FA" and TYPE = "vfat". Your results will probably be different so you need to substitute your
+information when we edit the fstab file.
+
+
+
+$ sudo nano /etc/fstab
+
+
+
+You can also use auto instead of vfat or ext3 to automatically have the system determine the hard disk format type. So
+then the line would like the following.
+UUID="1599-18FA" /medusbia/hdd auto rw,defaults 0 0
+
+
+
+This change can be tested quickly by executing the
+
+
+
+Following command. If the /etc/fstab file is incorrect you will see an error message as indicated below.
+$ sudo mount -a
+
+
+
+$ sudo reboot

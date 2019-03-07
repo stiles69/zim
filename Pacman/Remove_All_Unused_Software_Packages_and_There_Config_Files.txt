@@ -1,0 +1,13 @@
+====== Remove All Unused Software Packages and There Config Files ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Remove All Unused Software Packages and There Config Files
+
+
+Created Sunday 06 May 2018
+
+
+
+sudo pacman -Rns $(pacman -Qtdq)

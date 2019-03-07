@@ -1,0 +1,21 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== ACL Entries ======
+Created Tuesday 15 May 2018
+
+=== The setfacl utility recognizes the following ACL entry formats (blanks inserted for clarity): ===
+[d[efault]:] [u[ser]:]uid [:perms]
+
+=== Permissions of a named user. Permissions of the file owner if uid is empty. ===
+[d[efault]:] g[roup]:gid [:perms]
+
+=== Permissions of a named group. Permissions of the owning group if gid is empty. ===
+[d[efault]:] m[ask][:] [:perms]
+
+=== Effective rights mask: ===
+[d[efault]:] o[ther][:] [:perms]
+
+=== Permissions of others. ===
+Whitespace between delimiter characters and non-delimiter characters is ignored.
+

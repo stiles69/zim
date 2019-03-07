@@ -1,0 +1,32 @@
+====== Rename Filenames with Sed ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Rename Filenames with Sed
+
+
+Created Wednesday 11 July 2018
+
+
+
+Try this:
+
+
+
+newname=`echo "$filename" | sed -e 's/\(S[0-9][0-9]E[0-9][0-9]\).*\.mp4/\1.mp4/'`
+The regular expression is:
+
+
+
+start a group ( \( )
+match SXXEXX where X is a numeral between 0 and 9
+end group ( \) )
+match any number of any character (except a newline)
+match a explicit string ( .mp4 )
+In the replacement expression:
+
+
+
+replace with string matched in first group ( \1 )
+replace with explicit string ( .mp4 )

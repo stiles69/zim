@@ -1,0 +1,17 @@
+====== Static IP address ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Static IP address
+
+
+Created Wednesday 24 October 2018
+
+
+
+Setup your eth0 device with a static IP address.
+
+
+
+static.yml

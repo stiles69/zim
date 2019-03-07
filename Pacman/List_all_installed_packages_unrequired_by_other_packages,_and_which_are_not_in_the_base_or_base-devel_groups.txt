@@ -1,0 +1,14 @@
+====== List all installed packages unrequired by other packages, and which are not in the base or base-devel groups
+======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all installed packages unrequired by other packages, and which are not in the base or base-devel groups
+
+
+Created Tuesday 13 February 2018
+
+
+
+comm -23 <(pacman -Qqt | sort) <(pacman -Sqg base base-devel | sort)

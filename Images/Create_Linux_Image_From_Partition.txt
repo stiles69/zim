@@ -1,0 +1,13 @@
+====== Create Linux Image From Partition ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Create Linux Image From Partition
+
+
+Created Wednesday 23 May 2018
+
+
+
+# dd if=/dev/sdb of=raspi.img bs=1M

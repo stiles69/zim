@@ -1,0 +1,13 @@
+====== Convert mp4 to mov ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Convert mp4 to mov
+
+
+Created Monday 22 January 2018
+
+
+
+ffmpeg -i input_file.mp4 -acodec copy -vcodec copy -f mov output_file.mov

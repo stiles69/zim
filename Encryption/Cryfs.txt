@@ -1,0 +1,36 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Cryfs ======
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+Created Thursday 24 May 2018
+
+=== Setup an encrypted directory ===
+Once installed, you can create an encrypted directory by calling cryfs basedir mountdir. You can call the directories
+however you like, we chose basedir and mountdir for demonstration purposes. If the corresponding directories don't
+exist yet, CryFS will offer to create them for you.
+**cryfs basedir mountdir**
+
+//This will ask you some questions about the configuration of your encrypted directory. For now, we just say yes when//
+//we're asked whether to use the default settings. CryFS will also ask you for a password and then you're good to go.//
+
+You can modify files and directories in the mountdir directory. CryFS will then encrypt them and store the encrypted
+data in the basedir directory. The mountdir directory is a virtual directory, meaning it doesn't actually exist on your
+harddisk, but is provided by CryFS. Whenever you access files or directories in it, CryFS handles the decryption in the
+background, so that you can work with mountdir as if it was a real directory. This way, even if someone steals your
+harddisk, your data is still secure, since they can't decrypt it.
+
+=== Using the encrypted directory ===
+You can work in mountdir, add files to it, modify them, add subdirectories, and do whatever you want with it.
+Everything you store inside will be encrypted and stored in basedir. The unencrypted content of mountdir will never be
+stored to the harddisk, so everything on your harddisk is encrypted. CryFS uses an encryption scheme that doesn't only
+encrypt file contents, but also the file sizes, file metadata and directory structure is encrypted. Let's take a look.
+
+First, we create a file and a directory in mountdir.
+{{{code: lang="sh" linenumbers="True"
+cd mountdir
+echo "My file content" > myfile
+mkdir mydirectory
+
+}}}
+

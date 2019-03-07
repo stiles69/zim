@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-02-03 17:27:13-06:00
+ 
+====== Google Analytics ======
+Created Sun 03 February 2019
+
+## Track email with Google Analytics

@@ -1,0 +1,17 @@
+====== Search for files which have read and write permission for their owner, and group, but which other users can read
+but not write to (664). ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Search for files which have read and write permission for their owner, and group, but which other users can read but
+not write to (664).
+
+
+Created Sunday 13 May 2018
+
+
+
+find . -perm 664
+Files which meet these criteria but have other permissions bits set (for example if someone can execute the file)
+	will not be matched.

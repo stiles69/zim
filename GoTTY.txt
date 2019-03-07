@@ -1,0 +1,11 @@
+====== GoTTY ======
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+This is a web based terminal, can be used to allow remote connections.

@@ -1,0 +1,13 @@
+====== How to Convert Image to JPeg 2000 with FFMPEG ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+How to Convert Image to JPeg 2000 with FFMPEG
+
+
+Created Sunday 08 April 2018
+
+
+
+ffmpeg -i uncompressed.mov -c:v jpeg2000 -c:a pcm_s16le output.mov

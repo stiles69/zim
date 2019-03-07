@@ -1,0 +1,417 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-03-03T05:53:48-06:00
+
+====== Usage ======
+Created Sunday 03 March 2019
+
+Used for DASH Videos
+
+Located in $HOME/bin/bento4
+
+Preparing the input files
+To create DASH MP4 content, you need to start with fragmented MP4 files. The input files you will be working with may or may not already be in fragmented MP4 form. Ideally, your encode will already produce MP4 files that way.
+The command line tool mp4info can tell you if an MP4 file is fragmented or not: here’s an example of what you will see in the Movie: part of the mp4info output for a non-fragmented MP4 file (the line fragments: no)
+
+Movie:
+	duration:   147188 ms
+	time scale: 2997
+	fragments:  no
+
+Found 2 Tracks
+If you have non-fragmented MP4 files, you can use the mp4fragment tool to fragment them.
+
+Example
+
+mp4fragment video.mp4 video-fragmented.mp4
+Dealing with ISMV and ISMA input files
+ISMV and ISMA files are basically fragmented MP4 files, and as such can be used as input to mp4dash. However, most legacy tools (encoder and packagers) that produce ISMV and ISMA files generate fragmented MP4 files that lack a tfdt timestamp box. While these files appear to be normal fragmented MP4 files, the lack of tfdt renders those media files unsuitable for playback with many DASH clients, including most HTML5 based clients.
+If you have such files, you can fix this problem by refragmenting your ISMV and ISMA files into compliant fragmented MP4 files, using the mp4fragment tool.
+
+Example
+
+mp4fragment video.ismv video.mp4
+This should print something like
+
+NOTICE: file is already fragmented, it will be re-fragmented 
+found regular I-frame interval: 1 frames (at 25.000 frames per second)
+You can then use the re-fragmented files as input to mp4dash.
+
+Tip
+You can tell whether your fragmented input file has a tfdt box or not by using mp4dump.
+A file with tfdt will show entries like this:
+
+[moof] size=8+816
+  [mfhd] size=12+4
+	sequence number = 490
+  [traf] size=8+792
+	[tfhd] size=12+4, flags=20000
+	  track ID = 2
+	[tfdt] size=12+8, version=1
+	  base media decode time = 32281600
+	[trun] size=12+744, flags=301
+	  sample count = 92
+	  data offset = 832
+with a tfdt box as a child of the traf container box
+
+Generating a DASH presentation
+Once you have fragmented MP4 files to work with as input, you can generate a DASH presentation, including an MPD and media files or media segments. For single-bitrate streaming, a single MP4 file is required. For multi-bitrate streaming, you will need a set of MP4 files that have been encoded with closed GOPs (Group Of Pictures) with equal durations. Also, the audio tracks in all the files should be encoded with the same parameters. Once you have your input files, you can use the mp4dash tool to automatically generate the DASH MPD and optionally split the MP4 file into individual file segments.
+
+Simple examples
+Single MP4 input file
+
+mp4dash video.mp4
+Multi-bitrate set of MP4 files
+
+mp4dash video_1000.mp4 video_2000.mp4 video_3000.mp4
+Advanced usage
+Multi-language and stream selection
+By default, mp4dash will create an output that contains all the audio tracks found in its input(s). It is possible to limit the selected tracks by using input stream selectors. A stream selector is specified as a prefix before an input file path, enclosed between square brackets. The selector syntax is [<property>=<value>], where <property> can be type, track, or language. When the property name is type, the value can be audio to select only the audio track(s) from the input, or video for the video track. When the property name is track, the value is the ID of the track to select (could be audio or video). When the property name is language the value is an audio language code (2 or 3 letter code as defined by the DASH specification – IETF RFC 5646). It is possible to combine the language selector with a type selector, by separating the two by a comma (ex: [type=audio,language=fr]. If the language selector is used by itself without a type selector, the video track as well as the matching audio track will be selected.
+
+Examples:
+Select the French audio track and the video track from video.mp4:
+
+mp4dash [language=fr]video.mp4
+Select the French audio track from video1.mp4 and the video track from video2.mp4:
+
+mp4dash [type=audio,language=fr]video1.mp4 [type=video]video2.mp4
+Select track ID 3 from video1.mp4 and all tracks from video2.mp4:
+
+mp4dash [track=3]video1.mp4 video2.mp4
+Select the track with ‘undefined’ language from video1.mp4 and remap the language to ‘fr’
+
+mp4dash --language-map=und:fr [language=und]video1.mp4
+Using the --verbose option may be useful when debugging language selection options
+
+Encryption and DRM
+MPEG DASH streams can be encrypted, and played on clients that have a DRM-enabled DASH player.
+Visit the MPEG DASH Encryption & DRM page for details.
+
+Serving DASH Streams
+By default, mp4dash produces an output that can be served by any regular HTTP server. In order to make this possible, each one of the media segments and the init segments are stored in separate files. The MPD then refers to relative URLs for those files. Care should be taken to configure the HTTP server to return the correct Content-Type for the MPD document and segment files. The MPD document (named stream.mpd by default by the mp4dash tool) should be served with Content-Type: application/dash+xml and the init and media segments should be served with a Content-Type: video/mp4
+
+Serving DASH without splitting segments
+With special support from the server, it is possible to serve DASH streams without splitting the segments into individual files. This is achieved by having a server-side module that can virtualize URLs, so as to be able to expose each segment as an separate URL, mapping it back to a byte range in a source file when requests are made. MPEG does not specify a common standard for such URL virtualization. Each server that supports this model is free do do it any way it chooses. For example, the Microsoft IIS server can be used with a IIS Media Services extension for Smooth Streaming to deliver MPEG DASH streams. More details can be found on the Serving MPEG DASH with Microsoft IIS page. Another useful way to do the same thing is to use the open-source Hippo Media Server package, which knows how to virtualize URLs for MPEG DASH and Smooth Streaming.
+The --hippo option of mp4dash is used to generate the server-side manifest needed by the Hippo Media Server.
+
+2 COMMENTS ON “MPEG DASH”
+Pingback: How to encode Multi-bitrate videos in MPEG-DASH for MSE based media players (2/2) Streamroot Blog
+
+Pingback: How to encode multi-bitrate videos in MPEG-DASH for MSE based media players | TDNGAN
+
+
+
+Usage: mp4dash [options] <media-file> [<media-file> ...]
+
+Each <media-file> is the path to a fragmented MP4 file, optionally prefixed
+with a stream selector delimited by [ and ]. The same input MP4 file may be
+repeated, provided that the stream selector prefixes select different streams.
+Version 1.6.0 r607
+
+Options:
+  -h, --help            show this help message and exit
+  -v, --verbose         Be verbose
+  -d, --debug           Print out debugging information
+  -o <output-dir>, --output-dir=<output-dir>
+						Output directory
+  -f, --force           Allow output to an existing directory
+  --mpd-name=<filename>
+						MPD file name
+  --profiles=<profiles>
+						Comma-separated list of one or more profile(s).
+						Complete profile names can be used, or profile aliases
+						('live'='urn:mpeg:dash:profile:isoff-live:2011', 'on-
+						demand'='urn:mpeg:dash:profile:isoff-on-demand:2011',
+						'hbbtv-1.5='urn:hbbtv:dash:profile:isoff-live:2012')
+  --no-media            Do not output media files (MPD/Manifests only)
+  --rename-media        Use a file name pattern instead of the base name of
+						input files for output media files.
+  --media-prefix=<prefix>
+						Use this prefix for prefixed media file names (instead
+						of the default prefix "media")
+  --init-segment=<filename>
+						Initialization segment name
+  --no-split            Do not split the file into individual segment files
+  --use-segment-list    Use segment lists instead of segment templates
+  --use-segment-template-number-padding
+						Use padded numbers in segment URL/filename templates
+  --use-segment-timeline
+						Use segment timelines (necessary if segment durations
+						vary)
+  --min-buffer-time=<duration>
+						Minimum buffer time (in seconds)
+  --max-playout-rate=<strategy>
+						Max Playout Rate setting strategy for trick-play
+						support. Supported strategies: lowest:X
+  --language-map=<lang_from>:<lang_to>[,...]
+						Remap language code <lang_from> to <lang_to>. Multiple
+						mappings can be specified, separated by ','
+  --always-output-lang  Always output an @lang attribute for audio tracks even
+						when the language is undefined
+  --subtitles           Enable Subtitles
+  --group=<group-definition>
+						Specify the attributes of a group. This option may be
+						used multiple times, once per group
+  --smooth              Produce an output compatible with Smooth Streaming
+  --smooth-client-manifest-name=<filename>
+						Smooth Streaming Client Manifest file name
+  --smooth-server-manifest-name=<filename>
+						Smooth Streaming Server Manifest file name
+  --smooth-h264-fourcc=<fourcc>
+						Smooth Streaming FourCC value for H.264 video
+						(default=AVC1)
+  --hippo               Produce an output compatible with the Hippo Media
+						Server
+  --hippo-server-manifest-name=<filename>
+						Hippo Media Server Manifest file name
+  --encryption-key=<key-spec>
+						Encrypt all audio and video tracks with MPEG CENC
+						(AES-128), where <key-spec> specifies the KID and Key
+						to use, using one of the following ways: (1)
+						<KID>:<key> with <KID> as a 32-character hex string
+						and <key> either a 32-character hex string or the
+						character '#' followed by a base64-encoded key seed;
+						or (2) @<key-locator> where <key-locator> is an
+						expression of one of the supported key locator schemes
+						(see online docs for details)
+  --encryption-args=<cmdline-arguments>
+						Pass additional command line arguments to mp4encrypt
+						(separated by spaces)
+  --use-compat-namespace
+						Use the original DASH MPD namespace as it was
+						specified in the first published specification
+  --marlin              Add Marlin signaling to the MPD (requires an encrypted
+						input, or the --encryption-key option)
+  --marlin-add-pssh     Add an (optional) Marlin 'pssh' box in the init
+						segment(s)
+  --playready           Add PlayReady signaling to the MPD (requires an
+						encrypted input, or the --encryption-key option)
+  --playready-header=<playready-header>
+						Add a PlayReady PRO element in the MPD and a PlayReady
+						PSSH box in the init segments. The use of this option
+						implies the --playready option.The <playready-header>
+						argument can be either: (1) the character '@' followed
+						by the name of a file containing a PlayReady XML
+						Rights Management Header (<WRMHEADER>) or a PlayReady
+						Header Object (PRO) in binary form,  or (2) the
+						character '#' followed by a PlayReady Header Object
+						encoded in Base64, or (3) one or more <name>:<value>
+						pair(s) (separated by '#' if more than one) specifying
+						fields of a PlayReady Header Object (field names
+						include LA_URL, LUI_URL and DS_ID)
+  --playready-add-pssh  Store the PlayReady header in a 'pssh' box in the init
+						segment(s) [deprecated: this is now implicitly on by
+						default when the --playready or --playready-header
+						option is used]
+  --playready-no-pssh   Do not store the PlayReady header in a 'pssh' box in
+						the init segment(s)
+  --widevine            Add Widevine signaling to the MPD (requires an
+						encrypted input, or the --encryption-key option)
+  --widevine-header=<widevine-header>
+						Add a Widevine entry in the MPD, and a Widevine PSSH
+						box in the init segments. The use of this option
+						implies the --widevine option. The <widevine-header>
+						argument can be either: (1) the character '#' followed
+						by a Widevine header encoded in Base64, or (2) one or
+						more <name>:<value> pair(s) (separated by '#' if more
+						than one) specifying fields of a Widevine header
+						(field names include 'provider' [string], 'content_id'
+						[byte array in hex], 'policy' [string])
+  --primetime           Add Primetime signaling to the MPD (requires an
+						encrypted input, or the --encryption-key option)
+  --primetime-metadata=<primetime-metadata>
+						Add Primetime metadata in a PSSH box in the init
+						segments. The use of this option implies the
+						--primetime option. The <primetime-data> argument can
+						be either: (1) the character '@' followed by the name
+						of a file containing the Primetime Metadata to use, or
+						(2) the character '#' followed by the Primetime
+						Metadata encoded in Base64
+  --exec-dir=<exec_dir>
+						Directory where the Bento4 executables are located
+
+Command line options detailed documentation
+media files arguments
+mp4dash takes as input one or more media files. Each media file is the path to a fragmented MP4 file that will be used as input. Each media file name may be preceded by a selector, delimited by [ and ].
+When no selector is used, all the audio tracks and the first video track of each input file will be used. If more than one track with the same language is found (which is common when multiple input files are used in a multi-bitrate scenario, and that each input has its own copy of the shared audio track), only the first one will be used (it is assumed that they are all copies of each other).
+The syntax for a selector is a list of one or more specifiers, separated by commas (,).
+A specifier may be a filter, in which case it has the form name=value, or it may be a “setter”, in which case it has the form +name=value (it starts with a + character).
+Filters and setters can be combined in a single selector (ex: [track=3])
+
+filters
+A filter selects a subset or one or more tracks from an input file. Supported filters are: type, track, and language. When the filter name is type, the value can be audio to select only the audio track(s) from the input, or video for the video track. When the filter name is track, the value is the ID of the track to select (could be audio or video). When the filter name is language the value is an audio language code (2 or 3 letter code as defined by the DASH specification). It is possible to combine the language selector with a type selector, by separating the two by a comma (ex: [type=audio,language=fr]. If the language selector is used by itself without a type selector, the video track as well as the matching audio track will be selected.
+
+setters
+A setter sets a property or attribute for the track(s) selected by the filter (or all the tracks if the selector doesn’t include a filter). This may be used to set or override a track’s language, or set DASH-specific attributes like Role, Rating or Viewpoint. The name of a setter always starts with a + character.
+NOTE there are currently no setters defined. This syntax is reserved for future use.
+
+command line arguments
+-h, --help
+Print out a short summary of the command line options and arguments usage.
+
+-v, --verbose
+Produce a more verbose output. Useful for debugging.
+
+-o <output-dir>, --output-dir=<output-dir>
+Specify the output directory where the files will be written. If omitted, the output directory is named output.
+
+-f, --force
+Allow output to an existing directory.
+
+--mpd-name=<filename>
+Specify the name of the MPD file (default: stream.mpd)
+
+--profiles=<profiles>
+Comma-separated list of one or more profile(s). Complete profile names can be used, or profile aliases.
+Profile aliaes include:
+* live as an alias for urn:mpeg:dash:profile:isoff-live:2011
+* on-demand as an alias for urn:mpeg:dash:profile:isoff-on-demand:2011
+* hbbtv-1.5 as an alias for urn:hbbtv:dash:profile:isoff-live:2012
+
+If no profiles are specified, the default is to use the single profile urn:mpeg:dash:profile:isoff-live:2011.
+
+--no-media
+Do not output media files (MPD/Manifests only). This may be useful if you want to re-generate an MPD without re-processing the media files.
+
+--rename-media
+Use a file name pattern instead of the base name of input files for output media files (this option is only relevant when also using the --no-split option)
+For example, running:
+mp4dash --no-split video.mp4
+will produce an output directory with the files: stream.mpd and video.mp4
+Whereas with the --rename-media option:
+mp4dash --no-split --rename-media video.mp4
+will produce an output directory with the files: stream.mpd and media-01.mp4 (the input file name video.mp4 is renamed to media-XX.mp4)
+
+--media-prefix=<prefix>
+When combined with the --rename-media option, use this prefix for prefixed media file names (instead of the default prefix media)
+For example, mp4dash --no-split --rename-media --media-prefix foobar video.mp4
+will produce an output directory with the files: stream.mpd and foobar-01.mp4 (the input file name video.mp4 is renamed to foobar-XX.mp4)
+
+--init-segment=<filename>
+Specify an Initialization Segment name instead of the default ('init.mp4)
+
+--no-split
+Do not split the file into individual segment files. This option produces a single output file for each input file. Since with most MPEG DASH MPDs, each media segment has its own URL, the use of this option requires that the HTTP server be able to “virtualize” URLs (i.e map segment URLs to byte ranges within the stored, non-split, media file)
+
+--use-segment-list
+Use segment lists instead of segment templates.
+For DASH presentation that follow the isoff-live profile (the defaut profile used by mp4dash), the default mode is to use a shared template for the segment URL. When using --use-segment-list, an explicit list of all segments and their respective URLs will be used in the MPD.
+
+--use-segment-template-number-padding
+Use padded numbers in segment URL/filename templates. For example, with padding, segment 1 would be named seg-0001.m4f instead of seg-1.m4f.
+
+--use-segment-timeline
+Use segment timelines.
+For DASH presentation that follow the isoff-live profile (the defaut profile used by mp4dash), the default mode is to use a shared template for the segment information. This is efficient, as it keeps the size of the MPD small. But when the input media where the fragments/segments are not all of the same duration, this does not work, since when using templates, there is a single duration value shared by all segments. So in that case, the --use-segment-list option tells mp4dash to use an explicit segment list where each segment has its own duration.
+
+--min-buffer-time=<duration>
+Minimum buffer time (in seconds).
+By default, mp4dash automatically computes the minimum buffer time. Use this option to override the default.
+
+--max-playout-rate=<strategy>
+Max Playout Rate setting strategy for trick-play support. Supported strategies: lowest:X
+
+--language-map=<lang_from>:<lang_to>[,...]
+Remap language code <lang_from> to <lang_to>. Multiple mappings can be specified, separated by “,”
+
+--always-output-lang
+Always output an @lang attribute for audio tracks even when the language is undefined.
+This option is automatically enabled when the hbbtv-1.5 profile is part of the profiles list.
+
+--subtitles
+Enable subtitles.
+
+-g, --group
+This option may be used to define the attributes and properties for a media group. Each input media belongs to one or more groups. By default, all the audio tracks belong to the group named audio, all the video tracks belong to the group named video and all the subtitle tracks belong to the group named subtitles. In addition, an audio track with language xxx belong to the group named audio/xxx. For instance, an audio track with an undefined language (language code und) will belong to the group audio/und.
+The syntax for a group definition is: group_name:group_attributes, where group_attributes is one or more {attribute_namespace}attribute_name=attribute_value attributes, separated by ,.
+To set the DASH Role, Accessibility, Rating or Viewpoint attributes, use the attribute name, prefixed with its namespace (schemeIdUri in the DASH specification) delimited by curly braces ({ and }). For the Role attribute, the namespace may be omitted, in which case it will default to urn:mpeg:dash:role:2011. The attribute name may be written as it appears in the DASH specification, or in lowercase for convenience.
+For example, role=main sets the Role attribute for a group, and {urn:mpeg:dash:viewpoint:2011}viewpoint sets the Viewpoint attribute.
+
+More than one --group option may be used, each with a different group name.
+
+Examples
+
+mp4dash --group audio:role=main --group video:{urn:mpeg:dash:role:2011}viewpoint=vp1 video.mp4
+mp4dash --group audio:role=main --group video:{urn:mpeg:dash:role:2011}viewpoint=vp1 video.mp4
+mp4dash --group audio:role=main --group video:{urn:scte:dash:cc:cea-608:2015}accessibility=eng,{urn:mpeg:dash:role:2011}viewpoint=vp2 video.mp4
+--smooth
+Produce an output compatible with Microsoft Smooth Streaming.
+
+--smooth-client-manifest-name=<filename>
+Smooth Streaming Client Manifest file name. (default=stream.ismc)
+
+--smooth-server-manifest-name=<filename>
+Smooth Streaming Server Manifest file name. (default=stream.ism)
+
+--smooth-h264-fourcc=<fourcc>
+Smooth Streaming FourCC value for H.264 video. (default=AVC1)
+
+--hippo
+Produce an output compatible with the Hippo Media Server.
+
+--hippo-server-manifest-name=<filename>
+Hippo Media Server Manifest file name.
+
+--encryption-key=<key-spec>
+Encrypt all audio and video tracks with MPEG CENC (Common Encryption, with AES-128).
+<key-spec> specifies the KID and Key to use, using one of the following ways:
+1. <KID>:<key> with <KID> as a 32-character hex string and <key> either a 32-character hex string or the character # followed by a base64-encoded key seed.
+2. @<key-locator> where <key-locator> is an expression of one of the supported key locator schemes.
+
+Example
+--encryption-key=000102030405060708090a0b0c0d0e0f:00112233445566778899aabbccddeeff
+
+--encryption-args=<cmdline-arguments>
+Pass additional command line arguments to mp4encrypt (separated by spaces).
+This option can be used to precisely control certain options supported by mp4encrypt.
+
+--use-compat-namespace
+Use the original DASH MPD namespace as it was specified in the first published specification.
+
+--marlin
+Add Marlin signaling to the MPD (requires an encrypted input, or the --encryption-key option)
+
+--marlin-add-pssh
+Add an (optional) Marlin ‘pssh’ box in the init segment(s)
+
+--playready
+Add PlayReady signaling to the MPD (requires an encrypted input, or the --encryption-key option)
+
+--playready-header=<playready-header>
+Add a PlayReady PRO element in the MPD and a PlayReady PSSH box in the init segments. The use of this option implies the --playready option.
+The <playready-header> argument can be either:
+1. The character @ followed by the name of a file containing a PlayReady XML Rights Management Header (<WRMHEADER>) or a PlayReady Header Object (PRO) in binary form
+2. The character #' followed by a PlayReady Header Object encoded in Base64
+3. One or more <name>:<value> pair(s) (separated by # if more than one) specifying fields of a PlayReady Header Object (field names include LA_URL, LUI_URL and DS_ID)
+
+Example: --playready-header=LA_URL=http://myplayreadyserver.com/license.asmx
+
+--playready-no-pssh
+Do not store the PlayReady header in a ‘pssh’ box in the init segment(s).
+
+--widevine
+Add Widevine signaling to the MPD (requires an encrypted input, or the --encryption-key option)
+
+--widevine-header=<widevine-header>
+Add a Widevine entry in the MPD, and a Widevine PSSH box in the init segments. The use of this option implies the --widevine option.
+The <widevine-header> argument can be:
+1. The character # followed by a Widevine header encoded in Base64
+2. One or more <name>:<value> pair(s) (separated by # if more than one) specifying fields of a Widevine header (field names include provider [string], content_id [byte array in hex], and policy [string])
+
+Examples
+--widevine-header=provider:myprovidername#content_id:2a
+--widevine-header=#CAESEBycOU9s3lZopG92JeLT54EaDXdpZGV2aW5lX3Rlc3QiBAEjRWc=
+
+--primetime
+Add Primetime DRM signaling to the MPD (requires an encrypted input, or the –encryption-key option)
+
+--primetime-metadata=<primetime-metadata>
+Add Primetime metadata in a PSSH box in the init segments. The use of this option implies the --primetime option. The <primetime-data> argument can be:
+1. The character @ followed by the name of a file containing the Primetime Metadata to use
+2. The character # followed by the Primetime Metadata encoded in Base64
+
+Example
+--primetime-metadata=@mymetadatafile.bin
+
+--exec-dir=<exec_dir>
+Directory where the Bento4 executables are located. This option may be needed when running this tool outside of its normal SDK distribution (running a custom build from source for example).

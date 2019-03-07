@@ -1,0 +1,14 @@
+====== Duplicity via ftp ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Duplicity via ftp
+
+
+Created Saturday 12 May 2018
+
+
+
+FTP_PASSWORD=mypassword duplicity /local/dir ftp://user@other.host/some_dir
+If a user name is given, the environment variable FTP_PASSWORD is read to determine the password.

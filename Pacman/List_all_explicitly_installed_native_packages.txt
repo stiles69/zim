@@ -1,0 +1,18 @@
+====== List all explicitly installed native packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all explicitly installed native packages
+
+
+Created Tuesday 13 February 2018
+
+
+
+List all explicitly installed native packages (i.e. present in the sync database) that are not direct or optional
+dependencies:
+
+
+
+pacman -Qent

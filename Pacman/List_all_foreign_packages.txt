@@ -1,0 +1,17 @@
+====== List all foreign packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all foreign packages
+
+
+Created Tuesday 13 February 2018
+
+
+
+List all foreign packages (typically manually downloaded and installed):
+
+
+
+pacman -Qm

@@ -1,0 +1,11 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Creating a subvolume ======
+
+**Creating a subvolume** 
+This will scan for btrfs filesystems to get the sd letter? btrfs device scan /dev/sd?
+First mount the Main device 
+**$ mount -t btrfs /dev/sd? /path/to/mountpoint**
+Then create 
+**# btrfs subvolume create /path/to/subvolume**

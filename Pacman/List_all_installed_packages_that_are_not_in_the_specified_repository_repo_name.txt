@@ -1,0 +1,13 @@
+====== List all installed packages that are not in the specified repository repo name ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all installed packages that are not in the specified repository repo name
+
+
+Created Sunday 06 May 2018
+
+
+
+comm -23 <(pacman -Qq | sort) <(pacman -Slq repo_name | sort)

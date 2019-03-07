@@ -1,0 +1,56 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-12-19T12:29:02-06:00
+
+====== Fake Stream ======
+Created Wednesday 19 December 2018
+
+=== Install v412loopback ===
+
+To start fake video device:
+**sudo modprobe v4l2loopback**
+
+Will make [[/dev/video0]]
+
+=== Options ===
+if you need several independent loopback devices, you can pass the "devices" option, when loading the module; e.g.
+**# modprobe v4l2loopback devices=4**
+//will give you 4 loopback devices (e.g. /dev/video1 ... /dev/video5) you can also specify the device IDs manually; e.g.//
+
+**# modprobe v4l2loopback video_nr=3,4,7**
+//will create 3 devices (/dev/video3, /dev/video4 & /dev/video7)//
+
+**# modprobe v4l2loopback video_nr=3,4,7 card_label="device number 3","the number four","the last one"**
+//will create 3 devices with the card names passed as the second parameter://
+
+///dev/video3 -> device number 3//
+///dev/video4 -> the number four//
+///dev/video7 -> the last one//
+
+=== Attributes ===
+you can set and/or query some per-device attributes via sysfs, in a human readable format. see /sys/devices/virtual/video4linux/video*/
+
+also there are some V4L2 controls that you can list with
+
+**$ v4l2-ctl -d /dev/video1 -l**
+* keep_format(0/1): while set to 1, once negotiated format will be fixed forever, until the setting is set back to 0
+* sustain_framerate(0/1): if set to 1, nominal device fps will be ensured by means of frame duplication when needed
+* timeout(integer): if >0, will cause a timeout picture (a null frame, by default) to be displayed after (value) msecs of missing input
+* timeout_image_io(0/1): if set to 1, the next opener will write to timeout frame buffer
+
+=== Forcing FPS ===
+**$ v4l2loopback-ctl set-fps 25 /dev/video0**
+
+or
+
+**$ echo '@100' | sudo tee /sys/devices/virtual/video4linux/video0/format**
+
+=== Setting Stream Timeout ===
+**$ v4l2-ctl -d /dev/video0 -c timeout=3000**
+//(will output null frames by default)//
+**$ v4l2loopback-ctl set-timeout-image service-unavailable.png /dev/video0**
+//this currently requires GStreamer 0.10 installed//
+
+
+
+

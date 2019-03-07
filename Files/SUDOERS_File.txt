@@ -1,0 +1,90 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30T16:28:17-06:00
+
+====== SUDOERS File ======
+Created Friday 30 November 2018
+
+The sudoers file located at: **/etc/sudoers**, contains the rules that users must follow when using the sudo command.
+
+The first thing I do when I install a new Linux is to use **visudo** to edit the sudoers file. And I always give **my account root rights**, then I can run commands as root without switching users.
+
+In order to use sudo you first need to configure the **sudoers** file. The sudoers file is located at **/etc/sudoers**. And you should not edit it directly, you need to use the **visudo** command.
+
+Once you enter **visudo** command, you will see something like this:
+{{{code: lang="sh" linenumbers="True"
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root    ALL=(ALL) ALL
+}}}
+
+//Almost all lines are commented out, the one that matters in this sudoers file example is://
+**root ALL=(ALL) ALL**
+//This line means: The root user can execute from ALL terminals, acting as ALL (any) users, and run ALL (any) command.//
+
+The **first** part is the **user**, the **second** is the **terminal** from where the user can use sudo command, the **third** part is **which users he may act as**, and the **last** one, is which **commands** he may run when using sudo.
+
+**First=user**
+**Second=terminal**
+**Third=which users may act as**
+**Last=Commands can be used**
+
+You can also create aliases for: users -> User_Alias, run commands as other users -> Runas_Alias, host -> Host_Alias and command -> Cmnd_Alias
+{{{code: lang="sh" linenumbers="True"
+User_Alias OPERATORS = joe, mike, jude Runas_Alias OP = root, operator Host_Alias OFNET = 10.1.2.0/255.255.255.0 Cmnd_Alias PRINTING = /usr/sbin/lpc, /usr/bin/lprm
+}}}
+
+//As you can see the alias OPERATORS includes the users joe, mike and jude, the alias OP includes the users root and operator, alias OFNET includes the network 10.1.2.0 (all the C class), and the command alias PRINTING includes the commands lpc and lprm.//
+
+So, a typical sudoers file may look like this:
+{{{code: lang="sh" linenumbers="True"
+User_Alias     OPERATORS = joe, mike, jude
+ Runas_Alias    OP = root, operator
+ Host_Alias     OFNET = 10.1.2.0/255.255.255.0
+ Cmnd_Alias     PRINTING = /usr/sbin/lpc, /usr/bin/lprm
+
+OPERATORS ALL=ALL
+
+#The users in the OPERATORS group can run any command from
+ any terminal.
+
+linus ALL=(OP) ALL
+
+# The user linus can run any command from any terminal as any 
+user in the OP group (root or operator).
+
+user2 OFNET=(ALL) ALL
+
+# user user2 may run any command from any machine in the 
+OFNET network, as any user.
+
+user3 ALL= PRINTING
+
+# user user3 may run lpc and lprm from any machine.
+
+go2linux ALL=(ALL) ALL
+
+# user go2linux may run any command from any machine acting
+ as any user. (like Ubuntu)
+}}}
+
+If you want not to be asked for a password use this form:
+{{{code: lang="sh" linenumbers="True"
+go2linux ALL=(ALL) NOPASSWD: ALL
+}}}
+
+

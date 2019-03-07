@@ -1,0 +1,13 @@
+====== Run-Script-On-Page-Load ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+<script>
+window.addEventListener("load", function(event) {
+
+  // here is the Vue code
+
+  });
+  </script>

@@ -1,0 +1,35 @@
+====== VuePress ======
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+VuePress
+
+
+Created Tuesday 15 May 2018
++Add Some
+Scripts to Directory
++Inside Existing
+Project
+
+
+
+Install it globally
+yarn global add vuepress
+
+
+
+# create a markdown file
+echo '# VuePress' > README.md
+
+
+
+# start writing
+vuepress dev
+
+
+
+# build
+vuepress build

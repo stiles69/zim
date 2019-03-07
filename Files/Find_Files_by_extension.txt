@@ -1,0 +1,13 @@
+====== Find Files by extension ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Find Files by extension
+
+
+Created Friday 11 May 2018
+
+
+
+find /home/username/ -name "*.err"

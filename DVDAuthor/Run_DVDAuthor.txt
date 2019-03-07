@@ -1,0 +1,21 @@
+====== Run DVDAuthor ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-05-16T06:39:26-05:00
+
+
+Run DVDAuthor
+
+
+Created Tuesday 19 June 2018
+
+
+
+export VIDEO_FORMAT=NTSC
+dvdauthor -o dvd -x dvd.xml

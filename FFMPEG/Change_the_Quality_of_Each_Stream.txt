@@ -1,0 +1,38 @@
+====== Change the Quality of Each Stream ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Change the Quality of Each Stream
+
+
+Created Monday 22 January 2018
+
+
+
+Now that we have a handle on the codecs, the next question is: How do we set the quality of each stream?
+
+
+
+The simplest method is to change the bitrate, which may or may not result in a different quality. Humans' ability to
+    see and hear isn't as clean and clear cut as we'd like to think. Sometimes changing bitrates makes a huge
+    difference to the subjective quality. Other times it might do nothing but change the file size. Sometimes it's very
+    difficult to tell what will happen without trying it out.
+
+
+
+To set the bitrate of each stream, you use the -b flag, which works in a similar fashion to the -c flag, except
+    instead of codec options you set a bitrate.
+
+
+
+For example, to change the bitrate of the video, you would use it like this:
+
+
+
+ffmpeg -i input.webm -c:a copy -c:v vp9 -b:v 1M output.mkv
+
+
+
+This will copy the audio (-c:a copy) from input.webm and convert the video to a VP9 codec (-c:v vp9) with a bit rate
+    of 1M/s (-b:v), all bundled up in a Matroska container (output.mkv).

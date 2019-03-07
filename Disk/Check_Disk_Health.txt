@@ -1,0 +1,15 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30T12:03:26-06:00
+
+====== Check Disk Health ======
+Created Friday 30 November 2018
+
+**# sudo smartctl --all /dev/sdb**
+**--all** //Gives all data//
+**/dev/sdb** //Must specify which device you want to health info//
+
+**GSmartControl** is gui version of smartctl
+
+Also see:
+[[../Check_For_Badblocks.txt|Check For Badblocks]]

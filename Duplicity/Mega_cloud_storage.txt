@@ -1,0 +1,25 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Mega cloud storage ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Mega cloud storage
+
+
+Created Saturday 12 May 2018
+
+
+
+This works. You must first install Mega-Tools this this will work notice NO SUDO!
+#duplicity /mnt/Data/Images/ mega:/salemink@mega.nz/backups/manjaro/
+
+
+
+Also have a .megarc file in $HOME
+
+[Login]
+Username = brett.salemink@gmail.com
+Password = Yourpassword

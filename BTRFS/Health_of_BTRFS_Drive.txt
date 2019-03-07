@@ -1,0 +1,141 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30T12:37:00-06:00
+
+====== Health of BTRFS Drive ======
+Created Friday 30 November 2018
+
+=== To get information of a volume: ===
+**# sudo btrfs device stats /MountPoint**
+//sending incremental file list//
+//.///
+//ACL///
+//Antergos///
+//Archives///
+//ArcoLinuix///
+//BTRFS///
+//Bash///
+//Certificates///
+//Crontab_Manual///
+//DD///
+//DDClient///
+//DDClient/username///
+//DVDA-Author///
+//DVDAuthor///
+//Desktop_Entry///
+//Directories///
+//Disk///
+//Docker///
+//DuckDNS///
+//Duplicity///
+//Duplucati///
+//Encfs///
+//Encryption///
+//Encryption/Encfs///
+//Encryption/GoCryptfs///
+//Encryption/ecryptfs///
+//Encryption/encfs///
+//Exports_File_For_NFS///
+//Express_Webserver///
+//FFMPEG///
+//FSTAB///
+//Files///
+//Files/ACL's///
+//GIMP///
+//GPG///
+//Gentoo_Raspberry_Pi_Image///
+//Get_GID_from_USER///
+//Get_UID_from_User///
+//Git///
+//GoTTY///
+//Google_Analtytics///
+//Google_Cloud///
+//Groups///
+//Groups/List_All_Groups///
+//Gulp///
+//HTTP_Server_(2)///
+//Hypriot///
+//ISO///
+//Images///
+//Install_KDE5///
+//Install_XORG///
+//JPEG_2000///
+//Java///
+//Javascript///
+//Kali-Linux///
+//Lighttpd///
+//Linux_File_Permissions///
+//Mega-Cmd///
+//Mosh///
+//Mount///
+//NFS///
+//NGROK_HTTP_Tunnel///
+//NODEJS///
+//NPM///
+//Networking///
+//Networking/PIA///
+//Networking/PiVPN///
+//Node_Express_Server///
+//Notify-Send///
+//Nuxt///
+//OpenGPG///
+//OpenSSH_on_Antergos///
+//OpenSSL///
+//PIA///
+//PWA_Tools///
+//Pacman///
+//Pacman/Chart///
+//Parcel///
+//Processes///
+//RAR///
+//RSYNC///
+//RaspberryPi///
+//RealFavicons///
+//SSHFS///
+//Samba///
+//Sed///
+//Setup_fstab_on_Pi///
+//TCPLAY///
+//TeamCity///
+//Temp_Dir///
+//Test///
+//ToDo///
+//Transmission///
+//Tuxwang///
+//USB_Dogle///
+//Users///
+//VBOXDR///
+//Vim///
+//Vue///
+//VuePress///
+//WebP_Image_Format///
+//Webpack///
+//XSL///
+//Yaourt///
+//Youtube_Downloader///
+//Yubikey///
+//ZSH///
+//Zim///
+//eslint///
+//ftp///
+//gcloud///
+//timeshift///
+//unar///
+
+//sent 4,992 bytes  received 477 bytes  10,938.00 bytes/sec//
+//total size is 11,072,967  speedup is 2,024.68//
+//****Completed RSyncing /home/brettsalemink/Notes to /home/brettsalemink/development/stiles69/zim****//
+//****Completed indexing /home/brettsalemink/Notes.****//
+//****Completed exporting /home/brettsalemink/Notes to /home/brettsalemink/development/stiles69/zim****//
+//[master dd22bf38] Update Zim//
+// 2 files changed, 70 insertions(+)//
+// create mode 100644 BTRFS/Health_of_BTRFS_Drive.html//
+//Completed pushing /home/brettsalemink/development/stiles69/zim. Website can be found at https://stiles69.github.io/zim/sitemap.html//
+//[master d68a413] Updating for Zim-Build-Website.sh//
+// 1 file changed, 14 insertions(+)//
+// create mode 100644 BTRFS/Health_of_BTRFS_Drive.txt//
+
+
+=== For an unmounted volume: ===
+**# sudo btrfs check --repair /dev/TheDevice**
+//Will check and repair the filesystem//

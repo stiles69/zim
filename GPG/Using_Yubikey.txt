@@ -1,0 +1,561 @@
+====== Using Yubikey ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Using Yubikey
+
+
+Created Sunday 20 May 2018
+
+
+Using keys
+
+Create GPG configuration
+
+Paste the following text into a terminal window to create a recommended GPG configuration:
+
+
+
+
+$ cat << EOF > ~/.gnupg/gpg.conf
+auto-key-locate keyserver
+keyserver hkps://hkps.pool.sks-keyservers.net
+keyserver-options no-honor-keyserver-url
+keyserver-options no-honor-keyserver-url
+personal-cipher-preferences AES256 AES192 AES CAST5
+personal-digest-preferences SHA512 SHA384 SHA256 SHA224
+default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
+cert-digest-algo SHA512
+s2k-cipher-algo AES256
+s2k-digest-algo SHA512
+charset utf-8
+fixed-list-mode
+no-comments
+no-emit-version
+keyid-format 0xlong
+list-options show-uid-validity
+verify-options show-uid-validity
+with-fingerprint
+use-agent
+require-cross-certification
+EOF
+Ensure you change to correct rights of that file to at least avoid a warning message about incorrect file rights
+
+
+
+chmod 600 ~/.gnupg/gpg.conf
+
+
+Import public key
+
+
+Import it from a file:
+
+
+
+$ gpg --import < /mnt/public-usb-key/pubkey.txt
+gpg: key 0xFF3E7D88647EBCDB: public key "Dr Duh <doc@duh.to>" imported
+gpg: Total number processed: 1
+gpg: imported: 1 (RSA: 1)
+Or download from a keyserver:
+
+
+
+$ gpg --recv 0xFF3E7D88647EBCDB
+gpg: requesting key 0xFF3E7D88647EBCDB from hkps server hkps.pool.sks-keyservers.net
+[...]
+gpg: key 0xFF3E7D88647EBCDB: public key "Dr Duh <doc@duh.to>" imported
+gpg: Total number processed: 1
+gpg: imported: 1 (RSA: 1)
+You may get an error gpgkeys: HTTP fetch error 1: unsupported protocol -- this means you need to install a special
+version of curl which supports gnupg:
+
+
+
+$ sudo apt-get install gnupg-curl
+
+
+Insert YubiKey
+
+Unplug and replug the Yubikey. Check the card's status:
+
+
+
+
+$ gpg --card-status
+Application ID ...: D2760001240102010006055532110000
+Version ..........: 2.1
+Manufacturer .....: Yubico
+Serial number ....: 05553211
+Name of cardholder: Dr Duh
+Language prefs ...: en
+Sex ..............: unspecified
+URL of public key : [not set]
+Login data .......: doc@duh.to
+Signature PIN ....: not forced
+Key attributes ...: 4096R 4096R 4096R
+Max. PIN lengths .: 127 127 127
+PIN retry counter : 3 3 3
+Signature counter : 0
+Signature key ....: 07AA 7735 E502 C5EB E09E B8B0 BECF A3C1 AE19 1D15
+
+  created ....: 2016-05-24 23:22:01
+
+  Encryption key....: 6F26 6F46 845B BEB8 BDF3 7E9B 5912 A795 E90D D2CF
+  
+    created ....: 2016-05-24 23:29:03
+
+    Authentication key: 82BE 7837 6A3F 2E7B E556 5E35 3F29 127E 7964 9A3D
+    
+      created ....: 2016-05-24 23:36:40
+
+      General key info..: pub 4096R/0xBECFA3C1AE191D15 2016-05-24 Dr Duh <doc@duh.to>
+      sec# 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never
+      ssb> 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never
+      <div style='padding-left: 150pt'>
+        card-no: 0006 05553211
+
+        ssb> 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never
+        <div style='padding-left: 150pt'>
+          card-no: 0006 05553211
+
+          ssb> 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never
+          <div style='padding-left: 150pt'>
+            card-no: 0006 05553211
+
+            sec# indicates master key is not available (as it should be stored encrypted offline).
+
+
+
+            Note If you see General key info..: [none] in the output instead, first import your public key using the
+            previous step.
+
+
+            GnuPG
+
+            Trust master key
+
+            Edit the imported key to assign it ultimate trust:
+
+
+
+
+            $ gpg --edit-key 0xFF3E7D88647EBCDB
+
+
+
+            Secret key is available.
+
+
+
+            pub 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never usage: SC
+            <div style='padding-left: 210pt'>
+              trust: unknown validity: unknown
+
+              sub 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never usage: S
+              sub 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never usage: E
+              sub 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never usage: A
+              [ unknown] (1). Dr Duh <doc@duh.to>
+
+
+
+              gpg> trust
+              pub 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never usage: SC
+              <div style='padding-left: 210pt'>
+                trust: unknown validity: unknown
+
+                sub 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never usage: S
+                sub 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never usage: E
+                sub 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never usage: A
+                [ unknown] (1). Dr Duh <doc@duh.to>
+
+
+
+                Please decide how far you trust this user to correctly verify other users' keys
+                (by looking at passports, checking fingerprints from different sources, etc.)
+
+
+
+                1 = I don't know or won't say
+                2 = I do NOT trust
+                3 = I trust marginally
+                4 = I trust fully
+                5 = I trust ultimately
+                m = back to the main menu
+
+
+
+                Your decision? 5
+                Do you really want to set this key to ultimate trust? (y/N) y
+
+
+
+                pub 4096R/0xFF3E7D88647EBCDB created: 2016-05-24 expires: never usage: SC
+                <div style='padding-left: 210pt'>
+                  trust: ultimate validity: unknown
+
+                  sub 4096R/0xBECFA3C1AE191D15 created: 2016-05-24 expires: never usage: S
+                  sub 4096R/0x5912A795E90DD2CF created: 2016-05-24 expires: never usage: E
+                  sub 4096R/0x3F29127E79649A3D created: 2016-05-24 expires: never usage: A
+                  [ unknown] (1). Dr Duh <doc@duh.to>
+                  Please note that the shown key validity is not necessarily correct
+                  unless you restart the program.
+
+
+
+                  gpg> quit
+                  Encryption
+                  Encrypt some sample text:
+
+
+
+                  $ echo "$(uname -a)" | gpg --encrypt --armor --recipient 0xFF3E7D88647EBCDB
+                  -----BEGIN PGP MESSAGE-----
+
+
+
+                  hQIMA1kSp5XpDdLPAQ/+JyYfLaUS/+llEzQaKDb5mWhG4HlUgD99dNJUXakm085h
+                  PSSt3I8Ac0ctwyMnenZvBEbHMqdRnfZJsj5pHidKcAZrhgs+he+B1tdZ/KPa8inx
+                  NIGqd8W1OraVSFmPEdC1kQ5he6R/WCDH1NNel9+fvLtQDCBQaFae/s3yXCSSQU6q
+                  HKCJLyHK8K9hDvgFmXOY8j1qTknBvDbmYdcCKVE1ejgpUCi3WatusobpWozsp0+b
+                  6DN8bXyfxLPYm1PTLfW7v4kwddktB8eVioV8A45lndJZvliSqDwxhrwyE5VGsArS
+                  NmqzBkCaOHQFr0ofL91xgwpCI5kM2ukIR5SxUO4hvzlHn58QVL9GfAyCHMFtJs3o
+                  Q9eiR0joo9TjTwR8XomVhRJShrrcPeGgu3YmIak4u7OndyBFpu2E79RQ0ehpl2gY
+                  tSECB6mNd/gt0Wy3y15ccaFI4CVP6jrMN6q3YhXqNC7GgI/OWkVZIAgUFYnbmIQe
+                  tQ3z3wlbvFFngeFy5IlhsPduK8T9XgPnOtgQxHaepKz0h3m2lJegmp4YZ4CbS9h6
+                  kcBTUjys5Vin1SLuqL4PhErzmlAZgVzG2PANsnHYPe2hwN4NlFtOND1wgBCtBFBs
+                  1pqz1I0O+jmyId+jVlAK076c2AwdkVbokKUcIT/OcTc0nwHjOUttJGmkUHlbt/nS
+                  iAFNniSfzf6fwAFHgsvWiRJMa3keolPiqoUdh0tBIiI1zxOMaiTL7C9BFdpnvzYw
+                  Krj0pDc7AlF4spWhm58WgAW20P8PGcVQcN6mSTG8jKbXVSP3bvgPXkpGAOLKMV/i
+                  pLORcRPbauusBqovgaBWU/i3pMYrbhZ+LQbVEaJlvblWu6xe8HhS/jo=
+                  =pzkv
+                  -----END PGP MESSAGE-----
+                  Decryption
+                  Decrypt the sample text by pasting it:
+
+
+
+                  $ gpg --decrypt --armor
+                  -----BEGIN PGP MESSAGE-----
+
+
+
+                  hQIMA1kSp5XpDdLPAQ/+JyYfLaUS/+llEzQaKDb5mWhG4HlUgD99dNJUXakm085h
+                  PSSt3I8Ac0ctwyMnenZvBEbHMqdRnfZJsj5pHidKcAZrhgs+he+B1tdZ/KPa8inx
+                  NIGqd8W1OraVSFmPEdC1kQ5he6R/WCDH1NNel9+fvLtQDCBQaFae/s3yXCSSQU6q
+                  HKCJLyHK8K9hDvgFmXOY8j1qTknBvDbmYdcCKVE1ejgpUCi3WatusobpWozsp0+b
+                  6DN8bXyfxLPYm1PTLfW7v4kwddktB8eVioV8A45lndJZvliSqDwxhrwyE5VGsArS
+                  NmqzBkCaOHQFr0ofL91xgwpCI5kM2ukIR5SxUO4hvzlHn58QVL9GfAyCHMFtJs3o
+                  Q9eiR0joo9TjTwR8XomVhRJShrrcPeGgu3YmIak4u7OndyBFpu2E79RQ0ehpl2gY
+                  tSECB6mNd/gt0Wy3y15ccaFI4CVP6jrMN6q3YhXqNC7GgI/OWkVZIAgUFYnbmIQe
+                  tQ3z3wlbvFFngeFy5IlhsPduK8T9XgPnOtgQxHaepKz0h3m2lJegmp4YZ4CbS9h6
+                  kcBTUjys5Vin1SLuqL4PhErzmlAZgVzG2PANsnHYPe2hwN4NlFtOND1wgBCtBFBs
+                  1pqz1I0O+jmyId+jVlAK076c2AwdkVbokKUcIT/OcTc0nwHjOUttJGmkUHlbt/nS
+                  iAFNniSfzf6fwAFHgsvWiRJMa3keolPiqoUdh0tBIiI1zxOMaiTL7C9BFdpnvzYw
+                  Krj0pDc7AlF4spWhm58WgAW20P8PGcVQcN6mSTG8jKbXVSP3bvgPXkpGAOLKMV/i
+                  pLORcRPbauusBqovgaBWU/i3pMYrbhZ+LQbVEaJlvblWu6xe8HhS/jo=
+                  =pzkv
+                  -----END PGP MESSAGE-----
+                  gpg: encrypted with 4096-bit RSA key, ID 0x5912A795E90DD2CF, created
+                  2016-05-24
+                  
+                    "Dr Duh <doc@duh.to>"
+
+
+
+
+                    (Press Control-D)
+
+
+
+                    Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux
+                    Signing
+                    Sign some sample text using the signing subkey:
+
+
+
+                    $ echo "$(uname -a)" | gpg --armor --clearsign --default-key 0xBECFA3C1AE191D15
+                    -----BEGIN PGP SIGNED MESSAGE-----
+                    Hash: SHA512
+
+
+
+                    Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux
+                    -----BEGIN PGP SIGNATURE-----
+
+
+
+                    iQIcBAEBCgAGBQJXRPo8AAoJEL7Po8GuGR0Vh8wP/jYXTR8SAZIZSMVCOyAjH37f
+                    k6JxB0rF928WDYPihjo/d0Jd+XpoV1g+oipDRjP78xqR9H/CJZlE10IPQbNaomFs
+                    +3RGxA3Zr085cVFoixI8rxYOSu0Vs2cAzAbJHNcOcD7vXxTHcX4T8kfKoF9A4U1u
+                    XTJ42eEjpO0fX76tFX2/Uzxl43ES0dO7Y82ho7xcnaYwakVUEcWfUpfDAroLKZOs
+                    wCZGr8Z64QDQzxQ9L45Zc61wMx9JEIWD4BnagllfeOYrEwTJfYG8uhDDNYx0jjJp
+                    j1PBHn5d556aX6DHUH05kq3wszvQ4W40RctLgAA3l1VnEKebhBKjLZA/EePAvQV4
+                    QM7MFUV1X/pi2zlyoZSnHkVl8b5Q7RU5ZtRpq9fdkDDepeiUo5PNBUMJER1gn4bm
+                    ri8DtavkwTNWBRLnVR2gHBmVQNN7ZDOkHcfyqR4I9chx6TMpfcxk0zATAHh8Donp
+                    FVPKySifuXpunn+0MwdZl5XkhHGdpdYQz4/LAZUGhrA9JTnFtc4cl4JrTzufF8Sr
+                    c3JJumMsyGvw9OQKQHF8gHme4PBu/4P31LpfX9wzPOTpJaI31Sg5kdJLTo9M9Ppo
+                    uvkmJS7ETjLQZOsRyAEn7gcEKZQGPQcNAgfEgQPoepS/KvvI68u+JMJm4n24k2kQ
+                    fEkp501u8kAZkWauhiL+
+                    =+ylJ
+                    -----END PGP SIGNATURE-----
+                    Verifying signature
+                    Verify the previous signature:
+
+
+
+                    $ gpg
+                    gpg: Go ahead and type your message ...
+                    -----BEGIN PGP SIGNED MESSAGE-----
+                    Hash: SHA512
+
+
+
+                    Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux
+                    -----BEGIN PGP SIGNATURE-----
+
+
+
+                    iQIcBAEBCgAGBQJXRPo8AAoJEL7Po8GuGR0Vh8wP/jYXTR8SAZIZSMVCOyAjH37f
+                    +3RGxA3Zr085cVFoixI8rxYOSu0Vs2cAzAbJHNcOcD7vXxTHcX4T8kfKoF9A4U1u
+                    XTJ42eEjpO0fX76tFX2/Uzxl43ES0dO7Y82ho7xcnaYwakVUEcWfUpfDAroLKZOs
+                    wCZGr8Z64QDQzxQ9L45Zc61wMx9JEIWD4BnagllfeOYrEwTJfYG8uhDDNYx0jjJp
+                    j1PBHn5d556aX6DHUH05kq3wszvQ4W40RctLgAA3l1VnEKebhBKjLZA/EePAvQV4
+                    QM7MFUV1X/pi2zlyoZSnHkVl8b5Q7RU5ZtRpq9fdkDDepeiUo5PNBUMJER1gn4bm
+                    ri8DtavkwTNWBRLnVR2gHBmVQNN7ZDOkHcfyqR4I9chx6TMpfcxk0zATAHh8Donp
+                    FVPKySifuXpunn+0MwdZl5XkhHGdpdYQz4/LAZUGhrA9JTnFtc4cl4JrTzufF8Sr
+                    c3JJumMsyGvw9OQKQHF8gHme4PBu/4P31LpfX9wzPOTpJaI31Sg5kdJLTo9M9Ppo
+                    uvkmJS7ETjLQZOsRyAEn7gcEKZQGPQcNAgfEgQPoepS/KvvI68u+JMJm4n24k2kQ
+                    fEkp501u8kAZkWauhiL+
+                    =+ylJ
+                    -----END PGP SIGNATURE-----
+
+
+
+                    (Press Control-D)
+
+
+
+                    gpg: Signature made Wed 25 May 2016 00:00:00 AM UTC
+                    gpg: using RSA key 0xBECFA3C1AE191D15
+                    gpg: Good signature from "Dr Duh <doc@duh.to>" [ultimate]
+                    Primary key fingerprint: 011C E16B D45B 27A5 5BA8 776D FF3E 7D88 647E BCDB
+                    
+                      Subkey fingerprint: 07AA 7735 E502 C5EB E09E B8B0 BECF A3C1 AE19 1D15
+
+                      Putting it all together:
+
+
+
+                      $ echo "$(uname -a)" | gpg --encrypt --sign --armor --default-key 0xFF3E7D88647EBCDB --recipient
+                      0xBECFA3C1AE191D15 | gpg --decrypt --armor
+                      gpg: encrypted with 4096-bit RSA key, ID 0x5912A795E90DD2CF, created 2016-05-24
+                      
+                        "Dr Duh <doc@duh.to>"
+
+                        Linux workstation 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt25-2 (2016-04-08) x86_64 GNU/Linux
+                        gpg: Signature made Wed 25 May 2016 01:00:00 AM UTC
+                        gpg: using RSA key 0xBECFA3C1AE191D15
+                        gpg: Good signature from "Dr Duh <doc@duh.to>" [ultimate]
+                        Primary key fingerprint: 011C E16B D45B 27A5 5BA8 776D FF3E 7D88 647E BCDB
+                        
+                          Subkey fingerprint: 07AA 7735 E502 C5EB E09E B8B0 BECF A3C1 AE19 1D15
+
+                          SSH
+                          Update configuration
+                          Paste the following text into a terminal window to create a recommended GPG agent
+                          configuration:
+
+
+
+                          $ cat << EOF > ~/.gnupg/gpg-agent.conf
+                          enable-ssh-support
+                          pinentry-program /usr/bin/pinentry-curses
+                          default-cache-ttl 60
+                          max-cache-ttl 120
+                          EOF
+                          If you are using Linux on the desktop, you may want to use /usr/bin/pinentry-gnome3 to use a
+                          GUI manager. For macOS, try brew install pinentry-mac, and adjust the pinentry-program
+                          setting to suit.
+
+
+
+                          Replace ssh-agent with gpg-agent
+                          gpg-agent provides OpenSSH agent emulation. To launch the agent for use by ssh use the
+                          gpg-connect-agent /bye or gpgconf --launch gpg-agent commands.
+
+
+
+                          Depending on how your environment is set up, you might need to add these to your shell rc
+                          file:
+
+
+
+                          export GPG_TTY="$(tty)"
+                          export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+                          gpgconf --launch gpg-agent
+                          Note On some systems, for example Arch Linux-based distributions, you may need to replace the
+                          second and the third line with:
+
+
+
+                          export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+                          gpg-connect-agent updatestartuptty /bye
+                          Copy public key to server
+                          There is a -L option of ssh-add that lists public key parameters of all identities currently
+                          represented by the agent. Copy and paste the following output to the server authorized_keys
+                          file:
+
+
+
+                          $ ssh-add -L
+                          ssh-rsa AAAAB4NzaC1yc2EAAAADAQABAAACAz[...]zreOKM+HwpkHzcy9DQcVG2Nw== cardno:000605553211
+                          (Optional) Save public key for identity file configuration
+                          If IdentitiesOnly yes is used in your .ssh/config (for example to avoid being fingerprinted
+                          by untrusted ssh servers), ssh will not automatically enumerate public keys loaded into
+                          ssh-agent or gpg-agent. This means publickey authentication will not proceed unless
+                          explicitly named by ssh -i [identity_file] or in .ssh/config on a per-host basis.
+
+
+
+                          In the case of Yubikey usage, you do not have access to the private key, and identity_file
+                          can be pointed to the public key (.pub).
+
+
+
+                          $ ssh-add -L | grep "cardno:000605553211" > ~/.ssh/id_rsa_yubikey.pub
+                          Then, you can explicitly associate this Yubikey-stored key for used with the domain
+                          github.com (for example) as follows:
+
+
+
+                          $ cat << EOF >> ~/.ssh/config
+                          Host github.com
+                          
+                            IdentityFile ~/.ssh/id_rsa_yubikey.pub
+
+                            EOF
+                            Connect with public key authentication
+                            $ ssh git@github.com -vvv
+                            [...]
+                            debug2: key: cardno:000605553211 (0x1234567890),
+                            debug1: Authentications that can continue: publickey
+                            debug3: start over, passed a different list publickey
+                            debug3: preferred gssapi-keyex,gssapi-with-mic,publickey,keyboard-interactive,password
+                            debug3: authmethod_lookup publickey
+                            debug3: remaining preferred: keyboard-interactive,password
+                            debug3: authmethod_is_enabled publickey
+                            debug1: Next authentication method: publickey
+                            debug1: Offering RSA public key: cardno:000605553211
+                            debug3: send_pubkey_test
+                            debug2: we sent a publickey packet, wait for reply
+                            debug1: Server accepts key: pkalg ssh-rsa blen 535
+                            debug2: input_userauth_pk_ok: fp e5:de:a5:74:b1:3e:96:9b:85:46:e7:28:53:b4:82:c3
+                            debug3: sign_and_send_pubkey: RSA e5:de:a5:74:b1:3e:96:9b:85:46:e7:28:53:b4:82:c3
+                            debug1: Authentication succeeded (publickey).
+                            [...]
+                            Note To make multiple connections or securely transfer many files, consider using the
+                            ControlMaster ssh option. Also see drduh/config/ssh_config.
+
+
+                            Requiring touch to authenticate
+
+
+                            By default the Yubikey will perform key operations without requiring a touch from the user.
+                            To require a touch for every SSH connection, use the Yubikey Manager (you'll need the Admin
+                            PIN):
+
+
+                            ykman openpgp touch aut on
+
+
+                            To require a touch for the signing and encrypting keys as well:
+
+
+                            ykman openpgp touch sig on
+
+
+                            ykman openpgp touch enc on
+                            The Yubikey will blink when it's waiting for the touch.
+
+
+
+                            OpenBSD
+                            On OpenBSD, you will need to install pcsc-tools and enable with sudo rcctl enable pcscd,
+                            then reboot in order to recognize the key.
+
+
+
+                            Troubleshooting
+                            If you don't understand some option, read man gpg.
+
+
+
+                            If you encounter problems connecting to YubiKey with GPG, simply try unplugging and
+                            re-inserting your YubiKey, and restarting the gpg-agent process.
+
+
+
+                            If you receive the error, gpg: decryption failed: secret key not available - you likely
+                            need to install GnuPG version 2.x.
+
+
+
+                            If you receive the error, Yubikey core error: no yubikey present - make sure the YubiKey is
+                            inserted correctly. It should blink once when plugged in.
+
+
+
+                            If you still receive the error, Yubikey core error: no yubikey present - you likely need to
+                            install newer versions of yubikey-personalize as outlined in Install required software.
+
+
+
+                            If you receive the error, Yubikey core error: write error - YubiKey is likely locked.
+                            Install and run yubikey-personalization-gui to unlock it.
+
+
+
+                            If you receive the error, Key does not match the card's capability - you likely need to use
+                            2048 bit RSA key sizes.
+
+
+
+                            If you receive the error, sign_and_send_pubkey: signing failed: agent refused operation -
+                            you probably have ssh-agent running. Make sure you replaced ssh-agent with gpg-agent as
+                            noted above.
+
+
+
+                            If you still receive the error, sign_and_send_pubkey: signing failed: agent refused
+                            operation - On Debian, try gpg-connect-agent updatestartuptty /bye
+
+
+
+                            If you receive the error, Error connecting to agent: No such file or directory from ssh-add
+                            -L, the UNIX file socket that the agent uses for communication with other processes may not
+                            be set up correctly. On Debian, try export
+                            SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
+
+
+
+                            If you receive the error, Permission denied (publickey), increase ssh verbosity with the -v
+                            flag and ensure the public key from the card is being offered: Offering public key: RSA
+                            SHA256:abcdefg... cardno:00060123456. If it is, ensure you are connecting as the right user
+                            on the target system, rather than as the user on the local system. Otherwise, be sure
+                            IdentitiesOnly is not enabled for this host.
+
+
+
+                            If you totally screw up, you can reset the card.
+
+
+                            Yubikey OTP Mode and cccccccc....
+
+                            The Yubikey has two configurations, one invoked with a short press, and the other with
+                              a long press. By default the short-press mode is configured for HID OTP - a brief touch
+                              will emit an OTP string starting with cccccccc. If you rarely use the OTP mode, you can
+                              swap it to the second configuration via the Yubikey Personalization tool. If you never
+                              use OTP, you can disable it entirely using the Yubikey Manager application (note, this
+                              not the similarly named Yubikey NEO Manager).

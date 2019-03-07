@@ -1,0 +1,13 @@
+====== Includeexclude options ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Includeexclude options
+
+
+Created Saturday 12 May 2018
+
+
+
+duplicity --exclude /mnt --exclude /tmp --exclude /proc / file:///usr/local/backup

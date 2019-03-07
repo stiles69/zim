@@ -1,0 +1,13 @@
+====== List explicitly installed packages not in the base or base-devel groups ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List explicitly installed packages not in the base or base-devel groups
+
+
+Created Sunday 06 May 2018
+
+
+
+comm -23 <(pacman -Qeq | sort) <(pacman -Qgq base base-devel | sort)

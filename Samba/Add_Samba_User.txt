@@ -1,0 +1,53 @@
+====== Add Samba User ======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Add Samba User
+
+
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-05-15T02:11:45-06:00
+Created Tuesday 15 May 2018
+
+
+
+smbpasswd -a demoUser
+New SMB password: Passw0rd
+Retype new SMB password: Passw0rd
+Added user demoUser.

@@ -1,0 +1,18 @@
+====== Remove First Period from Filename with Sed ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Remove First Period from Filename with Sed
+
+
+Created Wednesday 11 July 2018
+
+
+
+for file in *; do
+
+    newname=$(echo $file | tr '.' '_' | sed 's/\(.*\)_\([^_]*\)$/\1.\2/g')
+    [ "$newname" != "$file" ] &amp;&amp; mv "$file" "$newname"
+
+    done

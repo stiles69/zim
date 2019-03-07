@@ -1,0 +1,55 @@
+====== Change Permission chmod with rsync ======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Change Permission chmod with rsync
+
+
+Created Sunday 20 May 2018
+
+
+
+
+
+where the X symbolic mode means:
+execute/search only if the file is a directory or
+already has execute permission for some use:
+
+
+
+rsync --include="file*" --exclude="*" -avh --chmod=ugo=rwX source/ destination/

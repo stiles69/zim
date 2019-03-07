@@ -1,0 +1,32 @@
+====== app deploy ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+app deploy
+
+
+Created Tuesday 20 March 2018
+
+
+
+gcloud app deploy --version notrunning --no-promote
+The --no-promote will prevent the version from getting traffic.
+
+
+
+gcloud app deploy ~/my_app/app.yaml --project=PROJECT 
+This will deploy your app to a different project then is configured in gcloud init.
+
+
+
+gcloud app deploy
+Will stop the previous version from running.
+
+
+
+vim
+
+
+
+

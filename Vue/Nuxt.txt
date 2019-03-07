@@ -1,0 +1,20 @@
+====== Nuxt ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Nuxt
+
+
+Created Monday 26 February 2018
+
+
+
+vue init nuxt-community/starter-template <project-name>
+
+
+
+
+
+For Node Express:
+vue init nuxt-community/express-template <project-name>

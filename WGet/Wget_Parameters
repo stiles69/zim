@@ -1,0 +1,14 @@
+
+wget -r -nH -nc -np -R "*amd64*, *.png, *.jpeg, *.gif, *.svg"
+
+For instance:
+
+wget -r -nH -nd -np -A "*.html" -R *.gz, *.tar http://www1.ncdc.noaa.gov/pub/data/noaa/1990/
+
+# -r : recursive 
+# -nH : Disable generation of host-prefixed directories 
+# -nc : No Clobber Skips Existing
+# -nd : all files will get saved to the current directory 
+# -np : Do not ever ascend to the parent directory when retrieving recursively. 
+# -R : don't download files with this files pattern 
+# -A : get only *.html files (for this case)

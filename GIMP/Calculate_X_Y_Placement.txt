@@ -1,0 +1,17 @@
+====== Calculate X Y Placement ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Calculate X Y Placement
+
+
+Created Monday 19 March 2018
+
+
+
+Take (Height or Width of Bigger Object/2) -(Height or Width of Smaller Object /4 or * 1.25)
+Bigger Object w=200.42 h=199.58 Smaller Object w=50 h=55
+x=((200.42÷2)−(50×1.5)) or 25.210
+y=((199.58÷2)−(55÷4)) or 86.040
+You multiply if object is farther away from 0,0 which is lower right

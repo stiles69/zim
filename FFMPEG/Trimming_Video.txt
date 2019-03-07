@@ -1,0 +1,19 @@
+====== Trimming Video ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Trimming Video
+
+
+Created Monday 22 January 2018
+
+
+
+ffmpeg -i input.mkv -c:av copy -ss 00:01:00 -t 10 output.mkv
+
+
+
+This will copy the video and audio streams (-c:av copy) but will trim the video. The -t option sets the cut duration
+    to be 10 seconds and the -ss option sets the start point of the video for trimming, in this case at one minute
+    (00:01:00). You can be more precise than just hours, minutes, and seconds, going down to milliseconds if needed.

@@ -1,0 +1,12 @@
+====== SSH_Run_Remote_Script ======
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+SSH_Run_Remote_Script
+
+
+ssh -t -o StrictHostKeyChecking=no <a href="mailto:brettsalemink@pi64.roguedesigns.us" title="brettsalemink@pi64.roguedesigns.us"
+ class="mailto">brettsalemink@pi64.roguedesigns.us $HOME/bin/update/Update-Manjaro.sh

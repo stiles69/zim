@@ -1,0 +1,26 @@
+====== Backup ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-06-24T14:12:32-05:00
+
+
+Backup
+
+
+Created Sunday 24 June 2018
+
+
+
+duplicate-cli <command> [storage-URL] [arguments] [advanced-options]
+
+
+
+duplicate-cli backup brett.salemink@gmail.com' --auth-password='Vizio#2013'
+
+

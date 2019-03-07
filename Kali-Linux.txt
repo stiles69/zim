@@ -1,0 +1,19 @@
+====== Kali-Linux ======
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Kali-Linux
+
+
+Created Saturday 05 May 2018
+
+
+
++Default User
+and Password

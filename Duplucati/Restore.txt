@@ -1,0 +1,40 @@
+====== Restore ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-06-24T14:12:32-05:00
+
+
+Restore
+
+
+Created Sunday 24 June 2018
+
+
+
+duplicate-cli restore mega://Data/Backups/PI64 ["<filename>"] [<options>]
+
+
+
+This will restore <filename> to its original location. If the specified filename exists already, a timestamp will
+be added to the filename. If you want to restore all files, use "*" or leave the filename empty.
+
+
+
+Some advanced options frequently used with restore operations are:
+
+
+
+--overwrite=<boolean>
+Overwrites existing files.
+--restore-path=<string>
+Restores files to instead of their original destination. Top folders are removed if possible.
+--time=<time>
+Restore files that are older than the specified time.
+--version=<int>
+Restore files from a specific backup.

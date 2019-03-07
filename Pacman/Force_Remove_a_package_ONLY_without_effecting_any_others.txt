@@ -1,0 +1,13 @@
+====== Force Remove a package ONLY without effecting any others ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Force Remove a package ONLY without effecting any others
+
+
+Created Monday 21 May 2018
+
+
+
+pacman -Rdd package

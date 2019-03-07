@@ -1,0 +1,198 @@
+====== Installation Instructions ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Installation Instructions
+
+
+Created Monday 04 June 2018
+QuickStart
+
+
+
+Username: root
+Password: raspberrypi64
+
+
+
+After Boot to Add User:
+pi64 ~ # useradd --create-home --groups "adm,disk,lp,wheel,audio,video,cdrom,usb,users,plugdev,portage" --shell
+/bin/bash --comment "Sakaki" sakaki
+pi64 ~ # passwd sakaki
+New password: <type your desired password for the new user, and press Enter>
+Retype new password: <type the desired password again, and press Enter>
+passwd: password updated successfully
+Username: root
+Password: raspberrypi64
+
+
+
+After Boot to Add User:
+pi64 ~ # useradd --create-home --groups "adm,disk,lp,wheel,audio,video,cdrom,usb,users,plugdev,portage" --shell
+/bin/bash --comment "Sakaki" sakaki
+pi64 ~ # passwd sakaki
+New password: <type your desired password for the new user, and press Enter>
+Retype new password: <type the desired password again, and press Enter>
+passwd: password updated successfully
+Then, once logged in, you can delete the demouser account if you like. Open a terminal, su to root, then:
+pi64 ~ # userdel --remove demouser
+userdel: demouser mail spool (/var/spool/mail/demouser) not found
+
+
+
+Note that by default, this script will run automatically once per week, commencing the second week after first boot
+(see the task installed in /etc/cron.weekly). Review the logfile /var/log/latest-genup-run.log to see changes made by
+the latest auto-update run.
+
+
+
+If you would rather not use auto-updating, simply edit the file /etc/portage/package.use/rpi3-64bit-meta so it reads
+(the relevant line is the last one):
+
+
+
+# enable/disable any metapackage USE flags you want here, and then
+# re-emerge dev-embedded/rpi3-64bit-meta to have the effect taken up
+# e.g.:
+#
+# dev-embedded/rpi3-64bit-meta -weekly-genup -porthash
+#
+# (uncommented) to disable the automated weekly genup (package update)
+# run, and to disable the requirement for a signature check on the
+# isshoni.org rsync mirror
+#
+# unless you so specify, we accept all existing default metapackage flags:
+# at the time of writing, those were (default flag status shown as + or -):
+#
+# + boot-fw : pull in the /boot firmware, configs and bootloader
+# + kernel-bin : pull in the binary kernel package
+# + porthash : pull in repo signature checker, for isshoni.org rsync
+# + weekly-genup: pull in cron.weekly script, to run genup automatically
+# + core: pull in core system packages for image (sudo etc.)
+# + xfce: pull in packages for baseline Xfce4 system (requires core)
+# - pitop: pull in Pi-Top support packages (NB most users will NOT want this;
+# the Pi-Top is a DIY laptop kit based around the RPi3) (requires xfce)
+# - apps: pull in baseline desktop apps (libreoffice etc.) (requires xfce)
+#
+# NB the main point of the core, xfce, pitop and apps USE flags is just to let
+# you reduce what is in your @world set (/var/lib/portage/world).
+dev-embedded/rpi3-64bit-meta -weekly-genup
+
+
+
+
+
+pi64 ~ # emerge -v rpi3-64bit-meta
+
+
+
+Installing New Packages Under Gentoo
+You can add any additional packages you like to your RPi3. To search for available packages, you can use the
+(pre-installed) eix tool. For example, to search for all packages with 'hex editor' in their description:
+
+
+
+demouser@pi64 ~ $ eix --description --compact "hex.editor"
+[N] app-editors/curses-hexedit (--): full screen curses hex editor (with insert/delete support)
+[N] app-editors/dhex (--): ncurses-based hex-editor with diff mode
+[N] app-editors/hexcurse (--): ncurses based hex editor
+[N] app-editors/lfhex (--): A fast hex-editor with support for large files and comparing binary files
+[N] app-editors/qhexedit2 (--): Hex editor library, Qt application written in C++ with Python bindings
+[N] app-editors/shed (--): Simple Hex EDitor
+[N] app-editors/wxhexeditor (--): A cross-platform hex editor designed specially for large files
+[N] dev-util/bless (--): GTK# Hex Editor
+Found 8 matches
+
+
+
+demouser@pi64 ~ $ eix --verbose app-editors/shed
+
+	app-editors/shed
+
+
+	Available versions: *1.12 *1.13 ~*1.15
+	Homepage: http://shed.sourceforge.net/
+	Find open bugs: https://bugs.gentoo.org/buglist.cgi?quicksearch=app-editors%2Fshed
+	Description: Simple Hex EDitor
+	License: GPL-2
+
+
+
+
+	Because the Pi has no battery-backed real time clock (RTC), I have used the swclock (rather than the more usual
+	hwclock) OpenRC boot service on the image - this simply sets the clock on boot to the recorded last shutdown time. An
+	NTP client, chronyd, is also configured, and this will set the correct time as soon as a valid network connection is
+	established.
+
+
+
+	The image is configured with NetworkManager, so achieving network connectivity should be straightforward. The Ethernet
+	interface is initially configured as a DHCP client, but obviously you can modify this as needed. Use the
+	NetworkManager applet (top right of your screen) to do this; you can also use this tool to connect to a WiFi network.
+
+
+
+	Bluetooth is operational on this image, but since, by default, the Raspberry Pi 3 uses the hardware UART / ttyAMA0 to
+	communicate with the Bluetooth adaptor, the standard serial console does not work and has been disabled on this image
+	(see /etc/inittab and /boot/cmdline.txt). You can of course change this behaviour if access to the hardware serial
+	port is important to you.
+
+
+
+	The Pi3 uses the first (vfat) partition of the microSD card (/dev/mmcblk0p1) for booting. The various (closed-source)
+	firmware files pre-installed there may are managed by the sys-boot/rpi3-64bit-firmware package (see below). Once
+	booted, this first partition will be mounted at /boot, and you may wish to check or modify the contents of the files
+	/boot/cmdline.txt and /boot/config.txt.
+
+
+
+	The frequency governor is switched to ondemand (from the default, powersave), for better performance, as of version
+	1.0.1. This is managed by the sys-apps/rpi3-ondemand-cpufreq package (see below).
+
+
+
+	If you are using an RPi3 Model B board, the frequency will switch dynamically between 600MHz and 1.2GHz, depending on
+	load. On a Model B+, it will switch between 600MHz and 1.4GHz.
+
+
+
+	PermitRootLogin yes has explicitly been set in /etc/ssh/sshd_config, and sshd is present in the default runlevel. This
+	is for initial convenience only - feel free to adopt a more restrictive configuration.
+
+
+
+	As of version 1.0.1, all users in the wheel group (which includes demouser) have a passwordless sudo ability for all
+	commands. Modify /etc/sudoers via visudo to change this, if desired (the relevant line is %wheel ALL=(ALL) NOPASSWD:
+	ALL).
+
+
+
+	As mentioned above, by default on first boot the image will attempt to automatically expand the root (second)
+	partition to fill all remaining free space on the microSD card. If, for some reason, you elected not to do this (and
+	so renamed the sentinel file autoexpand_root_partition to autoexpand_root_none prior to first boot), you can easily
+	expand the size of the second (root) partition manually, so that you have more free space to work in, using the tools
+	(fdisk and resize2fs). See these instructions, for example. I strongly recommend you do expand the root partition
+	(whether using the default, first-boot mechanism or manually) if you are intending to perform large package (or
+	kernel) builds on your Pi (it isn't necessary just to play around with the image of course).
+
+
+
+	You can easily install (and run) 32-bit Raspbian apps on your 64-bit Gentoo system if you like (using apt-get from a
+	chroot), since ARMv8 supports mixed-mode userland. If this interests you, please see my wiki entry on this subject,
+	here.
+
+
+
+	To install source packages with resource-intensive build profiles, you can temporarily mount the image within a
+	binfmt_misc QEMU user-mode chroot on your PC, and perform the emerge there. For further details, please see my wiki
+	tutorial here.
+
+
+
+	If you would like to run benchmarks on your RPi3 system, please see these notes.
+
+
+
+	You can easily remove unwanted applications, and even the Xfce4 graphical desktop itself, from your 64-bit Gentoo
+	system if desired. To do so, please refer to my notes Remove Graphic Desktop.

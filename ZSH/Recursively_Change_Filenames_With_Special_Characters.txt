@@ -1,0 +1,12 @@
+====== Recursively Change Filenames With Special Characters ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+# Recursively change filenames with characters ? [ ] / = + < > ; : " , - *
+
+
+
+# autoload zmv autoload zmv $ chars='[][?=+<>;",-]' $ zmv '(**/)()' '$1${2//$~chars/%}'
+#

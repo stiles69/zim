@@ -1,0 +1,56 @@
+====== Create and manage volumes ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Create and manage volumes
+
+
+Created Monday 07 May 2018
+
+
+
+Unlike a bind mount, you can create and manage volumes outside the scope of any container.
+
+
+
+Create a volume:
+
+
+
+$ docker volume create my-vol
+List volumes:
+
+
+
+$ docker volume ls
+
+
+
+local my-vol
+Inspect a volume:
+
+
+
+$ docker volume inspect my-vol
+[
+
+    {
+
+    
+        "Driver": "local",
+        "Labels": {},
+        "Mountpoint": "/var/lib/docker/volumes/my-vol/_data",
+        "Name": "my-vol",
+        "Options": {},
+        "Scope": "local"
+
+        
+            }
+
+            ]
+            Remove a volume:
+
+
+
+            $ docker volume rm my-vol

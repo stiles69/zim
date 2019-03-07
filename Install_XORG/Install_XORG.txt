@@ -1,0 +1,28 @@
+====== Install XORG ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Install XORG
+
+
+Created Sunday 07 January 2018
+
+
+
+Install XORG
+
+
+
+Xorg
+Related articles
+Autostarting
+Display manager
+Window manager
+Font configuration
+Cursor themes
+Desktop environment
+Wayland
+xinit
+xrandr
+From http://www.x.org/wiki/:

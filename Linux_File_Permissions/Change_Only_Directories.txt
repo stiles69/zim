@@ -1,0 +1,17 @@
+====== Change Only Directories ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Change Only Directories
+
+
+Created Sunday 01 April 2018
+
+
+
+To chmod only directories to 755:
+
+
+
+$ find directory -type d -exec chmod 755 {} +

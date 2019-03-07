@@ -1,0 +1,696 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Webcam Info</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>Webcam Info</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+Webcam Info
+</p>
+
+<br>
+
+<p>
+Created Monday 22 January 2018
+</p>
+
+<br>
+<br>
+
+<p>
+ffmpeg -f v4l2 -framerate 20 -video_size 320x232 -i /dev/video0 -c:v libx264 -preset veryfast -maxrate 3000k<br>
+  -bufsize 10000k -vf "format=yuvj422p" output.mp4
+</p>
+
+<br>
+<br>
+
+<p>
+Compressed: mjpeg : JFIF JPEG : 320x232 640x472
+</p>
+
+<br>
+<br>
+
+<p>
+Stream #0:0: Video: mjpeg,<br>
+(pc, bt470bg/unknown/unknown), 320x232, 31 tbr, 1000k tbn, 1000k tbc
+</p>
+
+<br>
+<br>
+
+<p>
+USB Camera (046d:089d) (usb-0000:00:1a.0-1.1):<br>
+/dev/video0
+</p>
+
+<br>
+<br>
+
+<p>
+User Controls
+</p>
+
+<br>
+<br>
+
+<p>
+brightness (int) : min=0 max=255 step=1 default=128 value=128 flags=slider<br>
+contrast (int) : min=0 max=255 step=1 default=128 value=128 flags=slider<br>
+gamma (int) : min=1 max=6 step=1 default=4 value=4 flags=slider<br>
+gain_automatic (bool) : default=1 value=1<br>
+power_line_frequency (menu) : min=0 max=2 default=0 value=0<br>
+0: Disabled<br>
+1: 50 Hz<br>
+2: 60 Hz<br>
+sharpness (int) : min=0 max=3 step=1 default=2 value=2 flags=slider
+</p>
+
+<br>
+<br>
+
+<p>
+JPEG Compression Controls
+</p>
+
+<br>
+<br>
+
+<p>
+compression_quality (int) : min=50 max=87 step=1 default=75 value=75
+</p>
+
+<br>
+<br>
+
+<p>
+4.30.2 Example
+</p>
+
+<br>
+<br>
+
+<p>
+ffmpeg -f v4l2 -i /dev/video0 \
+</p>
+
+<p>
+  -f alsa -i hw:0 \<br>
+  -map 0:0 \<br>
+  -c:v libvpx-vp9 \<br>
+  -s 640x360 -keyint_min 30 -g 30 \<br>
+  -f webm_chunk \<br>
+  -header webm_live_video_360.hdr \<br>
+  -chunk_start_index 1 \<br>
+  webm_live_video_360_%d.chk \<br>
+  -map 1:0 \<br>
+  -c:a libvorbis \<br>
+  -b:a 128k \<br>
+  -f webm_chunk \<br>
+  -header webm_live_audio_128.hdr \<br>
+  -chunk_start_index 1 \<br>
+  -audio_chunk_duration 1000 \<br>
+  webm_live_audio_128_%d.chk
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+  Encoding example
+</p>
+
+<br>
+<br>
+
+<p>
+  Example to encode video from /dev/video0:
+</p>
+
+<br>
+<br>
+
+<p>
+  ffmpeg -f v4l2 -framerate 25 -video_size 640x480 -i /dev/video0 output.mkv
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+  Adjusting camera functions
+</p>
+
+<br>
+<br>
+
+<p>
+  Brightness, zoom, focus, etc, can be adjusted with v4l2-ctl. Display all controls and their menus:
+</p>
+
+<br>
+<br>
+
+<p>
+  v4l2-ctl -L
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+  Then adjust the value:
+</p>
+
+<br>
+<br>
+
+<p>
+  v4l2-ctl -c &lt;option&gt;=&lt;value&gt;
+</p>
+
+<br>
+<br>
+
+<p>
+  libavutil 55. 78.100 / 55. 78.100<br>
+  libavcodec 57.107.100 / 57.107.100<br>
+  libavformat 57. 83.100 / 57. 83.100<br>
+  libavdevice 57. 10.100 / 57. 10.100<br>
+  libavfilter 6.107.100 / 6.107.100<br>
+  libavresample 3. 7. 0 / 3. 7. 0<br>
+  libswscale 4. 8.100 / 4. 8.100<br>
+  libswresample 2. 9.100 / 2. 9.100<br>
+  libpostproc 54. 7.100 / 54. 7.100<br>
+  Codecs:<br>
+  D..... = Decoding supported<br>
+  .E.... = Encoding supported<br>
+  ..V... = Video codec<br>
+  ..A... = Audio codec<br>
+  ..S... = Subtitle codec<br>
+  ...I.. = Intra frame-only codec<br>
+  ....L. = Lossy compression<br>
+  .....S = Lossless compression<br>
+  -------<br>
+  D.VI.S 012v Uncompressed 4:2:2 10-bit<br>
+  D.V.L. 4xm 4X Movie<br>
+  D.VI.S 8bps QuickTime 8BPS video<br>
+  .EVIL. a64_multi Multicolor charset for Commodore 64 (encoders: a64multi )<br>
+  .EVIL. a64_multi5 Multicolor charset for Commodore 64, extended with 5th color (colram) (encoders: a64multi5 )<br>
+  D.V..S aasc Autodesk RLE<br>
+  D.VIL. aic Apple Intermediate Codec<br>
+  DEVI.S alias_pix Alias/Wavefront PIX image<br>
+  DEVIL. amv AMV Video<br>
+  D.V.L. anm Deluxe Paint Animation<br>
+  D.V.L. ansi ASCII/ANSI art<br>
+  DEV..S apng APNG (Animated Portable Network Graphics) image<br>
+  DEVIL. asv1 ASUS V1<br>
+  DEVIL. asv2 ASUS V2<br>
+  D.VIL. aura Auravision AURA<br>
+  D.VIL. aura2 Auravision Aura 2<br>
+  ..V.L. av1 Alliance for Open Media AV1<br>
+  D.V... avrn Avid AVI Codec<br>
+  DEVI.S avrp Avid 1:1 10-bit RGB Packer<br>
+  D.V.L. avs AVS (Audio Video Standard) video<br>
+  DEVI.S avui Avid Meridien Uncompressed<br>
+  DEVI.S ayuv Uncompressed packed MS 4:4:4:4<br>
+  D.V.L. bethsoftvid Bethesda VID video<br>
+  D.V.L. bfi Brute Force &amp;amp; Ignorance<br>
+  D.V.L. binkvideo Bink video<br>
+  D.VI.. bintext Binary text<br>
+  D.VI.S bitpacked Bitpacked<br>
+  DEVI.S bmp BMP (Windows and OS/2 bitmap)<br>
+  D.V..S bmv_video Discworld II BMV video<br>
+  D.VI.S brender_pix BRender PIX image<br>
+  D.V.L. c93 Interplay C93<br>
+  DEV.L. cavs Chinese AVS (Audio Video Standard) (AVS1-P2, JiZhun profile) (encoders: libxavs )<br>
+  D.V.L. cdgraphics CD Graphics video<br>
+  D.VIL. cdxl Commodore CDXL video<br>
+  D.V.L. cfhd Cineform HD<br>
+  DEV.L. cinepak Cinepak<br>
+  D.V.L. clearvideo Iterated Systems ClearVideo<br>
+  DEVIL. cljr Cirrus Logic AccuPak<br>
+  D.VI.S cllc Canopus Lossless Codec<br>
+  D.V.L. cmv Electronic Arts CMV video (decoders: eacmv )<br>
+  D.V... cpia CPiA video format<br>
+  D.V..S cscd CamStudio (decoders: camstudio )<br>
+  D.VIL. cyuv Creative YUV (CYUV)<br>
+  ..V.LS daala Daala<br>
+  D.VILS dds DirectDraw Surface image decoder<br>
+  D.V.L. dfa Chronomaster DFA<br>
+  DEV.LS dirac Dirac (encoders: vc2 )<br>
+  DEVIL. dnxhd VC3/DNxHD<br>
+  DEVI.S dpx DPX (Digital Picture Exchange) image<br>
+  D.V.L. dsicinvideo Delphine Software International CIN video<br>
+  DEVIL. dvvideo DV (Digital Video)<br>
+  D.V..S dxa Feeble Files/ScummVM DXA<br>
+  D.VI.S dxtory Dxtory<br>
+  D.VIL. dxv Resolume DXV<br>
+  D.V.L. escape124 Escape 124<br>
+  D.V.L. escape130 Escape 130<br>
+  D.VILS exr OpenEXR image<br>
+  DEV..S ffv1 FFmpeg video codec #1<br>
+  DEVI.S ffvhuff Huffyuv FFmpeg variant<br>
+  D.V.L. fic Mirillis FIC<br>
+  DEVI.S fits FITS (Flexible Image Transport System)<br>
+  DEV..S flashsv Flash Screen Video v1<br>
+  DEV.L. flashsv2 Flash Screen Video v2<br>
+  D.V..S flic Autodesk Animator Flic video<br>
+  DEV.L. flv1 FLV / Sorenson Spark / Sorenson H.263 (Flash Video) (decoders: flv ) (encoders: flv )<br>
+  D.V..S fmvc FM Screen Capture Codec<br>
+  D.VI.S fraps Fraps<br>
+  D.VI.S frwu Forward Uncompressed<br>
+  D.V.L. g2m Go2Meeting<br>
+  D.V.L. gdv Gremlin Digital Video<br>
+  DEV..S gif GIF (Graphics Interchange Format)<br>
+  DEV.L. h261 H.261<br>
+  DEV.L. h263 H.263 / H.263-1996, H.263+ / H.263-1998 / H.263 version 2 (decoders: h263 h263_v4l2m2m ) (encoders: h263<br>
+  h263_v4l2m2m )<br>
+  D.V.L. h263i Intel H.263<br>
+  DEV.L. h263p H.263+ / H.263-1998 / H.263 version 2<br>
+  DEV.LS h264 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 (decoders: h264 h264_v4l2m2m h264_qsv h264_vdpau libopenh264<br>
+  h264_cuvid ) (encoders: libx264 libx264rgb libopenh264 h264_nvenc h264_omx h264_qsv h264_v4l2m2m h264_vaapi nvenc<br>
+  nvenc_h264 )<br>
+  DEVIL. hap Vidvox Hap<br>
+  DEV.L. hevc H.265 / HEVC (High Efficiency Video Coding) (decoders: hevc hevc_qsv hevc_cuvid ) (encoders: libx265<br>
+  nvenc_hevc hevc_nvenc hevc_qsv hevc_vaapi libkvazaar )<br>
+  D.V.L. hnm4video HNM 4 video<br>
+  D.VIL. hq_hqa Canopus HQ/HQA<br>
+  D.VIL. hqx Canopus HQX<br>
+  DEVI.S huffyuv HuffYUV<br>
+  D.V.L. idcin id Quake II CIN video (decoders: idcinvideo )<br>
+  D.VI.. idf iCEDraw text<br>
+  D.V.L. iff_ilbm IFF ACBM/ANIM/DEEP/ILBM/PBM/RGB8/RGBN (decoders: iff )<br>
+  D.V.L. indeo2 Intel Indeo 2<br>
+  D.V.L. indeo3 Intel Indeo 3<br>
+  D.V.L. indeo4 Intel Indeo Video Interactive 4<br>
+  D.V.L. indeo5 Intel Indeo Video Interactive 5<br>
+  D.V.L. interplayvideo Interplay MVE video<br>
+  DEVILS jpeg2000 JPEG 2000 (decoders: jpeg2000 libopenjpeg ) (encoders: jpeg2000 libopenjpeg )<br>
+  DEVILS jpegls JPEG-LS<br>
+  D.VIL. jv Bitmap Brothers JV video<br>
+  D.V.L. kgv1 Kega Game Video<br>
+  D.V.L. kmvc Karl Morton's video codec<br>
+  D.VI.S lagarith Lagarith lossless<br>
+  .EVI.S ljpeg Lossless JPEG<br>
+  D.VI.S loco LOCO<br>
+  D.VI.S m101 Matrox Uncompressed SD<br>
+  D.V.L. mad Electronic Arts Madcow Video (decoders: eamad )<br>
+  D.VI.S magicyuv MagicYUV video<br>
+  D.VIL. mdec Sony PlayStation MDEC (Motion DECoder)<br>
+  D.V.L. mimic Mimic<br>
+  DEVIL. mjpeg Motion JPEG (decoders: mjpeg mjpeg_cuvid ) (encoders: mjpeg mjpeg_vaapi )<br>
+  D.VIL. mjpegb Apple MJPEG-B<br>
+  D.V.L. mmvideo American Laser Games MM Video<br>
+  D.V.L. motionpixels Motion Pixels video<br>
+  DEV.L. mpeg1video MPEG-1 video (decoders: mpeg1video mpeg1video_vdpau mpeg1_v4l2m2m mpeg1_cuvid )<br>
+  DEV.L. mpeg2video MPEG-2 video (decoders: mpeg2video mpegvideo mpegvideo_vdpau mpeg2_v4l2m2m mpeg2_qsv mpeg2_cuvid )<br>
+  (encoders: mpeg2video mpeg2_qsv mpeg2_vaapi )<br>
+  DEV.L. mpeg4 MPEG-4 part 2 (decoders: mpeg4 mpeg4_v4l2m2m mpeg4_vdpau mpeg4_cuvid ) (encoders: mpeg4 libxvid<br>
+  mpeg4_v4l2m2m )<br>
+  D.V.L. mpegvideo_xvmc MPEG-1/2 video XvMC (X-Video Motion Compensation)<br>
+  D.V.L. msa1 MS ATC Screen<br>
+  D.VI.S mscc Mandsoft Screen Capture Codec<br>
+  D.V.L. msmpeg4v1 MPEG-4 part 2 Microsoft variant version 1<br>
+  DEV.L. msmpeg4v2 MPEG-4 part 2 Microsoft variant version 2<br>
+  DEV.L. msmpeg4v3 MPEG-4 part 2 Microsoft variant version 3 (decoders: msmpeg4 ) (encoders: msmpeg4 )<br>
+  D.V..S msrle Microsoft RLE<br>
+  D.V.L. mss1 MS Screen 1<br>
+  D.VIL. mss2 MS Windows Media Video V9 Screen<br>
+  DEV.L. msvideo1 Microsoft Video 1<br>
+  D.VI.S mszh LCL (LossLess Codec Library) MSZH<br>
+  D.V.L. mts2 MS Expression Encoder Screen<br>
+  D.VIL. mvc1 Silicon Graphics Motion Video Compressor 1<br>
+  D.VIL. mvc2 Silicon Graphics Motion Video Compressor 2<br>
+  D.V.L. mxpeg Mobotix MxPEG video<br>
+  D.V.L. nuv NuppelVideo/RTJPEG<br>
+  D.V.L. paf_video Amazing Studio Packed Animation File Video<br>
+  DEVI.S pam PAM (Portable AnyMap) image<br>
+  DEVI.S pbm PBM (Portable BitMap) image<br>
+  DEVI.S pcx PC Paintbrush PCX image<br>
+  DEVI.S pgm PGM (Portable GrayMap) image<br>
+  DEVI.S pgmyuv PGMYUV (Portable GrayMap YUV) image<br>
+  D.VIL. pictor Pictor/PC Paint<br>
+  D.VIL. pixlet Apple Pixlet<br>
+  DEV..S png PNG (Portable Network Graphics) image<br>
+  DEVI.S ppm PPM (Portable PixelMap) image<br>
+  DEVIL. prores Apple ProRes (iCodec Pro) (decoders: prores prores_lgpl ) (encoders: prores prores_aw prores_ks )<br>
+  D.VI.S psd Photoshop PSD file<br>
+  D.VIL. ptx V.Flash PTX image<br>
+  D.VI.S qdraw Apple QuickDraw<br>
+  D.V.L. qpeg Q-team QPEG<br>
+  DEV..S qtrle QuickTime Animation (RLE) video<br>
+  DEVI.S r10k AJA Kona 10-bit RGB Codec<br>
+  DEVI.S r210 Uncompressed RGB 10-bit<br>
+  DEVI.S rawvideo raw video<br>
+  D.VIL. rl2 RL2 video<br>
+  DEV.L. roq id RoQ video (decoders: roqvideo ) (encoders: roqvideo )<br>
+  D.V.L. rpza QuickTime video (RPZA)<br>
+  D.V..S rscc innoHeim/Rsupport Screen Capture Codec<br>
+  DEV.L. rv10 RealVideo 1.0<br>
+  DEV.L. rv20 RealVideo 2.0<br>
+  D.V.L. rv30 RealVideo 3.0<br>
+  D.V.L. rv40 RealVideo 4.0<br>
+  D.V.L. sanm LucasArts SANM/SMUSH video<br>
+  D.V.LS scpr ScreenPressor<br>
+  D.V..S screenpresso Screenpresso<br>
+  DEVI.S sgi SGI image<br>
+  D.VI.S sgirle SGI RLE 8-bit<br>
+  D.VI.S sheervideo BitJazz SheerVideo<br>
+  D.V.L. smackvideo Smacker video (decoders: smackvid )<br>
+  D.V.L. smc QuickTime Graphics (SMC)<br>
+  D.V... smvjpeg Sigmatel Motion Video<br>
+  DEV.LS snow Snow<br>
+  D.VIL. sp5x Sunplus JPEG (SP5X)<br>
+  D.VIL. speedhq NewTek SpeedHQ<br>
+  D.VI.S srgc Screen Recorder Gold Codec<br>
+  DEVI.S sunrast Sun Rasterfile image<br>
+  D.V..S svg Scalable Vector Graphics (decoders: librsvg )<br>
+  DEV.L. svq1 Sorenson Vector Quantizer 1 / Sorenson Video 1 / SVQ1<br>
+  D.V.L. svq3 Sorenson Vector Quantizer 3 / Sorenson Video 3 / SVQ3<br>
+  DEVI.S targa Truevision Targa image<br>
+  D.VI.S targa_y216 Pinnacle TARGA CineWave YUV16<br>
+  D.V.L. tdsc TDSC<br>
+  D.V.L. tgq Electronic Arts TGQ video (decoders: eatgq )<br>
+  D.V.L. tgv Electronic Arts TGV video (decoders: eatgv )<br>
+  DEV.L. theora Theora (encoders: libtheora )<br>
+  D.VIL. thp Nintendo Gamecube THP video<br>
+  D.V.L. tiertexseqvideo Tiertex Limited SEQ video<br>
+  DEVI.S tiff TIFF image<br>
+  D.VIL. tmv 8088flex TMV<br>
+  D.V.L. tqi Electronic Arts TQI video (decoders: eatqi )<br>
+  D.V.L. truemotion1 Duck TrueMotion 1.0<br>
+  D.V.L. truemotion2 Duck TrueMotion 2.0<br>
+  D.V.L. truemotion2rt Duck TrueMotion 2.0 Real Time<br>
+  D.V..S tscc TechSmith Screen Capture Codec (decoders: camtasia )<br>
+  D.V.L. tscc2 TechSmith Screen Codec 2<br>
+  D.VIL. txd Renderware TXD (TeXture Dictionary) image<br>
+  D.V.L. ulti IBM UltiMotion (decoders: ultimotion )<br>
+  DEVI.S utvideo Ut Video<br>
+  DEVI.S v210 Uncompressed 4:2:2 10-bit<br>
+  D.VI.S v210x Uncompressed 4:2:2 10-bit<br>
+  DEVI.S v308 Uncompressed packed 4:4:4<br>
+  DEVI.S v408 Uncompressed packed QT 4:4:4:4<br>
+  DEVI.S v410 Uncompressed 4:4:4 10-bit<br>
+  D.V.L. vb Beam Software VB<br>
+  D.VI.S vble VBLE Lossless Codec<br>
+  D.V.L. vc1 SMPTE VC-1 (decoders: vc1 vc1_vdpau vc1_qsv vc1_v4l2m2m vc1_cuvid )<br>
+  D.V.L. vc1image Windows Media Video 9 Image v2<br>
+  D.VIL. vcr1 ATI VCR1<br>
+  D.VIL. vixl Miro VideoXL (decoders: xl )<br>
+  D.V.L. vmdvideo Sierra VMD video<br>
+  D.V..S vmnc VMware Screen Codec / VMware Video<br>
+  D.V.L. vp3 On2 VP3<br>
+  D.V.L. vp5 On2 VP5<br>
+  D.V.L. vp6 On2 VP6<br>
+  D.V.L. vp6a On2 VP6 (Flash version, with alpha channel)<br>
+  D.V.L. vp6f On2 VP6 (Flash version)<br>
+  D.V.L. vp7 On2 VP7<br>
+  DEV.L. vp8 On2 VP8 (decoders: vp8 vp8_v4l2m2m libvpx vp8_cuvid vp8_qsv ) (encoders: libvpx vp8_v4l2m2m vp8_vaapi )<br>
+  DEV.L. vp9 Google VP9 (decoders: vp9 vp9_v4l2m2m libvpx-vp9 vp9_cuvid ) (encoders: libvpx-vp9 vp9_vaapi )<br>
+  DEVILS webp WebP (encoders: libwebp_anim libwebp )<br>
+  DEV.L. wmv1 Windows Media Video 7<br>
+  DEV.L. wmv2 Windows Media Video 8<br>
+  D.V.L. wmv3 Windows Media Video 9 (decoders: wmv3 wmv3_vdpau )<br>
+  D.V.L. wmv3image Windows Media Video 9 Image<br>
+  D.VIL. wnv1 Winnov WNV1<br>
+  DEV..S wrapped_avframe AVFrame to AVPacket passthrough<br>
+  D.V.L. ws_vqa Westwood Studios VQA (Vector Quantized Animation) video (decoders: vqavideo )<br>
+  D.V.L. xan_wc3 Wing Commander III / Xan<br>
+  D.V.L. xan_wc4 Wing Commander IV / Xxan<br>
+  D.VI.. xbin eXtended BINary text<br>
+  DEVI.S xbm XBM (X BitMap) image<br>
+  DEVIL. xface X-face image<br>
+  D.VI.S xpm XPM (X PixMap) image<br>
+  DEVI.S xwd XWD (X Window Dump) image<br>
+  DEVI.S y41p Uncompressed YUV 4:1:1 12-bit<br>
+  D.VI.S ylc YUY2 Lossless Codec<br>
+  D.V.L. yop Psygnosis YOP Video<br>
+  DEVI.S yuv4 Uncompressed packed 4:2:0<br>
+  D.V..S zerocodec ZeroCodec Lossless Video<br>
+  DEVI.S zlib LCL (LossLess Codec Library) ZLIB<br>
+  DEV..S zmbv Zip Motion Blocks Video<br>
+  ..A.L. 4gv 4GV (Fourth Generation Vocoder)<br>
+  D.A.L. 8svx_exp 8SVX exponential<br>
+  D.A.L. 8svx_fib 8SVX fibonacci<br>
+  DEA.L. aac AAC (Advanced Audio Coding) (decoders: aac aac_fixed libfdk_aac ) (encoders: aac libfdk_aac )<br>
+  D.A.L. aac_latm AAC LATM (Advanced Audio Coding LATM syntax)<br>
+  DEA.L. ac3 ATSC A/52A (AC-3) (decoders: ac3 ac3_fixed ) (encoders: ac3 ac3_fixed )<br>
+  D.A.L. adpcm_4xm ADPCM 4X Movie<br>
+  DEA.L. adpcm_adx SEGA CRI ADX ADPCM<br>
+  D.A.L. adpcm_afc ADPCM Nintendo Gamecube AFC<br>
+  D.A.L. adpcm_aica ADPCM Yamaha AICA<br>
+  D.A.L. adpcm_ct ADPCM Creative Technology<br>
+  D.A.L. adpcm_dtk ADPCM Nintendo Gamecube DTK<br>
+  D.A.L. adpcm_ea ADPCM Electronic Arts<br>
+  D.A.L. adpcm_ea_maxis_xa ADPCM Electronic Arts Maxis CDROM XA<br>
+  D.A.L. adpcm_ea_r1 ADPCM Electronic Arts R1<br>
+  D.A.L. adpcm_ea_r2 ADPCM Electronic Arts R2<br>
+  D.A.L. adpcm_ea_r3 ADPCM Electronic Arts R3<br>
+  D.A.L. adpcm_ea_xas ADPCM Electronic Arts XAS<br>
+  DEA.L. adpcm_g722 G.722 ADPCM (decoders: g722 ) (encoders: g722 )<br>
+  DEA.L. adpcm_g726 G.726 ADPCM (decoders: g726 ) (encoders: g726 )<br>
+  DEA.L. adpcm_g726le G.726 ADPCM little-endian (decoders: g726le ) (encoders: g726le )<br>
+  D.A.L. adpcm_ima_amv ADPCM IMA AMV<br>
+  D.A.L. adpcm_ima_apc ADPCM IMA CRYO APC<br>
+  D.A.L. adpcm_ima_dat4 ADPCM IMA Eurocom DAT4<br>
+  D.A.L. adpcm_ima_dk3 ADPCM IMA Duck DK3<br>
+  D.A.L. adpcm_ima_dk4 ADPCM IMA Duck DK4<br>
+  D.A.L. adpcm_ima_ea_eacs ADPCM IMA Electronic Arts EACS<br>
+  D.A.L. adpcm_ima_ea_sead ADPCM IMA Electronic Arts SEAD<br>
+  D.A.L. adpcm_ima_iss ADPCM IMA Funcom ISS<br>
+  D.A.L. adpcm_ima_oki ADPCM IMA Dialogic OKI<br>
+  DEA.L. adpcm_ima_qt ADPCM IMA QuickTime<br>
+  D.A.L. adpcm_ima_rad ADPCM IMA Radical<br>
+  D.A.L. adpcm_ima_smjpeg ADPCM IMA Loki SDL MJPEG<br>
+  DEA.L. adpcm_ima_wav ADPCM IMA WAV<br>
+  D.A.L. adpcm_ima_ws ADPCM IMA Westwood<br>
+  DEA.L. adpcm_ms ADPCM Microsoft<br>
+  D.A.L. adpcm_mtaf ADPCM MTAF<br>
+  D.A.L. adpcm_psx ADPCM Playstation<br>
+  D.A.L. adpcm_sbpro_2 ADPCM Sound Blaster Pro 2-bit<br>
+  D.A.L. adpcm_sbpro_3 ADPCM Sound Blaster Pro 2.6-bit<br>
+  D.A.L. adpcm_sbpro_4 ADPCM Sound Blaster Pro 4-bit<br>
+  DEA.L. adpcm_swf ADPCM Shockwave Flash<br>
+  D.A.L. adpcm_thp ADPCM Nintendo THP<br>
+  D.A.L. adpcm_thp_le ADPCM Nintendo THP (Little-Endian)<br>
+  D.A.L. adpcm_vima LucasArts VIMA audio<br>
+  D.A.L. adpcm_xa ADPCM CDROM XA<br>
+  DEA.L. adpcm_yamaha ADPCM Yamaha<br>
+  DEAI.S alac ALAC (Apple Lossless Audio Codec)<br>
+  DEA.L. amr_nb AMR-NB (Adaptive Multi-Rate NarrowBand) (decoders: amrnb libopencore_amrnb ) (encoders:<br>
+  libopencore_amrnb )<br>
+  DEA.L. amr_wb AMR-WB (Adaptive Multi-Rate WideBand) (decoders: amrwb libopencore_amrwb ) (encoders: libvo_amrwbenc )<br>
+  D.A..S ape Monkey's Audio<br>
+  D.A.L. atrac1 ATRAC1 (Adaptive TRansform Acoustic Coding)<br>
+  D.A.L. atrac3 ATRAC3 (Adaptive TRansform Acoustic Coding 3)<br>
+  D.A..S atrac3al ATRAC3 AL (Adaptive TRansform Acoustic Coding 3 Advanced Lossless)<br>
+  D.A.L. atrac3p ATRAC3+ (Adaptive TRansform Acoustic Coding 3+) (decoders: atrac3plus )<br>
+  D.A..S atrac3pal ATRAC3+ AL (Adaptive TRansform Acoustic Coding 3+ Advanced Lossless) (decoders: atrac3plusal )<br>
+  D.A.L. avc On2 Audio for Video Codec (decoders: on2avc )<br>
+  D.A.L. binkaudio_dct Bink Audio (DCT)<br>
+  D.A.L. binkaudio_rdft Bink Audio (RDFT)<br>
+  D.A.L. bmv_audio Discworld II BMV audio<br>
+  D.A.L. celt Constrained Energy Lapped Transform (CELT) (decoders: libcelt )<br>
+  DEA.L. comfortnoise RFC 3389 Comfort Noise<br>
+  D.A.L. cook Cook / Cooker / Gecko (RealAudio G2)<br>
+  D.A.L. dolby_e Dolby E<br>
+  D.A.L. dsd_lsbf DSD (Direct Stream Digital), least significant bit first<br>
+  D.A.L. dsd_lsbf_planar DSD (Direct Stream Digital), least significant bit first, planar<br>
+  D.A.L. dsd_msbf DSD (Direct Stream Digital), most significant bit first<br>
+  D.A.L. dsd_msbf_planar DSD (Direct Stream Digital), most significant bit first, planar<br>
+  D.A.L. dsicinaudio Delphine Software International CIN audio<br>
+  D.A.L. dss_sp Digital Speech Standard - Standard Play mode (DSS SP)<br>
+  D.A..S dst DST (Direct Stream Transfer)<br>
+  DEA.LS dts DCA (DTS Coherent Acoustics) (decoders: dca ) (encoders: dca )<br>
+  D.A.L. dvaudio DV audio<br>
+  DEA.L. eac3 ATSC A/52B (AC-3, E-AC-3)<br>
+  D.A.L. evrc EVRC (Enhanced Variable Rate Codec)<br>
+  DEAI.S flac FLAC (Free Lossless Audio Codec)<br>
+  DEA.L. g723_1 G.723.1<br>
+  D.A.L. g729 G.729<br>
+  D.A.L. gremlin_dpcm DPCM Gremlin<br>
+  DEA.L. gsm GSM (decoders: gsm libgsm ) (encoders: libgsm )<br>
+  DEA.L. gsm_ms GSM Microsoft variant (decoders: gsm_ms libgsm_ms ) (encoders: libgsm_ms )<br>
+  D.A.L. iac IAC (Indeo Audio Coder)<br>
+  DEA.L. ilbc iLBC (Internet Low Bitrate Codec) (decoders: libilbc ) (encoders: libilbc )<br>
+  D.A.L. imc IMC (Intel Music Coder)<br>
+  D.A.L. interplay_dpcm DPCM Interplay<br>
+  D.A.L. interplayacm Interplay ACM<br>
+  D.A.L. mace3 MACE (Macintosh Audio Compression/Expansion) 3:1<br>
+  D.A.L. mace6 MACE (Macintosh Audio Compression/Expansion) 6:1<br>
+  D.A.L. metasound Voxware MetaSound<br>
+  DEA..S mlp MLP (Meridian Lossless Packing)<br>
+  D.A.L. mp1 MP1 (MPEG audio layer 1) (decoders: mp1 mp1float )<br>
+  DEA.L. mp2 MP2 (MPEG audio layer 2) (decoders: mp2 mp2float ) (encoders: mp2 mp2fixed libtwolame )<br>
+  DEA.L. mp3 MP3 (MPEG audio layer 3) (decoders: mp3 mp3float ) (encoders: libmp3lame libshine )<br>
+  D.A.L. mp3adu ADU (Application Data Unit) MP3 (MPEG audio layer 3) (decoders: mp3adu mp3adufloat )<br>
+  D.A.L. mp3on4 MP3onMP4 (decoders: mp3on4 mp3on4float )<br>
+  D.A..S mp4als MPEG-4 Audio Lossless Coding (ALS) (decoders: als )<br>
+  D.A.L. musepack7 Musepack SV7 (decoders: mpc7 )<br>
+  D.A.L. musepack8 Musepack SV8 (decoders: mpc8 )<br>
+  DEA.L. nellymoser Nellymoser Asao<br>
+  DEA.L. opus Opus (Opus Interactive Audio Codec) (decoders: opus libopus ) (encoders: opus libopus )<br>
+  D.A.L. paf_audio Amazing Studio Packed Animation File Audio<br>
+  DEA.L. pcm_alaw PCM A-law / G.711 A-law<br>
+  D.A..S pcm_bluray PCM signed 16|20|24-bit big-endian for Blu-ray media<br>
+  D.A..S pcm_dvd PCM signed 20|24-bit big-endian<br>
+  D.A..S pcm_f16le PCM 16.8 floating point little-endian<br>
+  D.A..S pcm_f24le PCM 24.0 floating point little-endian<br>
+  DEA..S pcm_f32be PCM 32-bit floating point big-endian<br>
+  DEA..S pcm_f32le PCM 32-bit floating point little-endian<br>
+  DEA..S pcm_f64be PCM 64-bit floating point big-endian<br>
+  DEA..S pcm_f64le PCM 64-bit floating point little-endian<br>
+  D.A..S pcm_lxf PCM signed 20-bit little-endian planar<br>
+  DEA.L. pcm_mulaw PCM mu-law / G.711 mu-law<br>
+  DEA..S pcm_s16be PCM signed 16-bit big-endian<br>
+  DEA..S pcm_s16be_planar PCM signed 16-bit big-endian planar<br>
+  DEA..S pcm_s16le PCM signed 16-bit little-endian<br>
+  DEA..S pcm_s16le_planar PCM signed 16-bit little-endian planar<br>
+  DEA..S pcm_s24be PCM signed 24-bit big-endian<br>
+  DEA..S pcm_s24daud PCM D-Cinema audio signed 24-bit<br>
+  DEA..S pcm_s24le PCM signed 24-bit little-endian<br>
+  DEA..S pcm_s24le_planar PCM signed 24-bit little-endian planar<br>
+  DEA..S pcm_s32be PCM signed 32-bit big-endian<br>
+  DEA..S pcm_s32le PCM signed 32-bit little-endian<br>
+  DEA..S pcm_s32le_planar PCM signed 32-bit little-endian planar<br>
+  DEA..S pcm_s64be PCM signed 64-bit big-endian<br>
+  DEA..S pcm_s64le PCM signed 64-bit little-endian<br>
+  DEA..S pcm_s8 PCM signed 8-bit<br>
+  DEA..S pcm_s8_planar PCM signed 8-bit planar<br>
+  DEA..S pcm_u16be PCM unsigned 16-bit big-endian<br>
+  DEA..S pcm_u16le PCM unsigned 16-bit little-endian<br>
+  DEA..S pcm_u24be PCM unsigned 24-bit big-endian<br>
+  DEA..S pcm_u24le PCM unsigned 24-bit little-endian<br>
+  DEA..S pcm_u32be PCM unsigned 32-bit big-endian<br>
+  DEA..S pcm_u32le PCM unsigned 32-bit little-endian<br>
+  DEA..S pcm_u8 PCM unsigned 8-bit<br>
+  D.A.L. pcm_zork PCM Zork<br>
+  D.A.L. qcelp QCELP / PureVoice<br>
+  D.A.L. qdm2 QDesign Music Codec 2<br>
+  D.A.L. qdmc QDesign Music<br>
+  DEA.L. ra_144 RealAudio 1.0 (14.4K) (decoders: real_144 ) (encoders: real_144 )<br>
+  D.A.L. ra_288 RealAudio 2.0 (28.8K) (decoders: real_288 )<br>
+  D.A..S ralf RealAudio Lossless<br>
+  DEA.L. roq_dpcm DPCM id RoQ<br>
+  DEA..S s302m SMPTE 302M<br>
+  D.A.L. sdx2_dpcm DPCM Squareroot-Delta-Exact<br>
+  D.A..S shorten Shorten<br>
+  D.A.L. sipr RealAudio SIPR / ACELP.NET<br>
+  D.A.L. smackaudio Smacker audio (decoders: smackaud )<br>
+  ..A.L. smv SMV (Selectable Mode Vocoder)<br>
+  D.A.L. sol_dpcm DPCM Sol<br>
+  DEA... sonic Sonic<br>
+  .EA... sonicls Sonic lossless<br>
+  DEA.L. speex Speex (decoders: libspeex ) (encoders: libspeex )<br>
+  D.AI.S tak TAK (Tom's lossless Audio Kompressor)<br>
+  DEA..S truehd TrueHD<br>
+  D.A.L. truespeech DSP Group TrueSpeech<br>
+  DEAI.S tta TTA (True Audio)<br>
+  D.A.L. twinvq VQF TwinVQ<br>
+  D.A.L. vmdaudio Sierra VMD audio<br>
+  DEA.L. vorbis Vorbis (decoders: vorbis libvorbis ) (encoders: vorbis libvorbis )<br>
+  ..A.L. voxware Voxware RT29 Metasound<br>
+  D.A... wavesynth Wave synthesis pseudo-codec<br>
+  DEAILS wavpack WavPack (encoders: wavpack libwavpack )<br>
+  D.A.L. westwood_snd1 Westwood Audio (SND1) (decoders: ws_snd1 )<br>
+  D.A..S wmalossless Windows Media Audio Lossless<br>
+  D.A.L. wmapro Windows Media Audio 9 Professional<br>
+  DEA.L. wmav1 Windows Media Audio 1<br>
+  DEA.L. wmav2 Windows Media Audio 2<br>
+  D.A.L. wmavoice Windows Media Audio Voice<br>
+  D.A.L. xan_dpcm DPCM Xan<br>
+  D.A.L. xma1 Xbox Media Audio 1<br>
+  D.A.L. xma2 Xbox Media Audio 2<br>
+  ..D... bin_data binary data<br>
+  ..D... dvd_nav_packet DVD Nav packet<br>
+  ..D... klv SMPTE 336M Key-Length-Value (KLV) metadata<br>
+  ..D... otf OpenType font<br>
+  ..D... scte_35 SCTE 35 Message Queue<br>
+  ..D... timed_id3 timed ID3 metadata<br>
+  ..D... ttf TrueType font<br>
+  DES... ass ASS (Advanced SSA) subtitle (decoders: ssa ass ) (encoders: ssa ass )<br>
+  DES... dvb_subtitle DVB subtitles (decoders: dvbsub ) (encoders: dvbsub )<br>
+  D.S... dvb_teletext DVB teletext (decoders: libzvbi_teletextdec )<br>
+  DES... dvd_subtitle DVD subtitles (decoders: dvdsub ) (encoders: dvdsub )<br>
+  D.S... eia_608 EIA-608 closed captions (decoders: cc_dec )<br>
+  D.S... hdmv_pgs_subtitle HDMV Presentation Graphic Stream subtitles (decoders: pgssub )<br>
+  ..S... hdmv_text_subtitle HDMV Text subtitle<br>
+  D.S... jacosub JACOsub subtitle<br>
+  D.S... microdvd MicroDVD subtitle<br>
+  DES... mov_text MOV text<br>
+  D.S... mpl2 MPL2 subtitle<br>
+  D.S... pjs PJS (Phoenix Japanimation Society) subtitle<br>
+  D.S... realtext RealText subtitle<br>
+  D.S... sami SAMI subtitle<br>
+  ..S... srt SubRip subtitle with embedded timing<br>
+  ..S... ssa SSA (SubStation Alpha) subtitle<br>
+  D.S... stl Spruce subtitle format<br>
+  DES... subrip SubRip subtitle (decoders: srt subrip ) (encoders: srt subrip )<br>
+  D.S... subviewer SubViewer subtitle<br>
+  D.S... subviewer1 SubViewer v1 subtitle<br>
+  DES... text raw UTF-8 text<br>
+  D.S... vplayer VPlayer subtitle<br>
+  DES... webvtt WebVTT subtitle<br>
+  DES... xsub XSUB
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

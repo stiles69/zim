@@ -1,0 +1,71 @@
+====== Correct Permissions ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Correct Permissions
+
+
+Created Sunday 01 April 2018
+
+
+
+HOME DIR
+sudo find /home/brettsalemink -type d -exec chmod 755 {} +
+
+
+
+SSH
+sudo find /home/brettsalemink/.ssh/ -type d -exec chmod 700 {} +
+sudo chmod 644 /home/brettsalemink/.ssh/id_rsa.pub
+sudo chmod 600 /home/brettsalemink/.ssh/id_rsa
+
+
+
+GPG
+chmod 600 ~/.gnupg/*
+chmod 700 ~/.gnupg
+
+
+
+printf "$SCRIPT:$LINENO: command '$mkdir' not available - aborting\n" >&amp;2
+exit 192
+fi
+
+
+
+    #===============================================================================
+#   MAIN SCRIPT
+#===============================================================================
+
+function set_home_permissions ()
+{
+sudo find ~ -type d -exec chmod 755 {} +
+}    # ----------  end of function set_home_permissions  ----------
+
+function set_.ssh_permissions ()
+{
+sudo find ~/.ssh/ -type d -exec chmod 700 {} +
+
+sudo chmod 644 ~/.ssh/id_rsa.pub
+sudo chmod 600 ~/.ssh/id_rsa
+}    # ----------  end of function set_.ssh_permissions  ----------
+
+function set_.gnupg_permissions ()
+{
+sudo chmod 600 ~/.gnupg/*
+sudo chmod 700 ~/.gnupg
+}    # ----------  end of function set_.gnupg_permissions  ----------
+
+set_home_permissions
+wait
+set_.ssh_permissions
+wait
+set_.gnupg_permissions
+wait
+echo 'All Done!'
+
+#===============================================================================
+#   STATISTICS / CLEANUP
+#===============================================================================
+exit 0

@@ -1,0 +1,83 @@
+====== Good-Vue-Components ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+npm install vue-spinner-component
+CommonJS
+var Spinner = require('vue-spinner-component/src/Spinner.vue');
+
+
+
+new Vue({
+components: {
+
+  Spinner
+
+  }
+  })
+  ES6
+  import Spinner from 'vue-spinner-component/src/Spinner.vue'
+
+
+
+  new Vue({
+  components: {
+  
+    Spinner
+
+    }
+    })
+    Or:
+
+
+
+    Vue.component('spinner', require('vue-spinner-component/src/Spinner.vue'));
+    Local setup
+    npm install
+    npm run dev
+    Usage
+    <spinner :status="spinnerStatus" :color="spinnerColor" :size="spinnerSize" :depth="spinnerDepth"
+    :clockwise="spinnerClockwise" :speed="spinnerSpeed"></spinner>
+
+
+    <hr>
+
+    
+    
+
+
+    npm install vue-datepicker -Material Design Date Picker.
+
+
+
+    npm install coreui.io-vue - Admin Template in Bootstrap for Vue.
+
+
+
+    npm install vodal --save - Animated modal for vue.
+
+
+
+    npm install effect-dropdown-vue --save - Dropdown list with animations.
+
+
+
+    npm install --save ichi-color - Color picker.
+
+
+
+    npm install vue-picture-preview --save - Picture viewer for mobile.
+
+
+
+    npm install progressive-image - Progressive image loader.
+
+
+
+    npm i mint-ui -S - UI components for mobile.
+
+
+
+    npm install cube-ui --save - Mobile UI components.

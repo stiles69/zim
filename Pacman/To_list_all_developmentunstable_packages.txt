@@ -1,0 +1,13 @@
+====== To list all developmentunstable packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+To list all developmentunstable packages
+
+
+Created Sunday 06 May 2018
+
+
+
+sudo pacman -Qq | awk '/^.+(-cvs|-svn|-git|-hg|-bzr|-darcs)$/'

@@ -1,0 +1,23 @@
+====== Remove Periods From Filenames ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Remove Periods From Filenames
+
+
+Created Wednesday 11 July 2018
+
+
+
+Use for thisfile in *.*.* (that is, loop over files with two dots or more in their name). Remember to quote your
+variables and use -- to mark the end of options as in mv -- "$thisfile" "$newname.$extension"
+
+
+
+With zsh.
+
+
+
+autoload -U zmv
+zmv '(*).(*)' '${1//./_}.$2'

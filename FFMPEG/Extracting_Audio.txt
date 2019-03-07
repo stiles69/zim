@@ -1,0 +1,24 @@
+====== Extracting Audio ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Extracting Audio
+
+
+Created Monday 22 January 2018
+
+
+
+Sometimes you don't really care about the video, you just want the audio. Luckily this is very straightforward in
+    FFmpeg with the -vn flag:
+
+
+
+ffmpeg -i input.mkv -vn audio_only.ogg
+
+
+
+This command extracts only the audio from the input, encodes it as Vorbis, and saves it into audio_only.ogg. Now you
+    have an isolated audio stream. You can also use the -an and -sn flags in the same manner to strip out audio and
+    subtitle streams.

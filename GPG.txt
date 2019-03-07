@@ -1,0 +1,23 @@
+====== GPG ======
+
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+GPG
+
+
+Created Saturday 03 March 2018
+
+
+
++Set GPG Home to USB
++0518 Current
+Master Key pubid
++Using Yubikey
+./GPG Cheat Sheet.pdf

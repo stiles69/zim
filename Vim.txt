@@ -1,0 +1,11 @@
+====== Vim ======
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Vim
+
+
+Created Sunday 27 May 2018

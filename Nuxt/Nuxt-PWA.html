@@ -1,0 +1,491 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Nuxt-PWA</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	
+<br>
+
+<h1>Nuxt-PWA</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+Nuxt-PWA
+</p>
+
+<br>
+
+<p>
+Created Saturday 18 August 2018
+</p>
+
+<br>
+<br>
+
+<p>
+✅ Quick Setup<br>
+Install npm package:<br>
+yarn add <span class="zim-tag">@nuxtjs</span>/pwa<br>
+Edit your nuxt.config.js file to add pwa module:<br>
+{
+</p>
+
+<p>
+modules: [
+</p>
+
+<br>
+
+<p>
+'@nuxtjs/pwa',
+</p>
+
+<br>
+
+<p>
+],
+</p>
+
+<p>
+}<br>
+Ensure static dir exists and optionally create static/icon.png. (Recommended to be square png and &gt;= 512x512px)<br>
+Create or add this to .gitignore:<br>
+sw.*<br>
+PWA module is a collection of smaller modules that are designed to magically work out of the box together. To disable each sub-module, you can pass false option with it's name as key. For example to disable icon module:<br>
+modules: [
+</p>
+
+<p>
+['@nuxtjs/pwa', { icon: false }],
+</p>
+
+<p>
+],<br>
+Also each sub-module has it's own configuration. Continue reading docs for detailed info.
+</p>
+
+<br>
+<br>
+
+<p>
+📦 Workbox Module<br>
+npm npm (scoped with tag)
+</p>
+
+<br>
+<br>
+
+<p>
+Workbox is a collection of JavaScript libraries for Progressive Web Apps. (Learn more). This module adds full offline support using workbox. Workbox module is only enabled on production builds.<br>
+You can pass options to workbox section in nuxt.config.js to override defaults.<br>
+workbox: {<br>
+ // Workbox options<br>
+}<br>
+Options<br>
+dev - Use dev build for workbox service worker lib.<br>
+swURL - If for any reason you need to register another service worker (OneSignal, etc) you can use this option.<br>
+importScripts (Array) - Additional scripts to be imported in service worker script. (Relative to /. Can be placed in assets/ directory)<br>
+For list of all available options see here<br>
+Adding custom runtimeCaching items (For CDN)<br>
+By default resources in dist (/_nuxt/) will be cached with CacheFirst and other requests to same domain will be cached with NetworkFirst strategy. Also all JS and CSS webpack emitted resources will be precached.<br>
+If you have a custom CDN and need to cache requests for it, simply use runtimeCaching:<br>
+nuxt.config.js<br>
+workbox: {
+</p>
+
+<p>
+  runtimeCaching: [<br>
+  {
+</p>
+
+<br>
+
+<p>
+ Should be a regex string. Compiles into new RegExp('https:my-cdn.com/.*')<br>
+urlPattern: '<a href="https://my-cdn.com/" title="https://my-cdn.com/" class="https">https://my-cdn.com/</a>.*',<br>
+// Defaults to `networkFirst` if omitted<br>
+handler: 'cacheFirst',<br>
+// Defaults to `GET` if omitted<br>
+method: 'GET'
+</p>
+
+<br>
+
+<p>
+  }<br>
+]
+</p>
+
+<p>
+}<br>
+Adding custom cache StrategyOption<br>
+workbox: {<br>
+   runtimeCaching: [
+</p>
+
+<p>
+ {<br>
+   urlPattern: '<a href="https://my-cdn.com/posts/" title="https://my-cdn.com/posts/" class="https">https://my-cdn.com/posts/</a>.*',<br>
+   strategyOptions: {
+</p>
+
+<br>
+
+<p>
+ cacheName: 'our-cache',<br>
+ cacheExpiration: {<br>
+   maxEntries: 10,<br>
+   maxAgeSeconds: 300<br>
+ }
+</p>
+
+<br>
+
+<p>
+   }<br>
+ }
+</p>
+
+<p>
+   ]<br>
+}<br>
+Adding custom service worker<br>
+Create static/custom-sw.js file:<br>
+console.log('Custom service worker!')<br>
+Add it with importScripts option in nuxt.config.js:
+</p>
+
+<br>
+<br>
+
+<p>
+workbox: {<br>
+  importScripts: [
+</p>
+
+<p>
+  'custom-sw.js'
+</p>
+
+<p>
+  ],<br>
+}
+</p>
+
+<br>
+<br>
+
+<p>
+📦 Meta Module<br>
+npm npm (scoped with tag)
+</p>
+
+<br>
+<br>
+
+<p>
+Meta easily adds common meta tags into your project with zero-config needed. You can optionally override meta using either manifest or meta section of nuxt.config.js:<br>
+{<br>
+  meta: {
+</p>
+
+<p>
+// ...
+</p>
+
+<p>
+  }<br>
+}<br>
+options<br>
+charset<br>
+Default: utf-8<br>
+viewport<br>
+Default: width=device-width, initial-scale=1<br>
+Meta: viewport<br>
+mobileApp<br>
+Default: true<br>
+Meta: mobile-web-app-capable<br>
+mobileAppIOS<br>
+Default: false<br>
+Meta: apple-mobile-web-app-capable<br>
+Please read this resources before you enable mobileAppIOS option:<br>
+<a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html" title="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html" class="https">https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html</a><br>
+<a href="https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb" title="https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb" class="https">https://medium.com/@firt/dont-use-ios-web-app-meta-tag-irresponsibly-in-your-progressive-web-apps-85d70f4438cb</a><br>
+appleStatusBarStyle<br>
+Default: default<br>
+favicon<br>
+Default: true (to use options.icons)<br>
+Meta: shortcut icon + apple-touch-icon<br>
+name
+</p>
+
+<br>
+<br>
+
+<p>
+Default: npm_package_name<br>
+Meta: title<br>
+author<br>
+Default: npm_package_author_name<br>
+Meta: author<br>
+description<br>
+Default: npm_package_description<br>
+Meta: description<br>
+theme_color<br>
+Default: options.loading.color<br>
+Meta: theme-color<br>
+lang
+</p>
+
+<br>
+<br>
+
+<p>
+Default: en<br>
+Meta: lang<br>
+ogType<br>
+Default: website<br>
+Meta: og:type<br>
+ogSiteName<br>
+Default: same as options.name<br>
+Meta: og:site_name<br>
+ogTitle<br>
+Default: same as options.name<br>
+Meta: og:title<br>
+ogDescription<br>
+Default: same as options.description<br>
+Meta: og:description<br>
+ogHost Specify the domain that the site is hosted. Required for ogImage.<br>
+Default: undefined<br>
+Meta: N/A<br>
+ogImage<br>
+Default: true<br>
+Meta: og:image and sub-tags<br>
+These types are accepted:<br>
+Boolean: the icons from the icon module are used.<br>
+String: the path is used.<br>
+Object:<br>
+path: specify the path.<br>
+width, height: specify the dimensions, respectively.<br>
+type: specify the MIME type.<br>
+ogUrl<br>
+Default: ogHost (if defined)<br>
+Meta: og:url<br>
+twitterCard<br>
+Default: undefined<br>
+Meta: `twitter:card<br>
+twitterSite<br>
+Default: undefined<br>
+Meta: `twitter:site<br>
+twitterCreator<br>
+Default: undefined<br>
+Meta: twitter:creator<br>
+nativeUI<br>
+Default: false<br>
+By setting meta.nativeUI to true (Defaults to false) viewport defaults to width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui and mobileAppIOS will be enabled if not explicitly set to false which is suitable for native looking mobile apps.
+</p>
+
+<br>
+<br>
+
+<p>
+📦 Manifest Module<br>
+npm npm (scoped with tag)
+</p>
+
+<br>
+<br>
+
+<p>
+Manifest adds Web App Manifest with no pain.<br>
+You can pass options to manifest section in nuxt.config.js to override defaults.<br>
+manifest: {<br>
+  name: 'My Awesome App',<br>
+  lang: 'fa'<br>
+}
+</p>
+
+<br>
+<br>
+
+<p>
+📦 Icon Module<br>
+npm npm (scoped with tag)
+</p>
+
+<br>
+<br>
+
+<p>
+This module automatically generates app icons and favicon with different sizes using jimp and fills manifest.icons[] with proper paths to generated assets that is used by manifest module. Source icon is being resized using cover method.<br>
+You can pass options to icon section in nuxt.config.js to override defaults.<br>
+icon: {<br>
+ // Icon options<br>
+}<br>
+options<br>
+iconSrc<br>
+Default: [srcDir]/static/icon.png<br>
+sizes<br>
+Default: [16, 120, 144, 152, 192, 384, 512]<br>
+Array of sizes to be generated (Square).
+</p>
+
+<br>
+<br>
+
+<p>
+📦 OneSignal Module<br>
+npm npm (scoped with tag)
+</p>
+
+<br>
+<br>
+
+<p>
+OneSignal is a Free, high volume and reliable push notification service for websites and mobile applications. Setting and using this module is a little tricky as OneSignal requires to register it's own Service worker.<br>
+First add dependency as it is not being installed by default when using PWA module:<br>
+yarn add <span class="zim-tag">@nuxtjs</span>/onesignal # OR npm i <span class="zim-tag">@nuxtjs</span>/onesignal<br>
+Then add module to nuxt.config.js BEFORE <span class="zim-tag">@nuxtjs</span>/pwa and provide options under oneSignal:<br>
+modules: [<br>
+  '@nuxtjs/onesignal',<br>
+  '@nuxtjs/pwa',<br>
+],
+</p>
+
+<br>
+<br>
+
+<p>
+// Options<br>
+oneSignal: {<br>
+  init: {
+</p>
+
+<p>
+appId: 'YOUR_APP_ID',<br>
+allowLocalhostAsSecureOrigin: true,<br>
+welcomeNotification: {
+</p>
+
+<br>
+
+<p>
+disable: true
+</p>
+
+<br>
+
+<p>
+}
+</p>
+
+<p>
+  }<br>
+}<br>
+See references below for all init options.<br>
+Async Functions<br>
+This module exposes oneSignal as $OneSignal everywhere. So you can call it. Please note that because of async loading of OneSignal SDK script, every action should be pushed into $OneSignal stack.<br>
+// Inside page components<br>
+this.$OneSignal.push(() =&gt; {
+</p>
+
+<p>
+this.$OneSignal.isPushNotificationsEnabled((isEnabled) =&gt; {<br>
+if (isEnabled) {<br>
+  console.log('Push notifications are enabled!')<br>
+} else {<br>
+  console.log('Push notifications are not enabled yet.')<br>
+}
+</p>
+
+<p>
+  })<br>
+})
+</p>
+
+<br>
+<br>
+
+<p>
+// Using window and array form<br>
+window.$OneSignal.push(['addListenerForNotificationOpened', (data) =&gt; {<br>
+  console.log('Received NotificationOpened:', data )}<br>
+]);<br>
+Change OneSignal SDK Script URL<br>
+By default this modules ships with latest SDK dist.<br>
+You can use recommended CDN by using cdn: true or changing it to a custom value using OneSignalSDK.<br>
+oneSignal: {<br>
+  // Use CDN<br>
+  cdn: true,
+</p>
+
+<br>
+<br>
+
+<p>
+  // Use any custom URL<br>
+  OneSignalSDK: '<a href="https://cdn.onesignal.com/sdks/OneSignalSDK.js" title="https://cdn.onesignal.com/sdks/OneSignalSDK.js" class="https">https://cdn.onesignal.com/sdks/OneSignalSDK.js</a>'<br>
+}<br>
+References<br>
+Web Push SDK Reference - Available options and API calls<br>
+Customize Permission Messages<br>
+Thanks for Subscribing Notifications<br>
+Product overview - More info about OneSignal<br>
+Web Push SDK Setup - Setup guides for in-depth reading what this modules does.
+</p>
+
+<br>
+<br>
+
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

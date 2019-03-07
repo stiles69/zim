@@ -1,0 +1,13 @@
+====== Install ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Install
+
+
+Created Saturday 13 October 2018
+
+
+
+sudo apt-get install notify-osd

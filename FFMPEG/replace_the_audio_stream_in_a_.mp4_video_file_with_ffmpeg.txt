@@ -1,0 +1,43 @@
+====== replace the audio stream in a .mp4 video file with ffmpeg ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+replace the audio stream in a .mp4 video file with ffmpeg
+
+
+Created Monday 22 January 2018
+
+
+
+Use the -map option to choose your streams. Default stream selection will only choose one of each stream type, so that
+is why -map has to be used.
+Replace second audio stream
+
+
+
+ffmpeg -i video.mkv -i audio.mp3 -map 0:v -map 0:a:0 -map 1:a \
+-metadata:s:a:0 language=eng -metadata:s:a:1 language=sme -codec copy \
+-shortest output.mkv
+
+
+
+
+
+- 0:v – The 0 refers to the first input which is video.mkv. The v means "select video stream type".
+- 0:a:0 – The 0 refers to the first input which is video.mkv. The a means "select audio stream type". The last 0 refers
+to the first audio stream from this input. If only 0:a is used, then all video streams would be mapped.
+- 1:a – The 1 refers to the second input which is audio.mp3. The a means "select audio stream type".
+- -codec copy will stream copy (re-mux) instead of encode. If you need a specific audio codec, you should specify -c:v
+copy (to keep the video) and then, for example, -c:a libmp3lame to re-encode the audio stream to MP3.
+- -shortest will end the output when the shortest input ends.
+
+
+
+Combine two audio streams into one
+
+
+
+ffmpeg -i vid.mkv -i aud.mp3 -filter_complex "[0:a][1:a]amerge=inputs=2[a]" \
+-map 0:v -map "[a]" -c:v copy -c:a aac -strict experimental -b:a 192k -ac 2 \
+-shortest out.mp4

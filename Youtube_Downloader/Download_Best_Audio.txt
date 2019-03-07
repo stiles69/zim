@@ -1,0 +1,13 @@
+====== Youtube Downloader Usage ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Youtube Downloader Usage
+
+
+Created Monday 02 April 2018
+
+
+
+youtube-dl -f 'bestaudio' -o '%(title)s.%(ext)s' <img src="./Download_Best_Audio/URL">

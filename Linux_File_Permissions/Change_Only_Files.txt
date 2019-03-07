@@ -1,0 +1,17 @@
+====== Change Only Files ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Change Only Files
+
+
+Created Sunday 01 April 2018
+
+
+
+To chmod only files to 644:
+
+
+
+$ find directory -type f -exec chmod 644 {} +

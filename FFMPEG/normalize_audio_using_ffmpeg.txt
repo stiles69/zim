@@ -1,0 +1,23 @@
+====== normalize audio using ffmpeg ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+normalize audio using ffmpeg
+
+
+Created Monday 22 January 2018
+
+
+
+Step 1: Get Volume Level
+ffmpeg -i "h:\TestClips&amp;Co\test.avi" -af volumedetect -f null -
+
+
+
+Step 2: Process audio &amp; video (assuming your source only has one audio&amp;video stream)
+ffmpeg -i "path to input file" -c:v libx264 -preset slow -crf 22 -ab 128k -acodec aac -af volume=0.6 -f mp4 "Path to
+    output file"
+"-ab 48k -c:a aac" is ment to reencode the audio to 128kBit/s aac audio
+"-af volume=0.6" is ment to boost the audio volume by 0.6dB
+"-c:v libx264 -preset slow -crf 22" is ment to reencode the video with x264, preset slow and crf 22

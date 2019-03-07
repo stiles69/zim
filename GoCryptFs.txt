@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-29T13:41:39-06:00
+
+====== GoCryptFs ======
+Created Thursday 29 November 2018
+
+=== Download Source Code ===
+Download the gocryptfs source code and dependencies using go get:
+**$ go get -d github.com/rfjakob/gocryptfs**
+
+== And cd into the gocryptfs source directory: ==
+**$ cd $GOPATH/src/github.com/rfjakob/gocryptfs**
+
+=== Compile ===
+In the gocryptfs source directory, run:
+
+**$ ./build.bash**
+If successful, build.bash copies the gocryptfs binary to [[~/bin.]]
+
+=== Test ===
+In the gocryptfs source directory, run:
+**$ ./test.bash**
+
+===== Create and Mount Filesystem =====
+**$ mkdir cipher plain**
+**$ gocryptfs -init cipher**
+  [...]
+**$ gocryptfs cipher plain**
+  [...]
+You should now have a working gocryptfs that is stored in cipher and mounted to plain. You can verify it by creating a test file in the plain directory. This file will show up encrypted in the cipher directory.
+
+**$ touch plain/test.txt**
+**$ ls cipher**
+  gocryptfs.conf  gocryptfs.diriv  ZSuIZVzYDy5-TbhWKY-ciA==

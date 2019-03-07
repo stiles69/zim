@@ -1,0 +1,19 @@
+====== disown ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+disown
+
+
+Created Thursday 08 March 2018
+
+
+
+To leave a job running but disconnect from it.
+
+
+
+# ctrl-z to get to prompt
+# bg to start job in background
+# disown to leave the job running

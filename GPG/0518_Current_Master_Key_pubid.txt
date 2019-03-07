@@ -1,0 +1,13 @@
+====== 0518 Current Master Key pubid ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+0518 Current Master Key pubid
+
+
+Created Sunday 20 May 2018
+
+
+
+key-id: 96BC1FC20798CD9EC1A0744513BB3FB597D3DA9B

@@ -1,0 +1,42 @@
+====== Linux File Permissions ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Linux File Permissions
+
+
+Created Wednesday 24 January 2018
+
+
+
+Permission bits
+To get a deeper understanding of how the operating system interprets the permissions we have to dig into how bit
+numbers represent the read/write/execute permissions. The bits are as mentioned before represented by numbers ranging
+from 0-7. The table below shows what each number represents.
+
+
+
+
+
+
+In most cases 0,4,5,6,7 bits are used. So we will focus on those. Starting out with directory access based on the
+information previously described, we know that to perform access to a directory we have to have read and execute
+permissions. So for a given folder say /plexmedialibrary we would need to have the bits set to 700 which represents
+drwx—— permissions for the owner to access that dir. If we want a group of users to access that directory, say all
+users on a system that reside in a group named users we would have to set the permissions bits to 750 which translates
+into drwxr-x—. And note here that we are not granting group access to modify the directory, only to access and read it.
+To permit all users no matter what group they are a member of access to the directory we would set 755 that translates
+into dwrxr-xr-x. When it comes to files the approach is again similar, but with permissions bits set that suit files.
+For a given user to get access to a file, say /plexmedialibrary/witwicky.mkv, we would need to set read permissions for
+the user, this would be permission bit wise be equivalent to 600 which translates into -rw——-. To provide both user and
+group access to the file, we would set the bits to 640 which translates into -rw-r—–. Note that again we are not
+granting the group rights to modify the file. For all users and services on a system to access your file permission
+bits would have to be 644 which again translates into -rw-r–r–.
+
+
+
+Now that we have gone over the basic structure of read write and execute bits for directories and files, we can move on
+to the tools and how we use them. Linux uses 3 tools to control basic access rights. One for controlling the owner of
+directories/files: chown. One for controlling what group has access to directories/files: chgrp. And one command for
+modifying the permission bits: chmod.

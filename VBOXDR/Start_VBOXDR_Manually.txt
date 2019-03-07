@@ -1,0 +1,13 @@
+====== Start VBOXDR Manually ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Start VBOXDR Manually
+
+
+Created Monday 21 May 2018
+
+
+
+# modprobe vboxdrv

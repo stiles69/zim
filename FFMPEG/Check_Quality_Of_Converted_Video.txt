@@ -1,0 +1,28 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-01-20 06:34:46-06:00
+ 
+====== Check Quality Of Converted Video ======
+Created Sun 20 January 2019
+
+The commands, in general, are ok.
+
+One way to check the quality of the output is by comparing it against the original using a video quality benchmark. FFmpeg has two of these built-in: PSNR and SSIM. PSNR should be fine for general use.
+
+You can run it using the command below
+
+**ffmpeg -i converted -i source -filter_complex "psnr" -f null -**
+At the end of the execution log, there will be a readout like the one below
+
+[Parsed_psnr_1 @ 0000000000398320] PSNR y:42.63 u:43.19 v:44.09 average:42.90 min:42.07 max:46.16
+An average value 40 or more is generally acceptable for casual viewing. Netflix uses 38 as a floor.
+
+2
+OpeningFact • Feb 8, 2018, 11:56 AM
+Thanks! I've tried it and worked perfectly with two identical videos I have in my pc (original and converted copy). however I have another question. I have read here both videos must have the same pixel format and resolution. But what about if I want to downscale 1080P to 720P? would that make impossible to use PSNR in the new converted video after downscaling it?
+
+1
+mulvya • Feb 8, 2018, 12:03 PM
+As long as you apply resizing to the original before you feed it to PSNR, you should be fine, e.g.
+
+**ffmpeg -i converted -i source -filter_complex "[1]scale=hd720[sm];[0][sm]psnr" -f null -**

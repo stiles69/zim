@@ -1,0 +1,19 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Exit Codes ======
+
+**1 - Catchall for general errors**
+**2 - Misuse of shell builtins (according to Bash documentation)**
+**126 - Command invoked cannot execute**
+**127 - “command not found”**
+**128 - Invalid argument to exit**
+**128+n - Fatal error signal “n”**
+**130 - Script terminated by Control-C**
+**255\* - Exit status out of range**
+
+=== How to suppress exit statuses ===
+Combining both the suppression of error output and the OR operation the following script returns a status code of 0
+with no output even though the file does not exist.
+
+**#!/bin/bash cat 'doesnotexist.txt' 2>/dev/null || exit 0**

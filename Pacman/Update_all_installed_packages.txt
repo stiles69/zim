@@ -1,0 +1,13 @@
+====== Update all installed packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Update all installed packages
+
+
+Created Sunday 18 March 2018
+
+
+
+pacman -Syu

@@ -1,0 +1,105 @@
+====== Convert Video To VCD ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Convert Video To VCD
+
+
+Created Saturday 20 January 2018
+
+
+ffmpeg -i /path/file.avi -target ntsc-vcd -s 352x240 /path/output.mpg
+
+
+
+
+ffmpeg -i /path/file.avi -target ntsc-vcd -s 352x240 -padtop 32 -padbottom 32 /path/output.mpg
+
+
+
+Requirements
+ffmpeg - at least version 0.4.9 (previous version do not have the -target command)
+[edit] Create a VCD
+VCD has fixed bitrate, you have no choice but to encode using the default settings of 1150kbit/s for video and
+224kbit/s for audio. This is the specification and must be followed.
+
+
+
+You need to splitt the output video file to fit as many CDs as are needed.
+
+
+
+ffmpeg -i <movie.avi> -target pal-vcd <filename.mpg>
+[edit] Create an SVCD
+The key to making a SVCD is to set the bitrate. Calculate it using this formula:
+
+
+
+Number of CDs * CD size * 1024 * 8 / movie length in seconds = bitrate per second.
+Subtract the desired audio bitrate from this value and you have a number very close to the video bitrate you want.
+Encode at atleast 1500kbit/s for good quality; only use lower quality if you really want to add more minutes of video
+at the cost of quality.
+ffmpeg will calculate the bitrate setting for you if you use the -target option.
+
+
+
+ffmpeg -i <movie.avi> -target pal-svcd <filename.mpg>
+[edit] Burn The CD
+[edit] Using K3B
+K3B can burn VCD's for you and makes the files necessary - just add the mpeg video files.
+
+
+
+File > New Project > New Video CD project
+
+
+
+[edit] Command-line burning
+For SVCD:
+
+
+
+vcdimager -t svcd -l "Movie Title" -c <filename>.cue -b <filename>.bin <filename>.mpg
+cdrdao write --device <device> <filename>.cue
+For VCD:
+
+
+
+vcdimager -t vcd2 -l "Movie Title" -c <filename>.cue -b <filename>.bin <filename>.mpg
+cdrdao write --device <device> <filename>.cue
+Note: Based on your version of ffmpeg, you may need to prepend pal or ntsc to the target argument.
+
+
+
+ffmpeg -i <movie.avi> -target ntsc-vcd <filename.mpg>
+[edit] Troubleshooting
+[edit] PROBLEM: How do I split up a big avi to fit many svcd's?
+Determine the duration of the movie and use the "-ss" start switch and the "-t" time duration switch to chop the source
+video into portions.
+
+
+
+The following splits up a big avi (1 hour, 55 minutes and 29 seconds long) into three different svcd's (45 minutes
+each):
+
+
+
+ffmpeg -hq -ss 00:00:00 -t 00:45:00 -i <movie.avi> -target svcd ./m1.mpg
+ffmpeg -hq -ss 00:45:00 -t 00:45:00 -i <movie.avi> -target svcd ./m2.mpg
+ffmpeg -hq -ss 01:30:00 -t 00:25:29 -i <movie.avi> -target svcd ./m3.mpg
+or
+
+
+
+ffmpeg -i <movie.avi> -target ntsc-vcd <filename.mpg>
+the following outputs m1.mpg, m2.mpg and m3.mpg
+
+
+
+mpgtx -3 <filename.mpg> -b m
+Alternatively, you can use the package avisplit. The command:
+
+
+
+avisplit -s 700 -i <file.avi>

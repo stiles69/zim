@@ -1,0 +1,58 @@
+====== Upgrading ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Upgrading
+
+
+Created Thursday 7 June 2018
+
+
+
+
+
+
+# How do we Upgrade PiVPN
+A: You don't
+
+
+
+The only _supported_ way to ensure you are on the latest scripts is to run the uninstaller,
+`pivpn uninstall`
+then run the installer again
+`curl -L | bash`
+
+
+
+## Why?
+Let me explain my logic.
+
+
+
+First, this is really an installer. By definition alone an installer is used to install something, then it's done. The
+only time you'd need to update an installer is if you were installing again. Hence, uninstall the old one first.
+
+
+
+Second, pivpn does provide a few management commands that are updated to resolve bugs. So it would be nice to update
+those without re-installing. However there is a big gotcha here. Those commands add and revoke certs. To add a cert you
+are also building the OVPN file for the client. I have and may yet still add configuration options to the client. When
+I do that, there may be corresponding options needed in the server. If this happens and you upgrade, all your old
+clients are hosed and you need to revoke their old certs and generate new ones. At that point you really might as well
+have uninstalled and re-installed cleanly.
+
+
+
+My final argument is that it would take a lot of logic to code in an upgrader without breaking something and
+introducing its own set of bugs. IE see my second point above. Once you run into issues, it is a 5-10 min task to
+uninstall and reinstall. That really is the easiest path to victory in almost any situation. The only downside to a
+clean reinstall is re-distributing the client certificates (which depending on what is upgraded might have to happen
+anyway). I can safely assume that most of the home users leveraging this script will have a handful of clients AT MOST.
+
+
+
+So my advice here is once you've used the installer, if you have clients working, leave as-is. Check back in a month or
+so and see if features/fixes were added you think you'd want. If they look like something you want or you are running
+into an issue you see is fixed, take the 10min to an hour to uninstall, re-install, and redistribute new client ovpn
+configurations.

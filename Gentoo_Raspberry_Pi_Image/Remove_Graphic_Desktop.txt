@@ -1,0 +1,170 @@
+====== Remove Graphic Desktop ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Remove Graphic Desktop
+
+
+Created Monday 04 June 2018
+
+
+
+Create a Slimmed Down Version of the Image
+
+
+
+https://github.com/sakaki-/gentoo-on-rpi3-64bit.wiki.git
+Easily create a slimmed-down variant of the image, with or without a desktop GUI.
+
+
+
+Introduction
+The gentoo-on-rpi3-64bit image ships with a full Xfce4 desktop system, and a relatively comprehensive set of
+applications (e.g. LibreOffice, Firefox etc.), pre-installed.
+
+
+
+While this is convenient for new users, you may wish to create a "slimmed-down" system, so that e.g. genup runs are
+faster, and the image size overall is reduced.
+
+
+
+Accordingly, in this tutorial I will cover two scenarios:
+
+
+
+removing some, or all, of the supplied graphical apps, but leaving the desktop intact; and
+removing the desktop too, resulting in a textual-console system (suitable for e.g. deploying a headless server).
+Decide which route suits you better, and then follow the corresponding text below (option 1, or option 2).
+
+
+
+Option 1: Retain Xfce4, But Remove Unwanted Apps
+Removing some of the heavyweight, pre-installed applications that you don't need (or use) is straightforward. The file
+/var/lib/portage/world contains a list of all 'top-level' packages installed on your system (such as
+app-office/libreoffice, www-client/firefox etc.). Simply open it, and delete any packages you don't want. Issue:
+
+
+
+demouser@pi64 ~ $ sudo mousepad /var/lib/portage/world &amp;>/dev/null&amp;
+(this will open the file for editing)
+
+
+
+Caution: do not delete the dev-embedded/rpi3-64bit-meta line as this is necessary to keep e.g. the Xfce4 desktop, and
+other support services and applications, installed.
+
+
+
+Once the file only contains packages you want to keep, save it, and close mousepad.
+
+
+
+The unwanted packages will now have a 'reference count' of zero, but are not actually removed from your system yet. To
+do that, issue:
+
+
+
+demouser@pi64 ~ $ sudo emerge --ask --depclean
+Review the list of presented uninstallation targets (which will (transitively) include any support packages that, in
+light of the top-level removals, are also no longer necessary) and, if happy, confirm.
+
+
+
+Note that this operation is 'dependency safe', in that if a package you removed from /var/lib/portage/world happens
+also to be a (direct or transitive) dependency of another installed package that you have not asked to be removed, then
+that package (which will have a non-zero reference count) will be retained.
+
+
+
+Allow the process to run to completion. Depending on how many top-level packages you deleted from
+/var/lib/portage/world, this may take up to 15 minutes or so.
+
+
+
+Once the emerge --depclean completes, fix any broken shared library dependencies; issue:
+
+
+
+demouser@pi64 ~ $ sudo revdep-rebuild
+This will normally end up being a no-op, but it is always safest to check.
+
+
+
+When that finishes, reboot to double-check all is well and that the GUI still comes up automatically. If so,
+congratulations, you now have a slimmed down desktop!
+
+
+
+Option 2: Remove Xfce4 and Migrate to a Textual Console System
+To purge the GUI desktop (and apps) from your system completely, useful if e.g., you want to maintain a headless
+server, is also straighforward.
+
+
+
+Begin by following the steps in option 1, above, but remove all lines in /var/lib/portage/world, except for
+dev-embedded/rpi3-64bit-meta (which must be retained).
+
+
+
+If you have installed any non-graphical packages directly yourself (via emerge), their stanzas may also be kept, at
+your option.
+
+
+
+With that done, open a terminal at the (slimmed down!) desktop, and issue:
+
+
+
+demouser@pi64 ~ $ sudo mousepad /etc/portage/package.use/rpi3-64bit-meta &amp;>/dev/null&amp;
+And edit that file, so that at the bottom you have as the only uncommented line (all lines starting with # in this file
+are comments, and may safely be retained):
+
+
+
+dev-embedded/rpi3-64bit-meta -xfce
+Save, and exit mousepad. Next, re-emerge the meta-package. This will 'untether' Xfce4 and all its (non-core)
+dependencies (but they will still be installed, for the moment - it's just that their reference count will now be
+zero):
+
+
+
+demouser@pi64 ~ $ sudo emerge -v rpi3-64bit-meta
+Let this run to completion, it won't take long.
+
+
+
+With that done, using the by-now-familiar rubric, purge the 'dereferenced' packages:
+
+
+
+demouser@pi64 ~ $ sudo emerge --ask --depclean
+Review the (long) list and, if happy, confirm. The packages will start uninstalling. The full process will take maybe
+an hour or so, depending on the speed of your micro SD card. You can leave this running on the graphical desktop, but
+don't try doing anything else on the system, as everything you see around you is in the process of being uninstalled
+^-^
+
+
+
+Once that completes, immediately fix any broken shared library dependencies; issue:
+
+
+
+demouser@pi64 ~ $ sudo revdep-rebuild
+As before, this will most-likely end up being a no-op, but it is always safest to check.
+
+
+
+Once the revdep-rebuild has completed, reboot immediately; issue:
+
+
+
+demouser@pi64 ~ $ sudo reboot
+The system should restart to a textual login. Log in as root (default password raspberrypi64), and perform the final
+clean-up actions (viz.: removing any downloaded, cached source and binary packages that are no longer required):
+
+
+
+pi64 ~ # eclean-dist --deep &amp;&amp; eclean-pkg --deep
+Once that completes, congratulations! You now have a lightweight baseline system!

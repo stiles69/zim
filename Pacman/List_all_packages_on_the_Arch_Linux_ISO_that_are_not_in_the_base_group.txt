@@ -1,0 +1,14 @@
+====== List all packages on the Arch Linux ISO that are not in the base group ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all packages on the Arch Linux ISO that are not in the base group
+
+
+Created Sunday 06 May 2018
+
+
+
+comm -23 <(wget -q -O - https://git.archlinux.org/archiso.git/plain/configs/releng/packages.both) <(pacman
+	-Qqg base | sort)

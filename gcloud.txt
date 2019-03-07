@@ -1,0 +1,17 @@
+====== gcloud ======
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+gcloud
+
+
+Created Tuesday 20 March 2018
+
+
+
++app deploy
++gcloud configurations

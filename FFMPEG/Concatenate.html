@@ -1,0 +1,2177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Concatenate</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>Concatenate</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+Concatenate
+</p>
+
+<br>
+
+<p>
+Created Monday 22 January 2018
+</p>
+
+<br>
+
+<p>
+Concatenating media files
+</p>
+
+<br>
+<br>
+
+<p>
+Contents
+</p>
+
+<br>
+<br>
+
+<p>
+- Concatenation of files with same codecs
+</p>
+
+<br>
+<br>
+
+<p>
+- Concat demuxer
+</p>
+
+<br>
+<br>
+
+<p>
+- Concat protocol
+</p>
+
+<br>
+<br>
+
+<p>
+- Concatenation of files with different codecs
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+- Concat filter
+</p>
+
+<br>
+<br>
+
+<p>
+- Using an external script
+</p>
+
+<br>
+<br>
+
+<p>
+- Pipe-friendly formats
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+If you have media files with exactly the same codec and codec parameters you can concatenate them as described in<br>
+  "Concatenation of files with same codecs". If you have media with different codecs you can concatenate them as<br>
+  described in "Concatenation of files with different codecs" below.
+</p>
+
+<br>
+
+<p>
+Concatenation of files with same codecs
+</p>
+
+<br>
+<br>
+
+<p>
+There are two methods within ffmpeg that can be used to concatenate files of the same type: the concat <tt>demuxer</tt><br>
+  and the concat <tt>protocol</tt>. The demuxer is more flexible - it requires the same codecs, but different container<br>
+  formats can be used; and it can be used with any container formats, while the protocol only works with a select few<br>
+  containers. However, the concat protocol is available in older versions of ffmpeg, where the demuxer isn't.
+</p>
+
+<br>
+<br>
+
+<p>
+Concat demuxer
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+The concat demuxer was added to FFmpeg 1.1. You can read about it in the documentation.
+</p>
+
+<br>
+
+<p>
+Instructions
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+  Create a file mylist.txt with all the files you want to have concatenated in the following form (lines starting<br>
+<div style='padding-left: 30pt'>
+with a # are ignored):
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+# this is a comment<br>
+file '/path/to/file1'<br>
+file '/path/to/file2'<br>
+file '/path/to/file3'
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+Note that these can be either relative or absolute paths. Then you can stream copy or re-encode your files:
+</p>
+
+<br>
+<br>
+
+<p>
+ffmpeg -f concat -safe 0 -i mylist.txt -c copy output
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+The -safe 0 above is not required if the paths are relative.
+</p>
+
+<br>
+<br>
+
+<p>
+It is possible to generate this list file with a bash for loop, or using printf. Either of the following would generate<br>
+a list file containing every *.wav in the working directory:
+</p>
+
+<br>
+<br>
+
+<p>
+  # with a bash for loop<br>
+for f in ./*.wav; do echo "file '$f'" &gt;&gt; mylist.txt; done<br>
+# or with printf<br>
+printf "file '%s'\n" ./*.wav &gt; mylist.txt
+</p>
+
+<br>
+
+<p>
+  If your shell supports process substitution (like Bash and Zsh), you can avoid explicitly creating a list file and<br>
+<div style='padding-left: 30pt'>
+do the whole thing in a single line. This would be impossible with the concat protocol (see below). Make sure to<br>
+generate absolute paths here, since ffmpeg will resolve paths relative to the list file your shell may create in a<br>
+directory such as "/proc/self/fd/".
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+  ffmpeg -f concat -safe 0 -i &lt;(for f in ./*.wav; do echo "file '$PWD/$f'"; done) -c copy output.wav<br>
+  ffmpeg -f concat -safe 0 -i &lt;(printf "file '$PWD/%s'\n" ./*.wav) -c copy output.wav<br>
+  ffmpeg -f concat -safe 0 -i &lt;(find . -name '*.wav' -printf "file '$PWD/%p'\n") -c copy output.wav
+</p>
+
+<br>
+<br>
+
+<p>
+  You can also loop a video. This example will loop input.mkv 10 times:
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+for i in {1..10}; do printf "file '%s'\n" input.mkv &gt;&gt; mylist.txt; done
+</div>
+ffmpeg -f concat -i mylist.txt -c copy output.mkv
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+Concatenation becomes troublesome, if next clip for concatenation does not exist at the moment, because decoding<br>
+won't start until the whole list is read. However, it is possible to refer another list at the end of the current<br>
+list:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  #!/bin/bash
+</div>
+</p>
+
+<p>
+fn_concat_init() {<br>
+echo "fn_concat_init"<br>
+concat_pls=`mktemp -u -p . concat.XXXXXXXXXX.txt`<br>
+concat_pls="${concat_pls#./}"<br>
+echo "concat_pls=${concat_pls:?}"<br>
+mkfifo "${concat_pls:?}"<br>
+echo<br>
+}
+</p>
+
+<p>
+fn_concat_feed() {<br>
+echo "fn_concat_feed ${1:?}"<br>
+{<br>
+&gt;&amp;amp;2 echo "removing ${concat_pls:?}"<br>
+rm "${concat_pls:?}"<br>
+concat_pls=<br>
+&gt;&amp;amp;2 fn_concat_init<br>
+echo 'ffconcat version 1.0'<br>
+echo "file '${1:?}'"<br>
+echo "file '${concat_pls:?}'"<br>
+} &gt;"${concat_pls:?}"<br>
+echo<br>
+}
+</p>
+
+<p>
+fn_concat_end() {<br>
+echo "fn_concat_end"<br>
+{<br>
+&gt;&amp;amp;2 echo "removing ${concat_pls:?}"<br>
+rm "${concat_pls:?}"<br>
+# not writing header.<br>
+} &gt;"${concat_pls:?}"<br>
+echo<br>
+}
+</p>
+
+<p>
+fn_concat_init
+</p>
+
+<p>
+echo "launching ffmpeg ... all.mkv"<br>
+timeout 60s ffmpeg -y -re -loglevel warning -i "${concat_pls:?}" -pix_fmt yuv422p all.mkv &amp;amp;
+</p>
+
+<p>
+ffplaypid=$!
+</p>
+
+<p>
+echo "generating some test data..."<br>
+i=0; for c in red yellow green blue; do<br>
+ffmpeg -loglevel warning -y -f lavfi -i testsrc=s=720x576:r=12:d=4 -pix_fmt yuv422p -vf "drawbox=w=50:h=w:t=w:c=${c:?}" test$i.mkv<br>
+fn_concat_feed test$i.mkv<br>
+((i++));<br>
+echo<br>
+done<br>
+echo "done"
+</p>
+
+<p>
+fn_concat_end
+</p>
+
+<p>
+wait "${ffplaypid:?}"
+</p>
+
+<p>
+echo "done encoding all.mkv"
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Concat protocol
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  While the demuxer works at the stream level, the concat protocol works at the file level. Certain files (mpg and<br>
+  mpeg transport streams, possibly others) can be concatenated. This is analogous to using cat on UNIX-like systems<br>
+  or copy on Windows.
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Instructions
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  ffmpeg -i "concat:input1.mpg|input2.mpg|input3.mpg" -c copy output.mpg
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  If you have MP4 files, these could be losslessly concatenated by first transcoding them to mpeg transport<br>
+  streams. With h.264 video and AAC audio, the following can be used:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate1.ts<br>
+  ffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate2.ts<br>
+  ffmpeg -i "concat:intermediate1.ts|intermediate2.ts" -c copy -bsf:a aac_adtstoasc output.mp4
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  If you're using a system that supports named pipes, you can use those to avoid creating intermediate files - this<br>
+  sends stderr (which ffmpeg sends all the written data to) to /dev/null, to avoid cluttering up the command-line:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  mkfifo temp1 temp2<br>
+  ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp1 2&gt; /dev/null &amp;amp; \<br>
+  ffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp2 2&gt; /dev/null &amp;amp; \<br>
+  ffmpeg -f mpegts -i "concat:temp1|temp2" -c copy -bsf:a aac_adtstoasc output.mp4
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  All MPEG codecs (H.264, MPEG4/divx/xvid, MPEG2; MP2, MP3, AAC) are supported in the mpegts container format,<br>
+  though the commands above would require some alteration (the -bsf bitstream filters will have to be changed).
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Concatenation of files with different codecs
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Concat filter
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  The concat filter is available in recent versions of ffmpeg. See the concat filter documentation for more info.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Instructions
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  This is easiest to explain using an example:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  ffmpeg -i input1.mp4 -i input2.webm \<br>
+  -filter_complex "[0:v:0] [0:a:0] [1:v:0] [1:a:0] concat=n=2:v=1:a=1 [v] [a]" \<br>
+  -map "[v]" -map "[a]" &lt;encoding options&gt; output.mkv
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  On the -filter_complex line, the following:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  [0:v:0] [0:a:0] [1:v:0] [1:a:0]
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  tells ffmpeg what streams to send to the concat filter; in this case, video stream 0 [0:v:0] and audio stream 0<br>
+  [0:a:0] from input 0 (input1.mp4 in this example), and video stream 0 [1:v:0] and audio stream 0 [1:v:0] from<br>
+  input 1 (input2.webm).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  concat=n=2:v=1:a=1 [v] [a]'
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  This is the concat filter itself. n=2 is telling the filter that there are two input files; v=1 is telling it<br>
+  that there will be one video stream; a=1 is telling it that there will be one audio stream. [v] and [a] are names<br>
+  for the output streams to allow the rest of the ffmpeg line to use the output of the concat filter.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Note that the single quotes around the whole filter section are required.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  -map '[v]' -map '[a]'
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  This tells ffmpeg to use the results of the concat filter rather than the streams directly from the input
+</div>
+<div style='padding-left: 60pt'>
+files.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Note that filters are incompatible with stream copying; you can't use -c copy with this method. Also, I'm not
+</div>
+<div style='padding-left: 60pt'>
+sure whether softsubs are supported.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  As you can infer from this example, multiple types of input are supported, and anything readable by ffmpeg should<br>
+  work. The inputs have to be of the same frame size, and a handful of other attributes have to match.
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Using an external script
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  With any vaguely-modern version of ffmpeg, the following script is made redundant by the advent the concat
+</div>
+<div style='padding-left: 60pt'>
+filter, which achieves the same result in a way that works across platforms. It is a clever workaround of<br>
+ffmpeg's then-limitations, but most people (i.e. anyone not stuck using an ancient version of ffmpeg for<br>
+whatever reason) should probably use one of the methods listed above.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  The following script can be used to concatenate multiple input media files (containing audio/video streams)
+</div>
+<div style='padding-left: 60pt'>
+into one output file (just like as if all the inputs were played in a playlist, one after another). It is based<br>
+on this FAQ item: How can I join video files, which also contains other useful information.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  If you find any bugs, feel free to correct the script, add yourself to the list of contributors and change
+</div>
+<div style='padding-left: 60pt'>
+the version string to reflect your change(s) or email the author with your patch, whatever you find more<br>
+convenient.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Instructions
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+Save the script in a file named mmcat (or some other name), make it executable (chmod +x mmcat) and run it,<br>
+  using the syntax:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  ./mmcat &lt;input1&gt; &lt;input2&gt; &lt;input3&gt; ... &lt;output&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  If you get an error like this:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  #/tmp/mcs_v_all: Operation not permitted
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  that could mean that you don't have correct permissions set on /tmp directory (or whatever you set in TMP
+</div>
+<div style='padding-left: 60pt'>
+variable) or that decoding of your input media has failed for some reason. In this case it would be the best to<br>
+turn on the logging (as described in the script's comments)
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+  Script
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+#!/bin/bash
+</div>
+</p>
+
+<p>
+################################################################################<br>
+#<br>
+# Script name: MultiMedia Concat Script (mmcat)<br>
+# Author: burek (<a href="mailto:burek021@gmail.com" title="burek021@gmail.com" class="mailto">burek021@gmail.com</a>)<br>
+# License: GNU/GPL, see <a href="http://www.gnu.org/copyleft/gpl.html" title="http://www.gnu.org/copyleft/gpl.html" class="http">http://www.gnu.org/copyleft/gpl.html</a><br>
+# Date: 2012-07-14<br>
+#<br>
+# This script concatenates (joins, merges) several audio/video inputs into one<br>
+# final output (just like as if all the inputs were played in a playlist, one<br>
+# after another).<br>
+#<br>
+# All input files must have at least one audio and at least one video stream.<br>
+# If not, you can easily add audio silence, using FFmpeg. Just search the<br>
+# internet for "ffmpeg add silence".<br>
+#<br>
+# The script makes use of FFmpeg tool (www.ffmpeg.org) and is free for use under<br>
+# the GPL license. The inspiration for this script came from this FAQ item:<br>
+# <a href="http://ffmpeg.org/faq.html#How-can-I-join-video-files_003f" title="http://ffmpeg.org/faq.html#How-can-I-join-video-files_003f" class="http">http://ffmpeg.org/faq.html#How-can-I-join-video-files_003f</a><br>
+#<br>
+# If you find any bugs, please send me an e-mail so I can fix it.<br>
+#<br>
+################################################################################<br>
+#<br>
+# General syntax: mmcat &lt;input1&gt; &lt;input2&gt; &lt;input3&gt; ... &lt;output&gt;<br>
+#<br>
+# For example: mmcat file1.flv file2.flv output.flv<br>
+# would create "output.flv" out of "file1.flv" and "file2.flv".<br>
+#<br>
+################################################################################
+</p>
+
+<p>
+# change this to what you need !!!<br>
+EXTRA_OPTIONS='-vcodec libx264 -crf 23 -preset medium -acodec aac -strict experimental -ac 2 -ar 44100 -ab 128k'
+</p>
+
+<p>
+################################################################################<br>
+#<br>
+# NO NEED TO TOUCH ANYTHING AFTER THIS LINE!<br>
+#<br>
+################################################################################<br>
+# the version of the script<br>
+VERSION=1.3
+</p>
+
+<p>
+# location of temp folder<br>
+TMP=/tmp
+</p>
+
+<p>
+################################################################################<br>
+echo "MultiMedia Concat Script v$VERSION (mmcat) - A script to concatenate multiple multimedia files."<br>
+echo "Based on FFmpeg - www.ffmpeg.org"<br>
+echo "Don't forget to edit this script and change EXTRA_OPTIONS"<br>
+echo ""
+</p>
+
+<p>
+################################################################################<br>
+# syntax check (has to have at least 3 params: infile1, infile2, outfile<br>
+################################################################################<br>
+if [ -z $3 ]; then<br>
+echo "Syntax: $0 &lt;input1&gt; &lt;input2&gt; &lt;input3&gt; ... &lt;output&gt;"<br>
+exit 1<br>
+fi<br>
+################################################################################<br>
+# get all the command line parameters, except for the last one, which is output<br>
+################################################################################<br>
+# $first  - first parameter<br>
+# $last  - last parameter (output file)<br>
+# $inputs - all the inputs, except the first input, because 1st input is<br>
+#          handled separately<br>
+################################################################################<br>
+first=${@:1:1}<br>
+last=${@:$#:1}<br>
+len=$(($#-2))<br>
+inputs=${@:2:$len}
+</p>
+
+<p>
+# remove all previous tmp fifos (if exist)<br>
+rm -f $TMP/mcs_*<br>
+################################################################################<br>
+# decode first input differently, because the video header does not have to be<br>
+# kept for each video input, only the header from the first video is needed<br>
+################################################################################<br>
+mkfifo $TMP/mcs_a1 $TMP/mcs_v1<br>
+ffmpeg -y -i $first -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a1 2&gt;/dev/null &lt;/dev/null &amp;amp;<br>
+ffmpeg -y -i $first -an -f yuv4mpegpipe -vcodec rawvideo $TMP/mcs_v1 2&gt;/dev/null &lt;/dev/null &amp;amp;<br>
+# if you need to log the output of decoding processes (usually not necessary)<br>
+# then replace the "2&gt;/dev/null" in 2 lines above with your log file names, like this:<br>
+#ffmpeg -y -i $first -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a1 2&gt;$TMP/log.a.1 &lt;/dev/null &amp;amp;<br>
+#ffmpeg -y -i $first -an -f yuv4mpegpipe -vcodec rawvideo $TMP/mcs_v1 2&gt;$TMP/log.v.1 &lt;/dev/null &amp;amp;<br>
+################################################################################<br>
+# decode all the other inputs, remove first line of video (header) with tail<br>
+# $all_a and $all_v are lists of all a/v fifos, to be used by "cat" later on<br>
+################################################################################<br>
+all_a=$TMP/mcs_a1<br>
+all_v=$TMP/mcs_v1<br>
+i=2<br>
+for f in $inputs<br>
+do<br>
+mkfifo $TMP/mcs_a$i $TMP/mcs_v$i
+</p>
+
+<p>
+ffmpeg -y -i $f -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a$i 2&gt;/dev/null &lt;/dev/null &amp;amp;<br>
+{ ffmpeg -y -i $f -an -f yuv4mpegpipe -vcodec rawvideo - 2&gt;/dev/null &lt;/dev/null | tail -n +2 &gt; $TMP/mcs_v$i ; } &amp;amp;
+</p>
+
+<p>
+# if you need to log the output of decoding processes (usually not necessary)<br>
+# then replace the "2&gt;/dev/null" in 2 lines above with your log file names, like this:<br>
+#ffmpeg -y -i $f -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a$i 2&gt;$TMP/log.a.$i &lt;/dev/null &amp;amp;<br>
+#{ ffmpeg -y -i $f -an -f yuv4mpegpipe -vcodec rawvideo - 2&gt;$TMP/log.v.$i &lt;/dev/null | tail -n +2 &gt; $TMP/mcs_v$i ; } &amp;amp;
+</p>
+
+<p>
+all_a="$all_a $TMP/mcs_a$i"<br>
+all_v="$all_v $TMP/mcs_v$i"<br>
+let i++<br>
+done<br>
+################################################################################<br>
+# concatenate all raw audio/video inputs into one audio/video<br>
+################################################################################<br>
+mkfifo $TMP/mcs_a_all<br>
+mkfifo $TMP/mcs_v_all<br>
+cat $all_a &gt; $TMP/mcs_a_all &amp;amp;<br>
+cat $all_v &gt; $TMP/mcs_v_all &amp;amp;
+</p>
+
+<p>
+################################################################################<br>
+# finally, encode the raw concatenated audio/video into something useful<br>
+################################################################################<br>
+ffmpeg -f u16le -acodec pcm_s16le -ac 2 -ar 44100 -i $TMP/mcs_a_all \<br>
+  -f yuv4mpegpipe -vcodec rawvideo -i $TMP/mcs_v_all \<br>
+$EXTRA_OPTIONS \<br>
+$last
+</p>
+
+<p>
+################################################################################<br>
+# remove all fifos<br>
+################################################################################<br>
+rm -f $TMP/mcs_*
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+The script above can be modified to use the '-f avi' insted of '-f yuv4mpegpipe'. Benefits:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+- unlike yuv4mpegpipe, just one pipe for both video and audio<br>
+- unlike yuv4mpegpipe, matroska and flv, no need to skip header in second file using tail, because avi demuxer<br>
+will skip it automatically<br>
+- unlike mpegts, avi supports rawvideo and pcm
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+Concatenating media files ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+Contents<br>
+- Concatenation of files with same codecs
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+  - Concat demuxer
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+- Concat protocol
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+- Concatenation of files with different codecs
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+  - Concat filter
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+- Using an external script
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  - Pipe-friendly formats
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  If you have media files with exactly the same codec and codec parameters you can concatenate them as<br>
+  described in "Concatenation of files with same codecs". If you have media with different codecs you<br>
+  can concatenate them as described in "Concatenation of files with different codecs" below.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  Concatenation of files with same codecs ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  There are two methods within ffmpeg that can be used to concatenate files of the same type: the<br>
+  concat &lt;tt&gt;demuxer&lt;/tt&gt; and the concat &lt;tt&gt;protocol&lt;/tt&gt;. The demuxer is more flexible - it requires<br>
+  the same codecs, but different container formats can be used; and it can be used with any container<br>
+  formats, while the protocol only works with a select few containers. However, the concat protocol is<br>
+  available in older versions of ffmpeg, where the demuxer isn't.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  Concat demuxer ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  The concat demuxer was added to FFmpeg 1.1. You can read about it in the documentation.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  Instructions ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  Create a file mylist.txt with all the files you want to have concatenated in the following form<br>
+  (lines starting with a # are ignored):
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  # this is a comment<br>
+  file '/path/to/file1'<br>
+  file '/path/to/file2'<br>
+  file '/path/to/file3'
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  Note that these can be either relative or absolute paths. Then you can stream copy or re-encode your<br>
+  files:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  ffmpeg -f concat -safe 0 -i mylist.txt -c copy output
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  The -safe 0 above is not required if the paths are relative.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  It is possible to generate this list file with a bash for loop, or using printf. Either of the<br>
+  following would generate a list file containing every *.wav in the working directory:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  # with a bash for loop<br>
+  for f in ./*.wav; do echo "file '$f'" &gt;&gt; mylist.txt; done<br>
+  # or with printf<br>
+  printf "file '%s'\n" ./*.wav &gt; mylist.txt
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  On Windows Command-line:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  (for %i in (*.wav) do <span class="zim-tag">@echo</span> file '%i') &gt; mylist.txt
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  Or for Windows bat-file:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  (for %%i in (*.wav) do <span class="zim-tag">@echo</span> file '%%i') &gt; mylist.txt
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  If your shell supports process substitution (like Bash and Zsh), you can avoid explicitly creating a<br>
+  list file and do the whole thing in a single line. This would be impossible with the concat protocol<br>
+  (see below). Make sure to generate absolute paths here, since ffmpeg will resolve paths relative to<br>
+  the list file your shell may create in a directory such as "/proc/self/fd/".
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  ffmpeg -f concat -safe 0 -i &lt;(for f in ./*.wav; do echo "file '$PWD/$f'"; done) -c copy output.wav<br>
+  ffmpeg -f concat -safe 0 -i &lt;(printf "file '$PWD/%s'\n" ./*.wav) -c copy output.wav<br>
+  ffmpeg -f concat -safe 0 -i &lt;(find . -name '*.wav' -printf "file '$PWD/%p'\n") -c copy output.wav
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  You can also loop a video. This example will loop input.mkv 10 times:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  for i in {1..10}; do printf "file '%s'\n" input.mkv &gt;&gt; mylist.txt; done<br>
+  ffmpeg -f concat -i mylist.txt -c copy output.mkv
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  Concatenation becomes troublesome, if next clip for concatenation does not exist at the moment,<br>
+  because decoding won't start until the whole list is read. However, it is possible to refer another<br>
+  list at the end of the current list:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  #!/bin/bash
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  fn_concat_init() {
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+echo "fn_concat_init"<br>
+concat_pls=`mktemp -u -p . concat.XXXXXXXXXX.txt`<br>
+concat_pls="${concat_pls#./}"<br>
+echo "concat_pls=${concat_pls:?}"<br>
+mkfifo "${concat_pls:?}"<br>
+echo
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+fn_concat_feed() {
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+  echo "fn_concat_feed ${1:?}"<br>
+  {
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+&gt;&amp;amp;2 echo "removing ${concat_pls:?}"<br>
+rm "${concat_pls:?}"<br>
+concat_pls=<br>
+&gt;&amp;amp;2 fn_concat_init<br>
+echo 'ffconcat version 1.0'<br>
+echo "file '${1:?}'"<br>
+echo "file '${concat_pls:?}'"
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  } &gt;"${concat_pls:?}"<br>
+  echo
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+  }
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  fn_concat_end() {
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+echo "fn_concat_end"<br>
+{
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+  &gt;&amp;amp;2 echo "removing ${concat_pls:?}"<br>
+  rm "${concat_pls:?}"<br>
+  # not writing header.
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+} &gt;"${concat_pls:?}"<br>
+echo
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+fn_concat_init
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+echo "launching ffmpeg ... all.mkv"<br>
+timeout 60s ffmpeg -y -re -loglevel warning -i "${concat_pls:?}" -pix_fmt yuv422p<br>
+all.mkv &amp;amp;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+ffplaypid=$!
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+echo "generating some test data..."<br>
+i=0; for c in red yellow green blue; do
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+  ffmpeg -loglevel warning -y -f lavfi -i testsrc=s=720x576:r=12:d=4 -pix_fmt yuv422p<br>
+  -vf "drawbox=w=50:h=w:t=w:c=${c:?}" test$i.mkv<br>
+  fn_concat_feed test$i.mkv<br>
+  ((i++));<br>
+  echo
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+  done<br>
+  echo "done"
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  fn_concat_end
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  wait "${ffplaypid:?}"
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  echo "done encoding all.mkv"
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Concat protocol ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  While the demuxer works at the stream level, the concat protocol works at the file<br>
+  level. Certain files (mpg and mpeg transport streams, possibly others) can be<br>
+  concatenated. This is analogous to using cat on UNIX-like systems or copy on Windows.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Instructions ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ffmpeg -i "concat:input1.mpg|input2.mpg|input3.mpg" -c copy output.mpg
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  If you have MP4 files, these could be losslessly concatenated by first transcoding<br>
+  them to mpeg transport streams. With h.264 video and AAC audio, the following can be<br>
+  used:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate1.ts<br>
+  ffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate2.ts<br>
+  ffmpeg -i "concat:intermediate1.ts|intermediate2.ts" -c copy -bsf:a aac_adtstoasc<br>
+  output.mp4
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  If you're using a system that supports named pipes, you can use those to avoid<br>
+  creating intermediate files - this sends stderr (which ffmpeg sends all the written<br>
+  data to) to /dev/null, to avoid cluttering up the command-line:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  mkfifo temp1 temp2<br>
+  ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp1 2&gt; /dev/null<br>
+  &amp;amp; \<br>
+  ffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp2 2&gt; /dev/null<br>
+  &amp;amp; \<br>
+  ffmpeg -f mpegts -i "concat:temp1|temp2" -c copy -bsf:a aac_adtstoasc output.mp4
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  All MPEG codecs (H.264, MPEG4/divx/xvid, MPEG2; MP2, MP3, AAC) are supported in the<br>
+  mpegts container format, though the commands above would require some alteration (the<br>
+  -bsf bitstream filters will have to be changed).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Concatenation of files with different codecs ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Concat filter ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  The concat filter is available in recent versions of ffmpeg. See the concat filter<br>
+  documentation for more info.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Instructions ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  This is easiest to explain using an example:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ffmpeg -i input1.mp4 -i input2.webm \<br>
+  -filter_complex "[0:v:0] [0:a:0] [1:v:0] [1:a:0] concat=n=2:v=1:a=1 [v] [a]" \<br>
+  -map "[v]" -map "[a]" &lt;encoding options&gt; output.mkv
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  On the -filter_complex line, the following:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  [0:v:0] [0:a:0] [1:v:0] [1:a:0]
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  tells ffmpeg what streams to send to the concat filter; in this case, video stream 0<br>
+  [0:v:0] and audio stream 0 [0:a:0] from input 0 (input1.mp4 in this example), and<br>
+  video stream 0 [1:v:0] and audio stream 0 [1:v:0] from input 1 (input2.webm).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  concat=n=2:v=1:a=1 [v] [a]'
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  This is the concat filter itself. n=2 is telling the filter that there are two input<br>
+  files; v=1 is telling it that there will be one video stream; a=1 is telling it that<br>
+  there will be one audio stream. [v] and [a] are names for the output streams to allow<br>
+  the rest of the ffmpeg line to use the output of the concat filter.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Note that the single quotes around the whole filter section are required.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  -map '[v]' -map '[a]'
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  This tells ffmpeg to use the results of the concat filter rather than the streams<br>
+  directly from the input files.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Note that filters are incompatible with stream copying; you can't use -c copy with<br>
+  this method. Also, I'm not sure whether softsubs are supported.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  As you can infer from this example, multiple types of input are supported, and<br>
+  anything readable by ffmpeg should work. The inputs have to be of the same frame<br>
+  size, and a handful of other attributes have to match.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Using an external script ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  With any vaguely-modern version of ffmpeg, the following script is made redundant by<br>
+  the advent the concat filter, which achieves the same result in a way that works<br>
+  across platforms. It is a clever workaround of ffmpeg's then-limitations, but most<br>
+  people (i.e. anyone not stuck using an ancient version of ffmpeg for whatever reason)<br>
+  should probably use one of the methods listed above.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  The following script can be used to concatenate multiple input media files<br>
+  (containing audio/video streams) into one output file (just like as if all the inputs<br>
+  were played in a playlist, one after another). It is based on this FAQ item: How can<br>
+  I join video files, which also contains other useful information.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  If you find any bugs, feel free to correct the script, add yourself to the list of<br>
+  contributors and change the version string to reflect your change(s) or email the<br>
+  author with your patch, whatever you find more convenient.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Instructions ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Save the script in a file named mmcat (or some other name), make it executable (chmod<br>
+  +x mmcat) and run it, using the syntax:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ./mmcat &lt;input1&gt; &lt;input2&gt; &lt;input3&gt; ... &lt;output&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  If you get an error like this:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  #/tmp/mcs_v_all: Operation not permitted
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  that could mean that you don't have correct permissions set on /tmp directory (or<br>
+  whatever you set in TMP variable) or that decoding of your input media has failed for<br>
+  some reason. In this case it would be the best to turn on the logging (as described<br>
+  in the script's comments)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  Script ¶
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  #!/bin/bash
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  #<br>
+  # Script name: MultiMedia Concat Script (mmcat)<br>
+  # Author: burek (<a href="mailto:burek021@gmail.com" title="burek021@gmail.com" class="mailto">burek021@gmail.com</a>)<br>
+  # License: GNU/GPL, see <a href="http://www.gnu.org/copyleft/gpl.html" title="http://www.gnu.org/copyleft/gpl.html" class="http">http://www.gnu.org/copyleft/gpl.html</a><br>
+  # Date: 2012-07-14<br>
+  #<br>
+  # This script concatenates (joins, merges) several audio/video inputs into one<br>
+  # final output (just like as if all the inputs were played in a playlist, one<br>
+  # after another).<br>
+  #<br>
+  # All input files must have at least one audio and at least one video stream.<br>
+  # If not, you can easily add audio silence, using FFmpeg. Just search the<br>
+  # internet for "ffmpeg add silence".<br>
+  #<br>
+  # The script makes use of FFmpeg tool (www.ffmpeg.org) and is free for use under<br>
+  # the GPL license. The inspiration for this script came from this FAQ item:<br>
+  # <a href="http://ffmpeg.org/faq.html#How-can-I-join-video-files_003f" title="http://ffmpeg.org/faq.html#How-can-I-join-video-files_003f" class="http">http://ffmpeg.org/faq.html#How-can-I-join-video-files_003f</a><br>
+  #<br>
+  # If you find any bugs, please send me an e-mail so I can fix it.<br>
+  #<br>
+  ################################################################################<br>
+  #<br>
+  # General syntax: mmcat &lt;input1&gt; &lt;input2&gt; &lt;input3&gt; ...<br>
+  &lt;output&gt;<br>
+  #<br>
+  # For example: mmcat file1.flv file2.flv output.flv<br>
+  # would create "output.flv" out of "file1.flv" and "file2.flv".<br>
+  #<br>
+  ################################################################################
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  # change this to what you need !!!<br>
+  EXTRA_OPTIONS='-vcodec libx264 -crf 23 -preset medium -acodec aac -strict<br>
+  experimental -ac 2 -ar 44100 -ab 128k'
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  #<br>
+  # NO NEED TO TOUCH ANYTHING AFTER THIS LINE!<br>
+  #<br>
+  ################################################################################
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  # the version of the script<br>
+  VERSION=1.3
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  # location of temp folder<br>
+  TMP=/tmp
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  echo "MultiMedia Concat Script v$VERSION (mmcat) - A script to concatenate multiple<br>
+  multimedia files."<br>
+  echo "Based on FFmpeg - www.ffmpeg.org"<br>
+  echo "Don't forget to edit this script and change EXTRA_OPTIONS"<br>
+  echo ""
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  # syntax check (has to have at least 3 params: infile1, infile2, outfile<br>
+  ################################################################################<br>
+  if [ -z $3 ]; then<br>
+  echo "Syntax: $0 &lt;input1&gt; &lt;input2&gt; &lt;input3&gt; ... &lt;output&gt;"<br>
+  exit 1<br>
+  fi
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  # get all the command line parameters, except for the last one, which is output<br>
+  ################################################################################<br>
+  # $first - first parameter<br>
+  # $last - last parameter (output file)<br>
+  # $inputs - all the inputs, except the first input, because 1st input is<br>
+  # handled separately<br>
+  ################################################################################<br>
+  first=${@:1:1}<br>
+  last=${@:$#:1}<br>
+  len=$(($#-2))<br>
+  inputs=${@:2:$len}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  # remove all previous tmp fifos (if exist)<br>
+  rm -f $TMP/mcs_*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  # decode first input differently, because the video header does not have to be<br>
+  # kept for each video input, only the header from the first video is needed<br>
+  ################################################################################<br>
+  mkfifo $TMP/mcs_a1 $TMP/mcs_v1
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ffmpeg -y -i $first -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a1<br>
+  2&gt;/dev/null &lt;/dev/null &amp;amp;<br>
+  ffmpeg -y -i $first -an -f yuv4mpegpipe -vcodec rawvideo $TMP/mcs_v1 2&gt;/dev/null<br>
+  &lt;/dev/null &amp;amp;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  # if you need to log the output of decoding processes (usually not necessary)<br>
+  # then replace the "2&gt;/dev/null" in 2 lines above with your log file names, like<br>
+  this:<br>
+  #ffmpeg -y -i $first -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a1<br>
+  2&gt;$TMP/log.a.1 &lt;/dev/null &amp;amp;<br>
+  #ffmpeg -y -i $first -an -f yuv4mpegpipe -vcodec rawvideo $TMP/mcs_v1<br>
+  2&gt;$TMP/log.v.1 &lt;/dev/null &amp;amp;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  # decode all the other inputs, remove first line of video (header) with tail<br>
+  # $all_a and $all_v are lists of all a/v fifos, to be used by "cat" later on<br>
+  ################################################################################<br>
+  all_a=$TMP/mcs_a1<br>
+  all_v=$TMP/mcs_v1<br>
+  i=2<br>
+  for f in $inputs<br>
+  do<br>
+  mkfifo $TMP/mcs_a$i $TMP/mcs_v$i
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ffmpeg -y -i $f -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a$i<br>
+  2&gt;/dev/null &lt;/dev/null &amp;amp;<br>
+  { ffmpeg -y -i $f -an -f yuv4mpegpipe -vcodec rawvideo - 2&gt;/dev/null &lt;/dev/null<br>
+  | tail -n +2 &gt; $TMP/mcs_v$i ; } &amp;amp;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  # if you need to log the output of decoding processes (usually not necessary)<br>
+  # then replace the "2&gt;/dev/null" in 2 lines above with your log file names, like<br>
+  this:<br>
+  #ffmpeg -y -i $f -vn -f u16le -acodec pcm_s16le -ac 2 -ar 44100 $TMP/mcs_a$i<br>
+  2&gt;$TMP/log.a.$i &lt;/dev/null &amp;amp;<br>
+  #{ ffmpeg -y -i $f -an -f yuv4mpegpipe -vcodec rawvideo - 2&gt;$TMP/log.v.$i<br>
+  &lt;/dev/null | tail -n +2 &gt; $TMP/mcs_v$i ; } &amp;amp;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  all_a="$all_a $TMP/mcs_a$i"<br>
+  all_v="$all_v $TMP/mcs_v$i"<br>
+  let i++<br>
+  done
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  # concatenate all raw audio/video inputs into one audio/video<br>
+  ################################################################################<br>
+  mkfifo $TMP/mcs_a_all<br>
+  mkfifo $TMP/mcs_v_all<br>
+  cat $all_a &gt; $TMP/mcs_a_all &amp;amp;<br>
+  cat $all_v &gt; $TMP/mcs_v_all &amp;amp;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  ################################################################################<br>
+  # finally, encode the raw concatenated audio/video into something useful<br>
+  ################################################################################<br>
+  ffmpeg -f u16le -acodec pcm_s16le -ac 2 -ar 44100 -i $TMP/mcs_a_all \
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+-f yuv4mpegpipe -vcodec rawvideo -i $TMP/mcs_v_all \
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+$EXTRA_OPTIONS \<br>
+$last
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+################################################################################<br>
+# remove all fifos<br>
+################################################################################<br>
+rm -f $TMP/mcs_*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+The script above can be modified to use the '-f avi' insted of '-f yuv4mpegpipe'.<br>
+Benefits:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+- unlike yuv4mpegpipe, just one pipe for both video and audio<br>
+- unlike yuv4mpegpipe, matroska and flv, no need to skip header in second file<br>
+using tail, because avi demuxer will skip it automatically<br>
+- unlike mpegts, avi supports rawvideo and pcm
+</div>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

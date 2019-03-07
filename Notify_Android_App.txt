@@ -1,0 +1,13 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-12-25 21:05:39-06:00
+ 
+====== Notify Android App ======
+Created Tue 25 December 2018
+
+App is titled NotifyDroid
+
+**Example**
+curl https://xdroid.net/api/message?k=api_key_is_displayed_on_the_app&t=title&c= content&u=http://notification_you_want_to_URL
+
+curl https://xdroid.net/api/message?k=api_key_is_displayed_on_the_app&t=title&c= content&u=http://notification_you_want_to_URL

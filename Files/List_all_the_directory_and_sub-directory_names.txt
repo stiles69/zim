@@ -1,0 +1,13 @@
+====== List all the directory and sub-directory names ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all the directory and sub-directory names
+
+
+Created Sunday 13 May 2018
+
+
+
+$ find . -type d

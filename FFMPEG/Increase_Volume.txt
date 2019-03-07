@@ -1,0 +1,13 @@
+====== Increase Volume ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Increase Volume
+
+
+Created Monday 22 January 2018
+
+
+
+ffmpeg -i video.avi -af "volumedetect" -f null /dev/null

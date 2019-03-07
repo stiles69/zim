@@ -1,0 +1,134 @@
+====== Parameters ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Parameters
+
+
+Created Saturday 26 May 2018
+
+
+
+Type
+The next section is type of file system for that partition. Linux supports a variety of file systems, few might need
+some packages to be able to perform read/write on them. We are looking only over a few of them:
+
+
+
+
+
+
+→ ext3 : Most of the systems these days have ext3 linux partitions. Older systems had ext2 type filesystems but now
+ext3 has replaced it for its advantages. Ext3 is journaled, that is, if the power goes off and system is not properly
+shut down, no data will be lost, therefore, no time wasted in disc checks.
+Note: Some distros are shipping with ext4 as default.
+
+
+
+→ swap : Name stands for itself. “Swap” partition is of type “swap”.
+
+
+
+→ ntfs and vfat : You will find your pendrives in vfat format (also known as FAT32) and windows drives in ntfs format.
+
+
+
+→ auto : When you find written “auto” in this column, it doesn’t signify type but automatic detection of filesystem
+type.
+
+
+
+Options
+This section of fstab contains mount options for partitions. This section can seem really confusing at first but
+knowing few them can get you through it. Popular ones are discussed here while rest can be checked on man page of mount
+.
+
+
+
+
+
+
+
+	auto/noauto
+
+
+
+
+With auto , the partition will automatically be mounted on a system boot. You can prevent a partition from automounting
+on bootup by editing option to noauto in fstab file.
+
+
+
+
+	exec/noexec
+
+
+
+
+It lets you choose whether the partition can execute binaries or not. For example, you can give a partition noexec
+which contains binaries and you don’t want them to execute.
+
+
+
+
+	ro/rw
+
+
+
+
+ro is for read-only partition while rw denotes read-write partition. To be able to write on a partition, it should have
+rw option in fstab file.
+
+
+
+
+	user/nouser
+
+
+
+
+With nouser as an option, only root has privilege of mounting a partition while user allows any non-root user to mount
+a partition. Many users find it annoying that they can’t mount a partition as a normal user, well, now you know that
+solution is to update your fstab file.
+
+
+
+
+	sync/async
+
+
+
+
+It is responsible for files being written synchronously and asynchronously. In layman words, when you issue a “copy”
+command on a pendrive, writing process starts as soon as command is issued but this is not the case with internal hard
+drives. Write operations on hard disks are not synchronised, that is, writing might start long after command was
+issued. This is the reason for error “wait while changes are being wriiten”. This can also cause accidental data loss.
+If async is set, it might appear that files are successfully written but they might not be physically written.
+
+
+
+
+	defaults
+
+
+
+
+It sets all the default options: rw, suid, dev, exec, auto, nouser, async.
+
+
+
+dump
+This is the fifth column in fstab file. It has zeros and ones as entries, zero is for false and one is for true . It is
+an old school method of backing up. Backup will be performed if option is “1”. In case of “0” option dump will ignore
+the partition.
+
+
+
+
+
+fsck
+fsck is short form for file system check. This makes the 6th column for fstab file. You will see 0,1 or 2 written in
+this section. “0” denotes that the partition will be skipped from checking. “1” is for partition which will be checked
+at booting time. These numbers are actually the sequence in which they will be checked. Root (/root) partition is
+always set at 1, partitions other than root which are supposed to be checked should be set at 2.

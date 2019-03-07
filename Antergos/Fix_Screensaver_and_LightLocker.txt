@@ -1,0 +1,38 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Fix Screensaver and LightLocker ======
+
+===== Working solution to use lightdm and lightlocker under Gnome =====
+
+=== 0.1 Disable gsd-power plugin ===
+As discussed here: https://forum.antergos.com
+
+== Gnome seems to overwrite the settings to black the screen for powersaving, made by other DM's then GDM, as allways ==
+== under Gnome: Devs there do not take care to make it easy to customize. ==
+
+== We find out some solutions to solve this, and get lightlocker work under Antergos Gnome, as we do not use GDM by ==
+== default, we get Lightdm and lightlocker instead! ==
+
+== Here the best working solution (IMHO): ==
+
+Disable gsd-power plugin
+Completely disable gsd-power plugin by patching the desktop file:
+**echo "Hidden=true" | sudo tee -a /etc/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop**
+and restart session.
+
+If you want the changes to become permanent so that the file cannot be modified with updates, then you can use the
+'chattr' command (you can always roll back the changes below with the "-i" parameter):
+**sudo chattr +i /etc/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop**
+
+Another way is to do this if you prefer not to interfere with global files that may be subject to update changes, you
+can enable the changes on a per-user basis by copying the file to the .config/autostart directory in your home dir and
+then add the key by doing
+
+**cp /etc/xdg/autostart/org.gnome.SettingsDaemon.Power.desktop ~/.config/autostart/**
+**echo "Hidden=true" >> ~.config/autostart/org.gnome.SettingsDaemon.Power.desktop**
+As provided here by shane
+
+
+Now you can use lightlocker:
+All setting related to screen-locking and poweroff screen from gnome-settings should be disabled:

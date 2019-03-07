@@ -1,0 +1,13 @@
+====== List All AUR Packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List All AUR Packages
+
+
+Created Sunday 06 May 2018
+
+
+
+sudo pacman -Qmq

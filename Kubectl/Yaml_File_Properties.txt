@@ -1,0 +1,120 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-03-05T09:02:19-06:00
+
+====== Yaml File Properties ======
+Created Tuesday 05 March 2019
+
+https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#-strong-api-overview-strong-
+
+
+=== Deployment Config to run 3 nginx instances (max rollback set to 10 revisions). ===
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  # Unique key of the Deployment instance
+  name: deployment-example
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 3
+  template:
+	metadata:
+	  labels:
+		# Apply this label to pods and default
+		# the Deployment label selector to this value
+		app: nginx
+	spec:
+	  containers:
+	  - name: nginx
+		# Run this image
+		image: [[nginx:1.10]]
+
+=== Job Config to print pi up to 2000 digits (then exit). ===
+apiVersion: batch/v1
+kind: Job
+metadata:
+  # Unique key of the Job instance
+  name: example-job
+spec:
+  template:
+	metadata:
+	  name: example-job
+	spec:
+	  containers:
+	  - name: pi
+		image: perl
+		command: ["perl"]
+		args: ["-Mbignum=bpi", "-wle", "print bpi(2000)"]
+	  # Do not restart containers after they exit
+	  restartPolicy: Never
+
+=== Pod Config to print "Hello World". ===
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-example
+spec:
+  containers:
+  - name: ubuntu
+	image: ubuntu:trusty
+	command: ["echo"]
+	args: ["Hello World"]
+
+=== ReplicaSet Config to run 3 nginx instances. ===
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  # Unique key of the ReplicaSet instance
+  name: replicaset-example
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 3
+  template:
+	metadata:
+	  labels:
+		app: nginx
+	spec:
+	  containers:
+	  # Run the nginx image
+	  - name: nginx
+		image: [[nginx:1.10]]
+
+=== ReplicationController Config to run 3 nginx instances. ===
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  # Unique key of the ReplicationController instance
+  name: replicationcontroller-example
+spec:
+  # 3 Pods should exist at all times.
+  replicas: 3
+  template:
+	metadata:
+	  labels:
+		app: nginx
+	spec:
+	  containers:
+	  # Run the nginx image
+	  - name: nginx
+		image: [[nginx:1.10]]
+
+=== Service Config to load balance traffic across all Pods with the app=nginx label. Receives on and sends to port 80. Exposes an externally accessible endpoint. ===
+kind: Service
+apiVersion: v1
+metadata:
+  # Unique key of the Service instance
+  name: service-example
+spec:
+  ports:
+	# Accept traffic sent to port 80
+	- name: http
+	  port: 80
+	  targetPort: 80
+  selector:
+	# Loadbalance traffic across Pods matching
+	# this label selector
+	app: nginx
+  # Create an HA proxy in the cloud provider
+  # with an External IP address - *Only supported
+  # by some cloud providers*
+  type: LoadBalancer

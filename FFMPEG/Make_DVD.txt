@@ -1,0 +1,56 @@
+====== Make DVD ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Make DVD
+
+
+Created Sunday 20 May 2018
+source.mkv – The original source video file you want to burn to DVD. This is the only file you must supply, the rest
+will be created.
+temp.mpg – The mpeg encoded video file which will be actually burned to DVD.
+dvdmovie – The directory which will store your DVD files during encoding (AUDIO_TS, VIDEO_TS)
+dvd.iso – The final .ISO image which you will burn to your DVD.
+/dev/dvd – The device path for your DVD burner.
+
+
+
+To transcode the video to video DVD compatible MPEG2 and AC3, type:
+$ ffmpeg -i source.mkv -filter:v
+"scale='if(gt(a,720/480),720,-1)':'if(gt(a,720/480),-1,480)',pad=w=720:h=480:x=(ow-iw)/2:y=(oh-ih)/2" -aspect 16:9
+-target ntsc-dvd temp.mpg
+
+
+
+Next you need to add the MPEG2 video to a DVD folder that contains the “VIDEO_TS” and “AUDIO_TS” folders needed for a
+standard compliant video DVD.
+$ export VIDEO_FORMAT=NTSC
+$ dvdauthor --title -o dvdmovie -f temp.mpg
+
+
+
+Before we finalize the DVD we need to set the video format. In this case we will use the PAL standard. If your video
+and TV standard are NTSC, please replace it accordingly. Since I have found no working way to set the video standard
+using command line options of dvdauthor we will set an environment variable which will be read by dvdauthor when it
+finalizes the DVD.
+$ export VIDEO_FORMAT=NTSC
+$ dvdauthor --title -o dvdmovie -f temp.mpg
+
+
+
+
+
+Now we finalize the DVD with the -T option
+$ dvdauthor -T -o dvdmovie
+
+
+
+Congratulations, your video DVD is basically done now. To make backing up and burning the DVD easier, we will now
+create an ISO image of the DVD folder.
+$ genisoimage -dvd-video -o dvd.iso dvdmovie
+
+
+
+Burn ISO
+$ growisofs -dvd-compat -Z /dev/dvd=dvd.iso

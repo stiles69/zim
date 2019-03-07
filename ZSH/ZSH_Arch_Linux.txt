@@ -1,0 +1,33 @@
+====== ZSH Arch Linux ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+archlinux
+Maintainer: Benjamin Boudreau
+
+
+
+Enabled aliases for pacman (replace pac by ya for yaourt)
+
+
+
+AliasDescription
+pacinInstall specific package(s) from the repositories
+pacinsInstall specific package not from the repositories but from a file
+pacreRemove the specified package(s), retaining its configuration(s) and required dependencies
+pacremRemove the specified package(s), its configuration(s) and unneeded dependencies
+pacrepDisplay information about a given package in the repositories
+pacrepsSearch for package(s) in the repositories
+paclocDisplay information about a given package in the local database
+paclocsSearch for package(s) in the local database
+pacupdUpdate and refresh the local package and ABS databases against repositories
+pacupgUpdate the local database and upgrade packages
+pacinsdInstall given package(s) as dependencies of another package
+pacmirForce refresh of all package lists after updating /etc/pacman.d/mirrorlist
+FunctionDescription
+paclistList all installed packages with a short description - Source
+paclsorphansList all orphaned packages
+pacrmorphansDelete all orphaned packages
+pacdisowned | less +FList all disowned files in your system

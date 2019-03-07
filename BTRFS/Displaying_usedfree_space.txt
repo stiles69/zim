@@ -1,0 +1,6 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Displaying usedfree space ======
+
+**btrfs filesystem usage /**

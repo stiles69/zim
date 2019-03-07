@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-01-20 06:29:59-06:00
+ 
+====== Convert Any Video To WebM VP8 Chromecast ======
+Created Sun 20 January 2019
+
+**ffmpeg -i in.mkv -c:v libvpx -quality good -cpu-used 0 -crf 5 -qmax 35 -threads 4 -c:a libopus -vbr on -b:a 64k out.webm**

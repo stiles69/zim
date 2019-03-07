@@ -1,0 +1,13 @@
+====== List All Users ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List All Users
+
+
+Created Saturday 05 May 2018
+
+
+
+cut -d: -f1 /etc/passwd

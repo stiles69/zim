@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!-- saved from url=(0062)https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="GENERATOR" content="LinuxDoc-Tools 0.9.16">
+ <title>Gnu Privacy Guard (GnuPG) Mini Howto (English)</title>
+ <link href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html" rel="next">
+
+
+<style></style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+<body>
+<a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html">Next</a>
+Previous
+Contents
+<hr>
+<h1>Gnu Privacy Guard (GnuPG) Mini Howto (English)</h1>
+
+<h2>Brenno J.S.A.A.F. de Winter (English) <code>&lt;brenno@dewinter.com&gt;</code>
+Michael Fischer v. Mollard (German)
+<code>&lt;fischer@math.uni-goettingen.de&gt;</code>
+Arjen Baart
+<code>&lt;arjen@andromeda.nl&gt;</code></h2>Version 0.1.4 August 10, 2004
+<hr>
+<em>  This documents explains how to use the GNU Privacy
+  Guard (GnuPG), an Open Source OpenPGP compatible encryption system
+  To keep this program totally free the use of the RSA algorithm and
+  other patented algorithm has been avoided. The document was originally   written by Michael Fischer v. Mollar in German. The text has been   translated and adjusted on some points and cannot be considered as a   full one-on-one copy.</em>
+<hr>
+<p>
+</p><h2><a name="toc1">1.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html">Concepts</a></h2>
+
+<ul>
+<li><a name="toc1.1">1.1</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html#ss1.1">Public Key Encryption</a>
+</li><li><a name="toc1.2">1.2</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html#ss1.2">Digital Signatures</a>
+</li><li><a name="toc1.3">1.3</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html#ss1.3">Web of trust</a>
+</li><li><a name="toc1.4">1.4</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html#ss1.4">Boundaries to security</a>
+</li></ul>
+<p>
+</p><h2><a name="toc2">2.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-2.html">Installation </a></h2>
+
+<ul>
+<li><a name="toc2.1">2.1</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-2.html#ss2.1">Sources for GnuPG.</a>
+</li><li><a name="toc2.2">2.2</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-2.html#ss2.2">Configuration </a>
+</li><li><a name="toc2.3">2.3</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-2.html#ss2.3">Compile </a>
+</li><li><a name="toc2.4">2.4</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-2.html#ss2.4">Installation</a>
+</li></ul>
+<p>
+</p><h2><a name="toc3">3.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html">Using keys</a></h2>
+
+<ul>
+<li><a name="toc3.1">3.1</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html#ss3.1">Creating a key</a>
+</li><li><a name="toc3.2">3.2</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html#ss3.2">Exporting keys</a>
+</li><li><a name="toc3.3">3.3</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html#ss3.3">Importing keys</a>
+</li><li><a name="toc3.4">3.4</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html#ss3.4">Revoke a key</a>
+</li><li><a name="toc3.5">3.5</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html#ss3.5">Key administration</a>
+</li><li><a name="toc3.6">3.6</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-3.html#ss3.6">Key signing</a>
+</li></ul>
+<p>
+</p><h2><a name="toc4">4.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-4.html">Encrypt and decrypt</a></h2>
+
+<ul>
+<li><a name="toc4.1">4.1</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-4.html#ss4.1">Encrypt</a>
+</li><li><a name="toc4.2">4.2</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-4.html#ss4.2">Decrypt</a>
+</li></ul>
+<p>
+</p><h2><a name="toc5">5.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-5.html">Signing and checking signatures</a></h2>
+
+<p>
+</p><h2><a name="toc6">6.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-6.html">Front ends</a></h2>
+
+<ul>
+<li><a name="toc6.1">6.1</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-6.html#ss6.1">Graphical interfaces</a>
+</li><li><a name="toc6.2">6.2</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-6.html#ss6.2">Email programs</a>
+</li></ul>
+<p>
+</p><h2><a name="toc7">7.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-7.html">Sources of information</a></h2>
+
+<ul>
+<li><a name="toc7.1">7.1</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-7.html#ss7.1">GnuPG</a>
+</li><li><a name="toc7.2">7.2</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-7.html#ss7.2">PGP</a>
+</li><li><a name="toc7.3">7.3</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-7.html#ss7.3">Keyservers</a>
+</li><li><a name="toc7.4">7.4</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-7.html#ss7.4">Books</a>
+</li></ul>
+<p>
+</p><h2><a name="toc8">8.</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-8.html">About this document </a></h2>
+
+<ul>
+<li><a name="toc8.1">8.1</a> <a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-8.html#ss8.1">Versions</a>
+</li></ul>
+<hr>
+<a href="https://www.dewinter.com/gnupg_howto/english/GPGMiniHowto-1.html">Next</a>
+Previous
+Contents
+
+
+</body></html>

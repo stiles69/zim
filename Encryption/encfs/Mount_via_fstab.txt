@@ -1,0 +1,26 @@
+====== Mount via fstab ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Mount via fstab
+
+
+Created Wednesday 09 May 2018
+
+
+
+Mount via fstab
+Adding an entry in /etc/fstab will allow you to mount the encfs volume with a simple mount /target/path and you will be
+prompted for your password.
+
+
+
+	/etc/fstab
+encfs#/path/to/encfs/data  /mnt/decrypted  fuse  noauto,user  0  0
+
+	
+
+
+	The noauto option prevents an attempt to mount the volume at boot, which could delay the boot process while it waits
+	for a password to be entered. user can be omitted if only the root user should be able to mount the volume.

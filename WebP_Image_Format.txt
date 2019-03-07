@@ -1,0 +1,17 @@
+====== WebP Image Format ======
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+WebP Image Format
+
+
+Created Sunday 08 April 2018
+
+
+
++cwebp
+encoding instructions

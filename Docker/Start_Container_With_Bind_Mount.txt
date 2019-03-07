@@ -1,0 +1,14 @@
+====== Start Container With Bind Mount ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Start Container With Bind Mount
+
+
+Created Wednesday 23 May 2018
+
+
+
+# docker run -d -it --name arch --mount type=bind,source=/home/brettsalemink/Docker/Arch/source/DATA-IN,target=/DATA-IN
+--mount type=bind,source=/home/brettsalemink/Docker/Arch/source/DATA-OUT,target=/DATA-OUT stiles/arch bash

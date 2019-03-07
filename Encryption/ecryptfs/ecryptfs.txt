@@ -1,0 +1,145 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== ecryptfs ======
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+Created Thursday 15 February 2018
+
+Install eCryptFS tools
+Contents [hide]
+
+
+
+1 Install eCryptFS tools
+2 Add ecryptfs module to Linux Kernel
+3 Mount ecryptfs
+4 Umount ecryptfs
+First, install utils for ecryptfs:
+
+
+
+# dnf install ecryptfs-utils
+Add ecryptfs module to Linux Kernel
+Load the ecryptfs kernel module:
+
+
+
+  # modprobe ecryptfs
+
+  
+
+  Mount ecryptfs
+
+
+  If we store encrypted file in /home/zma/.private directory and mount it to /home/zma/private/:
+
+
+  
+	# mount -t ecryptfs /home/zma/.private /home/zma/private
+
+
+	For the first time you mount the ecryptfs directory, it will ask you to set up the encryption as follows.
+
+
+
+	Select key type to use for newly created files: 
+	1) tspi
+	2) passphrase
+	3) pkcs11-helper
+	Selection: 2
+	Passphrase: 
+	Select cipher: 
+	1) aes: blocksize = 16; min keysize = 16; max keysize = 32
+	2) blowfish: blocksize = 8; min keysize = 16; max keysize = 56
+	3) des3_ede: blocksize = 8; min keysize = 24; max keysize = 24
+	4) twofish: blocksize = 16; min keysize = 16; max keysize = 32
+	5) cast6: blocksize = 16; min keysize = 16; max keysize = 32
+	6) cast5: blocksize = 8; min keysize = 5; max keysize = 16
+	Selection [aes]: 1
+	Select key bytes: 
+	1) 16
+	2) 32
+	3) 24
+	Selection [16]: 2
+	Enable plaintext passthrough (y/n) [n]: n
+	Enable filename encryption (y/n) [n]: y
+	Filename Encryption Key (FNEK) Signature [a-signature-here]: 
+	Attempting to mount with the following options:
+	ecryptfs_unlink_sigs
+	ecryptfs_fnek_sig=a-signature-here
+	ecryptfs_key_bytes=32
+	ecryptfs_cipher=aes
+	ecryptfs_sig=a-signature-here
+	WARNING: Based on the contents of [/root/.ecryptfs/sig-cache.txt],
+	it looks like you have never mounted with this key 
+	before. This could mean that you have typed your 
+	passphrase wrong.
+
+
+
+	Would you like to proceed with the mount (yes/no)? : yes
+	Would you like to append sig [a-signature-here] to
+	[/root/.ecryptfs/sig-cache.txt] 
+	in order to avoid this warning in the future (yes/no)? : yes
+	Successfully appended new sig to user sig cache file
+	Mounted eCryptfs
+	For the later mounting, it will ask you the info again. You must provide the same choices here to mount the
+	directory correctly. Otherwise, you will see “garbage” content.
+
+
+
+	To make this easier by not choosing so many options, you may store a command as an alias or a script as follows
+
+
+    
+	  mount -t ecryptfs /home/zma/.private /home/zma/private \
+-o key=passphrase,ecryptfs_cipher=aes,ecryptfs_key_bytes=32,ecryptfs_passthrough=n,ecryptfs_enable_filename_crypto=y
+
+
+	  The mount process will be like:
+
+      
+		# mount -t ecryptfs /home/zma/.private /home/zma/private -o key=passphrase,ecryptfs_cipher=aes,ecryptfs_key_bytes=32,ecryptfs_passthrough=n,ecryptfs_enable_filename_crypto=y
+Passphrase: ENTER YOUR PASSPHRASE HERE
+Filename Encryption Key (FNEK) Signature [a-signature-here]: 
+Attempting to mount with the following options:
+  ecryptfs_unlink_sigs
+  ecryptfs_fnek_sig=a-signature-here
+  ecryptfs_key_bytes=32
+  ecryptfs_cipher=aes
+  ecryptfs_sig=a-signature-here
+Mounted eCryptfs
+
+
+		If you do not want to see the FNEK message anymore, you can add the option
+		ecryptfs_fnek_sig=THE_SIGNATURE_ABOVE with the signature printed to the mount command.
+
+
+
+		After it is mounted, you can check it:
+
+        
+		  # df -hT
+Filesystem                      Type      Size  Used Avail Use% Mounted on
+...
+/home/zma/.private              ecryptfs  473G  4.7G  449G   2% /home/zma/privat
+
+          
+
+
+		  Then you can read/write from/to files under /home/zma/.private as a normal directory.
+
+
+		  Umount ecryptfs
+
+          
+			# umount /home/zma/private
+
+            
+
+
+			Try to less a file under /home/zma/.private. You will only see encrypted binary files.
+
+
+
+			When you want to read your files, mount this directory again and your files will be back :)

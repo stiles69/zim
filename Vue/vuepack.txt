@@ -1,0 +1,23 @@
+====== vuepack ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+vuepack
+
+
+Created Sunday 25 February 2018
+
+
+
+yarn global add sao
+
+
+
+# from npm
+sao vuepack new-project
+
+
+
+# or git repo
+sao egoist/vuepack new-project

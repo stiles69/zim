@@ -1,0 +1,81 @@
+====== Install VNC Server ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Install VNC Server
+
+
+Created Tuesday 31 July 2018
+
+
+
+sudo apt-get install build-essential rbp-userland-dev-osmc libvncserver-dev libconfig++-dev unzip
+cd /home/osmc
+sudo wget https://github.com/patrikolausson/dispmanx_vnc/archive/master.zip
+unzip master.zip -d /home/osmc/
+rm master.zip
+cd dispmanx_vnc-master
+make
+
+
+
+
+
+sudo cp dispmanx_vncserver /usr/bin
+sudo chmod +x /usr/bin/dispmanx_vncserver
+sudo cp dispmanx_vncserver.conf.sample /etc/dispmanx_vncserver.conf
+sudo vi /etc/dispmanx_vncserver.conf
+
+
+
+dispmanx_vncserver.conf:
+relative = false;
+port = 0;
+screen = 0;
+unsafe = false;
+fullscreen = false;
+multi-threaded = false;
+password = "mypassword";
+frame-rate = 23;
+downscale = false;
+localhost = false;
+vnc-params = "";
+
+
+
+Now we’ll create the service file to be able to ‘autoload’ the server on boot:
+
+
+
+sudo vi /etc/systemd/system/dispmanx_vncserver.service:
+[Unit]
+Description=VNC Server
+After=network-online.target mediacenter.service
+Requires=mediacenter.service
+
+
+
+[Service]
+Restart=on-failure
+RestartSec=30
+Nice=15
+User=root
+Group=root
+Type=simple
+ExecStartPre=/sbin/modprobe evdev
+ExecStart=/usr/bin/dispmanx_vncserver
+KillMode=process
+
+
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+
+sudo systemctl start dispmanx_vncserver.service
+sudo systemctl enable dispmanx_vncserver.service
+sudo systemctl daemon-reload

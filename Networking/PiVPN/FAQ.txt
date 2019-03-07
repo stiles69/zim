@@ -1,0 +1,79 @@
+====== FAQ ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+FAQ
+
+
+Created Thursday 7 June 2018
+
+
+
+# FAQ (Frequently Asked Questions)
+## What boards/OSes does PiVPN support?
+PiVPN runs at least on the following boards:
+
+	Raspberry Pi 1/2/3 running Raspbian Jessie, Raspbian Jessie Lite.
+	All SBC's running DietPi. This is currently: Raspberry Pi's (all models), Odroid C1, Odroid C2 (arm64), Odroid
+		XU3/4, Pine A64, NanoPi NEO, NanoPi NEO Air, NanoPi M1, NanoPi M2/T2, NanoPi M3/T3, Banana Pi Pro Banana Pi M2+,
+		OrangePi PC and OrangePi One
+	Most servers running a Debian or Ubuntu based distro.
+
+
+
+
+## Can I change the hostname, the IP address, protocol or port after the install?
+Yes. To change the hostname or IP address, you will need to change `/etc/openvpn/easy-rsa/pki/Default.txt` and your
+`.ovpn` files if you have already generated them.
+
+
+
+## My ISP doesn't give me a static external IP address, so my servers IP address keeps changing!
+You will need a dynamic DNS service and a hostname. If your IP address changes, your hostname will then automatically
+point to the new IP address. Some free dynamic DNS services are <>.
+
+
+
+## Installing with pi-hole
+You can safely install pivpn on the same raspberry pi as your pi-hole install. If you point your openvpn clients to the
+IP of your pi-hole for DNS (so they get ad blocking etc) then you will want to be sure to edit your /etc/dnsmasq.conf
+file too allow dns resolution from the vpn interface.
+look for this line: `listen-address=127.0.0.1, 192.168.1.2, 10.8.0.1`
+Note your listen-address may just contain 127.0.0.1, the next IP should be the local IP of your pi-hole and the final
+IP, 10.8.0.1 is the PiVPN vpn interface.
+If you set this and have your vpn clients use 192.168.1.2 (in my example) as their DNS then you will get ad blocking
+over your VPN connections.
+
+
+
+## Allow Clients to connect but block their access to the internet
+
+
+
+If you don't want your VPN clients to be able to access the internet simply comment the following line in
+`/etc/openvpn/server.con`
+
+
+
+```
+push "redirect-gateway def1"
+```
+
+
+
+## How Can I Migrate my configs to another PiVPN Instance?
+
+
+
+you can achieve that by copying your /etc/openvpn folder to your new Raspberry pi, one method that works is using scp.
+
+
+
+Example: 
+```
+scp -pr /etc/openvpn/ :/etc/
+
+
+
+```

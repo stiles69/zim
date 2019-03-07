@@ -1,0 +1,9 @@
+====== Install KDE5 ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+Install KDE5
+
+Created Wednesday 16 May 2018
+
++Install KDE5

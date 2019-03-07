@@ -1,0 +1,13 @@
+====== Create a sorted list of the files you want to check ownership of ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Create a sorted list of the files you want to check ownership of
+
+
+Created Sunday 06 May 2018
+
+
+
+find /etc /opt /usr | sort > all_files.txt

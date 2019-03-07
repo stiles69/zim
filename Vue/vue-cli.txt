@@ -1,0 +1,33 @@
+====== vue-cli ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+vue-cli
+
+
+Created Tuesday 20 February 2018
+
+
+
+vue init egoist/vuepack <projectname>
+Makes a new project based on github <egoist/vuepack> template.
+
+
+
+vue init <template> <projectname>
+Makes a new vue project
+Default Official templates are:
+
+	browerify
+	browserify-simple
+	pwa
+	simple
+	webpack
+	webpack-simple
+
+
+
+
+vue list
+Lists Official Templates

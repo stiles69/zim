@@ -1,0 +1,22 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Duplicity ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+Created Saturday 12 May 2018
+
+
+Compare the latest backup with the current files
+	<a href="./Duplicity/Destination_is_the_local_directory_usrlocalbackup..html" title="+Destination is the local directory usrlocalbackup."
+	 class="page">+Destination is the local directory usrlocalbackup.
+		+Duplicity via ftp
+		+Includeexclude options
+		+Mega cloud storage
+		+Restore
+		+Rsync
+		over ssh (only key auth)
+		+SCPSFTP access
+		<a href="./Duplicity/Using_sftp_to_back_up_homeme_to_some_dir_on_the_other.host_machine.html" title="+Using sftp to back up homeme to some dir on the other.host machine"
+		 class="page">+Using sftp to back up homeme to some dir on the other.host machine

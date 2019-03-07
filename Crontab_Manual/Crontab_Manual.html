@@ -1,0 +1,427 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Crontab Manual</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>Crontab Manual</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+Crontab Manual
+</p>
+
+<br>
+
+<p>
+Created Friday 19 January 2018
+</p>
+
+<br>
+<br>
+
+<p>
+CRONTAB(1) User Commands CRONTAB(1)
+</p>
+
+<br>
+<br>
+
+<p>
+NAME
+</p>
+
+<p>
+  crontab - maintains crontab files for individual users
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+  SYNOPSIS
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+crontab [-u user] file<br>
+crontab [-u user] [-l | -r | -e] [-i] [-s]<br>
+crontab -n [ hostname ]<br>
+crontab -c
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+DESCRIPTION
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+  Crontab is the program used to install a crontab table file, remove or list the existing<br>
+  tables used to serve the cron(8) daemon. Each user can have their own crontab, and though<br>
+  these are files in /var/spool/, they are not intended to be edited directly. For SELinux<br>
+  in MLS mode, you can define more crontabs for each range. For more information, see<br>
+  selinux(8).
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+In this version of Cron it is possible to use a network-mounted shared /var/spool/cron<br>
+across a cluster of hosts and specify that only one of the hosts should run the crontab<br>
+jobs in the particular directory at any one time. You may also use crontab(1) from any of<br>
+these hosts to edit the same shared set of crontab files, and to set and query which host<br>
+should run the crontab jobs.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+  Running cron jobs can be allowed or disallowed for different users. For this purpose, use<br>
+  the cron.allow and cron.deny files. If the cron.allow file exists, a user must be listed<br>
+  in it to be allowed to use cron If the cron.allow file does not exist but the cron.deny<br>
+  file does exist, then a user must not be listed in the cron.deny file in order to use<br>
+  cron. If neither of these files exists, only the super user is allowed to use cron.<br>
+  Another way to restrict access to cron is to use PAM authentication in /etc/secu‐<br>
+  rity/access.conf to set up users, which are allowed or disallowed to use crontab or modify<br>
+  system cron jobs in the /etc/cron.d/ directory.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+The temporary directory can be set in an environment variable. If it is not set by the<br>
+user, the /tmp directory is used.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+OPTIONS
+</div>
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+  -u Appends the name of the user whose crontab is to be modified. If this option is
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+not used, crontab examines "your" crontab, i.e., the crontab of the person execut‐<br>
+ing the command. Note that su(8) may confuse crontab, thus, when executing com‐<br>
+mands under su(8) you should always use the -u option. If no crontab exists for a<br>
+particular user, it is created for him the first time the crontab -u command is<br>
+used under his username.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+  -l Displays the current crontab on standard output.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+-r Removes the current crontab.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+  -e Edits the current crontab using the editor specified by the VISUAL or EDITOR envi‐
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+ronment variables. After you exit from the editor, the modified crontab will be<br>
+installed automatically.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+  -i This option modifies the -r option to prompt the user for a 'y/Y' response before
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+actually removing the crontab.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+  -s Appends the current SELinux security context string as an MLS_LEVEL setting to the
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+crontab file before editing / replacement occurs - see the documentation of<br>
+MLS_LEVEL in crontab(5).
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+  -n This option is relevant only if cron(8) was started with the -c option, to enable
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+clustering support. It is used to set the host in the cluster which should run the<br>
+jobs specified in the crontab files in the /var/spool/cron directory. If a host‐<br>
+name is supplied, the host whose hostname returned by gethostname(2) matches the<br>
+supplied hostname, will be selected to run the selected cron jobs subsequently. If<br>
+there is no host in the cluster matching the supplied hostname, or you explicitly<br>
+specify an empty hostname, then the selected jobs will not be run at all. If the<br>
+hostname is omitted, the name of the local host returned by gethostname(2) is used.<br>
+Using this option has no effect on the /etc/crontab file and the files in the<br>
+/etc/cron.d directory, which are always run, and considered host-specific. For<br>
+more information on clustering support, see cron(8).
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+  -c This option is only relevant if cron(8) was started with the -c option, to<br>
+  enable
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 300pt'>
+clustering support. It is used to query which host in the cluster is currently<br>
+set<br>
+to run the jobs specified in the crontab files in the directory /var/spool/cron<br>
+,<br>
+as set using the -n option.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 300pt'>
+SEE ALSO
+</div>
+</p>
+
+<p>
+<div style='padding-left: 300pt'>
+  crontab(5), cron(8)
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 300pt'>
+  FILES
+</div>
+</p>
+
+<p>
+<div style='padding-left: 330pt'>
+/etc/cron.allow<br>
+/etc/cron.deny
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+STANDARDS
+</div>
+</p>
+
+<p>
+<div style='padding-left: 330pt'>
+  The crontab command conforms to IEEE Std1003.2-1992 (``POSIX''). This new<br>
+  command syntax<br>
+  differs from previous versions of Vixie Cron, as well as from the classic<br>
+  SVR3 syntax.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+  DIAGNOSTICS
+</div>
+</p>
+
+<p>
+<div style='padding-left: 360pt'>
+An informative usage message appears if you run a crontab with a faulty<br>
+command defined in<br>
+it.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 360pt'>
+AUTHOR
+</div>
+</p>
+
+<p>
+<div style='padding-left: 360pt'>
+  Paul Vixie ⟨<a href="mailto:vixie@isc.org" title="vixie@isc.org" class="mailto">vixie@isc.org</a>⟩<br>
+  Colin Dean ⟨<a href="mailto:colin@colin-dean.org" title="colin@colin-dean.org" class="mailto">colin@colin-dean.org</a>⟩
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 360pt'>
+  cronie 2012-11-22 CRONTAB(1)
+</div>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

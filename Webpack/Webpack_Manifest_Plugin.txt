@@ -1,0 +1,59 @@
+====== Webpack Manifest Plugin ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Webpack Manifest Plugin
+
+
+Created Tuesday 27 March 2018
+
+
+
+npm install --save-dev webpack-manifest-plugin
+
+
+
+Usage
+In your webpack.config.js
+
+
+
+var ManifestPlugin = require('webpack-manifest-plugin');
+
+
+
+module.exports = {
+
+  // ...
+  plugins: [
+  new ManifestPlugin()
+  ]
+
+  };
+  This will generate a manifest.json file in your root output directory with a mapping of all source file names to
+  their corresponding output file, for example:
+
+
+
+  {
+  "mods/alpha.js": "mods/alpha.1234567890.js",
+  "mods/omega.js": "mods/omega.0987654321.js"
+  }
+  API:
+  // webpack.config.js
+
+
+
+  module.exports = {
+  output: {
+  
+    publicPath
+
+    },
+    plugins: [
+    
+      new ManifestPlugin(options)
+
+      ]
+      }

@@ -1,0 +1,13 @@
+====== Get Docker Image ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Get Docker Image
+
+
+Created Friday 30 March 2018
+
+
+
+docker pull jetbrains/teamcity-server

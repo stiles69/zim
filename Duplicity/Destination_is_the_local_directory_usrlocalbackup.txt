@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Destination is the local directory usrlocalbackup. ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Destination is the local directory usrlocalbackup.
+
+
+Created Saturday 12 May 2018
+
+
+
+**duplicity --include /home --include /etc --exclude ’’ / file:///usr/local/backup**
+The following will backup only the /home and /etc directories under root.

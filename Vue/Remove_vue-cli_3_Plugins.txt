@@ -1,0 +1,20 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30 04:02:27-06:00
+ 
+====== Remove vue-cli 3 Plugins ======
+Created Fri 30 November 2018
+
+==== 1) Uninstall the plugin package using NPM or Yarn ====
+First, uninstall the plugin manually using NPM or Yarn. You can run npm uninstall vue-cli-plugin-apollo and that will remove the packages associated with that plugin.
+
+=== NPM ===
+**npm uninstall vue-cli-plugin-apollo -D**
+
+=== Yarn ===
+**yarn remove vue-cli-plugin-apollo**
+
+==== 2) Manually remove all modified and created files from the plugin ====
+If you try to serve your project by running npm run serve it most likely won’t work immediately. You’ve already removed the vue-cli-plugin-apollo package using NPM or Yarn.
+
+Now, you’ll have to go in and manually remove all of the changes that the plugin made to your plugin.

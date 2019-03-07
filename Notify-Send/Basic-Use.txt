@@ -1,0 +1,105 @@
+====== Basic-Use ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Basic-Use
+
+
+Created Saturday 13 October 2018
+
+
+
+Now this command should pop up a 'bubble':
+
+
+  notify-send Test "Hello World"
+
+
+  The --help option shows basic usage:
+  $notify-send --help
+  Usage:
+  notify-send [OPTION...] <SUMMARY> [BODY] - create a notification
+
+
+
+  Help Options:
+  -?, --help Show help options
+
+
+
+  Application Options:
+  -u, --urgency=LEVEL Specifies the urgency level (low, normal, critical).
+  -t, --expire-time=TIME Specifies the timeout in milliseconds at which to expire the notification.
+  -i, --icon=ICON[,ICON...] Specifies an icon filename or stock icon to display.
+  -c, --category=TYPE[,TYPE...] Specifies the notification category.
+  -h, --hint=TYPE:NAME:VALUE Specifies basic extra data to pass. Valid types are int, double, string and byte.
+  -v, --version Version of the package.
+
+
+
+
+
+  
+    Some examples:
+
+
+
+
+    <ol style='padding-left: 30pt' type="1" start="1">
+      Basic message with an icon in front of the Title showing 5000 milliseconds
+    
+    
+      Code:
+
+
+
+
+      
+        notify-send "Message Title" "The message body is shown here" -i /usr/share/pixmaps/idle.xpm -t 5000
+
+
+
+
+        <ol style='padding-left: 30pt' type="1" start="2">
+          Show contents of a file:
+        
+        
+          Code:
+
+
+
+
+          
+            notify-send test "`tail /var/log/syslog`"
+
+
+
+
+            <ol style='padding-left: 30pt' type="1" start="3">
+              Follow log file:
+            
+            
+              Code:
+
+
+
+
+              
+                tail -n0 -f /var/log/messages | while read line; do notify-send "System Message" "$line"; done
+
+
+
+
+                <ol style='padding-left: 30pt' type="1" start="4">
+                  Format message with HTML:
+                
+                
+                  Code:
+
+
+
+
+                  
+                    notify-send Test "<font size=16 color=blue><b><i>Hello
+                    World</b></i></font>"

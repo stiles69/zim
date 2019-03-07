@@ -1,0 +1,49 @@
+====== Install KDE5 ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Install KDE5
+
+
+Created Sunday 07 January 2018
+
+
+
+Install KDE 5 on ARCH
+
+
+
+$ sudo pacman -S kf5 kf5-aids
+
+
+
+Next, to use Oxygen Plasma and Kwin, do:
+
+
+
+$ sudo pacman -S kwin oxygen
+
+
+
+$ export KF5=/opt/kf5
+
+
+
+$ export QML2_IMPORT_PATH=$KF5/lib/qt/qml:/usr/lib/qt/qml
+
+
+
+$ export QT_PLUGIN_PATH=$KF5/lib/qt/plugins:/usr/lib/qt/plugins
+
+
+
+$ export XDG_CONFIG_DIRS=$KF5/etc/xdg:/etc/xdg
+
+
+
+$ export PATH=$KF5/bin:$PATH
+
+
+
+$ kwin --replace

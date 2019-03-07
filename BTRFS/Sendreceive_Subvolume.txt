@@ -1,0 +1,8 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Sendreceive Subvolume ======
+
+**btrfs send /root_backup | btrfs receive /backup**
+The snapshot that is sent must be readonly. The above command is useful for copying a subvolume to an external device (e.g. a USB disk mounted at /backup above).
+

@@ -1,0 +1,16 @@
+====== Search for files in your home directory which have been modified in the last twenty-four hours. ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Search for files in your home directory which have been modified in the last twenty-four hours.
+
+
+Created Sunday 13 May 2018
+
+
+
+find $HOME -mtime 0
+This command works this way because the time since each file was last modified is divided by 24 hours and any
+	remainder is discarded. That means that to match -mtime 0, a file will have to have a modification in the past which
+	is less than 24 hours ago.

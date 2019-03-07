@@ -1,0 +1,21 @@
+====== Display Free Space ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-05-13T14:17:58-05:00
+
+
+Install Gulp
+
+
+Created Sunday 13 May 2018
+
+
+
+ df 
+* This will display free space. *

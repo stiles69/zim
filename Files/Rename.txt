@@ -1,0 +1,47 @@
+====== Rename ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Rename
+
+
+Created Tuesday 15 May 2018
+
+
+
+Can Run /home/brettsalemink/BashScripts/Rename-Filenames-With-String.sh [Your String]
+
+
+
+Given the files foo1, ..., foo9, foo10, ..., foo278, the commands
+
+
+
+
+  rename foo foo00 foo?
+  rename foo foo0 foo??
+
+
+
+
+  
+    will turn them into foo001, ..., foo009, foo010, ..., foo278. And
+
+
+
+
+    
+      rename .htm .html *.htm
+
+
+
+
+      
+        will fix the extension of your html files. Provide an empty string for shortening:
+
+
+
+
+        
+          rename '_with_long_name' '' file_with_long_name.*

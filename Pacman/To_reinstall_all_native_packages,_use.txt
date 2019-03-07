@@ -1,0 +1,17 @@
+====== To reinstall all native packages, use ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+To reinstall all native packages, use
+
+
+Created Tuesday 13 February 2018
+
+
+
+pacman -Qnq | pacman -S -
+
+
+
+Foreign (AUR) packages must be reinstalled separately; you can list them with pacman -Qmq

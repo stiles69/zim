@@ -1,0 +1,37 @@
+====== SCPSFTP access ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+SCPSFTP access
+
+
+Created Saturday 12 May 2018
+
+
+
+scp://.. or 
+sftp://user[:password]@other.host[:port]/[relative|/absolute]_path
+
+
+
+a Note on Ssl Certificate Verification
+Certificate verification as implemented right now [02.2016] only in the webdav and lftp backends. older pythons
+    2.7.8- and older lftp binaries need a file based database of certification authority certificates (cacert file).
+
+Newer python 2.7.9+ and recent lftp versions however support the system default certificates (usually in
+    /etc/ssl/certs) and also giving an alternative ca cert folder via --ssl-cacert-path.
+The cacert file has to be a PEM formatted text file as currently provided by the CURL project. See
+
+
+
+http:curl.haxx.se/docs/caextract.html//
+After creating/retrieving a valid cacert file you should copy it to either
+~/.duplicity/cacert.pem 
+~/duplicity_cacert.pem 
+/etc/duplicity/cacert.pem
+Duplicity searches it there in the same order and will fail if it can’t find it. You can however specify the option
+    --ssl-cacert-file <file> to point duplicity to a copy in a different location.
+Finally there is the --ssl-no-check-certificate option to disable certificate verification alltogether, in case some
+    ssl library is missing or verification is not wanted. Use it with care, as even with self signed servers manually
+    providing the private ca certificate is definitely the safer option.

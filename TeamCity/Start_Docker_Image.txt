@@ -1,0 +1,18 @@
+====== Start Docker Image ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Start Docker Image
+
+
+Created Friday 30 March 2018
+
+
+
+docker run -it --name teamcity-server-instance \
+
+	-v <path to data directory>:/data/teamcity_server/datadir \
+	-v <path to logs directory>:/opt/teamcity/logs \
+	-p <port on host>:8111 \
+	jetbrains/teamcity-server

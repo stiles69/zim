@@ -1,0 +1,20 @@
+====== Javascript ======
+
+
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Javascript
+
+
+Created Wednesday 16 May 2018
+
+
+
++Run-Script-On-Page-Load

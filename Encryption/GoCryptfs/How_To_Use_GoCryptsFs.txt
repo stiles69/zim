@@ -1,0 +1,24 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== How To Use GoCryptsFs ======
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+Create and Mount Filesystem
+
+
+
+$ mkdir cipher plain 
+$ gocryptfs -init cipher [...] 
+$ gocryptfs cipher plain [...]
+
+
+
+You should now have a working gocryptfs that is stored in cipher and mounted to plain. You can verify it by creating a
+test file in the plain directory. This file will show up encrypted in the cipher directory.
+
+
+
+TESTING
+$ touch plain/test.txt
+$ ls cipher

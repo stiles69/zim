@@ -1,0 +1,15 @@
+====== Make Self Signed SSL Certificate ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Make Self Signed SSL Certificate
+
+
+Created Wednesday 09 May 2018
+
+
+
+
+
+sudo openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365

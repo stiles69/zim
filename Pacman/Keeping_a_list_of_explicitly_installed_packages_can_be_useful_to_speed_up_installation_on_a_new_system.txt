@@ -1,0 +1,13 @@
+====== Keeping a list of explicitly installed packages can be useful to speed up installation on a new system ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Keeping a list of explicitly installed packages can be useful to speed up installation on a new system
+
+
+Created Tuesday 13 February 2018
+
+
+
+pacman -Qqe > pkglist.txt

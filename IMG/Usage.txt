@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-02-19T18:31:56-06:00
+
+====== Usage ======
+Created Tuesday 19 February 2019
+
+You can make a ISO image from a folder with mkisofs:
+**mkisofs -lJR -o output_image.iso directory_name**
+
+Take this basic command of:
+  **mkisofs -o output_image.iso directory_name**
+
+One step further, by adding a volume label to the iso, and compressing the iso-image with gzip
+  **mkisofs -V volume_label -r folder_location | gzip > output-image-comressed.iso.gz**
+
+  [[../MKISOFS-Man.txt|../MKISOFS-Manual Page]]

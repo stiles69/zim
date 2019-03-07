@@ -1,0 +1,13 @@
+====== Stop PIA ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Stop PIA
+
+
+Created Wednesday 02 May 2018
+
+
+
+sudo systemctl stop openvpn-client@US-Chicago

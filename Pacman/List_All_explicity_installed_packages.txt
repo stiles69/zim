@@ -1,0 +1,13 @@
+====== List All explicity installed packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List All explicity installed packages
+
+
+Created Tuesday 13 February 2018
+
+
+
+pacman -Qe

@@ -1,0 +1,17 @@
+====== DD ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+DD
+
+
+Created Wednesday May 23 2018
+
+
+
+Make Image
+
+
+
+# dd if=/dev/sdb of=raspi.img bs=1M

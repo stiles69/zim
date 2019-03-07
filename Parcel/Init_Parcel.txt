@@ -1,0 +1,11 @@
+====== Init Parcel ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+npm init -y &amp;&amp; npm install --save-dev parcel-bundler parcel-plugin-pug
+
+
+
+This will init parcel with Pug

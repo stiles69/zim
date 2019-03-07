@@ -1,0 +1,18 @@
+====== encfs ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+encfs
+
+
+Created Thursday 15 February 2018
+
+
+
+encfs ~/Dropbox/encrypted ~/Private
+
+
+
+This will mount the "encrypted directory ~/Dropbox/encrypted to the unencrypted Directory ~/Private". If it is not
+	already made the encrypted directory you will be prompted.

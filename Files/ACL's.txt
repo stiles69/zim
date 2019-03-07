@@ -1,0 +1,16 @@
+====== ACL's ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+ACL's
+
+
+Created Tuesday 15 May 2018
+
+
+
++ACL Entries
++Examples
++Options
++setfacl

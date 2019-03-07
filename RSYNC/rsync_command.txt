@@ -1,0 +1,352 @@
+====== rsync command ======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+rsync command
+
+
+Created Sunday 20 May 2018
+
+
+
+  rsync(1) -p --chmod=+rwx -e "ssh -i userserver.pem" --copy-unsafe-links -rz user@server:~/ /db_backups/www/
+
+
+
+
+
+  a fast, versatile, remote (and local) file-copying tool
+  -p, --perms
+  
+    This option causes the receiving rsync to set the destination permissions to be the same as the
+    source permissions. (See also the --chmod option for a way to modify what rsync considers to be
+    the source permissions.)
+
+
+
+
+    
+      When this option is off, permissions are set as follows:
+
+
+
+
+      
+        o Existing files (including updated files) retain their existing permissions, though the
+
+        
+          --executability option might change just the execute permission for the file.
+
+
+
+
+          
+            o New files get their "normal" permission bits set to the source file’s permissions masked
+
+            
+              with the receiving directory’s default permissions (either the receiving process’s umask,
+              or the permissions specified via the destination directory’s default ACL), and their
+              special permission bits disabled except in the case where a new directory inherits a setgid
+              bit from its parent directory.
+
+
+
+
+              
+                Thus, when --perms and --executability are both disabled, rsync’s behavior is the same as that of
+                other file-copy utilities, such as cp(1) and tar(1).
+
+
+
+
+                
+                  In summary: to give destination files (both old and new) the source permissions, use --perms. To
+                  give new files the destination-default permissions (while leaving existing files unchanged), make
+                  sure that the --perms option is off and use --chmod=ugo=rwX (which ensures that all non-masked
+                  bits get enabled). If you’d care to make this latter behavior easier to type, you could define a
+                  popt alias for it, such as putting this line in the file ~/.popt (the following defines the -Z
+                  option, and includes --no-g to use the default group of the destination dir):
+
+
+
+
+                  <div style='padding-left: 120pt'>
+                    rsync alias -Z --no-p --no-g --chmod=ugo=rwX
+
+
+
+
+                    
+                      You could then use this new option in a command such as this one:
+
+
+
+
+                      <div style='padding-left: 120pt'>
+                        rsync -avZ src/ dest/
+
+
+
+
+                        
+                          (Caveat: make sure that -a does not follow -Z, or it will re-enable the two "--no-*" options
+                          mentioned above.)
+
+
+
+
+                          
+                            The preservation of the destination’s setgid bit on newly-created directories when --perms
+                            is off
+                            was added in rsync 2.6.7. Older rsync versions erroneously preserved the three special
+                            permission
+                            bits for newly-created files when --perms was off, while overriding the destination’s
+                            setgid bit
+                            setting on a newly-created directory. Default ACL observance was added to the ACL patch for
+                            rsync
+                            2.6.7, so older (or non-ACL-enabled) rsyncs use the umask even if default ACLs are present.
+                            (Keep
+                            in mind that it is the version of the receiving rsync that affects these behaviors.)
+
+                            --chmod
+                            
+                              This option tells rsync to apply one or more comma-separated "chmod" modes to the
+                              permission of
+                              the files in the transfer. The resulting value is treated as though it were the
+                              permissions that
+                              the sending side supplied for the file, which means that this option can seem to have no
+                              effect on
+                              existing files if --perms is not enabled.
+
+
+
+
+                              
+                                In addition to the normal parsing rules specified in the chmod(1) manpage, you can
+                                specify an item
+                                that should only apply to a directory by prefixing it with a ’D’, or specify an item
+                                that should
+                                only apply to a file by prefixing it with a ’F’. For example, the following will ensure
+                                that all
+                                directories get marked set-gid, that no files are other-writable, that both are
+                                user-writable and
+                                group-writable, and that both have consistent executability across all bits:
+
+
+
+
+                                
+                                  --chmod=Dg+s,ug+w,Fo-w,+X
+
+
+
+
+                                  
+                                    It is also legal to specify multiple --chmod options, as each additional option is
+                                    just appended
+                                    to the list of changes to make.
+
+
+
+
+                                    
+                                      See the --perms and --executability options for how the resulting permission
+                                      value can be applied
+                                      to the files in the transfer.
+
+                                      -e, --rsh=COMMAND
+                                      
+                                        This option allows you to choose an alternative remote shell program to use for
+                                        communication
+                                        between the local and remote copies of rsync. Typically, rsync is configured to
+                                        use ssh by
+                                        default, but you may prefer to use rsh on a local network.
+
+
+
+
+                                        
+                                          If this option is used with [user@]host::module/path, then the remote shell
+                                          COMMAND will be used
+                                          to run an rsync daemon on the remote host, and all data will be transmitted
+                                          through that remote
+                                          shell connection, rather than through a direct socket connection to a running
+                                          rsync daemon on the
+                                          remote host. See the section "USING RSYNC-DAEMON FEATURES VIA A REMOTE-SHELL
+                                          CONNECTION" above.
+
+
+
+
+                                          
+                                            Command-line arguments are permitted in COMMAND provided that COMMAND is
+                                            presented to rsync as a
+                                            single argument. You must use spaces (not tabs or other whitespace) to
+                                            separate the command and
+                                            args from each other, and you can use single- and/or double-quotes to
+                                            preserve spaces in an
+                                            argument (but not backslashes). Note that doubling a single-quote inside a
+                                            single-quoted string
+                                            gives you a single-quote; likewise for double-quotes (though you need to
+                                            pay attention to which
+                                            quotes your shell is parsing and which quotes rsync is parsing). Some
+                                            examples:
+
+
+
+
+                                            
+                                              -e 'ssh -p 2234'
+                                              -e 'ssh -o "ProxyCommand nohup ssh firewall nc -w1 %h %p"'
+
+
+
+
+                                              (Note that ssh users can alternately customize site-specific connect
+                                              options in their .ssh/config
+                                              file.)
+
+
+
+                                              You can also choose the remote shell program using the RSYNC_RSH
+                                              environment variable, which
+                                              accepts the same range of values as -e.
+
+
+
+                                              See also the --blocking-io option which is affected by this option.
+                                              --copy-unsafe-links
+                                              
+                                                This tells rsync to copy the referent of symbolic links that point
+                                                outside the copied tree.
+                                                Absolute symlinks are also treated like ordinary files, and so are any
+                                                symlinks in the source path
+                                                itself when --relative is used. This option has no additional effect if
+                                                --copy-links was also
+                                                specified.
+
+                                                -r, --recursive
+                                                
+                                                  This tells rsync to copy directories recursively. See also --dirs
+                                                  (-d).
+
+
+
+
+                                                  
+                                                    Beginning with rsync 3.0.0, the recursive algorithm used is now an
+                                                    incremental scan that uses much
+                                                    less memory than before and begins the transfer after the scanning
+                                                    of the first few directories
+                                                    have been completed. This incremental scan only affects our
+                                                    recursion algorithm, and does not
+                                                    change a non-recursive transfer. It is also only possible when both
+                                                    ends of the transfer are at
+                                                    least version 3.0.0.
+
+
+
+
+                                                    
+                                                      Some options require rsync to know the full file list, so these
+                                                      options disable the incremental
+                                                      recursion mode. These include: --delete-before, --delete-after,
+                                                      --prune-empty-dirs, and
+                                                      --delay-updates. Because of this, the default delete mode when
+                                                      you specify --delete is now
+                                                      --delete-during when both ends of the connection are at least
+                                                      3.0.0 (use --del or --delete-during
+                                                      to request this improved deletion mode explicitly). See also the
+                                                      --delete-delay option that is a
+                                                      better choice than using --delete-after.
+
+
+
+
+                                                      
+                                                        Incremental recursion can be disabled using the
+                                                        --no-inc-recursive option or its shorter --no-i-r
+                                                        alias.
+
+                                                        -z, --compress
+                                                        
+                                                          With this option, rsync compresses the file data as it is
+                                                          sent to the destination machine, which
+                                                          reduces the amount of data being transmitted -- something
+                                                          that is useful over a slow connection.
+
+
+
+
+                                                          
+                                                            Note that this option typically achieves better compression
+                                                            ratios than can be achieved by using a
+                                                            compressing remote shell or a compressing transport because
+                                                            it takes advantage of the implicit
+                                                            information in the matching data blocks that are not
+                                                            explicitly sent over the connection.
+
+
+
+
+                                                            
+                                                              See the --skip-compress option for the default list of
+                                                              file suffixes that will not be compressed.
+
+                                                              Local: rsync [OPTION...] SRC... [DEST]
+
+
+
+                                                              Access via remote shell:
+                                                              Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]
+                                                              Push: rsync [OPTION...] SRC... [USER@]HOST:DEST
+
+
+
+                                                              Access via rsync daemon:
+                                                              Pull: rsync [OPTION...] [USER@]HOST::SRC... [DEST]
+                                                              
+                                                                rsync [OPTION...] rsync://[USER@]HOST[:PORT]/SRC...
+                                                                [DEST]
+
+                                                                Push: rsync [OPTION...] SRC... [USER@]HOST::DEST
+                                                                
+                                                                  rsync [OPTION...] SRC...
+                                                                  rsync://[USER@]HOST[:PORT]/DEST
+
+                                                                  source manpages: rsync

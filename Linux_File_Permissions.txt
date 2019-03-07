@@ -1,0 +1,25 @@
+====== Linux File Permissions ======
+
+
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Linux File Permissions
+
+
+Created Wednesday 16 May 2018
+
+
+
++Change
+Only Directories
++Change Only Files
++Correct
+Permissions
++Linux
+File Permissions

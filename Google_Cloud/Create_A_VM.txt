@@ -1,0 +1,20 @@
+====== Create A VM ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Create A VM
+
+
+Created Tuesday 15 May 2018
+
+
+
+gcloud compute --project=ffmpeg-204213 instances create ffmpeg-1 --zone=us-central1-f --machine-type=n1-standard-1
+    --subnet=default --metadata=ssh-keys=brettsalemink:ssh-rsa\
+    AAAAB3NzaC1yc2EAAAADAQABAAABAQCrZjo/T8beY5UF7upV6dXy\+9yKq\+Y8hhW9ewJQnairFIjQ6LttyPa3\+FeXIydEPUZPlIOO184jTA5qD10w6lGv3VAuA59erER7Izf3dfyeITBro1zy77eQyAEBYY6jiTo0DlvSYv4N3BH9tJBsYbl75eRXgOFFIr1XXpgOTMeE9vOk2fHdTHQsiqZt/5JymmqgfblrvvkS2oJsakcqGO60hMbrXCDf/QtQy0tlPWu1GdeQ8Crm6gSEcidGoQJJeW2wqn8ll1SwiF0JUN1Ho5bbwGkxAODF6Ua5a1uJciJy8g2yMtGuYVMQBYzBQ2WiiJLYdxvbQ/d1lGgUmF52RJ/N\
+    brettsalemink@antergos --maintenance-policy=MIGRATE
+    --service-account=188253352971-compute@developer.gserviceaccount.com
+    --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append
+    --min-cpu-platform=Automatic --image=debian-9-stretch-v20180510 --image-project=debian-cloud --boot-disk-size=10GB
+    --boot-disk-type=pd-standard --boot-disk-device-name=ffmpeg-1

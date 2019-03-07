@@ -1,0 +1,158 @@
+====== Options ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Options
+
+
+Created Tuesday 15 May 2018
+
+
+
+OPTIONS
+
+  -b, --remove-all
+
+  
+    Remove all extended ACL entries. The base ACL entries of the owner,
+    group and others are retained.
+
+
+
+
+    
+      -k, --remove-default
+
+      
+        Remove the Default ACL. If no Default ACL exists, no warnings are
+        issued.
+
+
+
+
+        
+          -n, --no-mask
+
+          
+            Do not recalculate the effective rights mask. The default behavior
+            of setfacl is to recalculate the ACL mask entry, unless a mask
+            entry was explicitly given. The mask entry is set to the union of
+            all permissions of the owning group, and all named user and group
+            entries. (These are exactly the entries affected by the mask
+            entry).
+
+
+
+
+            
+              --mask
+
+              
+                Do recalculate the effective rights mask, even if an ACL mask entry
+                was explicitly given. (See the -n option.)
+
+
+
+
+                
+                  -d, --default
+
+                  
+                    All operations apply to the Default ACL. Regular ACL entries in the
+                    input set are promoted to Default ACL entries. Default ACL entries
+                    in the input set are discarded. (A warning is issued if that hap‐
+                    pens).
+
+
+
+
+                    
+                      --restore=file
+
+                      
+                        Restore a permission backup created by `getfacl -R' or similar. All
+                        permissions of a complete directory subtree are restored using this
+                        mechanism. If the input contains owner comments or group comments,
+                        setfacl attempts to restore the owner and owning group. If the
+                        input contains flags comments (which define the setuid, setgid, and
+                        sticky bits), setfacl sets those three bits accordingly; otherwise,
+                        it clears them. This option cannot be mixed with other options
+                        except `--test'.
+
+
+
+
+                        --test
+                        
+                          Test mode. Instead of changing the ACLs of any files, the resulting
+                          ACLs are listed.
+
+
+
+
+                          
+                            -R, --recursive
+
+                            
+                              Apply operations to all files and directories recursively. This
+                              option cannot be mixed with `--restore'.
+
+
+
+
+                              
+                                -L, --logical
+
+                                
+                                  Logical walk, follow symbolic links to directories. The default
+                                  behavior is to follow symbolic link arguments, and skip symbolic
+                                  links encountered in subdirectories. Only effective in combination
+                                  with -R. This option cannot be mixed with `--restore'.
+
+
+
+
+                                  
+                                    -P, --physical
+
+                                    
+                                      Physical walk, do not follow symbolic links to directories. This
+                                      also skips symbolic link arguments. Only effective in combination
+                                      with -R. This option cannot be mixed with `--restore'.
+
+
+
+
+                                      
+                                        -v, --version
+
+                                        
+                                          Print the version of setfacl and exit.
+
+
+
+
+                                          
+                                            -h, --help
+
+                                            
+                                              Print help explaining the command line options.
+
+
+
+
+                                              
+                                                -- End of command line options. All remaining parameters are inter‐
+
+                                                
+                                                  preted as file names, even if they start with a dash.
+
+
+
+
+                                                  
+                                                    - If the file name parameter is a single dash, setfacl reads a list
+
+                                                    
+                                                      of files from standard input.

@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Installation Instructions</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>Installation Instructions</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+Installation Instructions
+</p>
+
+<br>
+
+<p>
+Created Monday 04 June 2018<br>
+QuickStart
+</p>
+
+<br>
+<br>
+
+<p>
+Username: root<br>
+Password: raspberrypi64
+</p>
+
+<br>
+<br>
+
+<p>
+After Boot to Add User:<br>
+pi64 ~ # useradd --create-home --groups "adm,disk,lp,wheel,audio,video,cdrom,usb,users,plugdev,portage" --shell<br>
+/bin/bash --comment "Sakaki" sakaki<br>
+pi64 ~ # passwd sakaki<br>
+New password: &lt;type your desired password for the new user, and press Enter&gt;<br>
+Retype new password: &lt;type the desired password again, and press Enter&gt;<br>
+passwd: password updated successfully<br>
+Username: root<br>
+Password: raspberrypi64
+</p>
+
+<br>
+<br>
+
+<p>
+After Boot to Add User:<br>
+pi64 ~ # useradd --create-home --groups "adm,disk,lp,wheel,audio,video,cdrom,usb,users,plugdev,portage" --shell<br>
+/bin/bash --comment "Sakaki" sakaki<br>
+pi64 ~ # passwd sakaki<br>
+New password: &lt;type your desired password for the new user, and press Enter&gt;<br>
+Retype new password: &lt;type the desired password again, and press Enter&gt;<br>
+passwd: password updated successfully<br>
+Then, once logged in, you can delete the demouser account if you like. Open a terminal, su to root, then:<br>
+pi64 ~ # userdel --remove demouser<br>
+userdel: demouser mail spool (/var/spool/mail/demouser) not found
+</p>
+
+<br>
+<br>
+
+<p>
+Note that by default, this script will run automatically once per week, commencing the second week after first boot<br>
+(see the task installed in /etc/cron.weekly). Review the logfile /var/log/latest-genup-run.log to see changes made by<br>
+the latest auto-update run.
+</p>
+
+<br>
+<br>
+
+<p>
+If you would rather not use auto-updating, simply edit the file /etc/portage/package.use/rpi3-64bit-meta so it reads<br>
+(the relevant line is the last one):
+</p>
+
+<br>
+<br>
+
+<p>
+# enable/disable any metapackage USE flags you want here, and then<br>
+# re-emerge dev-embedded/rpi3-64bit-meta to have the effect taken up<br>
+# e.g.:<br>
+#<br>
+# dev-embedded/rpi3-64bit-meta -weekly-genup -porthash<br>
+#<br>
+# (uncommented) to disable the automated weekly genup (package update)<br>
+# run, and to disable the requirement for a signature check on the<br>
+# isshoni.org rsync mirror<br>
+#<br>
+# unless you so specify, we accept all existing default metapackage flags:<br>
+# at the time of writing, those were (default flag status shown as + or -):<br>
+#<br>
+# + boot-fw : pull in the /boot firmware, configs and bootloader<br>
+# + kernel-bin : pull in the binary kernel package<br>
+# + porthash : pull in repo signature checker, for isshoni.org rsync<br>
+# + weekly-genup: pull in cron.weekly script, to run genup automatically<br>
+# + core: pull in core system packages for image (sudo etc.)<br>
+# + xfce: pull in packages for baseline Xfce4 system (requires core)<br>
+# - pitop: pull in Pi-Top support packages (NB most users will NOT want this;<br>
+# the Pi-Top is a DIY laptop kit based around the RPi3) (requires xfce)<br>
+# - apps: pull in baseline desktop apps (libreoffice etc.) (requires xfce)<br>
+#<br>
+# NB the main point of the core, xfce, pitop and apps USE flags is just to let<br>
+# you reduce what is in your <span class="zim-tag">@world</span> set (/var/lib/portage/world).<br>
+dev-embedded/rpi3-64bit-meta -weekly-genup
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+pi64 ~ # emerge -v rpi3-64bit-meta
+</p>
+
+<br>
+<br>
+
+<p>
+Installing New Packages Under Gentoo<br>
+You can add any additional packages you like to your RPi3. To search for available packages, you can use the<br>
+(pre-installed) eix tool. For example, to search for all packages with 'hex editor' in their description:
+</p>
+
+<br>
+<br>
+
+<p>
+demouser@pi64 ~ $ eix --description --compact "hex.editor"<br>
+[N] app-editors/curses-hexedit (--): full screen curses hex editor (with insert/delete support)<br>
+[N] app-editors/dhex (--): ncurses-based hex-editor with diff mode<br>
+[N] app-editors/hexcurse (--): ncurses based hex editor<br>
+[N] app-editors/lfhex (--): A fast hex-editor with support for large files and comparing binary files<br>
+[N] app-editors/qhexedit2 (--): Hex editor library, Qt application written in C++ with Python bindings<br>
+[N] app-editors/shed (--): Simple Hex EDitor<br>
+[N] app-editors/wxhexeditor (--): A cross-platform hex editor designed specially for large files<br>
+[N] dev-util/bless (--): GTK# Hex Editor<br>
+Found 8 matches
+</p>
+
+<br>
+<br>
+
+<p>
+demouser@pi64 ~ $ eix --verbose app-editors/shed
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+app-editors/shed
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+Available versions: *1.12 *1.13 ~*1.15<br>
+Homepage: <a href="http://shed.sourceforge.net/" title="http://shed.sourceforge.net/" class="http">http://shed.sourceforge.net/</a><br>
+Find open bugs: <a href="https://bugs.gentoo.org/buglist.cgi?quicksearch=app-editors%2Fshed" title="https://bugs.gentoo.org/buglist.cgi?quicksearch=app-editors%2Fshed" class="https">https://bugs.gentoo.org/buglist.cgi?quicksearch=app-editors%2Fshed</a><br>
+Description: Simple Hex EDitor<br>
+License: GPL-2
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+Because the Pi has no battery-backed real time clock (RTC), I have used the swclock (rather than the more usual<br>
+hwclock) OpenRC boot service on the image - this simply sets the clock on boot to the recorded last shutdown time. An<br>
+NTP client, chronyd, is also configured, and this will set the correct time as soon as a valid network connection is<br>
+established.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+The image is configured with NetworkManager, so achieving network connectivity should be straightforward. The Ethernet<br>
+interface is initially configured as a DHCP client, but obviously you can modify this as needed. Use the<br>
+NetworkManager applet (top right of your screen) to do this; you can also use this tool to connect to a WiFi network.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+Bluetooth is operational on this image, but since, by default, the Raspberry Pi 3 uses the hardware UART / ttyAMA0 to<br>
+communicate with the Bluetooth adaptor, the standard serial console does not work and has been disabled on this image<br>
+(see /etc/inittab and /boot/cmdline.txt). You can of course change this behaviour if access to the hardware serial<br>
+port is important to you.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+The Pi3 uses the first (vfat) partition of the microSD card (/dev/mmcblk0p1) for booting. The various (closed-source)<br>
+firmware files pre-installed there may are managed by the sys-boot/rpi3-64bit-firmware package (see below). Once<br>
+booted, this first partition will be mounted at /boot, and you may wish to check or modify the contents of the files<br>
+/boot/cmdline.txt and /boot/config.txt.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+The frequency governor is switched to ondemand (from the default, powersave), for better performance, as of version<br>
+1.0.1. This is managed by the sys-apps/rpi3-ondemand-cpufreq package (see below).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+If you are using an RPi3 Model B board, the frequency will switch dynamically between 600MHz and 1.2GHz, depending on<br>
+load. On a Model B+, it will switch between 600MHz and 1.4GHz.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+PermitRootLogin yes has explicitly been set in /etc/ssh/sshd_config, and sshd is present in the default runlevel. This<br>
+is for initial convenience only - feel free to adopt a more restrictive configuration.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+As of version 1.0.1, all users in the wheel group (which includes demouser) have a passwordless sudo ability for all<br>
+commands. Modify /etc/sudoers via visudo to change this, if desired (the relevant line is %wheel ALL=(ALL) NOPASSWD:<br>
+ALL).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+As mentioned above, by default on first boot the image will attempt to automatically expand the root (second)<br>
+partition to fill all remaining free space on the microSD card. If, for some reason, you elected not to do this (and<br>
+so renamed the sentinel file autoexpand_root_partition to autoexpand_root_none prior to first boot), you can easily<br>
+expand the size of the second (root) partition manually, so that you have more free space to work in, using the tools<br>
+(fdisk and resize2fs). See these instructions, for example. I strongly recommend you do expand the root partition<br>
+(whether using the default, first-boot mechanism or manually) if you are intending to perform large package (or<br>
+kernel) builds on your Pi (it isn't necessary just to play around with the image of course).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+You can easily install (and run) 32-bit Raspbian apps on your 64-bit Gentoo system if you like (using apt-get from a<br>
+chroot), since ARMv8 supports mixed-mode userland. If this interests you, please see my wiki entry on this subject,<br>
+here.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+To install source packages with resource-intensive build profiles, you can temporarily mount the image within a<br>
+binfmt_misc QEMU user-mode chroot on your PC, and perform the emerge there. For further details, please see my wiki<br>
+tutorial here.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+If you would like to run benchmarks on your RPi3 system, please see these notes.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+You can easily remove unwanted applications, and even the Xfce4 graphical desktop itself, from your 64-bit Gentoo<br>
+system if desired. To do so, please refer to my notes Remove Graphic Desktop.
+</div>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

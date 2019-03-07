@@ -1,0 +1,10 @@
+====== Lower Case All Extensions ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+# Lower_Case_All_Extensions_Including_Subfolders
+autoload zmv
+zmv '(**/)(*).(#i)jpg' '$1$2.jpg'

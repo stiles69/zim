@@ -1,0 +1,13 @@
+====== Check IP Of Connection ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Check IP Of Connection
+
+
+Created Saturday 16 June 2018
+
+
+
+wget -q -O - ipecho.net/plain

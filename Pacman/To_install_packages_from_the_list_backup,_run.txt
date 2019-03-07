@@ -1,0 +1,17 @@
+====== To install packages from the list backup, run ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+To install packages from the list backup, run
+
+
+Created Tuesday 13 February 2018
+
+
+
+pacman -S - < pkglist.txt
+To skip already installed packages, use --needed 
+
+
+    pacman -S --needed - < pkglist.txt

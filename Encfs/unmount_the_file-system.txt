@@ -1,0 +1,13 @@
+====== unmount the file-system ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+unmount the file-system
+
+
+Created Wednesday 09 May 2018
+
+
+
+fusermount -u ~/name

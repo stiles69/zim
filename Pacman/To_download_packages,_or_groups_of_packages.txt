@@ -1,0 +1,15 @@
+====== To download packages, or groups of packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+To download packages, or groups of packages
+
+
+Created Tuesday 13 February 2018
+
+
+
+	# cd ~/Packages
+# pacman -Syw base base-devel grub-bios xorg gimp --cachedir .
+# repo-add ./custom.db.tar.gz ./*

@@ -1,0 +1,14 @@
+====== Get UID from User ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Get UID from User
+
+
+Created Thursday 25 January 2018
+
+
+
+id
+returns all info

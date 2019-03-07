@@ -1,0 +1,13 @@
+====== Delete all empty directories, this will recurse the tree ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Delete all empty directories, this will recurse the tree
+
+
+Created Sunday 13 May 2018
+
+
+
+$ find . -type d -empty -delete

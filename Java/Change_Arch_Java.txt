@@ -1,0 +1,85 @@
+====== Change Arch Java ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Change Arch Java
+
+
+Created Sunday 21 October 2018
+
+
+
+Switching between JVM
+The helper script archlinux-java provides such functionalities:
+
+
+
+archlinux-java <COMMAND>
+
+
+
+COMMAND:
+
+  statusList installed Java environments and enabled one
+  getReturn the short name of the Java environment set as default
+  set <JAVA_ENV>Force <JAVA_ENV> as default
+  unsetUnset current default Java environment
+  fixFix an invalid/broken default Java environment configuration
+
+  List compatible Java environments installed
+  $ archlinux-java status
+  Example:
+
+
+
+  $ archlinux-java status
+  Available Java environments:
+  java-7-openjdk (default)
+  java-8-openjdk/jre
+  Note the (default) denoting that java-7-openjdk is currently set as default. Invocation of java and other binaries
+  will rely on this Java install. Also note on the previous output that only the JRE part of OpenJDK 8 is installed
+  here.
+
+
+
+  Change default Java environment
+  # archlinux-java set <JAVA_ENV_NAME>
+  Example:
+
+
+
+  # archlinux-java set java-8-openjdk/jre
+  Tip: To see possible <JAVA_ENV_NAME> names, use archlinux-java status.
+  Note that archlinux-java will not let you set an invalid Java environment. In the previous example, jre8-openjdk is
+  installed but jdk8-openjdk is not so trying to set java-8-openjdk will fail:
+
+
+
+  # archlinux-java set java-8-openjdk
+  '/usr/lib/jvm/java-8-openjdk' is not a valid Java environment path
+  Unsetting the default Java environment
+  There should be no need to unset a Java environment as packages providing them should take care of this. Still should
+  you want to do so, just use command unset:
+
+
+
+  # archlinux-java unset
+  Fixing the default Java environment
+  If an invalid Java environment link is set, calling the archlinux-java fix command tries to fix it. Also note that if
+  no default Java environment is set, this will look for valid ones and try to set it for you. Officially supported
+  package "OpenJDK 8" will be considered first in this order, then other installed environments.
+
+
+
+  # archlinux-java fix
+  Launching an application with the non-default java version
+  If you want to launch an application with another version of java than the default one (for example if you have both
+  version jre7 and jre8 installed on your system), you can wrap your application in a small bash script to locally
+  change the default PATH of java. For example if the default version is jre7 and you want use jre8:
+
+  
+    #!/bin/sh 
+
+export PATH=/usr/lib/jvm/java-8-openjdk/jre/bin/:$PATH
+exec /path/to/application "$@"

@@ -1,0 +1,32 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-01-21T01:05:38-06:00
+
+====== VP9 Rescaling ======
+Created Monday 21 January 2019
+
+=== Considerations for use cases with re-scaling (re-sizing) ===
+VP9's bitrate modes are obviously not isolated, and may be combined with many other arguments and parameters to specifically target use cases. One typical use case may be to re-scale the output video's dimensions, to target a specific device.
+
+A classic example of this would be changing an HD stream to an SD output. Again this will have significant effects on the processing time and the output bitrate. In a scenario where two FFmpeg commands are otherwise identical, merely adjusting the size of the output video will change the size of the resulting file, and indeed its bitrate in a streaming model.
+
+To exemplify this we have taken a mid-point example from each of the bitrate modes and simply added rescaling parameters.
+
+=== Q mode ===
+**ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9 -b:v 0 -crf 10 -quality good \**
+**  -speed 0 -vf scale=640x480 -c:a libvorbis 640x480_Q_crf_10_120s_tears_of_steel_1080p.webm**
+
+=== CQ mode ===
+**ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \**
+**  -minrate 1500k -maxrate 2500k -crf 10 -vf scale=640x480 -c:a libvorbis \**
+**  640x480_CQ_crf_0_120s_tears_of_steel_1080p.webm**
+
+=== VBR mode ===
+**ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \**
+**  -minrate 1500k -maxrate 2500k -quality good -speed 5 -vf  scale=640x480 \**
+**  -c:a libvorbis 640x480_VBR_good_5_120s_tears_of_steel_1080p.webm**
+
+=== CBR mode ===
+**ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \**
+**  -minrate 2000k -maxrate 2000k -quality realtime -speed 5 -vf  scale=640x480 \**
+**  -c:a libvorbis 640x480_CBR_2000_realtime_5_120s_tears_of_steel_1080p.webm**

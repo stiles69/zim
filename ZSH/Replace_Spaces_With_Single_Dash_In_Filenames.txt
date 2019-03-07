@@ -1,0 +1,16 @@
+====== Replace Spaces With Single Dash In Filenames ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+## Replace Spaces
+autoload zmv
+zmv -n '(**/)(* *)''$1${2//(#-###|##)/-}'
+
+
+
+## Cleanup Filenames Replace Special Characters
+autoload zmv
+zmv -n '(**/)(*)' '$1${2//[^A-Za-z0-9.]/}'

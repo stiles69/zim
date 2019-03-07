@@ -1,0 +1,13 @@
+====== Convert MKV to MP4 ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Convert MKV to MP4
+
+
+Created Monday 22 January 2018
+
+
+
+ffmpeg -i LostInTranslation.mkv -vcodec copy -acodec copy LostInTranslation.mp4

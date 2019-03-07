@@ -1,0 +1,86 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-01-21T00:45:54-06:00
+
+====== VP9 Encoding Basics ======
+Created Monday 21 January 2019
+
+=== Basic Encoding ===
+Video Compression Basics
+This section covers basic options for VP9 encoding, including frame size, basic bitrate control and quality.
+
+If you're new to video compression you may wish to watch this video to learn more about the need for video compression, and how it works.
+
+
+=== A Simple Encode ===
+The following FFMpeg command converts an input file to VP9 video with Opus audio. This is the simplest possible encode which uses default settings.
+
+**ffmpeg -i tears_of_steel_1080p.webm -c:v libvpx-vp9 -c:a libopus output.webm**
+This FFMpeg encode uses the following command-line parameters:
+
+**FFMpeg**	
+**-i <filename>	Specifies input file name**
+**-c:v libvpx-vp9	Tells FFMpeg to create VP9 video**
+**-c:a libopus	Tells FFMpeg to create Opus audio**
+**output.webm	Specifies output file name**
+FFMpeg infers the type of file to make from the output file name you use. In this example, FFMpeg will output a WebM file because we asked for output.webm.
+
+**Resolution**
+Every video has a frame size (indicating the pixel width and height). The following FFMpeg command-line parameter can be used to control the output video frame size for VP9 encoding:
+
+**FFMpeg**	
+**-vf scale=<width>x<height>**	Frame width and height
+For example, the following FFMpeg command will output a 640x480 VP9 WebM video.
+
+**ffmpeg -i tears_of_steel_1080p.webm -vf scale=640x480 \**
+**  -c:v libvpx-vp9 -c:a libopus output.webm**
+//Smaller resolutions are lower quality, but larger resolutions require more bandwidth, more processing power to decode, and may not be supported on older devices. For VP9, 640x480 is considered a safe resolution for a broad range of mobile and web devices.//
+
+//Note: Every video also has a frame rate (the number of images displayed per second). By default, FFMpeg matches the output video frame rate to the input.//
+
+**Bitrate (bit rate)**
+**VP9 supports several different bitrate modes:**
+
+**mode**	
+**Constant Quantizer (Q)	Allows you to specify a fixed quantizer value; bitrate will vary**
+**Constrained Quality (CQ)	Allows you to set a maximum quality level. Quality may vary within bitrate parameters**
+**Variable Bitrate (VBR)	Balances quality and bitrate over time within constraints on bitrate**
+**Constant Bitrate (CBR)	Attempts to keep the bitrate fairly constant while quality varies**
+**CQ mode is recommended for file-based video (as opposed to live streaming). The following FFMpeg command-line parameters are used for** CQ mode:
+
+**FFMpeg**	
+**-b:v <arg>**	//Sets target bitrate (e.g. 500k)//
+**-minrate <arg>**
+**-maxrate <arg>**	//Sets minimum and maximum bitrate.//
+**-crf <arg>**	//Sets maximum quality level. Valid values are 0-63, lower numbers are higher quality.//
+//Note: Bitrate is specified in kbps, or kilobits per second. In video compression a kilobit is generally assumed to be 1000 bits (not 1024).//
+//Note: Other codecs in FFMpeg accept the -crf parameter but may interpret the value differently. If you are using -crf with other codecs you will likely use different values for VP9.//
+For example, the following FFMpeg command will create a medium-quality 640x480 video file using CQ mode, with an average bitrate of 750kbps and maximum quality constrained to 33.
+
+**ffmpeg -i tears_of_steel_1080p.webm -vf scale=640x480 \**
+**  -b:v 750k -crf 33 -c:v libvpx-vp9 -c:a libopus output.webm**
+Bitrate will vary depending upon the quality you wish to achieve, and the resolution of the video. A full set of recommendations for bitrates at various resolutions can be found here.
+
+=== Quality and Speed Settings ===
+Compressing video is a trade-off between the quality of the output, and the amount of time it takes to create it. Generally speaking, you can always get higher quality by allowing more time to encode, but the time required to get the highest possible quality may be impractical.
+
+VP9 offers several settings to balance quality and speed:
+
+Quality setting instructs the encoder on the approach it takes to compress video. Available modes are best, good, and realtime.
+
+Threading settings allow the encoder to use multiple CPU threads to encode the video. These settings may slightly reduce quality, but can significantly improve encoding and decoding speed.
+
+These two types of settings are controlled by several command-line parameters:
+
+**FFMpeg**	
+**-threads**	Indicates the number of threads to use during encoding.
+**-quality**	May be set to good, best, or realtime
+**-speed**	This parameter has different meanings depending upon whether quality is set to good or realtime. Speed settings //0-4 apply for VoD in good and best, with 0 being the highest quality and 4 being the lowest. Realtime valid values are 5-8; lower numbers mean higher quality//
+**-tile-columns**	T//iling splits the video into rectangular regions, which allows multi-threading for encoding and decoding. The number of tiles is always a power of two. 0=1 tile, 1=2, 2=4, 3=8, 4=16, 5=32.//
+
+The following FFMpeg command will create a 640x480 file with quality set to 'good' and speed set to 0 (high quality):
+
+**ffmpeg -i tears_of_steel_1080p.webm -vf scale=640x480 \**
+**  -b:v 750k -quality good -speed 0 -crf 33 -c:v libvpx-vp9 -c:a libopus \**
+**  output.webm**
+Your choices for quality and speed settings may vary depending upon resolution and available processing power. A full set of recommendations can be found in the next section.

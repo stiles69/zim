@@ -1,0 +1,150 @@
+====== Usage ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Usage
+
+
+Created Wednesday 24 October 2018
+
+
+
+$ flash --help
+usage: flash [options] [name-of-rpi.img]
+
+
+
+Flash a local or remote Raspberry Pi SD card image.
+
+
+OPTIONS:
+
+
+--help|-h Show this message
+--bootconf|-C Copy this config file to /boot/config.txt
+--config|-c Copy this config file to /boot/device-init.yaml (or occidentalis.txt)
+--hostname|-n Set hostname for this SD image
+--ssid|-s Set WiFi SSID for this SD image
+--password|-p Set WiFI password for this SD image
+--clusterlab|-l Start Cluster-Lab on boot: true or false
+--device|-d Card device to flash to (e.g. /dev/disk2)
+--force|-f Force flash without security prompt (for automation)
+--userdata|-u Copy this cloud-init config file to /boot/user-data
+--metadata|-m Copy this cloud-init config file to /boot/meta-data
+
+
+Configuration
+
+
+The strength of the flash tool is that it can insert some configuration files that gives you the best first boot
+experience to customize the hostname, WiFi and even user logins and SSH keys automatically.
+
+
+
+cloud-init
+With HypriotOS v1.7.0 and higher the options --userdata and --metadata can be used to copy both cloud-init config files
+into the FAT partition.
+
+
+
+This is an example how to create our default user with a password.
+
+
+
+#cloud-config
+# vim: syntax=yaml
+#
+hostname: black-pearl
+manage_etc_hosts: true
+
+
+
+users:
+- name: pirate
+
+  gecos: "Hypriot Pirate"
+  sudo: ALL=(ALL) NOPASSWD:ALL
+  shell: /bin/bash
+  groups: users,docker,video
+  plain_text_passwd: hypriot
+  lock_passwd: false
+  ssh_pwauth: true
+  chpasswd: { expire: false }
+
+
+
+
+  package_upgrade: false
+  Please have a look at the sample folder, our guest blogpost Bootstrapping a Cloud with Cloud-Init and HypriotOS or at
+  the cloud-init documentation how to do more things like using SSH keys, running additional commands etc.
+
+
+
+  config.txt
+  The option --bootconf can be used to copy a config.txt into the SD image before it is unplugged.
+
+
+
+  With this option it is possible to change some memory, camera, video settings etc. See the config.txt documentation
+  at raspberrypi.org for more details.
+
+
+
+  The boot config file config.txt has name/value pairs such as:
+
+
+
+  max_usb_current=1
+  hdmi_force_hotplug=1
+  device-init.yaml
+  For HypriotOS older than v1.7.0 the option --config can be used to copy a device-init.yaml into the SD image before
+  it is unplugged. This YAML file can be read by newer HyperiotOS SD images.
+
+
+
+  The config file device-init.yaml should look like
+
+
+
+  hostname: black-pearl
+  wifi:
+  interfaces:
+  
+    wlan0:
+    ssid: "MyNetwork"
+    password: "secret_password"
+
+    If you don't want to set any wifi settings, comment out or remove the wlan0, ssid and password.
+
+
+    Use cases
+
+
+    Flash a compressed SD image from the internet
+    flash https://github.com/hypriot/image-builder-rpi/releases/download/v1.7.1/hypriotos-rpi-v1.7.1.img.zip
+    Flash and change the hostname
+    This works only for SD card images that already have occi installed.
+
+
+
+    flash --hostname mypi hypriot.img
+    Then unplug the SD card from your computer, plug it into your Pi and boot your Pi. After a while the Pi can be
+    found via Bonjour/avahi and you can log in with
+
+
+
+    ssh pi@mypi.local
+    Onboard WiFi
+    The options --userdata and --bootconf must be used to disable UART and enable onboard WiFi for Raspberry Pi 3 and
+    Pi 0. For external WiFi sticks you do not need to specify the -bootconf option.
+
+
+
+    flash --userdata sample/wlan-user-data.yaml --bootconf sample/no-uart-config.txt hypriotos-rpi-v1.7.1.img
+    Automating flash
+    For non-interactive usage, you can predefine the user input in the flash command with the -d and -f options:
+
+
+
+    flash -d /dev/mmcblk0 -f hypriotos-rpi-v1.7.1.img

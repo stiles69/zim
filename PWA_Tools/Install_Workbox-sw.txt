@@ -1,0 +1,14 @@
+====== Install Workbox-sw ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Install Workbox-sw
+
+
+Created Wednesday 14 March 2018
+
+
+
+Gulp must be installed
+npm install --save workbox-sw

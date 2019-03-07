@@ -1,0 +1,21 @@
+====== No Hangup On Running Bash Jobs ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+No Hangup On Running Bash Jobs
+
+
+Created Thursday 08 March 2018
+
+
+
+# NO_HUP
+
+
+
+nohup command [command-argument ...]
+
+
+
+To save output to a file named file, use "nohup command > file".

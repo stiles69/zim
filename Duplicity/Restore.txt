@@ -1,0 +1,14 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Restore ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+Created Saturday 12 May 2018
+
+
+
+Now suppose we accidentally delete /home/me and want to restore it the way it was at the time of last backup:
+duplicity sftp://uid@other.host/some_dir /home/me
+Duplicity enters restore mode because the URL comes before the local directory.

@@ -1,0 +1,14 @@
+====== Flash Image ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Flash Image
+
+
+Created Wednesday 04 July 2018
+
+
+
+You can also directly flash an image with flash tool.
+flash https://github.com/hypriot/image-builder-rpi/releases/download/v1.8.0/hypriotos-rpi-v1.8.0.img.zip

@@ -1,0 +1,17 @@
+====== Encfs ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Encfs
+
+
+Created Wednesday 09 May 2018
+
+
+
++Backup encrypted directory
++changing password
++create a secured repository
++Mount via fstab
++unmount the file-system

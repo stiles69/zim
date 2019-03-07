@@ -1,0 +1,33 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30 03:46:06-06:00
+ 
+====== Vue-Cli 3 Available Plugins ======
+Created Fri 30 November 2018
+
+==== Electron Builder ====
+**vue add electron-builder**
+
+==== Apollo ====
+This is a plugin to add Apollo and GraphQL in your Vue project.
+**vue add apollo**
+
+==== Vuetify ====
+The famous Vuetify UI library has also been converted into a Vue CLI 3 plugin. If you’re not familiar, Vuetify is a semantic component framework for Vue. It aims to provide clean, semantic and reusable components that make building your application a breeze.
+**vue add vuetify**
+
+==== StoryBook ====
+This plugin lets you quickly add Storybook to your Vue project. Storybook is a development environment for UI components that allows you to interactively develop and test components.
+**vue add storybook**
+
+==== Component by David Desmaisons ====
+If you want to publish your CLI plugin to be usable by other developers, it must be published on npm following the name convention vue-cli-plugin-<name>.
+
+Component, by David Desmaisons, makes this much easier. It’ll even automatically document the component with vue-styleguidist and vuedoc.md.
+**vue add component**
+
+==== Quasar ====
+Component framework.
+**vue add quasar**
+
+

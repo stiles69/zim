@@ -1,0 +1,14 @@
+====== Removing everything but base group ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Removing everything but base group
+
+
+Created Tuesday 13 February 2018
+
+
+
+pacman -R $(comm -23 <(pacman -Qq | sort) <((for i in $(pacman -Qqg base); do pactree -ul "$i"; done) | sort
+	-u))

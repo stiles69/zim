@@ -1,0 +1,149 @@
+====== gcloud configurations ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+gcloud configurations
+
+
+Created Tuesday 20 March 2018
+
+
+
+Creating a configuration
+To create a configuration, run gcloud config configurations create:
+
+
+
+gcloud config configurations create [NAME]
+You must activate the new configuration after creation in order to use it.
+
+
+
+Activating a configuration
+Only one of your multiple configurations can be active at a given time. The active configuration is the configuration
+whose properties will govern the behavior of the SDK tools.
+
+
+
+To activate a new configuration or switch to a new active configuration, run: gcloud config configurations activate:
+
+
+
+gcloud config configurations activate [NAME]
+gcloud config list will always show you the properties in in your active configuration.
+
+
+
+Viewing configuration properties
+To view the properties in a configuration, run: gcloud config configurations describe:
+
+
+
+gcloud config configurations describe [NAME]
+
+
+
+To change the active configuration for a single command invocation, you can use the --configuration flag on any
+	gcloud command.
+
+
+
+To change the active configuration for all commands in your current terminal, you can set the environment variable
+CLOUDSDK_ACTIVE_CONFIG_NAME to the name of the configuration you'd like to use.
+
+
+
+Deleting a configuration
+To delete a configuration, run: gcloud config configurations delete:
+
+
+
+gcloud config configurations delete [NAME]gcl
+Properties and flags
+gcloud supports some global flags and command flags that have the same effect as SDK properties. For example, gcloud
+supports both the --project flag and project property. Properties allow you to maintain the same settings across
+command executions while flags affect command behavior on a per-invocation basis. Note that flags override properties
+when both are set.
+
+
+
+Configurations
+A configuration is a named set of SDK properties. gcloud uses a configuration named default as the initial active
+configuration; default is suitable for most use cases. However, you can also create additional configurations and
+switch between them as required.
+
+
+
+Listing properties
+To list the properties in the active configuration, run gcloud config list:
+
+
+
+gcloud config list
+gcloud returns the list of properties:
+
+
+
+[compute]
+region = us-east1
+zone = us-east1-d
+[core]
+account =
+disable_usage_reporting = False
+project = example-project
+[metrics]
+command_name = gcloud.config.list
+
+
+
+Setting properties
+To set a property in the active configuration, run gcloud config set:
+
+
+
+gcloud config set project [PROJECT]
+To set properties that are not in the core properties section, you must specify the section followed by a forward slash
+before the property name:
+
+
+
+gcloud config set compute/zone us-east1-b
+Unsetting properties
+To unset a property in the active configuration, run Use the gcloud config unset:
+
+
+
+gcloud config unset disable_usage_reporting
+Property types
+SDK properties are organized into sections which group together related properties for convenience when you are viewing
+property lists.
+
+
+
+Core properties
+The core section contains configuration properties for the gcloud command.
+
+
+
+Name Description
+account User account or service account used by gcloud and other SDK tools for authorization.
+disable_color If set to True, prevents gcloud from printing messages in color to the terminal.
+disable_prompts If set to True, suppresses prompts for all gcloud commands and assumes the default answer. If a command
+requires user input and a default cannot be used, gcloud reports an error. Equivalent to the global --quiet flag.
+disable_usage_reporting If set to True, disables collection of anonymous statistics on SDK usage. You set this value
+when you install the SDK, but you can change it at any time.
+log_http If set to True, enables writing of HTTP requests and responses to logs. If you want to see these messages in
+your terminal, adjust your verbosity setting using the verbosity property or global --verbosity flag.
+project Project ID of the current Cloud Platform project. You can override this value using the global --project flag.
+trace_token Token provided by Google support to route traces of service requests for investigation of issues.
+user_output_enabled Enables printing of command output to standard output and standard error in the terminal. If set to
+False, output is suppressed.
+verbosity Logging verbosity for gcloud commands. gcloud supports the following standard verbosity levels:
+debug
+info
+warning
+error
+critical
+none
+Equivalent to using the global --verbosity flag.

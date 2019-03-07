@@ -1,0 +1,26 @@
+====== Create An Animated GIF With FFmpeg ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Create An Animated GIF With FFmpeg
+
+
+Created Monday 22 January 2018
+
+
+Using the -an flag, similar to what we did above, is better than creating an animated GIF if you'd like to make a
+    video without audio, but there are plenty of places that support GIFs that won't support a different video format.
+    For all of those:
+
+
+
+
+ffmpeg -i input.mkv output.gif
+
+
+
+This command creates a GIF of the same dimensions as the input file. This is often a bad idea, as GIFs don't
+    compress well relative to other video formats (in my experience a GIF will be around eight times larger than the
+    source video). It may be helpful to use the -s option to resize your GIF to something a bit smaller, especially if
+    the input source is quite large, such as HD video.

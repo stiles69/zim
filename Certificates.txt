@@ -1,0 +1,14 @@
+====== Certificates ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Certificates
+
+
+Created Wednesday 09 May 2018
+
+
+
++Make
+Self Signed SSL Certificate

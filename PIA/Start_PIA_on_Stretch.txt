@@ -1,0 +1,14 @@
+====== Start PIA on Stretch ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Start PIA on Stretch
+
+
+Created Thursday 03 May 2018
+
+
+
+cd /etc/openvpn/client
+sudo openvpn US\ Chicago.opv

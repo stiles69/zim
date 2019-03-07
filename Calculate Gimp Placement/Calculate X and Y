@@ -1,0 +1,11 @@
+Faviconh=199.588x=0
+w=200.420y=0
+Middle Yellow h=110.552x=0ALIGNED IN MIDDLE OF FAVICON = X=75.210 Y=72.294
+      w=200y=44.298
+Letter H h=55y=90.368
+ w=50x=18.803 
+
+Centerpoint is calculated by Taking the (Width or Height of the Larger Object - (Width or Height of the Smaller Object)/2)/4 or (Width or Height of the Smaller Object)/2)*1.25
+
+If you want it Farther up and or farther to the right you * 1.25
+If you want it Farther Down and or farther to the left you * 1.25

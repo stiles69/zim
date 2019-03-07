@@ -1,0 +1,9 @@
+====== UCareSystem ======
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+To use the tool, issue the command sudo ucaresystem-core and watch it do its thing. The command will update apt,
+upgrade the system, remove any orphaned or unnecessary packages, and then exit cleanly.

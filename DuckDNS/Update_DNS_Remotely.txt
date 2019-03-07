@@ -1,0 +1,41 @@
+====== Update DNS Remotely ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Update DNS Remotely
+
+
+Created Friday 16 March 2018
+
+
+
+You can update your domain(s) with a single HTTPS get to DuckDNS
+domains=roguedesigns
+token=cd586e20-419e-41d9-b7c8-f26501a240cb
+
+
+The domain can be a single domain - or a comma separated list of domains.
+
+The domain does not need to include the .duckdns.org part of your domain, just the subname.
+
+If you do not specify the IP address, then it will be detected - this only works for IPv4 addresses
+
+You can put either an IPv4 or an IPv6 address in the ip parameter
+
+If you want to update BOTH of your IPv4 and IPv6 records at once, then you can use the optional parameter ipv6
+
+to clear both your records use the optional parameter clear=true
+
+
+
+https://www.duckdns.org/update?domains={YOURVALUE}&amp;token={YOURVALUE}[&amp;ip={YOURVALUE}][&amp;ipv6={YOURVALUE}][&amp;verbose=true][&amp;clear=true]
+
+
+
+Best Way
+
+
+
+
+https://www.duckdns.org/update?domains=roguedesigns&amp;token=cd586e20-419e-41d9-b7c8-f26501a240cb

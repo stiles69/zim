@@ -1,0 +1,7 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Mount a snapshot ======
+
+**mount -t btrfs -o subvol=snapshot_of_root /dev/sda2 /mnt/snap**
+//-t = type (in this case btrfs, not needed on all systems)//

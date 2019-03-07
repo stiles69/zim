@@ -1,0 +1,13 @@
+====== Remove Leading Zeros From File Extensions ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+# Remove_Leading_Zeros_From_File_Extensions
+$ autoload zmv
+$ ls filename.001 filename.003 filename.005 filename.007 filename.009 filename.002 filename.004 filename.006
+filename.008 filename.010
+$ zmv '(filename.)0##(?*)' '$1$2'
+$ ls filename.1 filename.10 filename.2 filename.3 filename.4 filename.5 filename.6 ...

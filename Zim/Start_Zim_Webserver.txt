@@ -1,0 +1,12 @@
+====== Start the Zim Webserver ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Start the Zim Webserver
+
+
+
+
+zim --server Notes
+Defaults to port 8080 'Notes' is my Notebook

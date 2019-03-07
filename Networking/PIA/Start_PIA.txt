@@ -1,0 +1,23 @@
+====== Start PIA ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Start PIA
+
+
+Created Wednesday 02 May 2018
+
+
+
+sudo systemctl start openvpn-client@US-Chicago
+
+
+
+To allow executing external scripts automatically when starting the openvpn client, run openvpn with the argument
+
+
+
+--script-security 2 or add this line to the client config: script-security 2
+
+

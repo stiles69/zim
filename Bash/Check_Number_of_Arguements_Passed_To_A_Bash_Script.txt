@@ -1,0 +1,43 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2018-11-30T11:48:29-06:00
+
+====== Check Number of Arguements Passed To A Bash Script ======
+Created Friday 30 November 2018
+
+{{{code: lang="sh" linenumbers="True"
+if [ "$#" -ne 1 ]; then
+    echo "Illegal number of parameters"
+fi
+}}}
+
+
+//When in Bash, prefer using //**[[  ]]**// instead as it doesn't do word splitting and pathname expansion to its variables that quoting may not be necessary unless it's part of an expression.//
+{{{code: lang="sh" linenumbers="True"
+[[ $# -ne 1 ]]
+}}}
+
+
+It also has some other features like unquoted condition grouping, pattern matching (extended pattern matching with extglob) and regex matching.
+
+The following example checks if arguments are valid. It allows a single argument or two.
+{{{code: lang="sh" linenumbers="True"
+[[ ($# -eq 1 || ($# -eq 2 && $2 == <glob pattern>)) && $1 =~ <regex pattern> ]]
+}}}
+
+
+For pure arithmetic expressions, using (( )) to some may still be better, but they are still possible in  with its arithmetic operators like -eq, -ne, -lt, -le, -gt, or -ge by placing the expression as a single string argument:
+{{{code: lang="sh" linenumbers="True"
+A=1
+[[ 'A + 1' -eq 2 ]] && echo true  ## Prints true.
+}}}
+
+That should be helpful if you would need to combine it with other features of  as well.
+
+=== References: ===
+[[http://www.gnu.org/software/bash/manual/bash.html#Bash-Conditional-Expressions|Bash Conditional Expressions]]
+[[http://www.gnu.org/software/bash/manual/bash.html#Conditional-Constructs|Conditional Constructs]]
+[[http://www.gnu.org/software/bash/manual/bash.html#Pattern-Matching|Pattern Matching]]
+[[http://www.gnu.org/software/bash/manual/bash.html#Word-Splitting|Word Splitting]]
+[[Filename Expansion (prev. Pathname Expansion)]]
+

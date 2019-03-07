@@ -1,0 +1,34 @@
+The Snap Store holds a collection of snaps for delivery to clouds, devices, and private infrastructures. You sign-in as follows, using your Ubuntu One account:
+
+$ sudo snap login me@myself.com
+Password: *********
+2-factor: ******
+Welcome!
+When you are not logged in, most snap commands will require you to run them as root.
+
+Find snaps
+The Snap Store contains both public and private snaps.
+
+Anybody can publish a snap, but doing a Snap Store search will only find snaps that are published to the stable release channel (and therefore have been reviewed and judged to be of good quality – so users can install them without concerns).
+
+Searches look for matches in the snap name or description:
+
+$ snap find hello
+Name           Version  Developer  Notes  Summary
+hello          2.10     canonical  -      GNU Hello, the "hello world" snap
+hello-huge     1.0      noise      -      A really big snap
+hello-world    6.1      canonical  -      Hello world example
+Community developer Brian Douglass maintains an online directory of the Snap Store.
+
+Install snaps
+You can install snaps using the snap name. Here is an example of installing GNU Hello from the Free Software Foundation:
+
+$ snap install hello
+Run snaps
+Each snap might include multiple related commands, with a default command that has the same name as the snap itself. Additional commands are prefixed with the snap name:
+
+$ hello
+Hello, world!
+$ hello.universe
+Hello, universe!
+Snaps can also install services that run in the background, such as web servers and daemons. Those will start automatically when the snap is installed. The snap disable <snap name> and snap enable <snap name> commands allow you to keep full control over snaps installed on your system, regardless of the way they are started.

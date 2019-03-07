@@ -1,0 +1,19 @@
+====== chattr ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+chattr
+
+
+Created Thursday 17 May 2018
+
+
+
+Just need to set i flag to make it immutable.
+# sudo chattr +i filename
+
+
+
+To make it muttable again:
+# sudo chattr -i filename

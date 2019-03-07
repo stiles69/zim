@@ -1,0 +1,13 @@
+====== Make .iso image ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Make .iso image
+
+
+Created Thursday 07 June 2018
+
+
+
+mkisofs -o /home/linuxlookup/example.iso /source/directory/

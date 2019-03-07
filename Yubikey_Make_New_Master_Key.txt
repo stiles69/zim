@@ -1,0 +1,1137 @@
+====== Yubikey Make New Master Key ======
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Yubikey Make New Master Key
+
+
+Created Sunday 20 May 2018
+
+
+
+Create temporary working directory for GPG
+Create a directory in /tmp which won't survive a reboot:
+
+
+
+$ export GNUPGHOME=$(mktemp -d) ; echo $GNUPGHOME
+/tmp/tmp.aaiTTovYgo
+
+
+Create configuration
+
+Paste the following text into a terminal window to create a recommended GPG configuration:
+
+
+
+
+  cat << EOF > $GNUPGHOME/gpg.conf
+use-agent
+personal-cipher-preferences AES256 AES192 AES CAST5
+personal-digest-preferences SHA512 SHA384 SHA256 SHA224
+default-preference-list SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed
+cert-digest-algo SHA512
+s2k-digest-algo SHA512
+s2k-cipher-algo AES256
+charset utf-8
+fixed-list-mode
+no-comments
+no-emit-version
+keyid-format 0xlong
+list-options show-uid-validity
+verify-options show-uid-validity
+with-fingerprint
+EOF
+
+
+
+
+  Create master key
+
+  A note on key expiry: setting an expiry essentially forces you to manage your subkeys and announces to the rest
+    of the world that you are doing so. Setting an expiry on a primary key is ineffective for protecting the key from
+    loss - whoever has the primary key can simply extend its expiry period. Revocation certificates are better suited
+    for this purpose. It may be appropriate for your use case to set expiry dates on subkeys.
+
+
+
+
+  Generate a new key with GPG, selecting RSA (sign only) and the appropriate keysize:
+  gpg --full-generate-key
+
+
+
+  Please select what kind of key you want:
+  (1) RSA and RSA (default)
+  (2) DSA and Elgamal
+  (3) DSA (sign only)
+  (4) RSA (sign only)
+  Your selection? 4
+  RSA keys may be between 1024 and 4096 bits long.
+  What keysize do you want? (2048) 4096
+  Requested keysize is 4096 bits
+  Please specify how long the key should be valid.
+  
+    0 = key does not expire
+
+    
+      <n> = key expires in n days
+      <n>w = key expires in n weeks
+      <n>m = key expires in n months
+      <n>y = key expires in n years
+
+      Key is valid for? (0) 0
+      Key does not expire at all
+      Is this correct? (y/N) y
+
+
+
+      GnuPG needs to construct a user ID to identify your key.
+
+
+
+      Real name: Dr Duh
+      Email address: doc@duh.to
+      Comment:
+      You selected this USER-ID:
+      
+        "Dr Duh <doc@duh.to>"
+
+
+
+
+        Change (N)ame, (C)omment, (E)mail or (O)kay/(Q)uit? o
+
+
+
+        You'll be prompted to enter and verify a passphrase. Keep the passphrase handy as you'll need it throughout.
+
+
+
+        We need to generate a lot of random bytes. It is a good idea to perform
+        some other action (type on the keyboard, move the mouse, utilize the
+        disks) during the prime generation; this gives the random number
+        generator a better chance to gain enough entropy.
+        gpg: /tmp.FLZC0xcM/trustdb.gpg: trustdb created
+        gpg: key 0xFF3E7D88647EBCDB marked as ultimately trusted
+        gpg: directory '/tmp.FLZC0xcM/openpgp-revocs.d' created
+        gpg: revocation certificate stored as
+        '/tmp.FLZC0xcM/openpgp-revocs.d/011CE16BD45B27A55BA8776DFF3E7D88647EBCDB.rev'
+        public and secret key created and signed.
+
+
+
+        Note that this key cannot be used for encryption. You may want to use
+        the command "--edit-key" to generate a subkey for this purpose.
+        pub rsa4096/0xFF3E7D88647EBCDB 2017-10-09 [SC]
+        
+          Key fingerprint = 011C E16B D45B 27A5 5BA8 776D FF3E 7D88 647E BCDB
+
+          uid Dr Duh <doc@duh.to>
+
+
+          Save Key ID
+
+          Export the key ID as a variable for use throughout:
+
+
+
+
+          $ export KEYID=0xFF3E7D88647EBCDB
+
+
+          Create subkeys
+
+          Note: If using a Yubikey 4, please use 4096 bit as the size for the subkeys; if using a YubiKey Neo,
+            please use
+            2048 bit as the size for the subkeys.
+
+
+
+
+          Edit the key to add subkeys:
+
+
+
+          $ gpg --expert --edit-key $KEYID
+
+
+
+          Secret key is available.
+
+
+
+          sec rsa4096/0xEA5DE91459B80592
+          
+            created: 2017-10-09 expires: never usage: SC
+            trust: ultimate validity: ultimate
+
+            [ultimate] (1). Dr Duh <doc@duh.to>
+
+
+            Signing key
+
+            First, create a signing key, selecting RSA (sign only):
+
+
+
+
+            gpg> addkey
+            Key is protected.
+
+
+
+            You need a passphrase to unlock the secret key for
+            user: "Dr Duh <doc@duh.to>"
+            4096-bit RSA key, ID 0xFF3E7D88647EBCDB, created 2016-05-24
+
+
+
+            Please select what kind of key you want:
+            (3) DSA (sign only)
+            (4) RSA (sign only)
+            (5) Elgamal (encrypt only)
+            (6) RSA (encrypt only)
+            (7) DSA (set your own capabilities)
+            (8) RSA (set your own capabilities)
+            Your selection? 4
+            RSA keys may be between 1024 and 4096 bits long.
+            What keysize do you want? (2048) 4096
+            Requested keysize is 4096 bits
+            Please specify how long the key should be valid.
+            
+              0 = key does not expire
+
+              
+                <n> = key expires in n days
+                <n>w = key expires in n weeks
+                <n>m = key expires in n months
+                <n>y = key expires in n years
+
+                Key is valid for? (0) 0
+                Key does not expire at all
+                Is this correct? (y/N) y
+                Really create? (y/N) y
+                We need to generate a lot of random bytes. It is a good idea to perform
+                some other action (type on the keyboard, move the mouse, utilize the
+                disks) during the prime generation; this gives the random number
+                generator a better chance to gain enough entropy.
+
+
+
+                sec rsa4096/0xFF3E7D88647EBCDB
+                
+                  created: 2017-10-09 expires: never usage: SC
+                  trust: ultimate validity: ultimate
+
+                  ssb rsa4096/0xBECFA3C1AE191D15
+                  
+                    created: 2017-10-09 expires: never usage: S
+
+                    [ultimate] (1). Dr Duh <doc@duh.to>
+
+
+                    Encryption key
+
+                    Next, create an encryption key, selecting RSA (encrypt only):
+
+
+
+
+                    gpg> addkey
+                    Please select what kind of key you want:
+                    (3) DSA (sign only)
+                    (4) RSA (sign only)
+                    (5) Elgamal (encrypt only)
+                    (6) RSA (encrypt only)
+                    (7) DSA (set your own capabilities)
+                    (8) RSA (set your own capabilities)
+                    (10) ECC (sign only)
+                    (11) ECC (set your own capabilities)
+                    (12) ECC (encrypt only)
+                    (13) Existing key
+                    Your selection? 6
+                    RSA keys may be between 1024 and 4096 bits long.
+                    What keysize do you want? (2048) 4096
+                    Requested keysize is 4096 bits
+                    Please specify how long the key should be valid.
+                    
+                      0 = key does not expire
+
+                      
+                        <n> = key expires in n days
+                        <n>w = key expires in n weeks
+                        <n>m = key expires in n months
+                        <n>y = key expires in n years
+
+                        Key is valid for? (0) 0
+                        Key does not expire at all
+                        Is this correct? (y/N) y
+                        Really create? (y/N) y
+                        We need to generate a lot of random bytes. It is a good idea to perform
+                        some other action (type on the keyboard, move the mouse, utilize the
+                        disks) during the prime generation; this gives the random number
+                        generator a better chance to gain enough entropy.
+
+
+
+                        sec rsa4096/0xFF3E7D88647EBCDB
+                        
+                          created: 2017-10-09 expires: never usage: SC
+                          trust: ultimate validity: ultimate
+
+                          ssb rsa4096/0xBECFA3C1AE191D15
+                          
+                            created: 2017-10-09 expires: never usage: S
+
+                            ssb rsa4096/0x5912A795E90DD2CF
+                            
+                              created: 2017-10-09 expires: never usage: E
+
+                              [ultimate] (1). Dr Duh <doc@duh.to>
+
+
+                              Authentication key
+
+                              Finally, create an authentication key.
+
+
+
+
+                              GPG doesn't provide a 'RSA (authenticate only)' key type out of the box, so select 'RSA
+                              (set your own
+                              capabilities)' and toggle the required capabilities to end up with an Authenticate-only
+                              key:
+
+
+
+                              gpg> addkey
+                              Please select what kind of key you want:
+                              (3) DSA (sign only)
+                              (4) RSA (sign only)
+                              (5) Elgamal (encrypt only)
+                              (6) RSA (encrypt only)
+                              (7) DSA (set your own capabilities)
+                              (8) RSA (set your own capabilities)
+                              (10) ECC (sign only)
+                              (11) ECC (set your own capabilities)
+                              (12) ECC (encrypt only)
+                              (13) Existing key
+                              Your selection? 8
+
+
+
+                              Possible actions for a RSA key: Sign Encrypt Authenticate
+                              Current allowed actions: Sign Encrypt
+
+
+
+                              (S) Toggle the sign capability
+                              (E) Toggle the encrypt capability
+                              (A) Toggle the authenticate capability
+                              (Q) Finished
+
+
+
+                              Your selection? S
+
+
+
+                              Possible actions for a RSA key: Sign Encrypt Authenticate
+                              Current allowed actions: Encrypt
+
+
+
+                              (S) Toggle the sign capability
+                              (E) Toggle the encrypt capability
+                              (A) Toggle the authenticate capability
+                              (Q) Finished
+
+
+
+                              Your selection? E
+
+
+
+                              Possible actions for a RSA key: Sign Encrypt Authenticate
+                              Current allowed actions:
+
+
+
+                              (S) Toggle the sign capability
+                              (E) Toggle the encrypt capability
+                              (A) Toggle the authenticate capability
+                              (Q) Finished
+
+
+
+                              Your selection? A
+
+
+
+                              Possible actions for a RSA key: Sign Encrypt Authenticate
+                              Current allowed actions: Authenticate
+
+
+
+                              (S) Toggle the sign capability
+                              (E) Toggle the encrypt capability
+                              (A) Toggle the authenticate capability
+                              (Q) Finished
+
+
+
+                              Your selection? q
+                              RSA keys may be between 1024 and 4096 bits long.
+                              What keysize do you want? (2048) 4096
+                              Requested keysize is 4096 bits
+                              Please specify how long the key should be valid.
+                              
+                                0 = key does not expire
+
+                                
+                                  <n> = key expires in n days
+                                  <n>w = key expires in n weeks
+                                  <n>m = key expires in n months
+                                  <n>y = key expires in n years
+
+                                  Key is valid for? (0) 0
+                                  Key does not expire at all
+                                  Is this correct? (y/N) y
+                                  Really create? (y/N) y
+                                  We need to generate a lot of random bytes. It is a good idea to perform
+                                  some other action (type on the keyboard, move the mouse, utilize the
+                                  disks) during the prime generation; this gives the random number
+                                  generator a better chance to gain enough entropy.
+
+
+
+
+
+                                  sec rsa4096/0xFF3E7D88647EBCDB
+                                  
+                                    created: 2017-10-09 expires: never usage: SC
+                                    trust: ultimate validity: ultimate
+
+                                    ssb rsa4096/0xBECFA3C1AE191D15
+                                    
+                                      created: 2017-10-09 expires: never usage: S
+
+                                      ssb rsa4096/0x5912A795E90DD2CF
+                                      
+                                        created: 2017-10-09 expires: never usage: E
+
+                                        ssb rsa4096/0x3F29127E79649A3D
+                                        
+                                          created: 2017-10-09 expires: never usage: A
+
+                                          [ultimate] (1). Dr Duh <doc@duh.to>
+
+
+
+                                          gpg> save
+
+
+                                          Check your work
+
+
+
+                                          List your new secret keys:
+
+
+
+
+                                          $ gpg --list-secret-keys
+                                          /tmp.FLZC0xcM/pubring.kbx
+
+
+                                          <hr>
+
+
+                                          sec rsa4096/0xFF3E7D88647EBCDB 2017-10-09 [SC]
+                                          
+                                            Key fingerprint = 011C E16B D45B 27A5 5BA8 776D FF3E 7D88 647E BCDB
+
+                                            uid Dr Duh <doc@duh.to>
+                                            ssb rsa4096/0xBECFA3C1AE191D15 2017-10-09 [S]
+                                            ssb rsa4096/0x5912A795E90DD2CF 2017-10-09 [E]
+                                            ssb rsa4096/0x3F29127E79649A3D 2017-10-09 [A]
+
+
+
+                                            Verify with OpenPGP key checks:
+
+
+
+                                            Use the automated key best practice checker:
+
+
+
+                                            $ sudo apt-get install hopenpgp-tools
+                                            $ gpg --export $KEYID | hokey lint
+
+
+                                            Export keys
+
+                                            Save a copy of your keys:
+
+
+
+
+                                            $ gpg --armor --export-secret-keys $KEYID > $GNUPGHOME/mastersub.key
+
+
+
+                                            $ gpg --armor --export-secret-subkeys $KEYID > $GNUPGHOME/sub.key
+                                            The exported (primary) key will still have the passphrase in place.
+
+
+
+                                            In addition to the backup below, you might want to keep a separate copy of
+                                            the revocation certificate in a safe
+                                            place: $GNUPGHOME/openpgp-revocs.d/<key fingerprint>.rev
+
+
+                                            Backup everything
+
+                                            Once keys are moved to hardware, they cannot be extracted again
+                                              (otherwise, what would be the point?), so make
+                                              sure you have made an encrypted backup before proceeding.
+
+
+
+
+                                            Also consider using a paper copy of the keys as an additional backup
+                                            measure.
+
+
+
+                                            To create an encrypted USB drive, first attach it and check its label:
+
+
+
+                                            $ dmesg | tail
+                                            [ 7667.607011] scsi8 : usb-storage 2-1:1.0
+                                            [ 7667.608766] usbcore: registered new interface driver usb-storage
+                                            [ 7668.874016] scsi 8:0:0:0: USB 0: 0 ANSI: 6
+                                            [ 7668.874242] sd 8:0:0:0: Attached scsi generic sg4 type 0
+                                            [ 7668.874682] sd 8:0:0:0: [sde] 62980096 512-byte logical blocks: (32.2
+                                            GB/30.0 GiB)
+                                            [ 7668.875022] sd 8:0:0:0: [sde] Write Protect is off
+                                            [ 7668.875023] sd 8:0:0:0: [sde] Mode Sense: 43 00 00 00
+                                            [ 7668.877939] sde: sde1
+                                            [ 7668.879514] sd 8:0:0:0: [sde] Attached SCSI removable disk
+                                            Check the size to make sure it's the right drive:
+
+
+
+                                            $ sudo fdisk -l | grep /dev/sde
+                                            Disk /dev/sde: 30 GiB, 32245809152 bytes, 62980096 sectors
+                                            /dev/sde1 2048 62980095 62978048 30G 6 FAT16
+                                            Erase and create a new partition table:
+
+
+
+                                            $ sudo fdisk /dev/sde
+
+
+
+                                            Welcome to fdisk (util-linux 2.25.2).
+                                            Changes will remain in memory only, until you decide to write them.
+                                            Be careful before using the write command.
+
+
+
+                                            Command (m for help): o
+                                            Created a new DOS disklabel with disk identifier 0xeac7ee35.
+
+
+
+                                            Command (m for help): w
+                                            The partition table has been altered.
+                                            Calling ioctl() to re-read partition table.
+                                            Syncing disks.
+
+
+                                            Remove and reinsert the USB drive, then create a new partition,
+                                              selecting defaults::
+
+
+
+
+                                            $ sudo fdisk /dev/sde
+
+
+
+                                            Welcome to fdisk (util-linux 2.25.2).
+                                            Changes will remain in memory only, until you decide to write them.
+                                            Be careful before using the write command.
+
+
+
+                                            Command (m for help): n
+                                            Partition type
+                                            p primary (0 primary, 0 extended, 4 free)
+                                            e extended (container for logical partitions)
+                                            Select (default p): p
+                                            Partition number (1-4, default 1): 1
+                                            First sector (2048-62980095, default 2048):
+                                            Last sector, +sectors or +size{K,M,G,T,P} (2048-62980095, default
+                                            62980095):
+
+
+
+                                            Created a new partition 1 of type 'Linux' and of size 30 GiB.
+                                            Command (m for help): w
+                                            The partition table has been altered.
+                                            Calling ioctl() to re-read partition table.
+                                            Syncing disks.
+
+
+                                            Use LUKS to encrypt the new partition:
+
+
+
+
+                                            $ sudo cryptsetup luksFormat /dev/sde1
+
+
+
+                                            WARNING!
+                                            ========
+                                            This will overwrite data on /dev/sde1 irrevocably.
+
+
+
+                                            Are you sure? (Type uppercase yes): YES
+                                            Enter passphrase:
+                                            Verify passphrase:
+
+
+                                            Mount the partition:
+
+
+
+
+                                            $ sudo cryptsetup luksOpen /dev/sde1 encrypted-usb
+                                            Enter passphrase for /dev/sde1:
+
+
+                                            Create a filesystem:
+
+
+
+
+                                            $ sudo mkfs.ext4 /dev/mapper/encrypted-usb -L encrypted-usb
+                                            mke2fs 1.42.12 (29-Aug-2014)
+                                            Creating filesystem with 7871744 4k blocks and 1970416 inodes
+                                            Superblock backups stored on blocks:
+                                            
+                                              32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+                                              4096000
+
+
+
+
+                                              Allocating group tables: done
+                                              Writing inode tables: done
+                                              Creating journal (32768 blocks): done
+                                              Writing superblocks and filesystem accounting information: done
+
+
+                                              Mount the filesystem:
+
+
+
+
+                                              $ sudo mkdir /mnt/usb
+                                              $ sudo mount /dev/mapper/encrypted-usb /mnt/usb
+
+
+                                              Finally, copy files to it:
+
+
+
+
+                                              $ sudo cp -avi $GNUPGHOME /mnt/usb
+                                              ‘/tmp/tmp.aaiTTovYgo’ -> ‘/mnt/usb/tmp.aaiTTovYgo’
+                                              ‘/tmp/tmp.aaiTTovYgo/revoke.txt’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/revoke.txt’
+                                              ‘/tmp/tmp.aaiTTovYgo/gpg.conf’ -> ‘/mnt/usb/tmp.aaiTTovYgo/gpg.conf’
+                                              ‘/tmp/tmp.aaiTTovYgo/trustdb.gpg’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/trustdb.gpg’
+                                              ‘/tmp/tmp.aaiTTovYgo/random_seed’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/random_seed’
+                                              ‘/tmp/tmp.aaiTTovYgo/master.key’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/master.key’
+                                              ‘/tmp/tmp.aaiTTovYgo/secring.gpg’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/secring.gpg’
+                                              ‘/tmp/tmp.aaiTTovYgo/mastersub.key’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/mastersub.key’
+                                              ‘/tmp/tmp.aaiTTovYgo/sub.key’ -> ‘/mnt/usb/tmp.aaiTTovYgo/sub.key’
+                                              ‘/tmp/tmp.aaiTTovYgo/pubring.gpg~’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/pubring.gpg~’
+                                              ‘/tmp/tmp.aaiTTovYgo/pubring.gpg’ ->
+                                              ‘/mnt/usb/tmp.aaiTTovYgo/pubring.gpg’
+
+
+                                              Keep the backup mounted if you plan on setting up two or more keys
+                                                (as keytocard will delete the local copy on
+                                                save), otherwise unmount and disconnected the encrypted USB drive:
+
+
+
+
+                                              $ sudo umount /mnt/usb
+                                              $ sudo cryptsetup luksClose encrypted-usb
+
+
+                                              Configure YubiKey
+
+
+                                              YubiKey NEOs shipped after November 2015 have all modes enabled, skip to
+                                              the next step.
+
+
+
+                                              Older versions of the YubiKey NEO may need to be reconfigured as a
+                                              composite USB device (HID + CCID) which allows
+                                              OTPs to be emitted while in use as a smart card.
+
+
+
+                                              Plug in your YubiKey and configure it:
+
+
+
+                                              $ ykpersonalize -m82
+                                              Firmware version 4.2.7 Touch level 527 Program sequence 4
+
+
+
+                                              The USB mode will be set to: 0x82
+
+
+
+                                              Commit? (y/n) [n]: y
+                                              The -m option is the mode command. To see the different modes, enter
+                                              ykpersonalize –help. Mode 82 (in hex) enables
+                                              the YubiKey NEO as a composite USB device (HID + CCID). Once you have
+                                              changed the mode, you need to re-boot the
+                                              YubiKey – so remove and re-insert it.
+
+
+
+                                              On YubiKey NEO with firmware version 3.3 or higher you can enable
+                                              composite USB device with -m86 instead of -m82.
+
+
+
+                                              <a href="https://www.yubico.com/2012/12/yubikey-neo-openpgp/" title="https://www.yubico.com/2012/12/yubikey-neo-openpgp/"
+                                                class="https">https://www.yubico.com/2012/12/yubikey-neo-openpgp/ <a
+                                                  href="https://www.yubico.com/2012/12/yubikey-neo-composite-device/"
+                                                  title="https://www.yubico.com/2012/12/yubikey-neo-composite-device/"
+                                                  class="https">https://www.yubico.com/2012/12/yubikey-neo-composite-device/
+
+
+
+
+                                                  Configure smartcard
+
+                                                  Use GPG to configure YubiKey as a smartcard:
+
+
+
+
+                                                  $ gpg --card-edit
+
+
+
+                                                  Reader ...........: Yubico Yubikey 4 OTP U2F CCID
+                                                  Application ID ...: D2760001240102010006055532110000
+                                                  Version ..........: 2.1
+                                                  Manufacturer .....: Yubico
+                                                  Serial number ....: 05553211
+                                                  Name of cardholder: [not set]
+                                                  Language prefs ...: [not set]
+                                                  Sex ..............: unspecified
+                                                  URL of public key : [not set]
+                                                  Login data .......: [not set]
+                                                  Signature PIN ....: not forced
+                                                  Key attributes ...: rsa4096 rsa4096 rsa4096
+                                                  Max. PIN lengths .: 127 127 127
+                                                  PIN retry counter : 3 3 3
+                                                  Signature counter : 0
+                                                  Signature key ....: [none]
+                                                  Encryption key....: [none]
+                                                  Authentication key: [none]
+                                                  General key info..: [none]
+
+
+                                                  Change PINs
+
+                                                  The default PIN codes are 12345678 for the Admin PIN (aka PUK)
+                                                    and 123456 for the PIN. The CCID-mode PINs can be
+                                                    up to 127 ASCII characters long.
+
+
+
+
+                                                  The Admin PIN is required for some card operations, and to unblock a
+                                                  PIN that has been entered incorrectly more
+                                                  than three times. See the GnuPG documentation on Managing PINs for
+                                                  details.
+
+
+
+                                                  gpg/card> admin
+                                                  Admin commands are allowed
+
+
+
+                                                  gpg/card> passwd
+                                                  gpg: OpenPGP card no. D2760001240102010006055532110000 detected
+
+
+
+                                                  1 - change PIN
+                                                  2 - unblock PIN
+                                                  3 - change Admin PIN
+                                                  4 - set the Reset Code
+                                                  Q - quit
+
+
+
+                                                  Your selection? 3
+                                                  PIN changed.
+
+
+
+                                                  1 - change PIN
+                                                  2 - unblock PIN
+                                                  3 - change Admin PIN
+                                                  4 - set the Reset Code
+                                                  Q - quit
+
+
+
+                                                  Your selection? 1
+                                                  PIN changed.
+
+
+
+                                                  1 - change PIN
+                                                  2 - unblock PIN
+                                                  3 - change Admin PIN
+                                                  4 - set the Reset Code
+                                                  Q - quit
+
+
+
+                                                  Your selection? q
+
+
+                                                  Set card information
+
+                                                  Some fields are optional:
+
+
+
+
+                                                  gpg/card> name
+                                                  Cardholder's surname: Duh
+                                                  Cardholder's given name: Dr
+
+
+
+                                                  gpg/card> lang
+                                                  Language preferences: en
+
+
+
+                                                  gpg/card> login
+                                                  Login data (account name): doc@duh.to
+
+
+
+                                                  gpg/card> (Press Enter)
+
+
+
+                                                  Application ID ...: D2760001240102010006055532110000
+                                                  Version ..........: 2.1
+                                                  Manufacturer .....: unknown
+                                                  Serial number ....: 05553211
+                                                  Name of cardholder: Dr Duh
+                                                  Language prefs ...: en
+                                                  Sex ..............: unspecified
+                                                  URL of public key : [not set]
+                                                  Login data .......: doc@duh.to
+                                                  Private DO 4 .....: [not set]
+                                                  Signature PIN ....: not forced
+                                                  Key attributes ...: 2048R 2048R 2048R
+                                                  Max. PIN lengths .: 127 127 127
+                                                  PIN retry counter : 3 3 3
+                                                  Signature counter : 0
+                                                  Signature key ....: [none]
+                                                  Encryption key....: [none]
+                                                  Authentication key: [none]
+                                                  General key info..: [none]
+
+
+
+                                                  gpg/card> quit
+
+
+                                                  Transfer keys
+
+                                                  Transferring keys to YubiKey hardware using keytocard is a
+                                                    one-way operation only, so make sure you've made a
+                                                    backup before proceeding.
+
+
+
+
+                                                  Previous gpg versions required the toggle command before selecting
+                                                  keys. The currently selected key(s) are
+                                                  indicated with an *. When moving keys only one key should be selected
+                                                  at a time.
+
+
+
+                                                  % gpg --edit-key $KEYID
+
+
+
+                                                  Secret key is available.
+
+
+
+                                                  sec rsa4096/0xFF3E7D88647EBCDB
+                                                  
+                                                    created: 2017-10-09 expires: never usage: SC
+                                                    trust: ultimate validity: ultimate
+
+                                                    ssb rsa4096/0xBECFA3C1AE191D15
+                                                    
+                                                      created: 2017-10-09 expires: never usage: S
+
+                                                      ssb rsa4096/0x5912A795E90DD2CF
+                                                      
+                                                        created: 2017-10-09 expires: never usage: E
+
+                                                        ssb rsa4096/0x3F29127E79649A3D
+                                                        
+                                                          created: 2017-10-09 expires: never usage: A
+
+                                                          [ultimate] (1). Dr Duh <doc@duh.to>
+
+
+                                                          Signature key
+
+                                                          Select and move the signature key (you will be prompted
+                                                            for the key passphrase and admin PIN):
+
+
+
+
+                                                          gpg> key 1
+
+
+
+                                                          sec rsa4096/0xFF3E7D88647EBCDB
+                                                          
+                                                            created: 2017-10-09 expires: never usage: SC
+                                                            trust: ultimate validity: ultimate
+
+                                                            ssb* rsa4096/0xBECFA3C1AE191D15
+                                                            
+                                                              created: 2017-10-09 expires: never usage: S
+
+                                                              ssb rsa4096/0x5912A795E90DD2CF
+                                                              
+                                                                created: 2017-10-09 expires: never usage: E
+
+                                                                ssb rsa4096/0x3F29127E79649A3D
+                                                                
+                                                                  created: 2017-10-09 expires: never usage: A
+
+                                                                  [ultimate] (1). Dr Duh <doc@duh.to>
+
+
+
+                                                                  gpg> keytocard
+                                                                  Please select where to store the key:
+                                                                  (1) Signature key
+                                                                  (3) Authentication key
+                                                                  Your selection? 1
+
+
+
+                                                                  You need a passphrase to unlock the secret key for
+                                                                  user: "Dr Duh <doc@duh.to>"
+                                                                  4096-bit RSA key, ID 0xBECFA3C1AE191D15, created
+                                                                  2016-05-24
+
+
+                                                                  Encryption key
+
+                                                                  Type key 1 again to deselect and key 2 to select
+                                                                    the next key:
+
+
+
+
+                                                                  gpg> key 1
+                                                                  ...
+                                                                  gpg> key 2
+
+
+
+                                                                  sec rsa4096/0xFF3E7D88647EBCDB
+                                                                  
+                                                                    created: 2017-10-09 expires: never usage: SC
+                                                                    trust: ultimate validity: ultimate
+
+                                                                    ssb rsa4096/0xBECFA3C1AE191D15
+                                                                    
+                                                                      created: 2017-10-09 expires: never usage: S
+
+                                                                      ssb* rsa4096/0x5912A795E90DD2CF
+                                                                      
+                                                                        created: 2017-10-09 expires: never usage: E
+
+                                                                        ssb rsa4096/0x3F29127E79649A3D
+                                                                        
+                                                                          created: 2017-10-09 expires: never usage:
+
+
+
+                                                                          Move the encryption key to card:
+
+
+
+
+                                                                          gpg> keytocard
+                                                                          Please select where to store the key:
+                                                                          (2) Encryption key
+                                                                          Your selection? 2
+                                                                          ...
+
+
+                                                                          Authentication key
+
+                                                                          Type key 2 again to deselect and key 3 to
+                                                                            select the next key:
+
+
+
+
+                                                                          gpg> key 2
+                                                                          ...
+                                                                          gpg> key 3
+
+
+
+                                                                          sec rsa4096/0xFF3E7D88647EBCDB
+                                                                          
+                                                                            created: 2017-10-09 expires: never usage:
+                                                                            SC
+                                                                            trust: ultimate validity: ultimate
+
+                                                                            ssb rsa4096/0xBECFA3C1AE191D15
+                                                                            
+                                                                              created: 2017-10-09 expires: never usage:
+                                                                              S
+
+                                                                              ssb rsa4096/0x5912A795E90DD2CF
+                                                                              
+                                                                                created: 2017-10-09 expires: never
+                                                                                usage: E
+
+                                                                                ssb* rsa4096/0x3F29127E79649A3D
+                                                                                
+                                                                                  created: 2017-10-09 expires: never
+                                                                                  usage: A
+
+                                                                                  [ultimate] (1). Dr Duh
+                                                                                  <doc@duh.to>
+                                                                                  Move the authentication key to card:
+
+
+
+                                                                                  gpg> keytocard
+                                                                                  Please select where to store the key:
+                                                                                  (3) Authentication key
+                                                                                  Your selection? 3
+
+
+
+                                                                                  Save and quit:
+
+
+
+                                                                                  gpg> save
+
+
+                                                                                  Check your work
+
+                                                                                  ssb> indicates a stub to the
+                                                                                    private key on smartcard:
+
+
+
+
+                                                                                  % gpg --list-secret-keys
+                                                                                  /tmp.FLZC0xcM/pubring.kbx
+
+
+                                                                                  <hr>
+
+
+                                                                                  sec rsa4096/0xFF3E7D88647EBCDB
+                                                                                  2017-10-09 [SC]
+                                                                                  
+                                                                                    Key fingerprint = 011C E16B D45B
+                                                                                    27A5 5BA8 776D FF3E 7D88 647E BCDB
+
+                                                                                    uid Dr Duh <doc@duh.to>
+                                                                                    ssb> rsa4096/0xBECFA3C1AE191D15
+                                                                                    2017-10-09 [S]
+                                                                                    ssb> rsa4096/0x5912A795E90DD2CF
+                                                                                    2017-10-09 [E]
+                                                                                    ssb> rsa4096/0x3F29127E79649A3D
+                                                                                    2017-10-09 [A]
+
+
+                                                                                    Export public key
+
+                                                                                    This file should be publicly
+                                                                                      shared:
+
+
+
+
+                                                                                    $ gpg --armor --export $KEYID >
+                                                                                    /mnt/public-usb-key/pubkey.txt
+                                                                                    Optionally, it may be uploaded to a
+                                                                                    public keyserver:
+
+
+
+                                                                                    $ gpg --send-key $KEYID
+                                                                                    gpg: sending key 0xFF3E7D88647EBCDB
+                                                                                    to hkps server
+                                                                                    hkps.pool.sks-keyservers.net
+                                                                                    [...]
+
+
+                                                                                    Finish
+
+                                                                                    If all went well, you should
+                                                                                      now reboot or securely delete
+                                                                                      $GNUPGHOME.

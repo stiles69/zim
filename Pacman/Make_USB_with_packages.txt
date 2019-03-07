@@ -1,0 +1,47 @@
+====== Make USB with packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Make USB with packages
+
+
+Created Tuesday 13 February 2018
+
+
+
+Then you can burn the "Packages" folder to a CD/DVD or transfer it to a USB stick, external HDD, etc.
+
+
+
+To install:
+
+
+
+
+	Mount the media:
+
+
+
+
+	# mkdir /mnt/repo
+# mount /dev/sr0 /mnt/repo    #For a CD/DVD.
+# mount /dev/sdxY /mnt/repo   #For a USB stick.
+
+
+	
+		Edit pacman.conf and add this repository before the other ones (e.g. extra, core, etc.). This is important. Do
+			not just uncomment the one on the bottom. This way it ensures that the files from the CD/DVD/USB take precedence
+			over those in the standard repositories:{{{code: lang="sh" linenumbers="True"
+	
+	/etc/pacman.conf
+	[custom]
+	SigLevel = PackageRequired
+	Server = file:///mnt/repo/Packages
+	}}}
+
+
+
+	
+		Finally, synchronize the pacman database to be able to use the new repository: pacman -Syu
+	

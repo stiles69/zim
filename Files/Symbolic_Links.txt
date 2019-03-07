@@ -1,0 +1,78 @@
+====== Symbolic Links ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Symbolic Links
+
+
+Created Tuesday 15 May 2018
+
+
+
+Usage: ln [OPTION]... [-T] TARGET LINK_NAME (1st form)
+or: ln [OPTION]... TARGET (2nd form)
+or: ln [OPTION]... TARGET... DIRECTORY (3rd form)
+or: ln [OPTION]... -t DIRECTORY TARGET... (4th form)
+
+
+
+Soft Link File
+$ ln -s {source-filename} {symbolic-filename}
+
+
+
+Hard Link File
+
+
+  $ ln src_original.txt dst_link.txt
+
+$ ls -i dst_link.txt
+253564 dst_link.txt
+
+$ ls -i src_original.txt
+
+
+
+
+  To create a Hard Link File, do the following (ln command with no option):
+  $ ln /full/path/of/original/file /full/path/of/hard/link/file
+
+
+
+  Create a Symbolic Link Directory
+
+  
+    $ mkdir /home/chris/obj
+
+$ cd tmp
+
+$ ln -s /home/chris/obj objects
+
+$ ls -l objects
+
+
+
+
+    Options
+    Mandatory arguments to long options are mandatory for short options too.
+    --backup[=CONTROL] make a backup of each existing destination file
+     -b like --backup but does not accept an argument
+     -d, -F, --directory allow the superuser to attempt to hard link
+     directories (note: will probably fail due to
+     system restrictions, even for the superuser)
+     -f, --force remove existing destination files
+     -i, --interactive prompt whether to remove destinations
+     -L, --logical dereference TARGETs that are symbolic links
+     -n, --no-dereference treat LINK_NAME as a normal file if
+     it is a symbolic link to a directory
+     -P, --physical make hard links directly to symbolic links
+     -r, --relative create symbolic links relative to link location
+     -s, --symbolic make symbolic links instead of hard links
+     -S, --suffix=SUFFIX override the usual backup suffix
+     -t, --target-directory=DIRECTORY specify the DIRECTORY in which to create
+     the links
+     -T, --no-target-directory treat LINK_NAME as a normal file always
+     -v, --verbose print name of each linked file
+     --help display this help and exit
+     --version output version information and exit

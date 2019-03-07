@@ -1,0 +1,42 @@
+====== Concat Files With Same Formats ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Concat Files With Same Formats
+
+
+Created Monday 22 January 2018
+
+
+Concat demuxer
+
+
+
+
+The concat demuxer was added to FFmpeg 1.1. You can read about it in the documentation.
+
+
+Instructions
+
+
+
+
+Create a file mylist.txt with all the files you want to have concatenated in the following form (lines starting with
+    a # are ignored):
+
+
+
+# this is a commentfile '/path/to/file1'file '/path/to/file2'file '/path/to/file3'
+
+
+
+Note that these can be either relative or absolute paths. Then you can stream copy or re-encode your files:
+
+
+
+ffmpeg -f concat -safe 0 -i mylist.txt -c copy output
+
+
+
+The -safe 0 above is not required if the paths are relative.

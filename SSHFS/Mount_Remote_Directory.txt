@@ -1,0 +1,83 @@
+====== Mount Remote Directory ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Mount Remote Directory
+
+
+Created Thursday 25 January 2018
+
+
+
+To Use ID File:
+sudo sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa brettsalemink@10.0.0.6:/ /mnt/Stiles
+
+
+
+To access and/or to see the remote file system, run:
+sudo -s
+cd /mnt/server1
+ls -l
+
+
+
+
+
+How do I mount the remote file system?
+The syntax is
+
+
+
+sshfs user@server /path/to/mountpoint
+sshfs user@server /path/to/mountpoint options
+First, create a directory using mkdir command:
+
+
+
+sudo mkdir /mnt/server1
+I’m going to mount file system using root user and you need to type root password when prompted:
+
+
+
+sudo sshfs root@192.168.1.142:/ /mnt/server1/
+
+
+
+## OR use ssh key based login ##
+sudo sshfs -o IdentityFile=~/.ssh/keyfile /mnt/server1/
+Sample outputs:
+
+
+
+Password for root@freebsd10:
+Verify it:
+
+
+
+sudo df -h
+Sample outputs:
+
+
+
+Filesystem Size Used Avail Use% Mounted on
+/dev/mapper/wks05-root 487G 114G 350G 25% /
+none 4.1k 0 4.1k 0% /sys/fs/cgroup
+udev 17G 4.1k 17G 1% /dev
+tmpfs 3.4G 1.9M 3.4G 1% /run
+none 5.3M 0 5.3M 0% /run/lock
+none 17G 160k 17G 1% /run/shm
+none 105M 50k 105M 1% /run/user
+/dev/sda1 239M 89M 138M 40% /boot
+/mnt/server1
+
+
+
+
+
+
+Sample ouputs:
+
+
+
+Fig. 02: sshfs in action

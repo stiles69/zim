@@ -1,0 +1,134 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-01-27T19:11:40-06:00
+
+====== Mega-Tools ======
+Created Sunday 27 January 2019
+
+Install Mega Tools
+Install Packer, Yaourt or use another package wrapper.
+
+ 
+
+Install from AUR with packer.
+**packer -S megatools**
+ 
+
+==== Create Mega Account ====
+Register a mega.nz account.
+
+**megareg --register --email user@email.com --name "Name" --password "***************"**
+If  ERROR: Registration failed: API call 'uc' failed: Server returned error EEXIST is displayed, an account with a given email already exists.
+
+ 
+
+Verify mega.nz account using the command displayed after registration.
+**megareg --verify IGwJmwtJHkTetRAC6pmibg==:d+RdmwAAAAAAAAAA0gAHCG==:kpG5wukvSBY @LINK@**
+
+Replace IGwJmwtJHkTetRAC6pmibg==:d+RdmwAAAAAAAAAA0gAHCG==:kpG5wukvSBY with the string displayed after registration. Replace @LINK@ with the link from the verification email.
+
+ 
+
+==== Configure Mega Tools ====
+Create and open the configuration file.
+
+**nano ~/.megarc**
+ 
+
+Copy the configuration and save.
+
+**[Login]**
+**Username = username@email.com**
+**Password = **************
+Replace the Username and Password values with the actual account credentials.
+
+ 
+
+Set the configuration file permissions.
+
+**chmod 640 ~/.megarc**
+//Permissions set to 640 will restrict access quite severely but this is a necessary precaution because the password is stored unencrypted.//
+
+ 
+
+==== Use Megatools ====
+
+=== Sync local files to the cloud. ===
+
+**megacopy -l /mnt/virtual/pictures -r /Root --disable-previews -n**
+//Specify local directory to sync with -l option. Remote directory is similarly specified with -r option. Before executing the command it is prudent to see what actions will actually be performed by executing a dry run with -n option. For backup purposes previews are not particularly useful and can be disabled with --disable-previews option.//
+
+//Optionally use -d option to download files from the cloud as opposed to uploading files to the cloud.//
+
+ 
+
+=== List current files store in the cloud account. ===
+
+**megals**
+ 
+
+=== Check account storage use. ===
+
+**megadf -h**
+ 
+
+=== Run Mega Copy ===
+Since in this case only a single directory owned by a single user is going to be synced, no multi user functionality is needed. A common user case may be backing up user home directories
+
+ 
+
+=== Create a new systemd service. ===
+
+**nano ~/.config/systemd/user/mega.service**
+ 
+
+Copy the service script and save the file.
+{{{code: lang="sh" linenumbers="True"
+[Unit]
+Description=Mega Sync Service
+After=local-fs.target network.target
+[Service]
+Type=simple
+ExecStart=/usr/bin/megacopy --config %h/.megarc --local ~/mega --remote /Root
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+}}}
+
+//Configuration file that contains username and password is set with --config option. Local and remote paths can be substituted with --local and --remote options respectively.//
+
+ 
+
+=== Start the Mega service. ===
+
+**systemctl --user start mega**
+ 
+
+=== Run Mega Copy on a Schedule ===
+=== Create a new systemd timer. ===
+
+**nano ~/.config/systemd/user/mega.timer**
+ 
+
+Copy the systemd timer script and save.
+{{{code: lang="sh" linenumbers="True"
+[Unit]
+Description=Mega Sync Timer (runs every hour)
+[Timer]
+OnUnitActiveSec=1h
+Persistent=true
+Unit=mega.service
+[Install]
+WantedBy=timers.target
+}}}
+
+
+
+=== Start the systemd timer. ===
+
+**systemctl --user start mega.timer**
+ 
+
+=== Enable timer to run on boot. ===
+
+**systemctl --user enable mega.timer**

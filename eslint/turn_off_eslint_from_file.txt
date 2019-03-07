@@ -1,0 +1,13 @@
+====== turn off eslint from file ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+turn off eslint from file
+
+
+Created Thursday 22 February 2018
+
+
+
+/* eslint-disable */

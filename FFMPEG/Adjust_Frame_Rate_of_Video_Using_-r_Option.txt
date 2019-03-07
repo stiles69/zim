@@ -1,0 +1,22 @@
+====== Adjust Frame Rate of Video Using -r Option ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Adjust Frame Rate of Video Using -r Option
+
+
+Created Monday 22 January 2018
+
+
+
+Another way we can impact quality is to adjust the frame rate of the video using the -r option:
+
+
+
+ffmpeg -i input.webm -c:a copy -c:v vp9 -r 30 output.mkv
+
+
+
+This creates a new Matroska with the audio stream copied over and the video stream's frame rate forced to 30 frames
+    per second, instead of using the frame rate from the input (-r 30).

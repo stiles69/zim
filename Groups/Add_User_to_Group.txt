@@ -1,0 +1,13 @@
+====== Add User to Group ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Add User to Group
+
+
+Created Saturday 14 July 2018
+
+
+
+sudo gpasswd -a user_name storage

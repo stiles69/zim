@@ -1,0 +1,13 @@
+====== Create a sorted list of the files tracked by pacman (and remove the trailing slashes from directories) ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Create a sorted list of the files tracked by pacman (and remove the trailing slashes from directories)
+
+
+Created Sunday 06 May 2018
+
+
+
+sudo pacman -Qlq | sed 's|/$||' | sort > owned_files.txt

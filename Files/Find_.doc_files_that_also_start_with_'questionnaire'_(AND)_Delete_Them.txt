@@ -1,0 +1,18 @@
+====== Find .doc files that also start with 'questionnaire' (AND) Delete Them ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Find .doc files that also start with 'questionnaire' (AND) Delete Them
+
+
+Created Sunday 13 May 2018
+
+
+
+$ find . -name '*.doc' -name questionnaire*
+
+
+
+Then delete them...
+$ find . -name '*.doc' -name questionnaire* -delete

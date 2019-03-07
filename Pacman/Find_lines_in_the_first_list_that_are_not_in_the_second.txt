@@ -1,0 +1,13 @@
+====== Find lines in the first list that are not in the second ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Find lines in the first list that are not in the second
+
+
+Created Sunday 06 May 2018
+
+
+
+comm -23 all_files.txt owned_files.txt

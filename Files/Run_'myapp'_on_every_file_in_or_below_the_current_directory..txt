@@ -1,0 +1,17 @@
+====== Run 'myapp' on every file in or below the current directory. ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Run 'myapp' on every file in or below the current directory.
+
+
+Created Sunday 13 May 2018
+
+
+
+find . -type f -exec myapp '{}' \;
+Notice that the braces are enclosed in single quote marks to protect them from interpretation as shell script
+	punctuation. The semicolon is similarly protected by the use of a backslash, though ';' could have been used in that
+	case also.
+find . -type f -exec myapp '{}' \;

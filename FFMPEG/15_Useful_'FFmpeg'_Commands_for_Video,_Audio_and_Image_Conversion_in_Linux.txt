@@ -1,0 +1,344 @@
+====== 15 Useful 'FFmpeg' Commands for Video, Audio and Image Conversion in Linux ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+15 Useful 'FFmpeg' Commands for Video, Audio and Image Conversion in Linux
+
+
+Created Monday 22 January 2018
+
+
+Useful FFmpeg Commands
+
+
+
+FFmpeg utility supports almost all major audio and video formats, if you want to check the ffmpeg supported
+    available formats you can use ./ffmpeg -formats command to list all supported formats. If you are new to this tool,
+    here are some handy commands that will give you a better idea about the capabilities of this powerful tool.
+
+
+
+
+
+    Get Video File Information
+
+
+
+
+To get information about a file (say video.mp4), run the following command. Remember you have to specify an ouput
+    file, but in this case we only want to get some information about the input file.
+
+
+
+$ ffmpeg -i video.flv -hide_banner
+
+
+
+Get Video Information
+
+
+
+Note: The -hide_banner option is used to hide a copyright notice shown my ffmpeg, such as build options and library
+    versions. This option can be used to suppress printing this information.
+
+
+
+For example, if you run the above command without adding -hide_banner option it will print the all FFmpeg tools
+    copyright information as shown.
+
+
+
+$ ffmpeg -i video.flv
+
+
+
+
+    Split a video into images
+
+
+
+
+To turn a video to number of images, run the command below. The command generates the files named image1.jpg,
+    image2.jpg and so on…
+
+
+
+$ ffmpeg -i video.flv image%d.jpg
+
+
+
+After successful execution of above command you can verify that the video turn into multiple images using following
+    ls command.
+
+
+
+$ ls -l
+
+
+
+
+    Convert images into a video
+
+
+
+
+Turn number of images to a video sequence, use the following command. This command will transform all the images
+    from the current directory (named image1.jpg, image2.jpg, etc…) to a video file named imagestovideo.mpg.
+
+
+
+There are many other image formats (such as jpeg, png, jpg, etc) you can use.
+
+
+
+$ ffmpeg -f image2 -i image%d.jpg imagestovideo.mpg
+
+
+
+
+    Convert a video into mp3 format
+
+
+
+
+To convert an .flv format video file to Mp3 format, run the following command.
+
+
+
+$ ffmpeg -i video.flv -vn -ar 44100 -ac 2 -ab 192 -f mp3 audio.mp3
+
+
+
+Description about the options used in above command:
+
+
+
+
+    - vn: helps to disable video recording during the conversion.
+    - ar: helps you set audio sampling rate in Hz.
+    - ab: set the audio bitrate.
+    - ac: to set the number of audio channels.
+    - -f: format.
+
+
+
+
+
+    Covert flv video file to mpg format
+
+
+
+
+To convert a .flv video file to .mpg, use the following command.
+
+
+
+$ ffmpeg -i video.flv video.mpg
+
+
+
+
+    Convert video into animated gif
+
+
+
+
+To convert a .flv video file to animated, uncompressed gif file, use the command below.
+
+
+
+$ ffmpeg -i video.flv animated.gif.mp4
+
+
+
+
+    Convert mpg video file to flv
+
+
+
+
+To convert a .mpg file to .flv format, use the following command.
+
+
+
+$ ffmpeg -i video.mpg -ab 26k -f flv video1.flv
+
+
+
+
+    Convert avi video file to mpeg
+
+
+
+
+To convert a .avi file to mpeg for dvd players, run the command below:
+
+
+
+$ ffmpeg -i video.avi -target pal-dvd -ps 2000000000 -aspect 16:9 video.mpeg
+
+
+
+Explanation about the options used in above command.
+
+
+
+
+    - target pal-dvd : Output format
+    - ps 2000000000 maximum size for the output file, in bits (here, 2 Gb).
+    - aspect 16:9 : Widescreen.
+
+
+
+
+
+    Convert a video to CD or DVD format
+
+
+
+
+To create a video CD or DVD, FFmpeg makes it simple by letting you specify a target type and the format options
+    required automatically.
+
+
+
+You can set a target type as follows: add -target type; type can of the following be vcd, svcd, dvd, dv, pal-vcd or
+    ntsc-svcd on the command line.
+
+
+
+To create a VCD, you can run the following command:
+
+
+
+$ ffmpeg -i video.mpg -target vcd vcd_video.mpg
+
+
+
+
+    Extract audio from video file
+
+
+
+
+To extract sound from a video file, and save it as Mp3 file, use the following command:
+
+
+
+$ ffmpeg -i video1.avi -vn -ar 44100 -ac 2 -ab 192 -f mp3 audio3.mp3
+
+
+
+Explanation about the options used in above command.
+
+
+
+
+    - Source video : video.avi
+    - Audio bitrate : 192kb/s
+    - output format : mp3
+    - Generated sound : audio3.mp3
+
+
+
+
+
+    Mix a video and audio together
+
+
+
+
+You can also mix a video with a sound file as follows:
+
+
+
+$ ffmpeg -i audio.mp3 -i video.avi video_audio_mix.mpg
+
+
+
+    Increase/Reduce Video Playback Speed
+
+
+
+
+To increase video play back speed, run this command. The -vf option sets the video filters that helps to adjust the
+    speed.
+
+
+
+$ ffmpeg -i video.mpg -vf "setpts=0.5*PTS" highspeed.mpg
+
+
+
+You can also reduce video speed as follows:
+
+
+
+$ ffmpeg -i video.mpg -vf "setpts=4.0*PTS" lowerspeed.mpg -hide_banner
+
+
+
+
+    Compare/Test Video and Audio Quality
+
+
+
+
+To compare videos and audios after converting you can use the commands below. This helps you to test videos and
+    audio quality.
+
+
+
+$ ffplay video1.mp4
+
+
+
+To test audio quality simply use the name of the audio file as follows:
+
+
+
+$ ffplay audio_filename1.mp3
+
+
+
+
+    Add Photo or Banner to Audio
+
+
+
+
+You can add a cover poster or image to an audio file using the following command, this comes very useful for
+    uploading MP3s to YouTube.
+
+
+
+$ ffmpeg -loop 1 -i image.jpg -i Bryan\ Adams\ -\ Heaven.mp3 -c:v libx264 -c:a aac -strict experimental -b:a 192k
+    -shortest output.mp4
+
+
+
+    Add subtitles to a Movie
+
+
+
+
+If you have a separate subtitle file called subtitle.srt, you can use following command to add subtitle to a movie
+    file:
+
+
+
+$ ffmpeg -i video.mp4 -i subtitles.srt -map 0 -map 1 -c copy -c:v libx264 -crf 23 -preset veryfast video-output.mkv
+
+
+Summary
+
+
+
+That is all for now but these are just few examples of using FFmpeg, you can find more options for what you wish to
+    accomplish. Remember to post a comment to provide information about how to use FFmpeg or if you have encountered
+    errors while using it.
+
+
+
+Reference: https://ffmpeg.org/

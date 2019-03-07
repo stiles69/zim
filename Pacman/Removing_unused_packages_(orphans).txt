@@ -1,0 +1,13 @@
+====== Removing unused packages (orphans) ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Removing unused packages (orphans)
+
+
+Created Tuesday 13 February 2018
+
+
+
+pacman -Rns $(pacman -Qtdq)

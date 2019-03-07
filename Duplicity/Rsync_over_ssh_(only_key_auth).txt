@@ -1,0 +1,13 @@
+====== Rsync over ssh (only key auth) ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Rsync over ssh (only key auth)
+
+
+Created Saturday 12 May 2018
+
+
+
+rsync://user@host.com[:port]/[relative|/absolute]_path

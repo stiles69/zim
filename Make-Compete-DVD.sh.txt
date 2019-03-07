@@ -1,0 +1,13 @@
+function ConvertVideo4by3 ()
+{
+    ffmpeg -i "$SOURCEVIDEO" -filter:v "scale='if(gt(a,720/480),720,-1)':'if(gt(a,720/480),-1,480)',pad=w=720:h=480:x=(ow-iw)/2:y=(oh-ih)/2" -target ntsc-dvd temp.mpg
+    wait
+}
+
+function ConvertVideo16by9 ()
+{
+    ffmpeg -i "$SOURCEVIDEO" -filter:v "scale='if(gt(a,720/480),720,-1)':'if(gt(a,720/480),-1,480)',pad=w=720:h=480:x=(ow-iw)/2:y=(oh-ih)/2" -aspect 16:9 -target ntsc-dvd temp.mpg
+    wait
+}
+
+This is how the original command was supposed to be.

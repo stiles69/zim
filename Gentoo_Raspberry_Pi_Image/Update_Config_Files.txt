@@ -1,0 +1,13 @@
+====== Update Config Files ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Update Config Files
+
+
+Created Tuesday 19 June 2018
+
+
+
+# sudo etc-update

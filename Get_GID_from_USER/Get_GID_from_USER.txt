@@ -1,0 +1,14 @@
+====== Get GID from USER ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Get GID from USER
+
+
+Created Thursday 25 January 2018
+
+
+
+id
+returns all info

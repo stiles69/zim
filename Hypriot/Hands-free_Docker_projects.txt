@@ -1,0 +1,24 @@
+====== Hands-free Docker projects ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Hands-free Docker projects
+
+
+Created Wednesday 24 October 2018
+
+
+
+
+
+Run a container as a service automatically.
+
+
+
+rainbow.yml
+insert SSH public key
+insert WiFi SSID and preshared key
+adjust your country code
+attach Pimoroni Blinkt
+flash, boot your Pi 3/0 - enjoy!

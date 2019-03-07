@@ -1,0 +1,50 @@
+====== Gist ======
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Gist
+
+
+Created Wednesday 17 October 2018
+
+
+
+Run any bash script off the internet
+curl -L http://xrl.us/installperlosx | bash
+
+
+
+The above command will use an install script for Perl off the internet and run it on your Mac.
+
+
+
+Install Perl locally via an online install script
+
+
+
+Run a script from Gist and pass an argument
+curl -sL http://script/location | bash /dev/stdin arg1 arg2
+
+
+
+Bourne shell also supports -s to read from stdin.
+
+
+
+curl -sL http://script/location | bash -s arg1 arg2
+
+
+
+For example, the following command runs the script to create a virtual host file while also passing it the argument
+‘mydomain.com’ which is needed for the creation of .conf file and /var/www/ directory.
+
+
+
+curl -L
+	https://gist.githubusercontent.com/aamnah/265f2433659b762b480c/raw/aacb8938f27e789812570bf2467816133c2bb9e2/vhost.sh
+	| bash /dev/stdin mydomain.com

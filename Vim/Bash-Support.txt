@@ -1,0 +1,54 @@
+====== Bash-Support ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Bash-Support
+
+
+Created Saturday 23 June 2018
+
+
+
+../bash-hotkeys.pdf
+
+
+
+Adding Bash Function Using \sfu
+Insert a Function Header Using \cfu
+Add a Frame Comment Using \cfr
+Insert Bash Statements Inside Shell Script
+Short cut keys to insert statements are:
+
+
+
+\sc case in … esac
+\sl elif then
+\sf for in do done
+\sfo for ((…)) do done
+\si if then fi
+\sie if then else fi
+\ss select in do done
+\st until do done
+\sw while do done
+\sfu function
+\se echo ­e “\n”
+\sp printf “\n”
+
+
+
+Insert Predefined code-snippet to the Bash Script Using \nr
+$ ls -1 ~/.vim/bash-support/codesnippets/
+assert
+basename+pathname
+basename-function
+check-number-of-command-line-arguments
+create-tempfile
+create-tempfile-with-trap
+free-software-comment
+read-and-split-into-array
+timestamp
+usage-and-command-line-arguments.noindent
+use-file-descriptor-read
+use-file-descriptor-write
+well-behaved-script

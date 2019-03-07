@@ -1,0 +1,64 @@
+====== vue cli 3 ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+vue cli 3
+
+
+Created Monday 26 March 2018
+
+
+
+Usage: vue <command> [options]
+
+
+
+Options:
+
+
+
+
+  -V, --version output the version number
+  -h, --help output usage information
+
+
+
+
+  Commands:
+
+
+
+  
+    create [options] <app-name> create a new project powered by vue-cli-service
+    add <plugin> [pluginOptions] install a plugin and invoke its generator in an already created project
+    invoke <plugin> [pluginOptions] invoke the generator of a plugin in an already created project
+    inspect [options] [paths...] inspect the webpack config in a project with vue-cli-service
+    serve [options] [entry] serve a .js or .vue file in development mode with zero config
+    build [options] [entry] build a .js or .vue file in production mode with zero config
+    init <template> <app-name> generate a project from a remote template (legacy API, requires @vue/cli-init)
+
+
+
+
+    Vuetify
+    To install and invoke the vuetify plugin...
+
+
+
+    npm i -D vue-cli-plugin-vuetify
+    vue invoke vuetify
+    yarn serve
+
+
+
+    Nuxt
+    $ cd <your vue-cli project path>
+
+
+
+    $npm i -D andoshin11/vue-cli-plugin-nuxt-starter-template
+
+
+
+    $ vue invoke nuxt-starter-template

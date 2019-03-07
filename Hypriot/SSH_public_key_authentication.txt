@@ -1,0 +1,21 @@
+====== SSH public key authentication ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+SSH public key authentication
+
+
+Created Wednesday 24 October 2018
+
+
+
+
+
+Setup your device with a different user account, remove default user and password.
+
+
+
+ssh-pub-key.yml
+adjust user name
+insert SSH public key

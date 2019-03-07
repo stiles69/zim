@@ -1,0 +1,322 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>VP9 Bitrate Modes</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>VP9 Bitrate Modes</h1>
+
+<p>
+Created Monday 21 January 2019
+</p>
+
+<h4>Mode</h4>
+
+<p>
+<b>Constant Quantizer (Q)</b>	Allows you to specify a fixed quantizer value; bitrate will vary<br>
+<b>Constrained Quality (CQ)</b>	Allows you to set a maximum quality level. Quality may vary within bitrate parameters<br>
+<b>Variable Bitrate (VBR)</b>	Balances quality and bitrate over time within constraints on bitrate<br>
+<b>Constant Bitrate (CBR)</b>	Attempts to keep the bitrate fairly constant while quality varies
+</p>
+
+<p>
+<img src="./VP9_Bitrate_Modes/pasted_image.png">
+</p>
+
+<h4>VP9 Q mode bitrate optimization</h4>
+
+<p>
+Constant Quantizer mode requires minimal configuration. As its name suggests, Q mode is focussed on maintaining the quantizer at a target "quality" level, and allowing the quantizer to determine the flow of data that it wishes to process. All that the user need define is the target quality.
+</p>
+
+<p>
+There is more information on specifics of target quality from an image processing focus (not a bitrate focus) in the Basic Encoding article.
+</p>
+
+<p>
+Use the following FFmpeg command-line parameters for Q mode bitrate optimization:
+</p>
+
+<p>
+<b>ffmpeg</b>	<br>
+<b>-b:v 0</b>	By marking the video bitrate as 0 we explicitly set "Q" mode<br>
+<b>-g &lt;arg&gt;</b>	Sets Keyframe Interval in frames (defaults to 240)<br>
+<b>-crf &lt;arg&gt;</b>	Sets maximum quality level. Valid values are 0-63. <i>Lower numbers are higher quality</i><br>
+-<b>quality good -speed 0</b>	Default and recommended for most applications. best is more of a research tool, with marginal improvement over -quality good -speed 0<br>
+<b>-lossless	Lossless mode</b>
+</p>
+
+<h4>Q mode bitrate : FFmpeg examples</h4>
+
+<p>
+The first example is a very extreme Q mode setting and is provided for illustration only. (Even processing the 120 second clip in these examples will take several hours, and the output file produced is typically much larger than the original source.)
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9 -g 1 -b:v 0 -crf 0 -quality good \</b><br>
+<b>  -speed 0 -lossless 1 -c:a libvorbis Q_g_1_crf_0_120s_tears_of_steel_1080p.webm.webm</b><br>
+To compare the effect of -crf, the following examples vary only -crf. Note that -g is not defined, so will default to 240, and in practice -crf defaults to 10, so we would have had the same result without including either parameter in the second of the three examples:
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9 -b:v 0 -crf 0 -quality good \</b><br>
+<b>  -speed 0 -c:a libvorbis Q_crf_0_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9 -b:v 0 -crf 10 -quality good \</b><br>
+<b>  -speed 0 -c:a libvorbis Q_crf_10_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9 -b:v 0 -crf 63 -quality good \</b><br>
+<b>  -speed 0 -c:a libvorbis Q_crf_63_120s_tears_of_steel_1080p.webm</b><br>
+The output of these examples differs in size on disk. With -crf set to 0 the file was 711.8MB, with -crf set to 10 the file size was 125.3MB, and with -crf set to 63 the file was 4.5MB. In very simple terms this highlights that we have reduced the quality of the resulting VP9-encoded file by raising the value of the -crf argument. A full summary of all output files is in the Table of Results below.
+</p>
+
+<p>
+Let us now compare the effect of varying the -g setting.
+</p>
+
+<p>
+f<b>fmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -g 1 -b:v 0 -quality good \</b><br>
+<b>  -speed 0  -c:a libvorbis Q_g_1_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -g 240 -b:v 0 -quality good \</b><br>
+<b>  -speed 0 -c:a libvorbis Q_g_240_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -g 480 -b:v 0 -quality good \</b><br>
+<b>  -speed 0 -c:a libvorbis Q_g_480_120s_tears_of_steel_1080p.webm</b><br>
+We notice that the -g 1 setting produces a very large file, 25.9MB in size. Compare this to changing -g 240 (explicitly setting the same as the default) where we end up with a 4.5MB file, and -g 480 where we end up with a 4.4MB file.
+</p>
+
+<h4>CQ</h4>
+
+<p>
+CQ is a recommended mode for file-based video.
+</p>
+
+<p>
+<img src="./VP9_Bitrate_Modes/pasted_image001.png">
+</p>
+
+<p>
+For most content types, we recommend using <b>constrained quality (CQ) mode</b>, with bitrate caps. Most videos contain a mix of high-motion scenes (e.g., action sequences) and scenes with less detail (e.g., conversations). CQ mode allows the encoder to maintain a reasonable quality level during longer, easier scenes (without wasting bits), while allocating more bits for difficult sequences.
+</p>
+
+<p>
+Nonetheless we must still <b>constrain the process by providing an upper range</b> -- otherwise there may as well be no compression at all! We can also set a lower range, where even if the image is black and the encoding process has almost nothing to do we will still throughput that data, perhaps less efficiently than we could, but with the end result that even the black is not significantly compressed and look "very black".
+</p>
+
+<p>
+In addition we must also set the <b>quantizer threshold. In VP9 the quantizer threshold can be varied from 0 down to 63.</b>
+</p>
+
+<p>
+The following FFmpeg command-line parameters are used for <b>CQ mode</b>:<br>
+<b>ffmpeg</b>	<br>
+<b>-b:v &lt;arg&gt;</b>	Sets target bitrate (e.g. 500k)<br>
+<b>-minrate &lt;arg&gt;</b><br>
+<b>-maxrate &lt;arg&gt;</b>	Sets minimum and maximum bitrate.<br>
+<b>-crf &lt;arg&gt;</b>	Sets maximum quality level. Valid values are 0 to 63, lower numbers are higher quality.
+</p>
+
+<h4>CQ bitrate mode: FFmpeg examples</h4>
+
+<p>
+The first example provides a reasonably wide constraint. Compared to the examples given above for Q, however, we find that this forces the bitrates into a higher range and the output quality is notably higher. File size is notably larger.
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 1000k -maxrate 4000k -crf 10  -c:a libvorbis \</b><br>
+<b>  CQ_4000_1000_crf_10_120s_tears_of_steel_1080p.webm</b><br>
+The output file in this instance was 20.2MB on disk -- noticeably smaller than the Q mode encode in the examples above.
+</p>
+
+<p>
+In contrast for the next example we have constrained the bitrate to a much more closely-defined range.
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 1500k -maxrate 2500k -crf 10  -c:a libvorbis \</b><br>
+<b>  CQ_2500_1500_crf_10_120s_tears_of_steel_1080p.webm</b><br>
+In this instance the output file size was 24.1MB, and at times of high complexity and motion the video quality is visibly reduced when compared to the previous example.
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 1000k \</b><br>
+<b>  -minrate 750k -maxrate 1400k -crf 10  -c:a libvorbis \</b><br>
+<b>  CQ_1400_750_crf_10_120s_tears_of_steel_1080pp.webm</b><br>
+In this final example, the output was significantly reduced in size, dropping to 13.2MB on disk.
+</p>
+
+<h4>VBR</h4>
+
+<p>
+Variable bitrate mode (VBR) is recommended for streaming video-on-demand files of high-motion content (for example sports). It is well suited to HTTP-based delivery.
+</p>
+
+<p>
+<img src="./VP9_Bitrate_Modes/pasted_image002.png">
+</p>
+
+<p>
+In a VBR model, action scenes may be encoded with a higher bitrate than "easier" scenes, which are consistent with the keyframe.
+</p>
+
+<p>
+For large streaming delivery models, VBR benefits can add up significantly in both distribution and infrastructure terms. When many VBR streams are being delivered by the same infrastructure, this can provide benefits to all viewers using the system.
+</p>
+
+<p>
+VP9 VBR is also recommended for encoding sports and other content with high motion. For such high-complexity content, VBR achieves higher quality during periods of lower motion.
+</p>
+
+<p>
+The following FFmpeg command-line parameters are used for VBR mode:<br>
+<b>ffmpeg</b>	<br>
+<b>-quality good</b>	If this is present then FFmpeg will take into account the subsequent -speed setting<br>
+<b>-speed &lt;arg&gt;</b>	<i>For VIDEO ON DEMAND Valid values are 0-4, with 0 being the highest quality and 4 being the lowest. (For Live streaming the range is 5-8 - See CBR below)</i>
+</p>
+
+<h4>VBR bitrate mode: FFmpeg examples</h4>
+
+<br>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 1500k -maxrate 2500k -quality good -speed 0  -c:a libvorbis \</b><br>
+<b>  VBR_good_0_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 1500k -maxrate 2500k -quality good -speed 5  -c:a libvorbis \</b><br>
+<b>  VBR_good_5_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 1500k -maxrate 2500k -quality good -speed 8  -c:a libvorbis \</b><br>
+<b>  VBR_good_8_120s_tears_of_steel_1080pp.webm</b>
+</p>
+
+<h4>CBR</h4>
+
+<p>
+Constant Bitrate mode (CBR) is recommended for live streaming with VP9.
+</p>
+
+<p>
+<img src="./VP9_Bitrate_Modes/pasted_image003.png">
+</p>
+
+<p>
+CBR essentially sets the upper bitrate as a "hard ceiling". This means that the encoding process cannot produce data at a rate that the network cannot carry.
+</p>
+
+<p>
+For example, for real-time communication (video conferencing) streams it is important that the encoding application does not flood the network with more data than it can carry. If it does, audio/video sync issues or frozen frames significantly affect user experience, more so than reduced compression efficiency. By ensuring the hard ceiling is defined, VP9 will reduce quality as that ceiling is reached.
+</p>
+
+<p>
+The following FFmpeg command-line parameters are used for CBR mode:<br>
+<b>ffmpeg</b>	<br>
+<b>-quality realtime</b>	If this is present then FFmpeg will take into account the subsequent -speed setting<br>
+<b>-speed &lt;arg&gt;</b>	For live streaming Valid values are 5 to 8, with 5 being the highest quality and 8 being the lowest. (For Video On Demand these are 0 to 4. See VBR above.)<br>
+<b>-minrate &lt;arg&gt;</b><br>
+<b>-maxrate &lt;arg&gt;</b>	Sets minimum and maximum bitrate These must be set to the same -b:v bitrate value for CBR mode .<br>
+In very simple terms we fix the target, minimum and maximum bitrates to the same value, and tell the quantizer that the operations are time-sensitive.
+</p>
+
+<h4>CBR bitrate mode: FFmpeg examples</h4>
+
+<p>
+The examples below explore setting the bitrate to 2Mbps and 500kbps targets:
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 2000k -maxrate 2000k -quality realtime -speed 0 -c:a libvorbis \</b><br>
+<b>  CBR_2000_realtime_0_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 2000k -maxrate 2000k -quality realtime -speed 5 -c:a libvorbis \</b><br>
+<b>  CBR_2000_realtime_5_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 2000k \</b><br>
+<b>  -minrate 2000k -maxrate 2000k -quality realtime -speed 8 -c:a libvorbis \</b><br>
+<b>  CBR_2000_realtime__8_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 500k \</b><br>
+<b>  -minrate 500k -maxrate 500k -quality realtime -speed 0 -c:a libvorbis \</b><br>
+<b>  CBR_500_realtime__0_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 500k \</b><br>
+<b>  -minrate 500k -maxrate 500k -quality realtime -speed 5 -c:a libvorbis \</b><br>
+<b>  CBR_500_realtime_5_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+<p>
+<b>ffmpeg -i 120s_tears_of_steel_1080p.webm -c:v vp9  -b:v 500k \</b><br>
+<b>  -minrate 500k -maxrate 500k -quality realtime -speed 8 -c:a libvorbis \</b><br>
+<b>  CBR_500_realtime_8_120s_tears_of_steel_1080p.webm</b>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

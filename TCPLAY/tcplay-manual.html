@@ -1,0 +1,2769 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>tcplay-manual</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>tcplay-manual</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+<br>
+
+<p>
+TCPLAY(8) BSD System Manager's Manual TCPLAY(8)
+</p>
+
+<br>
+<br>
+
+<p>
+NAME
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+tcplay — tool to manage TrueCrypt volumes
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 30pt'>
+SYNOPSIS
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+tcplay -c -d device [-g] [-z] [-w] [-a pbkdf_hash] [-b cipher] [-f keyfile_hidden] [-k keyfile] [-x pbkdf_hash]<br>
+[-y cipher]<br>
+tcplay -i -d device [-e] [-f keyfile_hidden] [-k keyfile] [-s system_device] [--fde] [--use-backup]<br>
+[--use-hdr-file hdr_file]
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+[--use-hidden-hdr-file hdr_file]
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+tcplay -j mapping<br>
+tcplay -m mapping -d device [-e] [-f keyfile_hidden] [-k keyfile] [-s system_device] [-t] [--fde]<br>
+[--read-only] [--use-backup]
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+[--use-hdr-file hdr_file] [--use-hidden-hdr-file hdr_file]
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+tcplay --modify -d device [-k keyfile] [--new-keyfile new_keyfile] [--new-pbkdf-prf pbkdf_hash]<br>
+[-s system_device] [--fde]
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 210pt'>
+[--use-backup] [--use-hdr-file hdr_file] [--use-hidden-hdr-file hdr_file]<br>
+[--save-hdr-backup hdr_file] [-w]
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+tcplay --modify -d device [-k keyfile] --restore-from-backup-hdr [-w]<br>
+tcplay -u mapping<br>
+tcplay -h | -v
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 240pt'>
+DESCRIPTION
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+The tcplay utility provides full support for creating and opening/mapping<br>
+TrueCrypt-compatible volumes. It supports the fol‐<br>
+lowing commands, each with a set of options detailed further below:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 300pt'>
+-c, --create
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+Create a new encrypted TrueCrypt volume on the device specified by<br>
+--device.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 360pt'>
+-h, --help
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 390pt'>
+Print help message and exit.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 420pt'>
+-i, --info
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 450pt'>
+Print out information about the encrypted device specified<br>
+by --device.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 480pt'>
+-j mapping, --info-mapped=mapping
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 510pt'>
+Print out information about the mapped tcplay<br>
+volume specified by mapping. Information such as<br>
+key CRC and the PBKDF2<br>
+PRF is not available via this command.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+--modify
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+Modify the volume header. This mode allows<br>
+changing passphrase, keyfiles, PBKDF2 PRF<br>
+as well as restoring from a<br>
+backup header.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+-m mapping, --map=mapping
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+Map the encrypted TrueCrypt volume<br>
+on the device specified by --device<br>
+as a dm(4) mapping called mapping.<br>
+The mapping<br>
+argument should not contain any<br>
+spaces or special characters.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+-u mapping, --unmap=mapping
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+Removes (unmaps) the dm(4)<br>
+mapping specified by<br>
+mapping as well as any<br>
+related cascade mappings.<br>
+If you mapped a vol‐<br>
+ume using full disk<br>
+encryption and created<br>
+mapping for individual<br>
+partitions using kpartx(8),<br>
+you must remove these<br>
+prior to unmapping the<br>
+volume.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 720pt'>
+-v, --version
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 750pt'>
+Print version<br>
+message and exit.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 780pt'>
+Options common<br>
+to all commands<br>
+are:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 810pt'>
+-d device,<br>
+--device=device
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 840pt'>
+Specifies<br>
+the<br>
+disk<br>
+device<br>
+on<br>
+which<br>
+the<br>
+TrueCrypt<br>
+volume<br>
+resides/will<br>
+reside.<br>
+This<br>
+option<br>
+is<br>
+mandatory<br>
+for all<br>
+com‐<br>
+mands.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 840pt'>
+&lt;div
+</div>
+<div style='padding-left: 870pt'>
+style='padding-left: 30pt'&gt;<br>
+-f<br>
+keyfile_hidden,<br>
+--keyfile-hidden=keyfile_hidden
+</div>
+</p>
+
+<p>
+<div style='padding-left: 870pt'>
+&lt;div
+</div>
+<div style='padding-left: 900pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+a<br>
+keyfile<br>
+to<br>
+use<br>
+in<br>
+addition<br>
+to<br>
+the<br>
+passphrase<br>
+when<br>
+either<br>
+creating<br>
+a<br>
+hidden<br>
+volume<br>
+or<br>
+when<br>
+protecting<br>
+a<br>
+hidden<br>
+volume<br>
+while<br>
+mapping<br>
+or<br>
+querying<br>
+the<br>
+outer<br>
+volume.<br>
+If<br>
+you<br>
+only<br>
+intend<br>
+to<br>
+map<br>
+a<br>
+hidden<br>
+volume,<br>
+the<br>
+--keyfile<br>
+option<br>
+has<br>
+to<br>
+be<br>
+used.<br>
+This<br>
+option<br>
+can<br>
+appear<br>
+multiple<br>
+times;<br>
+if<br>
+so,<br>
+multiple<br>
+keyfiles<br>
+will<br>
+be<br>
+used.<br>
+This<br>
+option<br>
+is<br>
+not<br>
+valid<br>
+in<br>
+the<br>
+--modify<br>
+mode.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+&lt;div
+</div>
+<div style='padding-left: 930pt'>
+style='padding-left: 30pt'&gt;<br>
+-k<br>
+keyfile,<br>
+--keyfile=keyfile
+</div>
+</p>
+
+<p>
+<div style='padding-left: 930pt'>
+&lt;div
+</div>
+<div style='padding-left: 960pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+a<br>
+keyfile<br>
+to<br>
+use<br>
+in<br>
+addition<br>
+to<br>
+the<br>
+passphrase.<br>
+This<br>
+option<br>
+can<br>
+appear<br>
+multiple<br>
+times;<br>
+if<br>
+so,<br>
+multiple<br>
+key‐<br>
+files<br>
+will<br>
+be<br>
+used.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 960pt'>
+&lt;div
+</div>
+<div style='padding-left: 990pt'>
+style='padding-left: 30pt'&gt;<br>
+Additional<br>
+options<br>
+for<br>
+the<br>
+--create<br>
+command<br>
+are:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 990pt'>
+&lt;div
+</div>
+<div style='padding-left: 1020pt'>
+style='padding-left: 30pt'&gt;<br>
+-a<br>
+pbkdf_hash,<br>
+--pbkdf-prf=pbkdf_hash
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1020pt'>
+&lt;div
+</div>
+<div style='padding-left: 1050pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+which<br>
+hash<br>
+algorithm<br>
+to<br>
+use<br>
+for<br>
+the<br>
+PBKDF2<br>
+password<br>
+derivation.<br>
+To<br>
+see<br>
+which<br>
+algorithms<br>
+are<br>
+supported,<br>
+specify<br>
+--pbkdf-prf=help.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1050pt'>
+&lt;div
+</div>
+<div style='padding-left: 1080pt'>
+style='padding-left: 30pt'&gt;<br>
+-b<br>
+cipher,<br>
+--cipher=cipher
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1080pt'>
+&lt;div
+</div>
+<div style='padding-left: 1110pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+which<br>
+cipher<br>
+algorithm<br>
+or<br>
+cascade<br>
+of<br>
+ciphers<br>
+to<br>
+use<br>
+to<br>
+encrypt<br>
+the<br>
+new<br>
+volume.<br>
+To<br>
+see<br>
+which<br>
+algorithms<br>
+are<br>
+supported,<br>
+specify<br>
+--cipher=help.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1110pt'>
+&lt;div
+</div>
+<div style='padding-left: 1140pt'>
+style='padding-left: 30pt'&gt;<br>
+-g,<br>
+--hidden
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1140pt'>
+&lt;div
+</div>
+<div style='padding-left: 1170pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+that<br>
+the<br>
+newly<br>
+created<br>
+volume<br>
+will<br>
+contain<br>
+a<br>
+hidden<br>
+volume.<br>
+The<br>
+keyfiles<br>
+applied<br>
+to<br>
+the<br>
+passphrase<br>
+for<br>
+the<br>
+hidden<br>
+volume<br>
+are<br>
+those<br>
+specified<br>
+by<br>
+--keyfile-hidden.<br>
+The<br>
+user<br>
+will<br>
+be<br>
+prompted<br>
+for<br>
+the<br>
+size<br>
+of<br>
+the<br>
+hidden<br>
+volume<br>
+interactively.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1170pt'>
+&lt;div
+</div>
+<div style='padding-left: 1200pt'>
+style='padding-left: 30pt'&gt;<br>
+-w,<br>
+--weak-keys
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1200pt'>
+&lt;div
+</div>
+<div style='padding-left: 1230pt'>
+style='padding-left: 90pt'&gt;<br>
+Use<br>
+urandom(4)<br>
+for<br>
+key<br>
+material<br>
+instead<br>
+of<br>
+a<br>
+strong<br>
+entropy<br>
+source.<br>
+This<br>
+is<br>
+in<br>
+general<br>
+a<br>
+really<br>
+bad<br>
+idea<br>
+and<br>
+should<br>
+only<br>
+be<br>
+used<br>
+for<br>
+testing.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1230pt'>
+&lt;div
+</div>
+<div style='padding-left: 1260pt'>
+style='padding-left: 30pt'&gt;<br>
+-x<br>
+pbkdf_hash,<br>
+--pbkdf-prf-hidden=pbkdf_hash
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1260pt'>
+&lt;div
+</div>
+<div style='padding-left: 1290pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+which<br>
+hash<br>
+algorithm<br>
+to<br>
+use<br>
+for<br>
+the<br>
+PBKDF2<br>
+password<br>
+derivation<br>
+for<br>
+the<br>
+hidden<br>
+volume.<br>
+Only<br>
+valid<br>
+in<br>
+con‐<br>
+junction<br>
+with<br>
+--hidden.<br>
+If<br>
+no<br>
+algorithm<br>
+is<br>
+specified,<br>
+the<br>
+same<br>
+as<br>
+for<br>
+the<br>
+outer<br>
+volume<br>
+will<br>
+be<br>
+used.<br>
+To<br>
+see<br>
+which<br>
+algorithms<br>
+are<br>
+supported,<br>
+specify<br>
+--pbkdf-prf-hidden=help.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1290pt'>
+&lt;div
+</div>
+<div style='padding-left: 1320pt'>
+style='padding-left: 30pt'&gt;<br>
+-y<br>
+cipher,<br>
+--cipher-hidden=cipher
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1320pt'>
+&lt;div
+</div>
+<div style='padding-left: 1350pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+which<br>
+cipher<br>
+algorithm<br>
+or<br>
+cascade<br>
+of<br>
+ciphers<br>
+to<br>
+use<br>
+to<br>
+encrypt<br>
+the<br>
+hidden<br>
+volume<br>
+on<br>
+the<br>
+new<br>
+TrueCrypt<br>
+vol‐<br>
+ume.<br>
+Only<br>
+valid<br>
+in<br>
+conjunction<br>
+with<br>
+--hidden.<br>
+If<br>
+no<br>
+cipher<br>
+is<br>
+specified,<br>
+the<br>
+same<br>
+as<br>
+for<br>
+the<br>
+outer<br>
+volume<br>
+will<br>
+be<br>
+used.<br>
+To<br>
+see<br>
+which<br>
+algorithms<br>
+are<br>
+supported,<br>
+specify<br>
+--cipher-hidden=help.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1350pt'>
+&lt;div
+</div>
+<div style='padding-left: 1380pt'>
+style='padding-left: 30pt'&gt;<br>
+-z,<br>
+--insecure-erase
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1380pt'>
+&lt;div
+</div>
+<div style='padding-left: 1410pt'>
+style='padding-left: 90pt'&gt;<br>
+Skips<br>
+the<br>
+secure<br>
+erase<br>
+of<br>
+the<br>
+disk.<br>
+Use<br>
+this<br>
+option<br>
+carefully<br>
+as<br>
+it<br>
+is<br>
+a<br>
+security<br>
+risk!
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1410pt'>
+&lt;div
+</div>
+<div style='padding-left: 1440pt'>
+style='padding-left: 30pt'&gt;<br>
+Additional<br>
+options<br>
+for<br>
+the<br>
+--info,<br>
+--map<br>
+and<br>
+--modify<br>
+commands<br>
+are:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1440pt'>
+&lt;div
+</div>
+<div style='padding-left: 1470pt'>
+style='padding-left: 30pt'&gt;<br>
+-e,<br>
+--protect-hidden
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1470pt'>
+&lt;div
+</div>
+<div style='padding-left: 1500pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+that<br>
+an<br>
+outer<br>
+volume<br>
+will<br>
+be<br>
+queried<br>
+or<br>
+mapped,<br>
+but<br>
+its<br>
+reported<br>
+size<br>
+will<br>
+be<br>
+adjusted<br>
+accordingly<br>
+to<br>
+the<br>
+size<br>
+of<br>
+the<br>
+hidden<br>
+volume<br>
+contained<br>
+in<br>
+it.<br>
+Both<br>
+the<br>
+hidden<br>
+volume<br>
+and<br>
+outer<br>
+volume<br>
+passphrase<br>
+and<br>
+keyfiles<br>
+will<br>
+be<br>
+required.<br>
+This<br>
+option<br>
+only<br>
+applies<br>
+to<br>
+the<br>
+--info<br>
+and<br>
+--map<br>
+commands.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+&lt;div
+</div>
+<div style='padding-left: 1530pt'>
+style='padding-left: 30pt'&gt;<br>
+-s<br>
+system_device,<br>
+--system-encryption=system_device
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1530pt'>
+&lt;div
+</div>
+<div style='padding-left: 1560pt'>
+style='padding-left: 90pt'&gt;<br>
+This<br>
+option<br>
+is<br>
+required<br>
+if<br>
+you<br>
+are<br>
+attempting<br>
+to<br>
+access<br>
+a<br>
+device<br>
+that<br>
+uses<br>
+system<br>
+encryption,<br>
+for<br>
+example<br>
+an<br>
+encrypted<br>
+Windows<br>
+system<br>
+partition.<br>
+It<br>
+does<br>
+not<br>
+apply<br>
+to<br>
+disks<br>
+using<br>
+full<br>
+disk<br>
+encryption.<br>
+The<br>
+--device<br>
+option<br>
+will<br>
+point<br>
+at<br>
+the<br>
+actual<br>
+encrypted<br>
+partition,<br>
+while<br>
+the<br>
+system_device<br>
+argument<br>
+will<br>
+point<br>
+to<br>
+the<br>
+parent<br>
+device<br>
+(i.e.<br>
+underlying<br>
+physical<br>
+disk)<br>
+of<br>
+the<br>
+encrypted<br>
+partition.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1560pt'>
+&lt;div
+</div>
+<div style='padding-left: 1590pt'>
+style='padding-left: 30pt'&gt;<br>
+--fde<br>
+This<br>
+option<br>
+is<br>
+intended<br>
+to<br>
+be<br>
+used<br>
+with<br>
+disks<br>
+using<br>
+full<br>
+disk<br>
+encryption<br>
+(FDE).<br>
+When<br>
+a<br>
+disk<br>
+has<br>
+been<br>
+encrypted<br>
+using
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1590pt'>
+&lt;div
+</div>
+<div style='padding-left: 1620pt'>
+style='padding-left: 90pt'&gt;<br>
+TrueCrypt's<br>
+FDE,<br>
+the<br>
+complete<br>
+disk<br>
+is<br>
+encrypted<br>
+except<br>
+for<br>
+the<br>
+first<br>
+63<br>
+sectors.<br>
+The<br>
+--device<br>
+option<br>
+should<br>
+point<br>
+to<br>
+the<br>
+whole<br>
+disk<br>
+device,<br>
+not<br>
+to<br>
+any<br>
+particular<br>
+partition.<br>
+The<br>
+resultant<br>
+mapping<br>
+will<br>
+cover<br>
+the<br>
+whole<br>
+disk,<br>
+and<br>
+will<br>
+not<br>
+appear<br>
+as<br>
+separate<br>
+partitions.<br>
+To<br>
+access<br>
+individual<br>
+partitions<br>
+after<br>
+mapping,<br>
+kpartx(8)<br>
+can<br>
+be<br>
+used.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+&lt;div
+</div>
+<div style='padding-left: 1650pt'>
+style='padding-left: 30pt'&gt;<br>
+--use-backup
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1650pt'>
+&lt;div
+</div>
+<div style='padding-left: 1680pt'>
+style='padding-left: 90pt'&gt;<br>
+This<br>
+option<br>
+is<br>
+intended<br>
+to<br>
+be<br>
+used<br>
+when<br>
+the<br>
+primary<br>
+headers<br>
+of<br>
+a<br>
+volume<br>
+have<br>
+been<br>
+corrupted.<br>
+This<br>
+option<br>
+will<br>
+force<br>
+tcplay<br>
+to<br>
+use<br>
+the<br>
+backup<br>
+headers,<br>
+which<br>
+are<br>
+located<br>
+at<br>
+the<br>
+end<br>
+of<br>
+the<br>
+device,<br>
+to<br>
+access<br>
+the<br>
+volume.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1680pt'>
+&lt;div
+</div>
+<div style='padding-left: 1710pt'>
+style='padding-left: 30pt'&gt;<br>
+Additional<br>
+options<br>
+only<br>
+for<br>
+the<br>
+--map<br>
+command<br>
+are:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+&lt;div
+</div>
+<div style='padding-left: 1740pt'>
+style='padding-left: 30pt'&gt;<br>
+-t,<br>
+--allow-trim
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1740pt'>
+&lt;div
+</div>
+<div style='padding-left: 1770pt'>
+style='padding-left: 90pt'&gt;<br>
+This<br>
+option<br>
+enables<br>
+TRIM<br>
+(discard)<br>
+support<br>
+on<br>
+the<br>
+mapped<br>
+volume.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1770pt'>
+&lt;div
+</div>
+<div style='padding-left: 1800pt'>
+style='padding-left: 30pt'&gt;<br>
+Additional<br>
+options<br>
+only<br>
+for<br>
+the<br>
+--modify<br>
+command<br>
+are:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1800pt'>
+&lt;div
+</div>
+<div style='padding-left: 1830pt'>
+style='padding-left: 30pt'&gt;<br>
+--new-pbkdf-prf=pbkdf_hash
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1830pt'>
+&lt;div
+</div>
+<div style='padding-left: 1860pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+which<br>
+hash<br>
+algorithm<br>
+to<br>
+use<br>
+for<br>
+the<br>
+PBKDF2<br>
+password<br>
+derivation<br>
+on<br>
+reencrypting<br>
+the<br>
+volume<br>
+header.<br>
+If<br>
+this<br>
+option<br>
+is<br>
+not<br>
+specified,<br>
+the<br>
+reencrypted<br>
+header<br>
+will<br>
+use<br>
+the<br>
+current<br>
+PRF.<br>
+To<br>
+see<br>
+which<br>
+algorithms<br>
+are<br>
+supported,<br>
+specify<br>
+--pbkdf-prf=help.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1860pt'>
+&lt;div
+</div>
+<div style='padding-left: 1890pt'>
+style='padding-left: 30pt'&gt;<br>
+--new-keyfile=keyfile
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1890pt'>
+&lt;div
+</div>
+<div style='padding-left: 1920pt'>
+style='padding-left: 90pt'&gt;<br>
+Specifies<br>
+a<br>
+keyfile<br>
+to<br>
+use<br>
+in<br>
+addition<br>
+to<br>
+the<br>
+new<br>
+passphrase<br>
+on<br>
+reencrypting<br>
+the<br>
+volume<br>
+header.<br>
+This<br>
+option<br>
+can<br>
+appear<br>
+multiple<br>
+times;<br>
+if<br>
+so,<br>
+multiple<br>
+keyfiles<br>
+will<br>
+be<br>
+used.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+&lt;div
+</div>
+<div style='padding-left: 1950pt'>
+style='padding-left: 30pt'&gt;<br>
+--restore-from-backup-hdr
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1950pt'>
+&lt;div
+</div>
+<div style='padding-left: 1980pt'>
+style='padding-left: 90pt'&gt;<br>
+If<br>
+this<br>
+option<br>
+is<br>
+specified,<br>
+neither<br>
+--new-pbkdf-prf<br>
+nor<br>
+--new-keyfile<br>
+should<br>
+be<br>
+specified.<br>
+This<br>
+option<br>
+implies<br>
+--use-backup.<br>
+Use<br>
+this<br>
+option<br>
+to<br>
+restore<br>
+the<br>
+volume<br>
+headers<br>
+from<br>
+the<br>
+backup<br>
+header.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+&lt;div
+</div>
+<div style='padding-left: 2010pt'>
+style='padding-left: 30pt'&gt;<br>
+Sending<br>
+a<br>
+SIGINFO<br>
+or<br>
+SIGUSR1<br>
+signal<br>
+to<br>
+a<br>
+running<br>
+tcplay<br>
+process<br>
+makes<br>
+it<br>
+print<br>
+progress<br>
+on<br>
+slower<br>
+tasks<br>
+such<br>
+as<br>
+gathering<br>
+entropy<br>
+or<br>
+wiping<br>
+the<br>
+volume.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+NOTES<br>
+&lt;div
+</div>
+<div style='padding-left: 2040pt'>
+style='padding-left: 30pt'&gt;<br>
+TrueCrypt<br>
+limits<br>
+passphrases<br>
+to<br>
+64<br>
+characters<br>
+(including<br>
+the<br>
+terminating<br>
+null<br>
+character).<br>
+To<br>
+be<br>
+compatible<br>
+with<br>
+it,<br>
+tcplay<br>
+does<br>
+the<br>
+same.<br>
+All<br>
+passphrases<br>
+(excluding<br>
+keyfiles)<br>
+are<br>
+trimmed<br>
+to<br>
+64<br>
+characters.<br>
+Similarly,<br>
+keyfiles<br>
+are<br>
+limited<br>
+to<br>
+a<br>
+size<br>
+of<br>
+1<br>
+MB,<br>
+but<br>
+up<br>
+to<br>
+256<br>
+keyfiles<br>
+can<br>
+be<br>
+used.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+PLAUSIBLE<br>
+DENIABILITY<br>
+&lt;div
+</div>
+<div style='padding-left: 2070pt'>
+style='padding-left: 30pt'&gt;<br>
+tcplay<br>
+offers<br>
+plausible<br>
+deniability.<br>
+Hidden<br>
+volumes<br>
+are<br>
+created<br>
+within<br>
+an<br>
+outer<br>
+volume.<br>
+Which<br>
+volume<br>
+is<br>
+accessed<br>
+solely<br>
+depends<br>
+on<br>
+the<br>
+passphrase<br>
+and<br>
+keyfile(s)<br>
+used.<br>
+If<br>
+the<br>
+passphrase<br>
+and<br>
+keyfiles<br>
+for<br>
+the<br>
+outer<br>
+volume<br>
+are<br>
+specified,<br>
+no<br>
+informa‐<br>
+tion<br>
+about<br>
+the<br>
+existance<br>
+of<br>
+the<br>
+hidden<br>
+volume<br>
+is<br>
+exposed.<br>
+Without<br>
+knowledge<br>
+of<br>
+the<br>
+passphrase<br>
+and<br>
+keyfile(s)<br>
+of<br>
+the<br>
+hidden<br>
+volume<br>
+its<br>
+existence<br>
+remains<br>
+unexposed.<br>
+The<br>
+hidden<br>
+volume<br>
+can<br>
+be<br>
+protected<br>
+when<br>
+mapping<br>
+the<br>
+outer<br>
+volume<br>
+by<br>
+using<br>
+the<br>
+--protect-hidden<br>
+option<br>
+and<br>
+specifying<br>
+the<br>
+passphrase<br>
+and<br>
+keyfiles<br>
+for<br>
+both<br>
+the<br>
+outer<br>
+and<br>
+hidden<br>
+volumes.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+EXAMPLES<br>
+&lt;div
+</div>
+<div style='padding-left: 2100pt'>
+style='padding-left: 30pt'&gt;<br>
+Create<br>
+a<br>
+new<br>
+TrueCrypt<br>
+volume<br>
+on<br>
+/dev/vn0<br>
+using<br>
+the<br>
+cipher<br>
+cascade<br>
+of<br>
+AES<br>
+and<br>
+Twofish<br>
+and<br>
+the<br>
+Whirlpool<br>
+hash<br>
+algorithm<br>
+for<br>
+PBKDF2<br>
+password<br>
+derivation<br>
+and<br>
+two<br>
+keyfiles,<br>
+one.key<br>
+and<br>
+two.key:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+&lt;div
+</div>
+<div style='padding-left: 2130pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--create<br>
+--device=/dev/vn0<br>
+--cipher=TWOFISH-256-XTS,AES-256-XTS<br>
+--pbkdf-prf=whirlpool<br>
+--keyfile=one.key<br>
+--keyfile=two.key
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+&lt;div
+</div>
+<div style='padding-left: 2160pt'>
+style='padding-left: 30pt'&gt;<br>
+Map<br>
+the<br>
+outer<br>
+volume<br>
+on<br>
+the<br>
+TrueCrypt<br>
+volume<br>
+on<br>
+/dev/vn0<br>
+as<br>
+truecrypt1,<br>
+but<br>
+protect<br>
+the<br>
+hidden<br>
+volume,<br>
+using<br>
+the<br>
+keyfile<br>
+hidden.key,<br>
+from<br>
+being<br>
+overwritten:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2160pt'>
+&lt;div
+</div>
+<div style='padding-left: 2190pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--map=truecrypt1<br>
+--device=/dev/vn0<br>
+--protect-hidden<br>
+--keyfile-hidden=hidden.key
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2190pt'>
+&lt;div
+</div>
+<div style='padding-left: 2220pt'>
+style='padding-left: 30pt'&gt;<br>
+Map<br>
+the<br>
+hidden<br>
+volume<br>
+on<br>
+the<br>
+TrueCrypt<br>
+volume<br>
+on<br>
+/dev/vn0<br>
+as<br>
+truecrypt2,<br>
+using<br>
+the<br>
+keyfile<br>
+hidden.key:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2220pt'>
+&lt;div
+</div>
+<div style='padding-left: 2250pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--map=truecrypt2<br>
+--device=/dev/vn0<br>
+--keyfile=hidden.key
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2250pt'>
+&lt;div
+</div>
+<div style='padding-left: 2280pt'>
+style='padding-left: 30pt'&gt;<br>
+Map<br>
+and<br>
+mount<br>
+the<br>
+volume<br>
+in<br>
+the<br>
+file<br>
+secvol<br>
+on<br>
+Linux:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2280pt'>
+&lt;div
+</div>
+<div style='padding-left: 2310pt'>
+style='padding-left: 60pt'&gt;<br>
+losetup<br>
+/dev/loop1<br>
+secvol
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2310pt'>
+&lt;div
+</div>
+<div style='padding-left: 2340pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--map=secv<br>
+--device=/dev/loop1
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2340pt'>
+&lt;div
+</div>
+<div style='padding-left: 2370pt'>
+style='padding-left: 60pt'&gt;<br>
+mount<br>
+/dev/mapper/secv<br>
+/mnt
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2370pt'>
+&lt;div
+</div>
+<div style='padding-left: 2400pt'>
+style='padding-left: 30pt'&gt;<br>
+Similarly<br>
+on<br>
+DragonFly:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2400pt'>
+&lt;div
+</div>
+<div style='padding-left: 2430pt'>
+style='padding-left: 60pt'&gt;<br>
+vnconfig<br>
+vn1<br>
+secvol
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2430pt'>
+&lt;div
+</div>
+<div style='padding-left: 2460pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--map=secv<br>
+--device=/dev/vn1
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2460pt'>
+&lt;div
+</div>
+<div style='padding-left: 2490pt'>
+style='padding-left: 60pt'&gt;<br>
+mount<br>
+/dev/mapper/secv<br>
+/mnt
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2490pt'>
+&lt;div
+</div>
+<div style='padding-left: 2520pt'>
+style='padding-left: 30pt'&gt;<br>
+Unmapping<br>
+the<br>
+volume<br>
+truecrypt2<br>
+on<br>
+both<br>
+Linux<br>
+and<br>
+DragonFly<br>
+after<br>
+unmounting:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2520pt'>
+&lt;div
+</div>
+<div style='padding-left: 2550pt'>
+style='padding-left: 60pt'&gt;<br>
+dmsetup<br>
+remove<br>
+truecrypt2
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2550pt'>
+&lt;div
+</div>
+<div style='padding-left: 2580pt'>
+style='padding-left: 30pt'&gt;<br>
+Or<br>
+alternatively:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2580pt'>
+&lt;div
+</div>
+<div style='padding-left: 2610pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--unmap=truecrypt2
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2610pt'>
+&lt;div
+</div>
+<div style='padding-left: 2640pt'>
+style='padding-left: 30pt'&gt;<br>
+A<br>
+hidden<br>
+volume<br>
+whose<br>
+existance<br>
+can<br>
+be<br>
+plausibly<br>
+denied<br>
+and<br>
+its<br>
+outer<br>
+volume<br>
+can<br>
+for<br>
+example<br>
+be<br>
+created<br>
+with
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2640pt'>
+&lt;div
+</div>
+<div style='padding-left: 2670pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--create<br>
+--hidden<br>
+--device=/dev/loop0<br>
+--cipher=TWOFISH-256-XTS,AES-256-XTS<br>
+--pbkdf-prf=whirlpool<br>
+--keyfile=one.key<br>
+--cipher-hidden=AES-256-XTS<br>
+--pbkdf-prf-hidden=whirlpool<br>
+--keyfile-hidden=hidden.key
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2670pt'>
+&lt;div
+</div>
+<div style='padding-left: 2700pt'>
+style='padding-left: 30pt'&gt;<br>
+tcplay<br>
+will<br>
+prompt<br>
+the<br>
+user<br>
+for<br>
+the<br>
+passphrase<br>
+for<br>
+both<br>
+the<br>
+outer<br>
+and<br>
+hidden<br>
+volume<br>
+as<br>
+well<br>
+as<br>
+the<br>
+size<br>
+of<br>
+the<br>
+hidden<br>
+volume<br>
+inside<br>
+the<br>
+outer<br>
+volume.<br>
+The<br>
+hidden<br>
+volume<br>
+will<br>
+be<br>
+created<br>
+inside<br>
+the<br>
+area<br>
+spanned<br>
+by<br>
+the<br>
+outer<br>
+volume.<br>
+The<br>
+hidden<br>
+volume<br>
+can<br>
+optionally<br>
+use<br>
+a<br>
+different<br>
+cipher<br>
+and<br>
+prf<br>
+function<br>
+as<br>
+specified<br>
+by<br>
+the<br>
+--cipher-hidden<br>
+and<br>
+--pbkdf-prf-hidden<br>
+options.<br>
+Which<br>
+volume<br>
+is<br>
+later<br>
+accessed<br>
+depends<br>
+only<br>
+on<br>
+which<br>
+passphrase<br>
+and<br>
+keyfile(s)<br>
+are<br>
+being<br>
+used,<br>
+so<br>
+that<br>
+the<br>
+existance<br>
+of<br>
+the<br>
+hidden<br>
+volume<br>
+remains<br>
+unknown<br>
+without<br>
+knowledge<br>
+of<br>
+the<br>
+passphrase<br>
+and<br>
+keyfile<br>
+it<br>
+is<br>
+protected<br>
+by<br>
+since<br>
+it<br>
+is<br>
+located<br>
+within<br>
+the<br>
+outer<br>
+volume.<br>
+To<br>
+map<br>
+the<br>
+outer<br>
+volume<br>
+without<br>
+potentially<br>
+damaging<br>
+the<br>
+hidden<br>
+volume,<br>
+the<br>
+passphrase<br>
+and<br>
+keyfile(s)<br>
+of<br>
+the<br>
+hidden<br>
+volume<br>
+must<br>
+be<br>
+known<br>
+and<br>
+provided<br>
+alongside<br>
+the<br>
+--protect-hidden<br>
+option.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2700pt'>
+&lt;div
+</div>
+<div style='padding-left: 2730pt'>
+style='padding-left: 30pt'&gt;<br>
+A<br>
+disk<br>
+encrypted<br>
+using<br>
+full<br>
+disk<br>
+encryption<br>
+can<br>
+be<br>
+mapped<br>
+using
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2730pt'>
+&lt;div
+</div>
+<div style='padding-left: 2760pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--map=tcplay_sdb<br>
+--device=/dev/sdb<br>
+--fde
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2760pt'>
+&lt;div
+</div>
+<div style='padding-left: 2790pt'>
+style='padding-left: 30pt'&gt;<br>
+To<br>
+access<br>
+individual<br>
+partitions<br>
+on<br>
+the<br>
+now<br>
+mapped<br>
+disk,<br>
+the<br>
+following<br>
+command<br>
+will<br>
+generate<br>
+mappings<br>
+for<br>
+each<br>
+individual<br>
+par‐<br>
+tition<br>
+on<br>
+the<br>
+encrypted<br>
+disk:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2790pt'>
+&lt;div
+</div>
+<div style='padding-left: 2820pt'>
+style='padding-left: 60pt'&gt;<br>
+kpartx<br>
+--av<br>
+/dev/mapper/tcplay_sdb
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2820pt'>
+&lt;div
+</div>
+<div style='padding-left: 2850pt'>
+style='padding-left: 30pt'&gt;<br>
+To<br>
+restore<br>
+the<br>
+main<br>
+volume<br>
+header<br>
+from<br>
+the<br>
+backup<br>
+header,<br>
+the<br>
+following<br>
+command<br>
+can<br>
+be<br>
+used:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2850pt'>
+&lt;div
+</div>
+<div style='padding-left: 2880pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--modify<br>
+--device=/dev/sdb<br>
+--restore-from-backup-hdr
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2880pt'>
+&lt;div
+</div>
+<div style='padding-left: 2910pt'>
+style='padding-left: 30pt'&gt;<br>
+As<br>
+with<br>
+most<br>
+other<br>
+commands,<br>
+which<br>
+header<br>
+is<br>
+saved<br>
+(used<br>
+as<br>
+source)<br>
+depends<br>
+on<br>
+the<br>
+passphrase<br>
+and<br>
+keyfiles<br>
+used.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2910pt'>
+&lt;div
+</div>
+<div style='padding-left: 2940pt'>
+style='padding-left: 30pt'&gt;<br>
+To<br>
+save<br>
+a<br>
+backup<br>
+copy<br>
+of<br>
+a<br>
+header,<br>
+the<br>
+following<br>
+command<br>
+can<br>
+be<br>
+used:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2940pt'>
+&lt;div
+</div>
+<div style='padding-left: 2970pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--modify<br>
+--device=/dev/sdb<br>
+--save-hdr-backup=/tmp/sdb_backup_header.hdr
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2970pt'>
+&lt;div
+</div>
+<div style='padding-left: 3000pt'>
+style='padding-left: 30pt'&gt;<br>
+As<br>
+with<br>
+most<br>
+other<br>
+commands,<br>
+which<br>
+header<br>
+is<br>
+saved<br>
+(used<br>
+as<br>
+source)<br>
+depends<br>
+on<br>
+the<br>
+passphrase<br>
+and<br>
+keyfiles<br>
+used.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+&lt;div
+</div>
+<div style='padding-left: 3030pt'>
+style='padding-left: 30pt'&gt;<br>
+To<br>
+restore<br>
+a<br>
+header<br>
+from<br>
+a<br>
+backup<br>
+header<br>
+file,<br>
+the<br>
+following<br>
+command<br>
+can<br>
+be<br>
+used:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3030pt'>
+&lt;div
+</div>
+<div style='padding-left: 3060pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--modify<br>
+-use-hdr-file=/tmp/sdb_backup_header.hdr
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3060pt'>
+&lt;div
+</div>
+<div style='padding-left: 3090pt'>
+style='padding-left: 30pt'&gt;<br>
+Similarly,<br>
+to<br>
+restore<br>
+a<br>
+hidden<br>
+header<br>
+from<br>
+a<br>
+backup<br>
+header<br>
+file:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3090pt'>
+&lt;div
+</div>
+<div style='padding-left: 3120pt'>
+style='padding-left: 60pt'&gt;<br>
+tcplay<br>
+--modify<br>
+-use-hidden-hdr-file=/tmp/sdb_backup_hidden_header.hdr
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3120pt'>
+&lt;div
+</div>
+<div style='padding-left: 3150pt'>
+style='padding-left: 30pt'&gt;<br>
+Which<br>
+header<br>
+is<br>
+used<br>
+as<br>
+the<br>
+source<br>
+of<br>
+the<br>
+operation<br>
+will<br>
+still<br>
+depend<br>
+on<br>
+the<br>
+passphrase<br>
+and<br>
+keyfiles<br>
+used.<br>
+Even<br>
+if<br>
+you<br>
+use<br>
+the<br>
+--use-hidden-hdr-file<br>
+option,<br>
+if<br>
+you<br>
+specify<br>
+the<br>
+passphrase<br>
+and<br>
+keyfiles<br>
+for<br>
+the<br>
+main<br>
+header,<br>
+the<br>
+main<br>
+header<br>
+will<br>
+be<br>
+used<br>
+instead.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3150pt'>
+SEE<br>
+ALSO<br>
+&lt;div
+</div>
+<div style='padding-left: 3180pt'>
+style='padding-left: 30pt'&gt;<br>
+crypttab(5),<br>
+cryptsetup(8),<br>
+dmsetup(8),<br>
+kpartx(8)
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3180pt'>
+HISTORY<br>
+&lt;div
+</div>
+<div style='padding-left: 3210pt'>
+style='padding-left: 30pt'&gt;<br>
+The<br>
+tcplay<br>
+utility<br>
+appeared<br>
+in<br>
+DragonFly<br>
+2.11.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3210pt'>
+AUTHORS<br>
+&lt;div
+</div>
+<div style='padding-left: 3240pt'>
+style='padding-left: 30pt'&gt;<br>
+Alex<br>
+Hornung
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3240pt'>
+BSD<br>
+December<br>
+8,<br>
+2013<br>
+BSD
+</div>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

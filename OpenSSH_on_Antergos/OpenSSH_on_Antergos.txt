@@ -1,0 +1,43 @@
+====== OpenSSH on Antergos ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+OpenSSH on Antergos
+
+
+Created Sunday 07 January 2018
+
+
+
+Install SSH Sever on Antergos
+
+
+
+sudo systemctl start sshd
+
+
+
+sudo systemctl enable sshd
+
+
+
+ssh dhani@10.34.0.10
+
+
+
+sudo systemctl enable sshd
+sudo systemctl start sshd
+sudo ufw allow 22
+
+
+
+***************************************On Arch Linux************************
+sudo pacman -S openssh
+sudo nano /etc/ssh/sshd_config
+AllowUsers user1 user2
+AllowGroups group1 group2
+PermitRootLogin no
+Port 22
+sudo systemctl start sshd.socket
+sudo systemctl enable sshd.socket

@@ -1,0 +1,13 @@
+====== List All Members of A Group ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List All Members of A Group
+
+
+Created Tuesday 15 May 2018
+
+
+
+grep 'grpup-name-here' /etc/group

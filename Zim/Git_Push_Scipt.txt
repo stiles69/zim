@@ -1,0 +1,27 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-03-06T20:45:01-06:00
+
+====== Git Push Scipt ======
+Created Wednesday 06 March 2019
+
+Here I show you how to create a small add-on, which provides the functionality to push your edits directly to your git remote repository from Zim.
+
+This requires that you have set up ssh for your git repository, because you would be asked for your user name and password for each commit otherwise, which makes the script interactive and thus unusable. See https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html for reference.
+
+Create the shell script ~/scripts/zim-git-push.sh with the following content:
+{{{code: lang="sh" linenumbers="True"
+#!/bin/bash
+# Any copyright is dedicated to the Public Domain.
+# http://creativecommons.org/publicdomain/zero/1.0/
+cd ~/your_zim_folder
+git commit -m 'new version'
+git push
+
+}}}
+
+Make the script executable (chmod +x ~/scripts/zim-git-push.sh)
+
+Add a custom tool (Menu->Tools->Custom Tools) and assign the created script to it. For the icon, I recommend /usr/share/icons/gnome/24x24/actions/stock_save.png
+
+Enjoy!

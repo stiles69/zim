@@ -1,0 +1,13 @@
+====== Set GPG Home to USB ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Set GPG Home to USB
+
+
+Created Saturday 03 March 2018
+
+
+
+export GNUPGHOME=/run/media/brettsalemink/encrypted-usb/SanDisk-GPG/gnupg

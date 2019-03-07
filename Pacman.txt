@@ -1,0 +1,78 @@
+====== Pacman ======
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Pacman
+
+
+Created Tuesday 13 February 2018
+
+
+
+<a href="./Pacman/Create_a_sorted_list_of_the_files_tracked_by_pacman_(and_remove_the_trailing_slashes_from_directories).html"
+ title="+Create a sorted list of the files tracked by pacman (and remove the trailing slashes from directories)" class="page">+Create
+	a sorted list of the files tracked by pacman (and remove the trailing slashes from directories)
+	<a href="./Pacman/Create_a_sorted_list_of_the_files_you_want_to_check_ownership_of.html" title="+Create a sorted list of the files you want to check ownership of"
+	 class="page">+Create a sorted list of the files you want to check ownership of
+		<a href="./Pacman/Find_lines_in_the_first_list_that_are_not_in_the_second.html" title="+Find lines in the first list that are not in the second"
+		 class="page">+Find lines in the first list that are not in the second
+			<a href="./Pacman/Installed_packages_unrequired_by_other_packages,_and_which_are_not_in_the_base_or_base-devel_groups.html"
+			 title="+Installed packages unrequired by other packages, and which are not in the base or base-devel groups" class="page">+Installed
+				packages unrequired by other packages, and which are not in the base or base-devel groups
+				<a href="./Pacman/Keeping_a_list_of_explicitly_installed_packages_can_be_useful_to_speed_up_installation_on_a_new_system.html"
+				 title="+Keeping a list of explicitly installed packages can be useful to speed up installation on a new system"
+				 class="page">+Keeping
+					a list of explicitly installed packages can be useful to speed up installation on a new system
+					+List All AUR Packages
+					<a href="./Pacman/List_all_explicitly_installed_native_packages.html" title="+List all explicitly installed native packages"
+					 class="page">+List all explicitly installed native packages
+						+List
+						All explicity installed packages
+						+List all foreign
+						packages
+						<a href="./Pacman/List_all_installed_packages_that_are_in_the_repo_name_repository.html" title="+List all installed packages that are in the repo name repository"
+						 class="page">+List all installed packages that are in the repo name repository
+							<a href="./Pacman/List_all_installed_packages_that_are_not_in_the_specified_repository_repo_name.html" title="+List all installed packages that are not in the specified repository repo name"
+							 class="page">+List all installed packages that are not in the specified repository repo name
+								<a href="./Pacman/List_all_installed_packages_unrequired_by_other_packages,_and_which_are_not_in_the_base_or_base-devel_groups.html"
+								 title="+List all installed packages unrequired by other packages, and which are not in the base or base-devel groups"
+								 class="page">+List all installed packages unrequired by other packages, and which are not in the base or
+									base-devel
+									groups
+									+List all native
+									packages
+									<a href="./Pacman/List_all_packages_on_the_Arch_Linux_ISO_that_are_not_in_the_base_group.html" title="+List all packages on the Arch Linux ISO that are not in the base group"
+									 class="page">+List all packages on the Arch Linux ISO that are not in the base group
+										<a href="./Pacman/List_explicitely_installed_packages_not_in_the_base_or_base-devel_groups.html" title="+List explicitely installed packages not in the base or base-devel groups"
+										 class="page">+List explicitely installed packages not in the base or base-devel groups
+											<a href="./Pacman/List_explicitly_installed_packages_not_in_the_base_or_base-devel_groups.html" title="+List explicitly installed packages not in the base or base-devel groups"
+											 class="page">+List explicitly installed packages not in the base or base-devel groups
+												+Make USB with packages
+												+POSSIBLE PROBLEM
+												<a href="./Pacman/Remove_All_Unused_Software_Packages_and_There_Config_Files.html" title="+Remove All Unused Software Packages and There Config Files"
+												 class="page">+Remove All Unused Software Packages and There Config Files
+													+Removing
+													everything but base group
+													+Removing
+													unused packages (orphans)
+													+Search
+													for all ready install packages
+													+Search for remote
+													packages
+													<a href="./Pacman/To_download_packages,_or_groups_of_packages.html" title="+To download packages, or groups of packages"
+													 class="page">+To download packages, or groups of packages
+														<a href="./Pacman/To_install_packages_from_the_list_backup,_run.html" title="+To install packages from the list backup, run"
+														 class="page">+To install packages from the list backup, run
+															<a href="./Pacman/To_list_all_developmentunstable_packages.html" title="+To list all developmentunstable packages"
+															 class="page">+To list all developmentunstable packages
+																+To
+																reinstall all native packages, use
+																<a href="./Pacman/To_remove_all_the_packages_on_your_system_that_are_not_mentioned_in_the_list.html"
+																 title="+To remove all the packages on your system that are not mentioned in the list" class="page">+To
+																	remove all the packages on your system that are not mentioned in the list
+																	<a href="./Pacman/To_remove_a_single_package,_leaving_all_of_its_dependencies_installed.html" title="+To remove a single package, leaving all of its dependencies installed"
+																	 class="page">+To remove a single package, leaving all of its dependencies installed
+																		+Update all
+																		installed packages

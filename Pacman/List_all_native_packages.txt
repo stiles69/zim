@@ -1,0 +1,17 @@
+====== List all native packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List all native packages
+
+
+Created Tuesday 13 February 2018
+
+
+
+List all native packages (installed from the sync database(s)):
+
+
+
+pacman -Qn

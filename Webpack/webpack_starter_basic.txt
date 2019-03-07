@@ -1,0 +1,35 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-02-26 23:06:55-06:00
+ 
+====== webpack starter basic ======
+Created Tue 26 February 2019
+
+===== Website =====
+https://github.com/stiles69/webpack-starter-basic
+
+(https://github.com/stiles69/webpack-starter-basic "Webpack Starter Basic")
+
+
+====== Usage ======
+**git clone https://github.com/lifenautjoe/webpack-starter-basic PROJECT-NAME**
+
+**cd PROJECT-NAME**
+
+**npm install**
+
+**npm run kickstart**
+
+====== After the project has been kickstarted ======
+
+====== To start the development server ======
+
+**npm start**
+
+====== To build for production ======
+
+**npm run build**
+
+====== To preview the production build ======
+
+**npm run preview**

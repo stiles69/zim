@@ -1,0 +1,13 @@
+====== Search for remote packages ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Search for remote packages
+
+
+Created Sunday 18 March 2018
+
+
+
+sudo pacman -Ss '^vim-'

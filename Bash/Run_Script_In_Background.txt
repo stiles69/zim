@@ -1,0 +1,45 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Run_Script_In_Background ======
+
+
+**Nohup, with > and /dev/null**
+Unlike the previous commands, using nohup allows you to run a command in the background and keep it running. How?
+Nohup bypasses the HUP signal (signal hang up), making it possible to run commands in the background even when the
+terminal is off. Combine this command with redirection to /dev/null (to prevent nohup from making a nohup.out file),
+and everything goes to the background with one command.
+
+**nohup command &amp;>/dev/null &amp;**
+
+**End a Command with &amp;**
+If you want to push a command into the background, using &amp; at the end is an easy way to do that. It comes with a
+catch, though. Using &amp; doesn’t disconnect the command away from you; it just pushes it in the background so you
+can continue using a terminal.
+
+**command &amp;**
+
+When the terminal session is closed, the command ends. Using &amp; is good if you need to push something off for a
+bit, but don’t expect it to continue forever.
+
+After a Command, Then Disown It
+Running a command with just &amp; pushes it off to the back and keeps it running as long as the terminal window is
+open. If, however, you’re looking to keep this command running in constant, even with your terminal session ending,
+you can use the disown command.
+To use this method, first start off adding an &amp;.
+
+**command &amp;**
+As mentioned above, using &amp; pushes this command into the background but doesn’t detach it from your user. You can
+verify this by typing jobs into the terminal. It’ll show the command running in the background.
+
+Just type disown into the shell, and it’ll do just that (and you can once again verify this with the jobs command).
+
+**&amp; After a Command with /dev/null**
+Adding &amp; after a command will push a command into the background, but as a result the background command will
+continue to print messages into the terminal as you’re using it. If you’re looking to prevent this, consider
+redirecting the command to /dev/null.
+
+**command &amp;>/dev/null &amp;**
+
+This does not prevent the command from closing when the terminal closes. However, like mentioned above, it’s possible
+to use disown to disown the running command away from the user.

@@ -1,0 +1,125 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Luks Cryptsetup ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+===== How to Create an Encrypted Container in Linux to Use on Cloud Storage Services =====
+
+This tutorial has created, tested, and it’s working on Ubuntu 16.04 LTS, but it’s expected to work on any other Linux
+Distribution.
+
+We will use cryptsetup, a tool that it is not preinstalled in Ubuntu.
+
+=== Module Check and Installation ===
+First, we should check for the right module if it’s loaded.
+
+**lsmod | grep dm_crypt**
+If we have an output, we can proceed. If not, we should load the module with the following command
+
+**sudo modprobe -v dm_crypt**
+
+Let’s install cryptsetup now with the following command:
+**sudo apt-get install cryptsetup**
+
+=== Creating the File Container ===
+With the following command, we will create a File Container of 1GB size. In there we can create and store files and
+folders of our interest, usually sensitive data we don’t want others to have access.
+**fallocate -l 1GB PRIVATE**
+
+Now we will encrypt the “PRIVATE” File (container) with cryptsetup.
+
+**cryptsetup -v luksFormat PRIVATE**
+
+We answer “Yes” at Warning and we write the passphrase twice.
+
+WARNING!
+========
+This will overwrite data on PRIVATE irrevocably.
+
+Are you sure? (Type uppercase yes): YES
+Enter passphrase:
+Verify passphrase:
+Command successful.
+We can see information about the encrypted space we just created, with the following command:
+**cryptsetup -v luksDump PRIVATE**
+
+Example Results:
+LUKS header information for PRIVATE
+Version: 1
+Cipher name: aes
+Cipher mode: xts-plain64
+Hash spec: sha1
+Payload offset: 4096
+MK bits: 256
+......
+......
+......
+
+=== Opening the container and creating the filesystem ===
+
+To create and store files and folders, we have to create a filesystem. That’s the magic here. We will use a simple file
+(PRIVATE) as a container with a filesystem in where we can store other files and folders.
+To do that we have to open the container with the following command:
+**sudo cryptsetup -v luksOpen PRIVATE DECRYPTED**
+
+cryptsetup needs administrative (sudo-root) privileges to work.
+We need to specify a NAME for the unencrypted space to be opened.
+Here we use the name DECRYPTED.
+Keep in mind that in Linux capital letters are different than small.
+Now we have our space attached under /dev/mapper/DECRYPTED
+
+Example Output:
+
+[sudo] password for nickth:
+Enter passphrase for PRIVATE:
+Key slot 0 unlocked.
+Command successful.
+See here that it asks for our passphrase, the one we have created earlier.
+
+Now we can create our filesystem, and I prefer the well tested and reliable ext4.
+
+**sudo mkfs -t ext4 /dev/mapper/DECRYPTED**
+
+=== Mounting the Container ===
+
+From now on, we can mount the unencrypted device (the one under /dev/mapper/)
+
+**sudo mount /dev/mapper/DECRYPTED/mnt**
+
+Let’s see if it has anything inside.
+**cd /mnt ls**
+
+What we should see is the standard lost+found directory.
+
+=== Unmounting and Closing the Container ===
+
+When we have done with our files and folders inside the (unencrypted) container, we should use the following commands
+to unmount and close the container properly.
+**sudo umount /mnt**
+**sudo cryptsetup luksClose DECRYPTED**
+
+Of course /mnt is not an excellent place to mounting our (unencrypted) container. Better would be to create a directory
+somewhere with properly rights, meaning only WE have access.
+
+
+The only thing we can do now is to move the closed (encrypted) file (container) named PRIVATE to our Dropbox (we took
+Dropbox here as an example) directory.
+
+How the synchronization works.
+We can see that while the container is unencrypted and mounted Dropbox won’t sync any data even if we create a new
+folder, moving or removing files, etc.
+Dropbox doesn’t see the unencrypted storage at all.
+When we finish and unmount the unencrypted storage (/dev/mapper/…), then after we close it properly (we saw the command
+above) we will see Dropbox is starting to synchronize the data.
+What it does is indexing the file (PRIVATE) for any changes and writing the encrypted metadata in it.
+
+=== Summary ===
+What we did in this tutorial is:
+
+	//We created a large file 1GB in size.//
+	//We formatted the file with cryptsetup to use it as an encrypted container.//
+	//We created a filesystem, and we converted the file to a container.//
+	//We opened and mount the container (now we can store our data)//
+	//We unmounted and closed the container properly.//

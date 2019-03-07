@@ -1,0 +1,21 @@
+====== Inside Existing Project ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Inside Existing Project
+
+
+Created Tuesday 15 May 2018
+
+
+
+# install as a local dependency
+yarn add -D vuepress # OR npm install -D vuepress
+
+
+
+# create a docs directory
+mkdir docs
+# create a markdown file
+echo '# Hello VuePress' > docs/README.md

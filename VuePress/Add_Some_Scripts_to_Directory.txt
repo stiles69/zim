@@ -1,0 +1,27 @@
+====== Add Some Scripts to Directory ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Add Some Scripts to Directory
+
+
+Created Tuesday 15 May 2018
+
+
+
+  {
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
+
+
+  You can now start writing with:
+  yarn docs:dev # OR npm run docs:dev
+
+
+
+  To generate static assets, run:
+  yarn docs:build # Or npm run docs:build

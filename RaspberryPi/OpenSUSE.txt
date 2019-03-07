@@ -1,0 +1,300 @@
+====== OpenSUSE ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+OpenSUSE
+
+
+Created Tuesday 22 May 2018
+
+
+
+Installing the 64-bit openSUSE Leap 42.3 / Tumbleweed using standard DVD
+With the latest Leap version, and with the EFI boot protocol implemented in U-boot, it is now possible to directly
+install from DVD on Raspberry Pi 3.
+
+
+
+Note this guide assumes:
+
+
+
+that you already have a Leap/Tumbleweed OS installed on your PC
+that you are familiar with the openSUSE installation procedure
+To boot the DVD there are multiple ways:
+
+
+
+copying the ISO on a USB key
+booting the ISO through the network boot (PXE)
+For each cases, it is still needed to use a SD card to load the firmware and the bootloader (USB boot is also possible
+on Raspberry Pi 3).
+
+
+
+USB key installation method
+A USB key (that can contains the DVD) and a SD card (at least 16GB) are needed.
+
+
+
+Create a bootable SD card with the following partitioning scheme and format it - WARNING all previous data on the
+device will be lost!
+
+
+  # fdisk -l /dev/<sd_card>
+
+
+
+
+  Disk /dev/mmcblk0: 14.5 GiB, 15523119104 bytes, 30318592 sectors
+  Units: sectors of 1 * 512 = 512 bytes
+  Sector size (logical/physical): 512 bytes / 512 bytes
+  I/O size (minimum/optimal): 512 bytes / 512 bytes
+  Disklabel type: dos
+  Disk identifier: 0x5d972dea
+
+
+
+  Device Boot Start End Sectors Size Id Type
+  /dev/mmcblk0p1 * 2048 206847 206847 100M c W95 FAT32 (LBA)
+
+
+  
+    # mkfs -t vfat /dev/<sd_card>p1
+
+
+    Copy the Raspberry Pi 3 firmware and bootloader on it (note that the u-boot package version can change!)
+
+    
+      # mount /dev/<sd_card>p1 /mnt
+# zypper -n in raspberrypi-firmware-config-rpi3
+# cp -a /boot/vc/* /mnt/
+# zypper -n rm raspberrypi-firmware-config-rpi3 raspberrypi-firmware
+# mkdir tmp_uboot
+# wget http://download.opensuse.org/ports/aarch64/distribution/leap/42.3/repo/oss/suse/aarch64/u-boot-rpi3-2017.05-1.1.aarch64.rpm -O tmp_uboot/u-boot-rpi3.aarch64.rpm
+# cd tmp_uboot
+# rpm2cpio u-boot-rpi3.aarch64.rpm | cpio -id
+# cp boot/vc/* /mnt/
+# cd ..
+# rm -rf tmp_uboot
+# umount /mnt
+
+
+
+
+      Download the Leap 42.3 ISO (or the Tumbleweed ISO) and "burn" it on the USB key - WARNING all previous data on
+      the device will be lost!
+
+
+      
+        # dd if=[image].iso of=/dev/<usb_key> bs=4M iflag=direct,fullblock oflag=direct
+
+
+
+
+        Insert the SD card and USB key into your Raspberry Pi 3
+        Connect the Raspberry Pi 3 to your PC via serial port (optional, but helpful for debugging; USB-TTL serial
+        cable needed)
+        Connect the Raspberry Pi 3 to your monitor (via DVI/HDMI, optional if you use the serial port)
+        Power on the Raspberry Pi 3
+        Stop the U-boot procedure by pressing a key (Not needed if you only have u-boot on your sdcard!)
+        Change the boot order to force USB boot (Not needed if you only have u-boot on your sdcard!)
+        Hit any key to stop autoboot: 0
+        U-Boot> print boot_targets
+        boot_targets=mmc0 usb0 pxe dhcp
+        U-Boot> setenv boot_targets usb0
+        U-Boot> print boot_targets
+        boot_targets=usb0
+        U-Boot> boot
+        Your Raspberry Pi 3 is now booting the installation DVD!
+        As the installation system suppose that you have a *real* UEFI firmware, a little trick is needed after the
+        installation to be able to boot the OS.
+
+
+
+        On your PC, you need to create a Hybrid MBR/GPT on the SD card for the Raspberry Pi 3 to be able to load the
+        firmware/bootloader
+
+        
+          # gdisk /dev/<sd_card>
+
+
+          GPT fdisk (gdisk) version 0.8.8
+
+
+
+          Partition table scan:
+          MBR: protective
+          BSD: not present
+          APM: not present
+          GPT: present
+
+
+
+          Found valid GPT with protective MBR; using GPT.
+
+
+
+          Command (? for help): r
+
+
+
+          Recovery/transformation command (? for help): p
+          Disk /dev/mmcblk0: 30318592 sectors, 14.5 GiB
+          Logical sector size: 512 bytes
+          Disk identifier (GUID): C6B4FFEC-235E-485A-AA35-E3D4468C1276
+          Partition table holds up to 128 entries
+          First usable sector is 34, last usable sector is 30318558
+          Partitions will be aligned on 2048-sector boundaries
+          Total free space is 4029 sectors (2.0 MiB)
+
+
+
+          Number Start (sector) End (sector) Size Code Name
+          1 2048 321535 156.0 MiB EF00 primary
+          2 321536 30316543 14.3 GiB 8E00 primary
+
+
+
+          Recovery/transformation command (? for help): h
+
+
+
+          WARNING! Hybrid MBRs are flaky and dangerous! If you decide not to use one,
+          just hit the Enter key at the below prompt and your MBR partition table will
+          be untouched.
+
+
+
+          Type from one to three GPT partition numbers, separated by spaces, to be
+          added to the hybrid MBR, in sequence: 1
+          Place EFI GPT (0xEE) partition first in MBR (good for GRUB)? (Y/N): n
+
+
+
+          Creating entry for GPT partition #1 (MBR partition #1)
+          Enter an MBR hex code (default EF): 0C
+          Set the bootable flag? (Y/N): y
+
+
+
+          Unused partition space(s) found. Use one to protect more partitions?
+          (Y/N): n
+
+
+
+          Recovery/transformation command (? for help): o
+
+
+
+          Disk size is 30318592 sectors (14.5 GiB)
+          MBR disk identifier: 0x00000000
+          MBR partitions:
+
+
+
+          Number Boot Start Sector End Sector Status Code
+          1 * 2048 321535 primary 0x0C
+          2 1 2047 primary 0xEE
+
+
+
+          Recovery/transformation command (? for help): w
+
+
+
+          Final checks complete. About to write GPT data. THIS WILL OVERWRITE EXISTING
+          PARTITIONS!!
+
+
+
+          Do you want to proceed? (Y/N): y
+          OK; writing new GUID partition table (GPT) to /dev/mmcblk0.
+          The operation has completed successfully.
+          Insert the SD card with the openSUSE image into your board and power on it
+          Congratulation! Your Raspberry Pi 3 is now booting your freshly installed openSUSE!
+          Finally... have a lot of fun :)
+          Network/PXE installation method
+          TODO
+
+
+
+          Installing the 64-bit openSUSE Leap image
+          Download the image you want (Leap is stable, Tumbleweed is rolling) from here:
+          Susemini.png
+          Version:
+          Leap42.3
+          JeOS image E20 image XFCE image LXQT image KDE image X11 image
+          If the direct links above do not work for you (as we are constantly building new images), please check the
+          general download directory for the images.
+          As root extract the image onto your SD card (replace sdX with the device name of your SD card).
+          WARNING: all previous data on the SD card will be lost. Check first if the device you have selected is really
+          your SD card!
+          xzcat [image].raw.xz | dd bs=4M of=/dev/sdX iflag=fullblock oflag=direct; sync
+          Insert the SD card with the openSUSE image into your board.
+          Connect the board to your PC via serial port (optional, but helpful for debugging; USB-TTL serial cable
+          needed).
+          Connect the board to your monitor (via DVI/HDMI, optional).
+          Power on the board.
+          Walk through the first boot steps.
+          Ethernet is configured to request an IP via DHCP, check your DHCP server for the board IP if used.
+          Have a lot of fun...
+          Default login is root:linux, works on serial console, via ssh, GUI.
+
+
+
+
+
+          Installing the 64-bit openSUSE Tumbleweed image
+          Download the image you want (Leap is stable, Tumbleweed is rolling) from here:
+          Susemini.png
+          Version:
+          Tumbleweed
+          JeOS image E20 image XFCE image LXQT image KDE image X11 image
+          If the direct links above do not work for you (as we are constantly building new images), please check the
+          general download directory for the images.
+          As root extract the image onto your SD card (replace sdX with the device name of your SD card).
+          WARNING: all previous data on the SD card will be lost. Check first if the device you have selected is really
+          your SD card!
+          xzcat [image].raw.xz | dd bs=4M of=/dev/sdX iflag=fullblock oflag=direct; sync
+          Insert the SD card with the openSUSE image into your Raspberry Pi 3.
+          Connect the Raspberry Pi 3 to your PC via serial port (optional, but helpful for debugging; USB-TTL serial
+          cable needed).
+          Connect the Raspberry Pi 3 to your monitor (via DVI/HDMI, optional).
+          Power on the Raspberry Pi 3.
+          Ethernet is configured to request an IP via DHCP, check your DHCP server for the Raspberry Pi 3 IP if used.
+          Have a lot of fun...
+          Default login is root:linux, works on serial console, via ssh, GUI.
+
+
+
+
+
+          Troubleshooting
+          I don't see kernel output on serial or HDMI
+          If you don't see kernel output on serial or HDMI, you can try adding earlycon=uart8250,mmio32,0x3f215040 to
+          the kernel command line.
+
+
+
+          I see HDMI output in U-Boot, but not in Linux
+          The upstream Linux graphics driver for the Raspberry Pi has problems with a few monitors. The same applies to
+          the 7" LCD displays. In those cases, please fall back to the efi frame buffer console by passing the
+          following into the kernel command line:
+
+
+
+          modprobe.blacklist=vc4
+
+
+
+          I want to boot the same aarch64 image from microSD and USB adapter
+          If you are using a Raspberry Pi-3B or later version and want to install on a microSD storage card that you
+          can subsequently use to boot from either microSD or via USB (with adapter), refer to this How To [1]
+
+
+
+          See also
+          List of Hats
+          Raspberry Pi 2

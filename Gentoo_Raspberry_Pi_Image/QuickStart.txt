@@ -1,0 +1,139 @@
+====== QuickStart ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+
+
+
+
+
+After Boot to Add User:
+pi64 ~ # useradd --create-home --groups "adm,disk,lp,wheel,audio,video,cdrom,usb,users,plugdev,portage" --shell
+/bin/bash --comment "Sakaki" sakaki
+pi64 ~ # passwd sakaki
+New password: <type your desired password for the new user, and press Enter>
+Retype new password: <type the desired password again, and press Enter>
+passwd: password updated successfully
+Username: root
+Password: raspberrypi64
+
+
+
+After Boot to Add User:
+pi64 ~ # useradd --create-home --groups "adm,disk,lp,wheel,audio,video,cdrom,usb,users,plugdev,portage" --shell
+/bin/bash --comment "Sakaki" sakaki
+pi64 ~ # passwd sakaki
+New password: <type your desired password for the new user, and press Enter>
+Retype new password: <type the desired password again, and press Enter>
+passwd: password updated successfully
+Then, once logged in, you can delete the demouser account if you like. Open a terminal, su to root, then:
+pi64 ~ # userdel --remove demouser
+userdel: demouser mail spool (/var/spool/mail/demouser) not found
+
+
+
+Installing New Packages Under Gentoo
+You can add any additional packages you like to your RPi3. To search for available packages, you can use the
+(pre-installed) eix tool. For example, to search for all packages with 'hex editor' in their description:
+
+
+
+demouser@pi64 ~ $ eix --description --compact "hex.editor"
+
+
+
+Option 2: Remove Xfce4 and Migrate to a Textual Console System
+To purge the GUI desktop (and apps) from your system completely, useful if e.g., you want to maintain a headless
+server, is also straighforward.
+
+
+
+Begin by following the steps in option 1, above, but remove all lines in /var/lib/portage/world, except for
+dev-embedded/rpi3-64bit-meta (which must be retained).
+
+
+
+demouser@pi64 ~ $ sudo mousepad /var/lib/portage/world &amp;>/dev/null&amp;
+(this will open the file for editing)
+
+
+
+Caution: do not delete the dev-embedded/rpi3-64bit-meta line as this is necessary to keep e.g. the Xfce4 desktop, and
+other support services and applications, installed.
+
+
+
+Once the file only contains packages you want to keep, save it, and close mousepad.
+
+
+
+The unwanted packages will now have a 'reference count' of zero, but are not actually removed from your system yet. To
+do that, issue:
+
+
+
+demouser@pi64 ~ $ sudo emerge --ask --depclean
+
+
+
+Once the emerge --depclean completes, fix any broken shared library dependencies; issue:
+
+
+
+demouser@pi64 ~ $ sudo revdep-rebuild
+This will normally end up being a no-op, but it is always safest to check.
+
+
+
+With that done, open a terminal at the (slimmed down!) desktop, and issue:
+
+
+Extra Commands
+
+
+Remove GUI:
+pi64 ~ # rc-update del xdm default
+
+
+
+You can also reclaim the memory reserved for the vc4 graphics driver (this is optional). To do so, issue:
+
+
+
+pi64 ~ # vim -w /boot/config.txt
+and comment out the following line, so it reads:
+
+
+
+#dtoverlay=vc4-fkms-v3d,cma-256
+
+
+
+To change the time zone, e.g. for Germany:
+
+
+
+root #timedatectl set-timezone https://wiki.gentoo.org/wiki/Localization/Guide#Environment_variables_for_locales
+
+
+
+To set the system clock:
+
+
+
+root #timedatectl set-time "2012-12-17 12:30:59"
+
+
+
+At runtime, to check the current hardware clock time:
+
+
+
+root #hwclock --show
+To set the hardware clock to the current system clock:
+
+
+
+root #hwclock --systohc

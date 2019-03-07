@@ -1,0 +1,17 @@
+====== GIMP ======
+
+
+
+
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+GIMP
+
+
+Created Monday 19 March 2018
+
+
+
++Calculate X Y Placement

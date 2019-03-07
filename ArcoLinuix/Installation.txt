@@ -1,0 +1,192 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Installation ======
+
+Download Image.iso and Burn to Usb (ArcoLinuxD is the Virtual Machine Image) https://sourceforge.net/projects/arcolinux/files/
+
+We have installed ArcoLinux and rebooted. We selected to autologin so we end up in the Xfce desktop environment.
+
+We will explain that one first. We recommend you read this “Need to know” page as it will contain all future versions
+	and future faq.
+
+We will show you how to fix the icons so they ALL follow the Sardi Mono Colora theme. Everytime there is a new update
+	of these 6 applications the icon (or more) will be broken again. You need to rerun the script.
+
+
+=== 1 sudo hardcode-fixer ===
+
+We can move the plank to the top or bottom and change the look.
+
+Variety can help you to change the wallpaper.
+
+Xfce settings manager is shown.
+
+We activate conky’s.
+
+Set your own preferences.
+
+Download these setting from Erick https://github.com/erikdubois/arcolinux-nemesis
+
+10 TIPS
+1. If you are on dual screen you do not want it mirrored the power of alias.
+2. pksyua – repositories explained
+3. variety explained or removed
+4. get more settings and software from https://github.com/erikdubois/arcolinux-nemesis
+5. install all the fonts for the conky’s
+6. install screenfetch, dconf-editor, …
+7. install dropbox, spotify, insync, …
+8. microcode error – alias available is updategrub
+9. Personal folder
+10. bookmarks
+11. gimp settings
+12. firefox tweak to get readable inputboxes in youtube e.g.
+13. icon fixes for sublime-text and simplescreenrecorder
+14. choose plank theme
+15. choose icons
+16. choose fonts
+17. choose theme
+
+=== INSTALL NEMO AS EXTRA FILEMANAGER ON ANY ARCOLINUX WITH MANY TIPS ===
+
+== Installing nemo is quite simple. ==
+
+**1 sudo pacman -S nemo**
+Then you set nemo as the default application via “exo-preferred-application” or via the menu “Preferred Applications“.
+Deleting thunar completely might break your system. I have not tried yet. We see in the video that there are
+dependancies. They should be deleted as well…I suggest leaving thunar but use nemo instead as the best option.
+Correction: you do not have the complete cinnamon desktop. You can not login.
+
+== Solution 1 ==
+Nemo expects gnome-terminal to be installed so install it with
+**sudo pacman -S gnome-terminal**
+Tip : there is also a transparent gnome-terminal called “gnome-terminal-transparency”
+
+== Solution 2 ==
+We want the standard terminal “Termite” on Nemo.
+We found the solution on the wiki of Arch Linux at https://wiki.archlinux.org/index.php/Nemohttps://wiki.archlinux.org/index.php/Nemohttps://wiki.archlinux.org/index.php/Nemo
+**sending incremental file list**
+**./**
+**ACL/**
+**Antergos/**
+**Archives/**
+**ArcoLinuix/**
+**BTRFS/**
+**Bash/**
+**Certificates/**
+**Crontab_Manual/**
+**DD/**
+**DDClient/**
+**DDClient/username/**
+**DVDA-Author/**
+**DVDAuthor/**
+**Desktop_Entry/**
+**Directories/**
+**Disk/**
+**Docker/**
+**DuckDNS/**
+**Duplicity/**
+**Duplucati/**
+**Encfs/**
+**Encryption/**
+**Encryption/Encfs/**
+**Encryption/GoCryptfs/**
+**Encryption/ecryptfs/**
+**Encryption/encfs/**
+**Exports_File_For_NFS/**
+**Express_Webserver/**
+**FFMPEG/**
+**FSTAB/**
+**Files/**
+**Files/ACL's/**
+**GIMP/**
+**GPG/**
+**Gentoo_Raspberry_Pi_Image/**
+**Get_GID_from_USER/**
+**Get_UID_from_User/**
+**Git/**
+**GoTTY/**
+**Google_Analtytics/**
+**Google_Cloud/**
+**Groups/**
+**Groups/List_All_Groups/**
+**Gulp/**
+**HTTP_Server_(2)/**
+**Hypriot/**
+**ISO/**
+**Images/**
+**Install_KDE5/**
+**Install_XORG/**
+**JPEG_2000/**
+**Java/**
+**Javascript/**
+**Kali-Linux/**
+**Lighttpd/**
+**Linux_File_Permissions/**
+**Mega-Cmd/**
+**Mosh/**
+**Mount/**
+**NFS/**
+**NGROK_HTTP_Tunnel/**
+**NODEJS/**
+**NPM/**
+**Networking/**
+**Networking/PIA/**
+**Networking/PiVPN/**
+**Node_Express_Server/**
+**Notify-Send/**
+**Nuxt/**
+**OpenGPG/**
+**OpenSSH_on_Antergos/**
+**OpenSSL/**
+**PIA/**
+**PWA_Tools/**
+**Pacman/**
+**Pacman/Chart/**
+**Parcel/**
+**Processes/**
+**RAR/**
+**RSYNC/**
+**RaspberryPi/**
+**RealFavicons/**
+**SSHFS/**
+**Samba/**
+**Sed/**
+**Setup_fstab_on_Pi/**
+**TCPLAY/**
+**TeamCity/**
+**Temp_Dir/**
+**Test/**
+**ToDo/**
+**Transmission/**
+**Tuxwang/**
+**USB_Dogle/**
+**Users/**
+**VBOXDR/**
+**Vim/**
+**Vue/**
+**VuePress/**
+**WebP_Image_Format/**
+**Webpack/**
+**XSL/**
+**Yaourt/**
+**Youtube_Downloader/**
+**Yubikey/**
+**ZSH/**
+**Zim/**
+**eslint/**
+**ftp/**
+**gcloud/**
+**timeshift/**
+**unar/**
+
+**sent 4,978 bytes  received 477 bytes  10,910.00 bytes/sec**
+**total size is 11,072,967  speedup is 2,029.87**
+******Completed RSyncing /home/brettsalemink/Notes to /home/brettsalemink/development/stiles69/zim******
+******Completed indexing /home/brettsalemink/Notes.******
+******Completed exporting /home/brettsalemink/Notes to /home/brettsalemink/development/stiles69/zim******
+**[master 14669484] Update Zim**
+** 2 files changed, 38 insertions(+), 136 deletions(-)**
+**Completed pushing /home/brettsalemink/development/stiles69/zim. Website can be found at https://stiles69.github.io/zim/sitemap.html**
+
+

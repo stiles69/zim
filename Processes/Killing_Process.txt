@@ -1,0 +1,117 @@
+====== Killing Process ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Killing Process
+
+
+Created Saturday 16 June 2018
+
+
+
+We only want the listing associated with Chrome. So this command would look like:
+
+
+
+ps aux | grep chrome
+The aux options are as follows:
+
+
+
+a = show processes for all users
+
+
+
+u = display the process's user/owner
+
+
+
+x = also show processes not attached to a terminal
+
+
+
+The x option is important when you’re hunting for information regarding a graphical application.
+
+
+
+Killing the process
+Now we come to the task of killing the process. We have two pieces of information that will help us kill the errant
+process:
+
+
+
+Process name
+
+
+
+Process ID
+
+
+
+Which you use will determine the command used for termination. There are two commands used to kill a process:
+
+
+
+kill - Kill a process by ID
+
+
+
+killall - Kill a process by name
+
+
+
+Signal NameSingle ValueEffect
+
+
+
+SIGHUP1Hangup
+
+
+
+SIGINT2Interrupt from keyboard
+
+
+
+SIGKILL9Kill signal
+
+
+
+SIGTERM15Termination signal
+
+
+
+SIGSTOP17, 19, 23Stop the process
+
+
+
+kill SIGNAL PID
+
+
+
+kill -9 3827
+
+
+
+kill -9 3919
+
+
+
+kill -9 10764
+
+
+
+kill -9 11679
+
+
+
+Once we’ve issued the above commands, all of the chrome processes will have been successfully killed.
+
+
+
+Let’s take the easy route! If we already know the process we want to kill is named chrome, we can make use of the
+killall command and send the same signal the process like so:
+
+
+
+killall -9 chrome

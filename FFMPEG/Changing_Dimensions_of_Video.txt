@@ -1,0 +1,31 @@
+====== Changing Dimensions of Video ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Changing Dimensions of Video
+
+
+Created Monday 22 January 2018
+
+
+
+You can also adjust the dimensions of your video using FFmpeg. The simplest way is to use a predetermined video
+    size:
+
+
+
+ffmpeg -i input.mkv -c:a copy -s hd720 output.mkv
+
+
+
+This modifies the video to 1280x720 in the output, but you can set the width and height manually if you want:
+
+
+
+ffmpeg -i input.mkv -c:a copy -s 1280x720 output.mkv
+
+
+
+This produces the exact same output as the earlier command. If you want to set custom sizes in FFmpeg, please
+    remember that the width parameter (1280) comes before height (720).

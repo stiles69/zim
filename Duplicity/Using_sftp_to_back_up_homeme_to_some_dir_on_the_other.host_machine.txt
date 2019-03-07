@@ -1,0 +1,15 @@
+====== Using sftp to back up homeme to some dir on the other.host machine ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Using sftp to back up homeme to some dir on the other.host machine
+
+
+Created Saturday 12 May 2018
+
+
+
+duplicity /home/me sftp://uid@other.host/some_dir
+If the above is run repeatedly, the first will be a full backup, and subsequent ones will be incremental. To force a
+    full backup, use the full action.

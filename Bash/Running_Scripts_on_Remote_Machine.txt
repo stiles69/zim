@@ -1,0 +1,40 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Running Scripts on Remote Machine ======
+
+
+===== Syntax for running command on a remote host: =====
+**ssh [USER-NAME]@[REMOTE-HOST] [command or script]**
+
+Where,
+
+**ssh: ssh (SSH client)** is a program for logging into a remote machine and for executing commands on a remote machine.
+**USER-NAME:** Remote host user name.
+**REMOTE-HOST:** Remote host ip-address or host name, such as fbsd.cyberciti.biz.
+**command or script**: Command or shell script is executed on the remote host instead of a login shell.
+Examples
+(A) Get disk information from a server called www1.cyberciti.biz:
+**$ ssh vivek@www1.cyberciti.biz**
+**df -h**
+
+=== (B) List what ports are open on remote host ===
+**$ ssh vivek@www1.cyberciti.biz**
+**netstat -vatn**
+
+=== (C) Reboot remote host: ===
+**$ ssh root@www1.cyberciti.biz**
+**reboot**
+
+=== (D) Restart mysql server (please note enclosed multiple command line arguments using a single or double quotes) ===
+**$ ssh root@www1.cyberciti.biz**
+**'/etc/init.d/mysql restart'**
+
+=== (E) Get memory information and store result/output to local file /tmp/memory.status: ===
+**$ ssh vivek@www1.cyberciti.biz**
+**'free -m' > /tmp/memory.status**
+
+=== (G) You can also run multiple command or use the pipes, following command displays memory in format of “available ===
+=== memory = used + free memory” : ===
+**$ ssh vivek@debian.test.com**
+**free -m | grep "Mem:" | awk '{ print "Total memory (used+free): " $3 " + " $4 " = " $2 }'**

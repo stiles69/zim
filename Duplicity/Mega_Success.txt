@@ -1,0 +1,17 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+
+====== Mega Success ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+Mega Success
+
+duplicity full -v 1 --no-encryption --include="/"
+--exclude="**" /home/brettsalemink
+mega://brett.salemink@gmail.com@mega.co.nz//Data/Backups/PI64
+
+
+
+duplicity full /home/brettsalemink
+mega://brett.salemink@gmail.com@mega.co.nz//Data/Backups/PI64

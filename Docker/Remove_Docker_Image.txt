@@ -1,0 +1,13 @@
+====== Create and manage volumes ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Create and manage volumes
+
+
+Created Wednesday 23 May 2018
+
+
+
+# docker rmi <image id or name>

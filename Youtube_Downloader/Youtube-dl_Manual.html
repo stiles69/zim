@@ -1,0 +1,3034 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Youtube-dl Manual</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>Youtube-dl Manual</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+Youtube-dl Manual
+</p>
+
+<br>
+
+<p>
+Created Wednesday 04 July 2018
+</p>
+
+<br>
+<br>
+
+<p>
+youtube-dl [OPTIONS] URL [URL...]
+</p>
+
+<br>
+
+<p>
+OPTIONS
+</p>
+
+<br>
+
+<p>
+-h, --help Print this help text and exit<br>
+--version Print program version and exit<br>
+-U, --update Update this program to latest version. Make<br>
+&lt;div style='padding-left: 240pt'&gt;<br>
+<div style='padding-left: 30pt'>
+sure that you have sufficient permissions<br>
+(run with sudo if needed)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+-i, --ignore-errors Continue on download errors, for example to<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 60pt'>
+skip unavailable videos in a playlist
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+--abort-on-error Abort downloading of further videos (in the<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 90pt'>
+playlist or the command line) if an error<br>
+occurs
+</div>
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+--dump-user-agent Display the current browser identification<br>
+--list-extractors List all supported extractors<br>
+--extractor-descriptions Output descriptions of all supported<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 120pt'>
+extractors
+</div>
+</p>
+
+<p>
+<div style='padding-left: 120pt'>
+--force-generic-extractor Force extraction to use the generic<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 150pt'>
+extractor
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+--default-search PREFIX Use this prefix for unqualified URLs. For<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 180pt'>
+example "gvsearch2:" downloads two videos<br>
+from google videos for youtube-dl "large<br>
+apple". Use the value "auto" to let<br>
+youtube-dl guess ("auto_warning" to emit a<br>
+warning when guessing). "error" just throws<br>
+an error. The default value "fixup_error"<br>
+repairs broken URLs, but emits an error if<br>
+this is not possible instead of searching.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+--ignore-config Do not read configuration files. When given<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 210pt'>
+in the global configuration file<br>
+/etc/youtube-dl.conf: Do not read the user<br>
+configuration in ~/.config/youtube-<br>
+dl/config (%APPDATA%/youtube-dl/config.txt<br>
+on Windows)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+--config-location PATH Location of the configuration file; either<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 240pt'>
+the path to the config or its containing<br>
+directory.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+--flat-playlist Do not extract the videos of a playlist,<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 270pt'>
+only list them.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+--mark-watched Mark videos watched (YouTube only)<br>
+--no-mark-watched Do not mark videos watched (YouTube only)<br>
+--no-color Do not emit color codes in output<br>
+Network Options:<br>
+--proxy URL Use the specified HTTP/HTTPS/SOCKS proxy.<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 300pt'>
+To enable SOCKS proxy, specify a proper<br>
+scheme. For example
+</div>
+</p>
+
+<p>
+<div style='padding-left: 300pt'>
+string (--proxy "") for direct connection
+</div>
+</p>
+
+<p>
+<div style='padding-left: 300pt'>
+--socket-timeout SECONDS Time to wait before giving up, in seconds<br>
+--source-address IP Client-side IP address to bind to<br>
+-4, --force-ipv4 Make all connections via IPv4<br>
+-6, --force-ipv6 Make all connections via IPv6<br>
+Geo Restriction:<br>
+--geo-verification-proxy URL Use this proxy to verify the IP address for<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 330pt'>
+some geo-restricted sites. The default<br>
+proxy specified by --proxy (or none, if the<br>
+option is not present) is used for the<br>
+actual downloading.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 330pt'>
+--geo-bypass Bypass geographic restriction via faking<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 360pt'>
+X-Forwarded-For HTTP header
+</div>
+</p>
+
+<p>
+<div style='padding-left: 360pt'>
+--no-geo-bypass Do not bypass geographic restriction via<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 390pt'>
+faking X-Forwarded-For HTTP header
+</div>
+</p>
+
+<p>
+<div style='padding-left: 390pt'>
+--geo-bypass-country CODE Force bypass geographic restriction with<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 420pt'>
+explicitly provided two-letter ISO 3166-2<br>
+country code
+</div>
+</p>
+
+<p>
+<div style='padding-left: 420pt'>
+--geo-bypass-ip-block IP_BLOCK Force bypass geographic restriction with<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 450pt'>
+explicitly provided IP block in CIDR<br>
+notation
+</div>
+</p>
+
+<p>
+<div style='padding-left: 450pt'>
+Video Selection:<br>
+--playlist-start NUMBER Playlist video to start at (default is 1)<br>
+--playlist-end NUMBER Playlist video to end at (default is last)<br>
+--playlist-items ITEM_SPEC Playlist video items to download. Specify<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 480pt'>
+indices of the videos in the playlist<br>
+separated by commas like: "--playlist-items<br>
+1,2,5,8" if you want to download videos<br>
+indexed 1, 2, 5, 8 in the playlist. You can<br>
+specify range: "--playlist-items<br>
+1-3,7,10-13", it will download the videos<br>
+at index 1, 2, 3, 7, 10, 11, 12 and 13.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 480pt'>
+--match-title REGEX Download only matching titles (regex or<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 510pt'>
+caseless sub-string)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 510pt'>
+--reject-title REGEX Skip download for matching titles (regex or<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 540pt'>
+caseless sub-string)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 540pt'>
+--max-downloads NUMBER Abort after downloading NUMBER files<br>
+--min-filesize SIZE Do not download any videos smaller than<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 570pt'>
+SIZE (e.g. 50k or 44.6m)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 570pt'>
+--max-filesize SIZE Do not download any videos larger than SIZE<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 600pt'>
+(e.g. 50k or 44.6m)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 600pt'>
+--date DATE Download only videos uploaded in this date<br>
+--datebefore DATE Download only videos uploaded on or before<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 630pt'>
+this date (i.e. inclusive)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 630pt'>
+--dateafter DATE Download only videos uploaded on or after<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 660pt'>
+this date (i.e. inclusive)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 660pt'>
+--min-views COUNT Do not download any videos with less than<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 690pt'>
+COUNT views
+</div>
+</p>
+
+<p>
+<div style='padding-left: 690pt'>
+--max-views COUNT Do not download any videos with more than<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 720pt'>
+COUNT views
+</div>
+</p>
+
+<p>
+<div style='padding-left: 720pt'>
+--match-filter FILTER Generic video filter. Specify any key (see<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 750pt'>
+the "OUTPUT TEMPLATE" for a list of<br>
+available keys) to match if the key is<br>
+present, !key to check if the key is not<br>
+present, key &gt; NUMBER (like "comment_count<br>
+&gt; 12", also works with &gt;=, &lt;, &lt;=, !=, =) to<br>
+compare against a number, key = 'LITERAL'<br>
+(like "uploader = 'Mike Smith'", also works<br>
+with !=) to match against a string literal<br>
+and &amp;amp; to require multiple matches. Values<br>
+which are not known are excluded unless you<br>
+put a question mark (?) after the operator.<br>
+For example, to only match videos that have<br>
+been liked more than 100 times and disliked<br>
+less than 50 times (or the dislike<br>
+functionality is not available at the given<br>
+service), but who also have a description,<br>
+use --match-filter "like_count &gt; 100 &amp;amp;<br>
+dislike_count &lt;? 50 &amp;amp; description" .
+</div>
+</p>
+
+<p>
+<div style='padding-left: 750pt'>
+--no-playlist Download only the video, if the URL refers<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 780pt'>
+to a video and a playlist.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 780pt'>
+--yes-playlist Download the playlist, if the URL refers to<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 810pt'>
+a video and a playlist.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 810pt'>
+--age-limit YEARS Download only videos suitable for the given<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 840pt'>
+age
+</div>
+</p>
+
+<p>
+<div style='padding-left: 840pt'>
+--download-archive FILE Download only videos not listed in the<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 870pt'>
+archive file. Record the IDs of all<br>
+downloaded videos in it.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 870pt'>
+--include-ads Download advertisements as well<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 900pt'>
+(experimental)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+Download Options:
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+-r, --limit-rate RATE Maximum download rate in bytes per second<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 930pt'>
+(e.g. 50K or 4.2M)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 930pt'>
+-R, --retries RETRIES Number of retries (default is 10), or<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 960pt'>
+"infinite".
+</div>
+</p>
+
+<p>
+<div style='padding-left: 960pt'>
+--fragment-retries RETRIES Number of retries for a fragment (default<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 990pt'>
+is 10), or "infinite" (DASH, hlsnative and<br>
+ISM)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 990pt'>
+--skip-unavailable-fragments Skip unavailable fragments (DASH, hlsnative<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1020pt'>
+and ISM)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1020pt'>
+--abort-on-unavailable-fragment Abort downloading when some fragment is not<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1050pt'>
+available
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1050pt'>
+--keep-fragments Keep downloaded fragments on disk after<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1080pt'>
+downloading is finished; fragments are<br>
+erased by default
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1080pt'>
+--buffer-size SIZE Size of download buffer (e.g. 1024 or 16K)<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1110pt'>
+(default is 1024)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1110pt'>
+--no-resize-buffer Do not automatically adjust the buffer<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1140pt'>
+size. By default, the buffer size is<br>
+automatically resized from an initial value<br>
+of SIZE.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1140pt'>
+--http-chunk-size SIZE Size of a chunk for chunk-based HTTP<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1170pt'>
+downloading (e.g. 10485760 or 10M) (default<br>
+is disabled). May be useful for bypassing<br>
+bandwidth throttling imposed by a webserver<br>
+(experimental)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1170pt'>
+--playlist-reverse Download playlist videos in reverse order<br>
+--playlist-random Download playlist videos in random order<br>
+--xattr-set-filesize Set file xattribute ytdl.filesize with<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1200pt'>
+expected file size
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1200pt'>
+--hls-prefer-native Use the native HLS downloader instead of<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1230pt'>
+ffmpeg
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1230pt'>
+--hls-prefer-ffmpeg Use ffmpeg instead of the native HLS<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1260pt'>
+downloader
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1260pt'>
+--hls-use-mpegts Use the mpegts container for HLS videos,<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1290pt'>
+allowing to play the video while<br>
+downloading (some players may not be able<br>
+to play it)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1290pt'>
+--external-downloader COMMAND Use the specified external downloader.<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1320pt'>
+Currently supports<br>
+aria2c,avconv,axel,curl,ffmpeg,httpie,wget
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1320pt'>
+--external-downloader-args ARGS Give these arguments to the external<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1350pt'>
+downloader
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1350pt'>
+Filesystem Options:
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 1350pt'>
+-a, --batch-file FILE File containing URLs to download ('-' for<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1380pt'>
+stdin), one URL per line. Lines starting<br>
+with '#', ';' or ']' are considered as<br>
+comments and ignored.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1380pt'>
+--id Use only video ID in file name<br>
+-o, --output TEMPLATE Output filename template, see the "OUTPUT<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1410pt'>
+TEMPLATE" for all the info
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1410pt'>
+--autonumber-start NUMBER Specify the start value for %(autonumber)s<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1440pt'>
+(default is 1)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1440pt'>
+--restrict-filenames Restrict filenames to only ASCII<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1470pt'>
+characters, and avoid "&amp;amp;" and spaces in<br>
+filenames
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1470pt'>
+-w, --no-overwrites Do not overwrite files<br>
+-c, --continue Force resume of partially downloaded files.<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1500pt'>
+By default, youtube-dl will resume<br>
+downloads if possible.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1500pt'>
+--no-continue Do not resume partially downloaded files<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1530pt'>
+(restart from beginning)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1530pt'>
+--no-part Do not use .part files - write directly<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1560pt'>
+into output file
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1560pt'>
+--no-mtime Do not use the Last-modified header to set<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1590pt'>
+the file modification time
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1590pt'>
+--write-description Write video description to a .description<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1620pt'>
+file
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1620pt'>
+--write-info-json Write video metadata to a .info.json file<br>
+--write-annotations Write video annotations to a<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1650pt'>
+.annotations.xml file
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1650pt'>
+--load-info-json FILE JSON file containing the video information<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1680pt'>
+(created with the "--write-info-json"<br>
+option)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1680pt'>
+--cookies FILE File to read cookies from and dump cookie<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1710pt'>
+jar in
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1710pt'>
+--cache-dir DIR Location in the filesystem where youtube-dl<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1740pt'>
+can store some downloaded information<br>
+permanently. By default<br>
+$XDG_CACHE_HOME/youtube-dl or<br>
+~/.cache/youtube-dl . At the moment, only<br>
+YouTube player files (for videos with<br>
+obfuscated signatures) are cached, but that<br>
+may change.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1740pt'>
+--no-cache-dir Disable filesystem caching<br>
+--rm-cache-dir Delete all filesystem cache files<br>
+Thumbnail images:<br>
+--write-thumbnail Write thumbnail image to disk<br>
+--write-all-thumbnails Write all thumbnail image formats to<br>
+disk<br>
+--list-thumbnails Simulate and list all available thumbnail<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1770pt'>
+formats
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1770pt'>
+Verbosity / Simulation Options:<br>
+-q, --quiet Activate quiet mode<br>
+--no-warnings Ignore warnings<br>
+-s, --simulate Do not download the video and do not write<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1800pt'>
+anything to disk
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1800pt'>
+--skip-download Do not download the video<br>
+-g, --get-url Simulate, quiet but print URL<br>
+-e, --get-title Simulate, quiet but print title<br>
+--get-id Simulate, quiet but print id<br>
+--get-thumbnail Simulate, quiet but print thumbnail URL<br>
+--get-description Simulate, quiet but print video<br>
+description<br>
+--get-duration Simulate, quiet but print video length<br>
+--get-filename Simulate, quiet but print output filename<br>
+--get-format Simulate, quiet but print output format<br>
+-j, --dump-json Simulate, quiet but print JSON information.<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1830pt'>
+See the "OUTPUT TEMPLATE" for a description<br>
+of available keys.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1830pt'>
+-J, --dump-single-json Simulate, quiet but print JSON<br>
+information<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1860pt'>
+for each command-line argument. If the URL<br>
+refers to a playlist, dump the whole<br>
+playlist information in a single line.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1860pt'>
+--print-json Be quiet and print the video information as<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1890pt'>
+JSON (video is still being downloaded).
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1890pt'>
+--newline Output progress bar as new lines<br>
+--no-progress Do not print progress bar<br>
+--console-title Display progress in console titlebar<br>
+-v, --verbose Print various debugging information<br>
+--dump-pages Print downloaded pages encoded using base64<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1920pt'>
+to debug problems (very verbose)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1920pt'>
+--write-pages Write downloaded intermediary pages to<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1950pt'>
+files in the current directory to debug<br>
+problems
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1950pt'>
+--print-traffic Display sent and read HTTP traffic<br>
+-C, --call-home Contact the youtube-dl server for<br>
+debugging<br>
+--no-call-home Do NOT contact the youtube-dl server<br>
+for<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 1980pt'>
+debugging
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1980pt'>
+Workarounds:<br>
+--encoding ENCODING Force the specified encoding<br>
+(experimental)<br>
+--no-check-certificate Suppress HTTPS certificate<br>
+validation<br>
+--prefer-insecure Use an unencrypted connection to<br>
+retrieve<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2010pt'>
+information about the video. (Currently<br>
+supported only for YouTube)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2010pt'>
+--user-agent UA Specify a custom user agent<br>
+--referer URL Specify a custom referer, use if the<br>
+video<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2040pt'>
+access is restricted to one domain
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2040pt'>
+--add-header FIELD:VALUE Specify a custom HTTP<br>
+header and its value,<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2070pt'>
+separated by a colon ':'. You can use this<br>
+option multiple times
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2070pt'>
+--bidi-workaround Work around terminals that lack<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2100pt'>
+bidirectional text support. Requires bidiv<br>
+or fribidi executable in PATH
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2100pt'>
+--sleep-interval SECONDS Number of seconds to<br>
+sleep before each<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2130pt'>
+download when used alone or a lower bound<br>
+of a range for randomized sleep before each<br>
+download (minimum possible number of<br>
+seconds to sleep) when used along with<br>
+--max-sleep-interval.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2130pt'>
+--max-sleep-interval SECONDS Upper bound of a<br>
+range for randomized sleep<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2160pt'>
+before each download (maximum possible<br>
+number of seconds to sleep). Must only be<br>
+used along with --min-sleep-interval.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2160pt'>
+Video Format Options:
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 2160pt'>
+-f, --format FORMAT Video format code, see the<br>
+"FORMAT<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2190pt'>
+SELECTION" for all the info
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2190pt'>
+--all-formats Download all available video<br>
+formats<br>
+--prefer-free-formats Prefer free video<br>
+formats unless a specific<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2220pt'>
+one is requested
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2220pt'>
+-F, --list-formats List all available formats<br>
+of requested<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2250pt'>
+videos
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2250pt'>
+--youtube-skip-dash-manifest Do not download<br>
+the DASH manifests and<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2280pt'>
+related data on YouTube videos
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2280pt'>
+--merge-output-format FORMAT If a merge is<br>
+required (e.g.<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2310pt'>
+bestvideo+bestaudio), output to given<br>
+container format. One of mkv, mp4, ogg,<br>
+webm, flv. Ignored if no merge is required
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2310pt'>
+Subtitle Options:<br>
+--write-sub Write subtitle file<br>
+--write-auto-sub Write automatically<br>
+generated subtitle file<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2340pt'>
+(YouTube only)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2340pt'>
+--all-subs Download all the available<br>
+subtitles of the<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2370pt'>
+video
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2370pt'>
+--list-subs List all available subtitles<br>
+for the video<br>
+--sub-format FORMAT Subtitle format,<br>
+accepts formats<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2400pt'>
+preference, for example: "srt" or<br>
+"ass/srt/best"
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2400pt'>
+--sub-lang LANGS Languages of the<br>
+subtitles to download<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2430pt'>
+(optional) separated by commas, use<br>
+--list-<br>
+subs for available language tags
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2430pt'>
+Authentication Options:
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 2430pt'>
+-u, --username USERNAME Login with<br>
+this account ID<br>
+-p, --password PASSWORD Account<br>
+password. If this option is left<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2460pt'>
+out, youtube-dl will ask<br>
+interactively.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2460pt'>
+-2, --twofactor TWOFACTOR Two-factor<br>
+authentication code<br>
+-n, --netrc Use .netrc authentication<br>
+data<br>
+--video-password PASSWORD Video<br>
+password (vimeo, smotri, youku)<br>
+Adobe Pass Options:<br>
+--ap-mso MSO Adobe Pass<br>
+multiple-system operator (TV<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2490pt'>
+provider) identifier, use<br>
+--ap-list-mso for<br>
+a list of available MSOs
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2490pt'>
+--ap-username USERNAME<br>
+Multiple-system operator account<br>
+login<br>
+--ap-password PASSWORD<br>
+Multiple-system operator account<br>
+password.<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2520pt'>
+If this option is left out,<br>
+youtube-dl will<br>
+ask interactively.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2520pt'>
+--ap-list-mso List all supported<br>
+multiple-system<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2550pt'>
+operators
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2550pt'>
+Post-processing Options:<br>
+-x, --extract-audio Convert video<br>
+files to audio-only files<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2580pt'>
+(requires ffmpeg or avconv and<br>
+ffprobe or<br>
+avprobe)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2580pt'>
+--audio-format FORMAT Specify<br>
+audio format: "best", "aac",<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2610pt'>
+"flac", "mp3", "m4a", "opus",<br>
+"vorbis", or<br>
+"wav"; "best" by default; No<br>
+effect without<br>
+-x
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2610pt'>
+--audio-quality QUALITY Specify<br>
+ffmpeg/avconv audio quality,<br>
+insert<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2640pt'>
+a value between 0 (better) and<br>
+9 (worse)<br>
+for VBR or a specific bitrate<br>
+like 128K<br>
+(default 5)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2640pt'>
+--recode-video FORMAT Encode<br>
+the video to another format if<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2670pt'>
+necessary (currently<br>
+supported:<br>
+mp4|flv|ogg|webm|mkv|avi)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2670pt'>
+--postprocessor-args ARGS Give<br>
+these arguments to the<br>
+postprocessor<br>
+-k, --keep-video Keep the<br>
+video file on disk after the<br>
+post-<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2700pt'>
+processing; the video is<br>
+erased by default
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2700pt'>
+--no-post-overwrites Do not<br>
+overwrite post-processed<br>
+files; the<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2730pt'>
+post-processed files are<br>
+overwritten by<br>
+default
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2730pt'>
+--embed-subs Embed subtitles<br>
+in the video (only for mp4,<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2760pt'>
+webm and mkv videos)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2760pt'>
+--embed-thumbnail Embed<br>
+thumbnail in the audio as<br>
+cover art<br>
+--add-metadata Write<br>
+metadata to the video file<br>
+--metadata-from-title<br>
+FORMAT Parse additional<br>
+metadata like song title /<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2790pt'>
+artist from the video<br>
+title. The format<br>
+syntax is the same as<br>
+--output. Regular<br>
+expression with named<br>
+capture groups may<br>
+also be used. The parsed<br>
+parameters replace<br>
+existing values. Example:<br>
+--metadata-from-<br>
+title "%(artist)s -<br>
+%(title)s" matches a<br>
+title like "Coldplay -<br>
+Paradise". Example<br>
+(regex):<br>
+--metadata-from-title<br>
+"(?P&lt;artist&gt;.+?) -<br>
+(?P&lt;title&gt;.+)"
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2790pt'>
+--xattrs Write metadata to<br>
+the video file's xattrs<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2820pt'>
+(using dublin core and<br>
+xdg standards)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2820pt'>
+--fixup POLICY<br>
+Automatically correct<br>
+known faults of the<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2850pt'>
+file. One of never (do<br>
+nothing), warn (only<br>
+emit a warning),<br>
+detect_or_warn (the<br>
+default; fix file if we<br>
+can, warn<br>
+otherwise)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2850pt'>
+--prefer-avconv Prefer<br>
+avconv over ffmpeg for<br>
+running the<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2880pt'>
+postprocessors
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2880pt'>
+--prefer-ffmpeg Prefer<br>
+ffmpeg over avconv for<br>
+running the<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2910pt'>
+postprocessors<br>
+(default)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2910pt'>
+--ffmpeg-location PATH<br>
+Location of the<br>
+ffmpeg/avconv binary;<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2940pt'>
+either the path to<br>
+the binary or its<br>
+containing directory.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2940pt'>
+--exec CMD Execute a<br>
+command on the file<br>
+after<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 2970pt'>
+downloading, similar<br>
+to find's -exec<br>
+syntax. Example:<br>
+--exec 'adb push {}<br>
+/sdcard/Music/<br>
+&amp;amp;&amp;amp; rm {}'
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2970pt'>
+--convert-subs<br>
+FORMAT Convert the<br>
+subtitles to other<br>
+format<br>
+&lt;div style='padding-left: 240pt'&gt;
+</div>
+<div style='padding-left: 3000pt'>
+(currently<br>
+supported:<br>
+srt|ass|vtt|lrc)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+CONFIGURATION
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+You can configure<br>
+youtube-dl by<br>
+placing any<br>
+supported command<br>
+line option to a<br>
+configuration file.<br>
+On Linux and OS X,<br>
+the system wide<br>
+configuration file<br>
+is located at<br>
+/etc/youtube-dl.conf<br>
+and the user wide<br>
+configuration file<br>
+at<br>
+~/.config/youtube-dl/config.<br>
+On Windows, the<br>
+user wide<br>
+configuration file<br>
+locations are<br>
+%APPDATA%\youtube-dl\config.txt<br>
+or<br>
+C:\Users\&lt;user<br>
+name&gt;\youtube-dl.conf.<br>
+Note that by<br>
+default<br>
+configuration file<br>
+may not exist so<br>
+you may need to<br>
+create it yourself.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+For example, with<br>
+the following<br>
+configuration file<br>
+youtube-dl will<br>
+always extract the<br>
+audio, not copy the<br>
+mtime, use a proxy<br>
+and save all videos<br>
+under Movies<br>
+directory in your<br>
+home directory:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Lines starting<br>
+with # are comments
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Always extract<br>
+audio<br>
+-x
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Do not copy the<br>
+mtime<br>
+--no-mtime
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Use this proxy<br>
+--proxy<br>
+127.0.0.1:3128
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Save all videos<br>
+under Movies<br>
+directory in your<br>
+home directory<br>
+-o<br>
+~/Movies/%(title)s.%(ext)s<br>
+Note that options<br>
+in configuration<br>
+file are just the<br>
+same options aka<br>
+switches used in<br>
+regular command<br>
+line calls thus<br>
+there must be no<br>
+whitespace after -<br>
+or --, e.g. -o or<br>
+--proxy but not - o<br>
+or -- proxy.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+You can use<br>
+--ignore-config if<br>
+you want to disable<br>
+the configuration<br>
+file for a<br>
+particular<br>
+youtube-dl run.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+You can also use<br>
+--config-location<br>
+if you want to use<br>
+custom<br>
+configuration file<br>
+for a particular<br>
+youtube-dl run.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Authentication with<br>
+.netrc file<br>
+You may also want<br>
+to configure<br>
+automatic<br>
+credentials storage<br>
+for extractors that<br>
+support<br>
+authentication (by<br>
+providing login and<br>
+password with<br>
+--username and<br>
+--password) in<br>
+order not to pass<br>
+credentials as<br>
+command line<br>
+arguments on every<br>
+youtube-dl<br>
+execution and<br>
+prevent tracking<br>
+plain text<br>
+passwords in the<br>
+shell command<br>
+history. You can<br>
+achieve this using<br>
+a .netrc file on a<br>
+per extractor<br>
+basis. For that you<br>
+will need to create<br>
+a .netrc file in<br>
+your $HOME and<br>
+restrict<br>
+permissions to<br>
+read/write by only<br>
+you:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+touch $HOME/.netrc<br>
+chmod a-rwx,u+rw<br>
+$HOME/.netrc<br>
+After that you can<br>
+add credentials for<br>
+an extractor in the<br>
+following format,<br>
+where extractor is<br>
+the name of the<br>
+extractor in<br>
+lowercase:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+machine<br>
+&lt;extractor&gt;<br>
+login &lt;login&gt;<br>
+password<br>
+&lt;password&gt;<br>
+For example:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+machine youtube<br>
+login<br>
+machine twitch<br>
+login<br>
+my_twitch_account_name<br>
+password<br>
+my_twitch_password<br>
+To activate<br>
+authentication with<br>
+the .netrc file you<br>
+should pass --netrc<br>
+to youtube-dl or<br>
+place it in the<br>
+configuration file.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+On Windows you may<br>
+also need to setup<br>
+the %HOME%<br>
+environment<br>
+variable manually.<br>
+For example:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+set<br>
+HOME=%USERPROFILE%
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+OUTPUT TEMPLATE
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+The -o option<br>
+allows users to<br>
+indicate a template<br>
+for the output file<br>
+names.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+tl;dr: navigate me<br>
+to examples.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+The basic usage is<br>
+not to set any<br>
+template arguments<br>
+when downloading a<br>
+single file, like<br>
+in youtube-dl -o<br>
+funny_video.flv<br>
+"<a href="https://some/video" title="https://some/video" class="https">https://some/video</a>".<br>
+However, it may<br>
+contain special<br>
+sequences that will<br>
+be replaced when<br>
+downloading each<br>
+video. The special<br>
+sequences may be<br>
+formatted according<br>
+to python string<br>
+formatting<br>
+operations. For<br>
+example, %(NAME)s<br>
+or %(NAME)05d. To<br>
+clarify, that is a<br>
+percent symbol<br>
+followed by a name<br>
+in parentheses,<br>
+followed by a<br>
+formatting<br>
+operations. Allowed<br>
+names along with<br>
+sequence type are:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+id (string): Video<br>
+identifier<br>
+title (string):<br>
+Video title<br>
+url (string): Video<br>
+URL<br>
+ext (string): Video<br>
+filename extension<br>
+alt_title (string):<br>
+A secondary title<br>
+of the video<br>
+display_id<br>
+(string): An<br>
+alternative<br>
+identifier for the<br>
+video<br>
+uploader (string):<br>
+Full name of the<br>
+video uploader<br>
+license (string):<br>
+License name the<br>
+video is licensed<br>
+under<br>
+creator (string):<br>
+The creator of the<br>
+video<br>
+release_date<br>
+(string): The date<br>
+(YYYYMMDD) when the<br>
+video was released<br>
+timestamp<br>
+(numeric): UNIX<br>
+timestamp of the<br>
+moment the video<br>
+became available<br>
+upload_date<br>
+(string): Video<br>
+upload date<br>
+(YYYYMMDD)<br>
+uploader_id<br>
+(string): Nickname<br>
+or id of the video<br>
+uploader<br>
+location (string):<br>
+Physical location<br>
+where the video was<br>
+filmed<br>
+duration (numeric):<br>
+Length of the video<br>
+in seconds<br>
+view_count<br>
+(numeric): How many<br>
+users have watched<br>
+the video on the<br>
+platform<br>
+like_count<br>
+(numeric): Number<br>
+of positive ratings<br>
+of the video<br>
+dislike_count<br>
+(numeric): Number<br>
+of negative ratings<br>
+of the video<br>
+repost_count<br>
+(numeric): Number<br>
+of reposts of the<br>
+video<br>
+average_rating<br>
+(numeric): Average<br>
+rating give by<br>
+users, the scale<br>
+used depends on the<br>
+webpage<br>
+comment_count<br>
+(numeric): Number<br>
+of comments on the<br>
+video<br>
+age_limit<br>
+(numeric): Age<br>
+restriction for the<br>
+video (years)<br>
+is_live (boolean):<br>
+Whether this video<br>
+is a live stream or<br>
+a fixed-length<br>
+video<br>
+start_time<br>
+(numeric): Time in<br>
+seconds where the<br>
+reproduction should<br>
+start, as specified<br>
+in the URL<br>
+end_time (numeric):<br>
+Time in seconds<br>
+where the<br>
+reproduction should<br>
+end, as specified<br>
+in the URL<br>
+format (string): A<br>
+human-readable<br>
+description of the<br>
+format<br>
+format_id (string):<br>
+Format code<br>
+specified by<br>
+--format<br>
+format_note<br>
+(string):<br>
+Additional info<br>
+about the format<br>
+width (numeric):<br>
+Width of the video<br>
+height (numeric):<br>
+Height of the video<br>
+resolution<br>
+(string): Textual<br>
+description of<br>
+width and height<br>
+tbr (numeric):<br>
+Average bitrate of<br>
+audio and video in<br>
+KBit/s<br>
+abr (numeric):<br>
+Average audio<br>
+bitrate in KBit/s<br>
+acodec (string):<br>
+Name of the audio<br>
+codec in use<br>
+asr (numeric):<br>
+Audio sampling rate<br>
+in Hertz<br>
+vbr (numeric):<br>
+Average video<br>
+bitrate in KBit/s<br>
+fps (numeric):<br>
+Frame rate<br>
+vcodec (string):<br>
+Name of the video<br>
+codec in use<br>
+container (string):<br>
+Name of the<br>
+container format<br>
+filesize (numeric):<br>
+The number of<br>
+bytes, if known in<br>
+advance<br>
+filesize_approx<br>
+(numeric): An<br>
+estimate for the<br>
+number of bytes<br>
+protocol (string):<br>
+The protocol that<br>
+will be used for<br>
+the actual download<br>
+extractor (string):<br>
+Name of the<br>
+extractor<br>
+extractor_key<br>
+(string): Key name<br>
+of the extractor<br>
+epoch (numeric):<br>
+Unix epoch when<br>
+creating the file<br>
+autonumber<br>
+(numeric):<br>
+Five-digit number<br>
+that will be<br>
+increased with each<br>
+download, starting<br>
+at zero<br>
+playlist (string):<br>
+Name or id of the<br>
+playlist that<br>
+contains the video<br>
+playlist_index<br>
+(numeric): Index of<br>
+the video in the<br>
+playlist padded<br>
+with leading zeros<br>
+according to the<br>
+total length of the<br>
+playlist<br>
+playlist_id<br>
+(string): Playlist<br>
+identifier<br>
+playlist_title<br>
+(string): Playlist<br>
+title<br>
+playlist_uploader<br>
+(string): Full name<br>
+of the playlist<br>
+uploader<br>
+playlist_uploader_id<br>
+(string): Nickname<br>
+or id of the<br>
+playlist uploader<br>
+Available for the<br>
+video that belongs<br>
+to some logical<br>
+chapter or section:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+chapter (string):<br>
+Name or title of<br>
+the chapter the<br>
+video belongs to<br>
+chapter_number<br>
+(numeric): Number<br>
+of the chapter the<br>
+video belongs to<br>
+chapter_id<br>
+(string): Id of the<br>
+chapter the video<br>
+belongs to<br>
+Available for the<br>
+video that is an<br>
+episode of some<br>
+series or<br>
+programme:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+series (string):<br>
+Title of the series<br>
+or programme the<br>
+video episode<br>
+belongs to<br>
+season (string):<br>
+Title of the season<br>
+the video episode<br>
+belongs to<br>
+season_number<br>
+(numeric): Number<br>
+of the season the<br>
+video episode<br>
+belongs to<br>
+season_id (string):<br>
+Id of the season<br>
+the video episode<br>
+belongs to<br>
+episode (string):<br>
+Title of the video<br>
+episode<br>
+episode_number<br>
+(numeric): Number<br>
+of the video<br>
+episode within a<br>
+season<br>
+episode_id<br>
+(string): Id of the<br>
+video episode<br>
+Available for the<br>
+media that is a<br>
+track or a part of<br>
+a music album:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+track (string):<br>
+Title of the track<br>
+track_number<br>
+(numeric): Number<br>
+of the track within<br>
+an album or a disc<br>
+track_id (string):<br>
+Id of the track<br>
+artist (string):<br>
+Artist(s) of the<br>
+track<br>
+genre (string):<br>
+Genre(s) of the<br>
+track<br>
+album (string):<br>
+Title of the album<br>
+the track belongs<br>
+to<br>
+album_type<br>
+(string): Type of<br>
+the album<br>
+album_artist<br>
+(string): List of<br>
+all artists<br>
+appeared on the<br>
+album<br>
+disc_number<br>
+(numeric): Number<br>
+of the disc or<br>
+other physical<br>
+medium the track<br>
+belongs to<br>
+release_year<br>
+(numeric): Year<br>
+(YYYY) when the<br>
+album was released<br>
+Each aforementioned<br>
+sequence when<br>
+referenced in an<br>
+output template<br>
+will be replaced by<br>
+the actual value<br>
+corresponding to<br>
+the sequence name.<br>
+Note that some of<br>
+the sequences are<br>
+not guaranteed to<br>
+be present since<br>
+they depend on the<br>
+metadata obtained<br>
+by a particular<br>
+extractor. Such<br>
+sequences will be<br>
+replaced with NA.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+For example for -o<br>
+%(title)s-%(id)s.%(ext)s<br>
+and an mp4 video<br>
+with title<br>
+youtube-dl test<br>
+video and id<br>
+BaW_jenozKcj, this<br>
+will result in a<br>
+youtube-dl test<br>
+video-BaW_jenozKcj.mp4<br>
+file created in the<br>
+current directory.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+For numeric<br>
+sequences you can<br>
+use numeric related<br>
+formatting, for<br>
+example,<br>
+%(view_count)05d<br>
+will result in a<br>
+string with view<br>
+count padded with<br>
+zeros up to 5<br>
+characters, like in<br>
+00042.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Output templates<br>
+can also contain<br>
+arbitrary<br>
+hierarchical path,<br>
+e.g. -o<br>
+'%(playlist)s/%(playlist_index)s<br>
+-<br>
+%(title)s.%(ext)s'<br>
+which will result<br>
+in downloading each<br>
+video in a<br>
+directory<br>
+corresponding to<br>
+this path template.<br>
+Any missing<br>
+directory will be<br>
+automatically<br>
+created for you.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+To use percent<br>
+literals in an<br>
+output template use<br>
+%%. To output to<br>
+stdout use -o -.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+The current default<br>
+template is<br>
+%(title)s-%(id)s.%(ext)s.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+In some cases, you<br>
+don't want special<br>
+characters such as<br>
+中, spaces, or<br>
+&amp;amp;, such as when<br>
+transferring the<br>
+downloaded filename<br>
+to a Windows system<br>
+or the filename<br>
+through an<br>
+8bit-unsafe<br>
+channel. In these<br>
+cases, add the<br>
+--restrict-filenames<br>
+flag to get a<br>
+shorter title:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+$ youtube-dl<br>
+--get-filename -o<br>
+'%(title)s.%(ext)s'<br>
+BaW_jenozKc<br>
+youtube-dl test<br>
+video ''_ä↭𝕐.mp4 #<br>
+All kinds of weird<br>
+characters
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+$ youtube-dl<br>
+--get-filename -o<br>
+'%(title)s.%(ext)s'<br>
+BaW_jenozKc<br>
+--restrict-filenames<br>
+youtube-dl_test_video_.mp4<br>
+# A simple file<br>
+name
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download YouTube<br>
+playlist videos in<br>
+separate directory<br>
+indexed by video<br>
+order in a playlist<br>
+$ youtube-dl -o<br>
+'%(playlist)s/%(playlist_index)s<br>
+-<br>
+%(title)s.%(ext)s'<br>
+<a href="https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re" title="https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re" class="https">https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download all<br>
+playlists of<br>
+YouTube<br>
+channel/user<br>
+keeping each<br>
+playlist in<br>
+separate directory:<br>
+$ youtube-dl -o<br>
+'%(uploader)s/%(playlist)s/%(playlist_index)s<br>
+-<br>
+%(title)s.%(ext)s'<br>
+<a href="https://www.youtube.com/user/TheLinuxFoundation/playlists" title="https://www.youtube.com/user/TheLinuxFoundation/playlists" class="https">https://www.youtube.com/user/TheLinuxFoundation/playlists</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download Udemy<br>
+course keeping each<br>
+chapter in separate<br>
+directory under<br>
+MyVideos directory<br>
+in your home<br>
+$ youtube-dl -u<br>
+user -p password -o<br>
+'~/MyVideos/%(playlist)s/%(chapter_number)s<br>
+-<br>
+%(chapter)s/%(title)s.%(ext)s'<br>
+<a href="https://www.udemy.com/java-tutorial/" title="https://www.udemy.com/java-tutorial/" class="https">https://www.udemy.com/java-tutorial/</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download entire<br>
+series season<br>
+keeping each series<br>
+and each season in<br>
+separate directory<br>
+under C:/MyVideos<br>
+$ youtube-dl -o<br>
+"C:/MyVideos/%(series)s/%(season_number)s<br>
+-<br>
+%(season)s/%(episode_number)s<br>
+-<br>
+%(episode)s.%(ext)s"<br>
+<a href="https://videomore.ru/kino_v_detalayah/5_sezon/367617" title="https://videomore.ru/kino_v_detalayah/5_sezon/367617" class="https">https://videomore.ru/kino_v_detalayah/5_sezon/367617</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Stream the video<br>
+being downloaded to<br>
+stdout<br>
+$ youtube-dl -o -<br>
+BaW_jenozKc
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+FORMAT
+</div>
+<div style='padding-left: 3030pt'>
+SELECTION
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+By default<br>
+youtube-dl tries to<br>
+download the best<br>
+available quality,<br>
+i.e. if you want<br>
+the best quality<br>
+you don't need to<br>
+pass any special<br>
+options, youtube-dl<br>
+will guess it for<br>
+you by default.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+But sometimes you<br>
+may want to<br>
+download in a<br>
+different format,<br>
+for example when<br>
+you are on a slow<br>
+or intermittent<br>
+connection. The key<br>
+mechanism for<br>
+achieving this is<br>
+so-called format<br>
+selection based on<br>
+which you can<br>
+explicitly specify<br>
+desired format,<br>
+select formats<br>
+based on some<br>
+criterion or<br>
+criteria, setup<br>
+precedence and much<br>
+more.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+The general syntax<br>
+for format<br>
+selection is<br>
+--format FORMAT or<br>
+shorter -f FORMAT<br>
+where FORMAT is a<br>
+selector<br>
+expression, i.e. an<br>
+expression that<br>
+describes format or<br>
+formats you would<br>
+like to download.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+tl;dr: navigate me<br>
+to examples.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+The simplest case<br>
+is requesting a<br>
+specific format,<br>
+for example with -f<br>
+22 you can download<br>
+the format with<br>
+format code equal<br>
+to 22. You can get<br>
+the list of<br>
+available format<br>
+codes for<br>
+particular video<br>
+using<br>
+--list-formats or<br>
+-F. Note that these<br>
+format codes are<br>
+extractor specific.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+You can also use a<br>
+file extension<br>
+(currently 3gp,<br>
+aac, flv, m4a, mp3,<br>
+mp4, ogg, wav, webm<br>
+are supported) to<br>
+download the best<br>
+quality format of a<br>
+particular file<br>
+extension served as<br>
+a single file, e.g.<br>
+-f webm will<br>
+download the best<br>
+quality format with<br>
+the webm extension<br>
+served as a single<br>
+file.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+You can also use<br>
+special names to<br>
+select particular<br>
+edge case formats:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+best: Select the<br>
+best quality format<br>
+represented by a<br>
+single file with<br>
+video and audio.<br>
+worst: Select the<br>
+worst quality<br>
+format represented<br>
+by a single file<br>
+with video and<br>
+audio.<br>
+bestvideo: Select<br>
+the best quality<br>
+video-only format<br>
+(e.g. DASH video).<br>
+May not be<br>
+available.<br>
+worstvideo: Select<br>
+the worst quality<br>
+video-only format.<br>
+May not be<br>
+available.<br>
+bestaudio: Select<br>
+the best quality<br>
+audio only-format.<br>
+May not be<br>
+available.<br>
+worstaudio: Select<br>
+the worst quality<br>
+audio only-format.<br>
+May not be<br>
+available.<br>
+For example, to<br>
+download the worst<br>
+quality video-only<br>
+format you can use<br>
+-f worstvideo.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+If you want to<br>
+download multiple<br>
+videos and they<br>
+don't have the same<br>
+formats available,<br>
+you can specify the<br>
+order of preference<br>
+using slashes. Note<br>
+that slash is<br>
+left-associative,<br>
+i.e. formats on the<br>
+left hand side are<br>
+preferred, for<br>
+example -f 22/17/18<br>
+will download<br>
+format 22 if it's<br>
+available,<br>
+otherwise it will<br>
+download format 17<br>
+if it's available,<br>
+otherwise it will<br>
+download format 18<br>
+if it's available,<br>
+otherwise it will<br>
+complain that no<br>
+suitable formats<br>
+are available for<br>
+download.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+If you want to<br>
+download several<br>
+formats of the same<br>
+video use a comma<br>
+as a separator,<br>
+e.g. -f 22,17,18<br>
+will download all<br>
+these three<br>
+formats, of course<br>
+if they are<br>
+available. Or a<br>
+more sophisticated<br>
+example combined<br>
+with the precedence<br>
+feature: -f<br>
+136/137/mp4/bestvideo,140/m4a/bestaudio.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+You can also filter<br>
+the video formats<br>
+by putting a<br>
+condition in<br>
+brackets, as in -f<br>
+"best[height=720]"<br>
+(or -f<br>
+"[filesize&gt;10M]").
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+The following<br>
+numeric meta fields<br>
+can be used with<br>
+comparisons &lt;,<br>
+&lt;=, &gt;, &gt;=,<br>
+= (equals), != (not<br>
+equals):
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+filesize: The<br>
+number of bytes, if<br>
+known in advance<br>
+width: Width of the<br>
+video, if known<br>
+height: Height of<br>
+the video, if known<br>
+tbr: Average<br>
+bitrate of audio<br>
+and video in KBit/s<br>
+abr: Average audio<br>
+bitrate in KBit/s<br>
+vbr: Average video<br>
+bitrate in KBit/s<br>
+asr: Audio sampling<br>
+rate in Hertz<br>
+fps: Frame rate<br>
+Also filtering work<br>
+for comparisons =<br>
+(equals), != (not<br>
+equals), ^= (begins<br>
+with), $= (ends<br>
+with), *=<br>
+(contains) and<br>
+following string<br>
+meta fields:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+ext: File extension<br>
+acodec: Name of the<br>
+audio codec in use<br>
+vcodec: Name of the<br>
+video codec in use<br>
+container: Name of<br>
+the container<br>
+format<br>
+protocol: The<br>
+protocol that will<br>
+be used for the<br>
+actual download,<br>
+lower-case (http,<br>
+https, rtsp, rtmp,<br>
+rtmpe, mms, f4m,<br>
+ism,<br>
+http_dash_segments,<br>
+m3u8, or<br>
+m3u8_native)<br>
+format_id: A short<br>
+description of the<br>
+format<br>
+Note that none of<br>
+the aforementioned<br>
+meta fields are<br>
+guaranteed to be<br>
+present since this<br>
+solely depends on<br>
+the metadata<br>
+obtained by<br>
+particular<br>
+extractor, i.e. the<br>
+metadata offered by<br>
+the video hoster.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Formats for which<br>
+the value is not<br>
+known are excluded<br>
+unless you put a<br>
+question mark (?)<br>
+after the operator.<br>
+You can combine<br>
+format filters, so<br>
+-f "[height &lt;=?<br>
+720][tbr&gt;500]"<br>
+selects up to 720p<br>
+videos (or videos<br>
+where the height is<br>
+not known) with a<br>
+bitrate of at least<br>
+500 KBit/s.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+You can merge the<br>
+video and audio of<br>
+two formats into a<br>
+single file using<br>
+-f<br>
+&lt;video-format&gt;+&lt;audio-format&gt;<br>
+(requires ffmpeg or<br>
+avconv installed),<br>
+for example -f<br>
+bestvideo+bestaudio<br>
+will download the<br>
+best video-only<br>
+format, the best<br>
+audio-only format<br>
+and mux them<br>
+together with<br>
+ffmpeg/avconv.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Format selectors<br>
+can also be grouped<br>
+using parentheses,<br>
+for example if you<br>
+want to download<br>
+the best mp4 and<br>
+webm formats with a<br>
+height lower than<br>
+480 you can use -f<br>
+'(mp4,webm)[height&lt;480]'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Since the end of<br>
+April 2015 and<br>
+version 2015.04.26,<br>
+youtube-dl uses -f<br>
+bestvideo+bestaudio/best<br>
+as the default<br>
+format selection<br>
+(see #5447, #5456).<br>
+If ffmpeg or avconv<br>
+are installed this<br>
+results in<br>
+downloading<br>
+bestvideo and<br>
+bestaudio<br>
+separately and<br>
+muxing them<br>
+together into a<br>
+single file giving<br>
+the best overall<br>
+quality available.<br>
+Otherwise it falls<br>
+back to best and<br>
+results in<br>
+downloading the<br>
+best available<br>
+quality served as a<br>
+single file. best<br>
+is also needed for<br>
+videos that don't<br>
+come from YouTube<br>
+because they don't<br>
+provide the audio<br>
+and video in two<br>
+different files. If<br>
+you want to only<br>
+download some DASH<br>
+formats (for<br>
+example if you are<br>
+not interested in<br>
+getting videos with<br>
+a resolution higher<br>
+than 1080p), you<br>
+can add -f<br>
+bestvideo[height&lt;=?1080]+bestaudio/best<br>
+to your<br>
+configuration file.<br>
+Note that if you<br>
+use youtube-dl to<br>
+stream to stdout<br>
+(and most likely to<br>
+pipe it to your<br>
+media player then),<br>
+i.e. you explicitly<br>
+specify output<br>
+template as -o -,<br>
+youtube-dl still<br>
+uses -f best format<br>
+selection in order<br>
+to start content<br>
+delivery<br>
+immediately to your<br>
+player and not to<br>
+wait until<br>
+bestvideo and<br>
+bestaudio are<br>
+downloaded and<br>
+muxed.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+If you want to<br>
+preserve the old<br>
+format selection<br>
+behavior (prior to<br>
+youtube-dl<br>
+2015.04.26), i.e.<br>
+you want to<br>
+download the best<br>
+available quality<br>
+media served as a<br>
+single file, you<br>
+should explicitly<br>
+specify your choice<br>
+with -f best. You<br>
+may want to add it<br>
+to the<br>
+configuration file<br>
+in order not to<br>
+type it every time<br>
+you run youtube-dl.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Format selection<br>
+examples<br>
+Note that on<br>
+Windows you may<br>
+need to use double<br>
+quotes instead of<br>
+single.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download best mp4<br>
+format available or<br>
+any other best if<br>
+no mp4 available<br>
+$ youtube-dl -f<br>
+'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download best<br>
+format available<br>
+but not better that<br>
+480p<br>
+$ youtube-dl -f<br>
+'bestvideo[height&lt;=480]+bestaudio/best[height&lt;=480]'
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download best<br>
+video only format<br>
+but no bigger than<br>
+50 MB<br>
+$ youtube-dl -f<br>
+'best[filesize&lt;50M]'
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download best<br>
+format available<br>
+via direct link<br>
+over HTTP/HTTPS<br>
+protocol<br>
+$ youtube-dl -f<br>
+'(bestvideo+bestaudio/best)[protocol^=http]'
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download the best<br>
+video format and<br>
+the best audio<br>
+format without<br>
+merging them<br>
+$ youtube-dl -f<br>
+'bestvideo,bestaudio'<br>
+-o<br>
+'%(title)s.f%(format_id)s.%(ext)s'<br>
+Note that in the<br>
+last example, an<br>
+output template is<br>
+recommended as<br>
+bestvideo and<br>
+bestaudio may have<br>
+the same file name.
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+VIDEO SELECTION
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Videos can be<br>
+filtered by their<br>
+upload date using<br>
+the options --date,<br>
+--datebefore or<br>
+--dateafter. They<br>
+accept dates in two<br>
+formats:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+Absolute dates:<br>
+Dates in the format<br>
+YYYYMMDD.<br>
+Relative dates:<br>
+Dates in the format<br>
+(now|today)[+-][0-9](day|week|month|year)(s)?<br>
+Examples:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download only the<br>
+videos uploaded in<br>
+the last 6 months<br>
+$ youtube-dl<br>
+--dateafter<br>
+now-6months
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+# Download only the<br>
+videos uploaded on<br>
+January 1, 1970<br>
+$ youtube-dl --date<br>
+19700101
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 3000pt'>
+$ # Download only<br>
+the videos uploaded<br>
+in the 200x decade<br>
+$ youtube-dl<br>
+--dateafter<br>
+20000101<br>
+--datebefore<br>
+20091231
+</div>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

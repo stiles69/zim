@@ -1,0 +1,27 @@
+====== Backup encrypted directory ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Backup encrypted directory
+
+
+Created Wednesday 09 May 2018
+
+
+
+An encrypted directory may be backed up and restored to another location like it is. This is possible, because the
+configuration file for the encryption options/metadata is actually stored in the directory itself in plaintext in the
+hidden .encfs6.xml file. This poses no direct problem, because the password is not in it.
+
+
+
+However, if you - for example - store the backup on a remote location (e.g. in the cloud) or a portable device, you
+might feel uncomfortable about it. In this case it also is no problem to manually move the file out of the directory
+before creating the backup. You can even move it permanently and still mount and access the files, if you pass its
+location to encfs via the ENCFS6_CONFIG environment variable. For the #Usage example above:
+
+
+
+$ mv ~/.name/encfs6.xml ~/.
+$ ENCFS6_CONFIG=~/encfs6.xml encfs ~/.name ~/name

@@ -1,0 +1,15 @@
+====== PIA DNS Settings ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+PIA DNS Settings
+
+
+Created Wednesday 02 May 2018
+
+
+
+You must have the PIA DNS Settings set to:
+209.222.18.222
+209.222.18.218

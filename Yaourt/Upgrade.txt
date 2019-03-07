@@ -1,0 +1,18 @@
+====== Upgrade ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Upgrade
+
+
+Created Monday 16 April 2018
+
+
+
+yaourt -Syu --devel --aur
+
+
+
+Sync database, upgrade packages, search aur and devel (all packages based on dev version) upgrades REBUILDS
+    EVERYTHING!!!!!!!!!!!!!!!!!!!!!!!!

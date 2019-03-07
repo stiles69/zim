@@ -1,0 +1,16 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2019-01-20T20:41:14-06:00
+
+====== Mastedon Instances ======
+Created Sunday 20 January 2019
+
+[[http://switter.at|switter.at]]
+
+[[http://hotwife.social|hotwife.social]]
+
+[[http://kink.social|kink.social]]
+
+[[http://kinky.business|kinky.business]]
+
+[[http://Pinafore%20Alternative%20Mastodon%20Interface|Pinafore Alternative Mastodon Interface]]

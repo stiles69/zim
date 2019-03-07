@@ -1,0 +1,9 @@
+====== Replace Spaces In Filename With Underline ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+
+# Replace Spaces in Filenames With Underline
+$ autoload zmv
+$ zmv '* *' '$f:gs/ /_'

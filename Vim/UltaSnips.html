@@ -1,0 +1,11788 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>UltaSnips</title>
+	<meta name='Generator' content='Zim 0.69'>
+	<style type='text/css'>
+		a          { color: #690303; text-decoration: none      }
+		a:hover    { text-decoration: underline }
+		a:active   { text-decoration: underline }
+		strike     { color: grey                }
+		u          { text-decoration: none;
+					 background-color: yellow   }
+		tt         { color: #2e3436;            }
+		pre        { color: #2e3436;
+					 margin-left: 20px          }
+		h1         { text-decoration: underline;
+					 color: #690303; margin-bottom: 0 }
+		h2         { color: #690303; margin-bottom: 0 }
+		h3         { color: #690303; margin-bottom: 0 }
+		h4         { color: #690303; margin-bottom: 0 }
+		h5         { color: #690303; margin-bottom: 0 }
+		p          { margin-top: 0              }
+		span.zim-tag {
+			color: #ce5c00;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		.migrated-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB+AKHREFA8vJSnkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAC1klEQVRIx+2VT0hUURTGf/e958w4Tc3TYowMw1GyEgwr1MqsFmbZIrIWQZsWJUjbdoHQpl3Qps0swnCRECQFYkR/TC1iKkqmfzAKTo2Vf8hoRsfR995tkRMT87RRWkUHHhy495zvnvvu933wP/75EKkkEAjIYDCIaZpIKRFCZN0kfX9xcTGtra2/irVUEolECIfDlJeXo+s6hmFkDaCqKoZhEAqFSCaTv60pqcSyLAoLC/F4PEtqDmCaJkIIKisrMybX0sdUVRWA5ubmPzdNjjI1cpXkZC/O1fV03PXgdDqRUtpPIITAsqxsDz0Z/3CZQv8uqo4N4C8/Tp2/DdM0MiZQlvk41OTkI/LW1SGtCVb5drD3eCc71wcA+VcAHA5vDd8+3UGakxiJV7i9pdQevU5T1R35pJ3MV5QW1pf+0kWBheJ2SWua8EQXZXsu4fVVYEz1sEKvof5EuxjoPvzpcRvrdp9C2gGMx6cpOHBmbImMesds7BZubwMVDTfXDnQ3vQfK7AC8wLfExMX5whyQc3q2OEnjGm5vE76SQxsfBLr77a7CNf+n0r/l6sSMtsBSnurckiIILCobAtVZhpF4gZF4jubaymj4Ch/fd380LE7bAnjc0NPxk2yqpmEuwGxF0ag+0k5uTpzZeBeaazvj0We8fXojainsb2xh2BZgbe0gSIllzSIUh63wfQ6dZ/O2fbjcKlOj58jJ3cVENESw5yErc9nf2MLQ4jwQAkV1Lqiq37/cZ9WaahJjF9AcmxiPDhLs7ePe23oOnmUwg2hSShQle96tKDjA2HAniusgo9FxnvY9Jxw7RWzGYy92QghM00x5g53qp9sHmtB58/o2umOI2NwGolMnMYUHIb7aAyiKwsjICLqu2/qBEIKUUAohMaSHSLyBSMoPTINQ6CX5+fn2AEVFRZSUlBCPx4nFYhl3L4RESjF/GEgX3pSj+Xw+/H7/b3U/AEOZFnp7O5+5AAAAAElFTkSuQmCC)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+	</style>
+</head>
+<body>
+
+<!-- Wiki content -->
+
+	<img src="https://storage.googleapis.com/stiles-images/StilesLogo.png" alt="Stiles Logo" />
+	<h1>UltaSnips</h1>
+
+<br>
+
+<p>
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+</p>
+
+<br>
+
+<p>
+UltaSnips
+</p>
+
+<br>
+
+<p>
+Created Sunday 27 May 2018
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+g:UltiSnipsSnippetsDir<br>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  Defines the directory where private snippet<br>
+  definition files are placed in in.
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+  &lt;div style='padding-left: 210pt'&gt;<br>
+<div style='padding-left: 30pt'>
+As example, if the current 'filetype' is "cpp" the<br>
+:UltiSnipsEdit command looks for a file to edit in<br>
+this order:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+&lt;ol style='padding-left: 210pt' type="1" start="1"&gt;<br>
+  An existing
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  g:UltiSnipsSnippetsDir."/cpp.snippets" file
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+  &lt;ol style='padding-left: 210pt' type="1" start="2"&gt;
+</div>
+<div style='padding-left: 60pt'>
+Find a matching "cpp" snippets file in
+</div>
+</p>
+
+<p>
+<div style='padding-left: 30pt'>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 60pt'>
+g:UltiSnipsSnippetDirectories
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+&lt;ol style='padding-left: 210pt' type="1" start="3"&gt;<br>
+  Create a new
+</div>
+</p>
+
+<p>
+<div style='padding-left: 60pt'>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  g:UltiSnipsSnippetsDir."/cpp.snippets" file
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 60pt'>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 90pt'>
+Note that directories named "snippets" are<br>
+reserved for snipMate snippets and cannot be used.<br>
+Also, this setting does not affect where snippets<br>
+are searched for, so it is possible to change this<br>
+to opening files that are then not found by<br>
+UltiSnips. See |UltiSnips-snippet-search-path| for<br>
+details.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 90pt'>
+&lt;div style='padding-left: 420pt'&gt;<br>
+  *g:UltiSnipsSnippetDirectories*
+</div>
+</p>
+
+<p>
+<div style='padding-left: 90pt'>
+  g:UltiSnipsSnippetDirectories<br>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 120pt'>
+Configures the directories that are searched for<br>
+snippets. Do not mix up this variable with the<br>
+previous one. See |UltiSnips-how-snippets-are-loaded|.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 120pt'>
+&lt;div style='padding-left: 420pt'&gt;<br>
+  *g:UltiSnipsEnableSnipMate*
+</div>
+</p>
+
+<p>
+<div style='padding-left: 120pt'>
+  g:UltiSnipsEnableSnipMate<br>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 150pt'>
+Enable looking for SnipMate snippets in<br>
+&amp;amp;runtimepath. UltiSnips will search only for<br>
+directories named 'snippets' while looking for<br>
+SnipMate snippets. Defaults to "1", so UltiSnips<br>
+will look for SnipMate snippets.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+3.1.2 UltiSnipsAddFiletypes *:UltiSnipsAddFiletypes*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+The UltiSnipsAddFiletypes command allows for explicit merging of other snippet<br>
+filetypes for the current buffer. For example, if you edit a .rst file but<br>
+also want the Lua snippets to be available you can issue the command &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+" Trigger configuration. Do not use &lt;tab&gt; if you use<br>
+<a href="https://github.com/Valloric/YouCompleteMe" title="https://github.com/Valloric/YouCompleteMe" class="https">https://github.com/Valloric/YouCompleteMe</a>.<br>
+let g:UltiSnipsExpandTrigger="&lt;tab&gt;"<br>
+let g:UltiSnipsJumpForwardTrigger="&lt;c-b&gt;"<br>
+let g:UltiSnipsJumpBackwardTrigger="&lt;c-z&gt;"
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+" If you want :UltiSnipsEdit to split your window.<br>
+let g:UltiSnipsEditSplit="vertical"
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+*UltiSnips.txt* For Vim version 7.4 or later.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+  The Ultimate Plugin for Snippets in Vim~
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 150pt'>
+  UltiSnips *snippet* *snippets* *UltiSnips*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 180pt'>
+Description |UltiSnips-description|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+  1.1 Requirements |UltiSnips-requirements|<br>
+  1.2 Acknowledgments |UltiSnips-acknowledgments|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+Installation and Updating |UltiSnips-install-and-update|<br>
+Settings &amp;amp; Commands |UltiSnips-settings|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 150pt'>
+  3.1 Commands |UltiSnips-commands|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+3.1.1 UltiSnipsEdit |UltiSnipsEdit|<br>
+3.1.2 UltiSnipsAddFiletypes |UltiSnipsAddFiletypes|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+3.2 Triggers |UltiSnips-triggers|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+  3.2.1 Trigger key mappings |UltiSnips-trigger-key-mappings|<br>
+  3.2.2 Using your own trigger functions |UltiSnips-trigger-functions|<br>
+  3.2.3 Custom autocommands |UltiSnips-custom-autocommands|<br>
+  3.2.4 Direct use of Python API |UltiSnips-use-python-api|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 180pt'>
+  3.3 Warning About Select Mode Mappings |UltiSnips-warning-smappings|<br>
+  3.4 Functions |UltiSnips-functions|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+3.4.1 UltiSnips#AddSnippetWithPriority |UltiSnips#AddSnippetWithPriority|<br>
+3.4.2 UltiSnips#Anon |UltiSnips#Anon|<br>
+3.4.3 UltiSnips#SnippetsInCurrentScope |UltiSnips#SnippetsInCurrentScope|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+3.5 Missing python support |UltiSnips-python-warning|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+  Authoring snippets |UltiSnips-authoring-snippets|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+4.1 Basics |UltiSnips-basics|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+  4.1.1 How snippets are loaded |UltiSnips-how-snippets-are-loaded|<br>
+  4.1.2 Basic syntax |UltiSnips-basic-syntax|<br>
+  4.1.3 Snippet Options |UltiSnips-snippet-options|<br>
+  4.1.4 Character Escaping |UltiSnips-character-escaping|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 210pt'>
+  4.2 Plaintext Snippets |UltiSnips-plaintext-snippets|<br>
+  4.3 Visual Placeholder |UltiSnips-visual-placeholder|<br>
+  4.4 Interpolation |UltiSnips-interpolation|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+4.4.1 Shellcode |UltiSnips-shellcode|<br>
+4.4.2 VimScript |UltiSnips-vimscript|<br>
+4.4.3 Python |UltiSnips-python|<br>
+4.4.4 Global Snippets |UltiSnips-globals|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+4.5 Tabstops and Placeholders |UltiSnips-tabstops|<br>
+4.6 Mirrors |UltiSnips-mirrors|<br>
+4.7 Transformations |UltiSnips-transformations|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+  4.7.1 Replacement String |UltiSnips-replacement-string|<br>
+  4.7.2 Demos |UltiSnips-demos|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 240pt'>
+  4.8 Clearing snippets |UltiSnips-clearing-snippets|<br>
+  4.9 Custom context snippets |UltiSnips-custom-context-snippets|<br>
+  4.10 Snippet actions |UltiSnips-snippet-actions|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+4.10.1 Pre-expand actions |UltiSnips-pre-expand-actions|<br>
+4.10.2 Post-expand actions |UltiSnips-post-expand-actions|<br>
+4.10.3 Post-jump actions |UltiSnips-post-jump-actions|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+4.11 Autotrigger |UltiSnips-autotrigger|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+  UltiSnips and Other Plugins |UltiSnips-other-plugins|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+5.1 Existing Integrations |UltiSnips-integrations|<br>
+5.2 Extending UltiSnips |UltiSnips-extending|
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+  FAQ |UltiSnips-FAQ|<br>
+  Helping Out |UltiSnips-helping|<br>
+  Contributors |UltiSnips-contributors|
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+This plugin only works if 'compatible' is not set.<br>
+{Vi does not have any of these features}<br>
+{only available when |+python| or |+python3| have been enabled at compile time}
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+==============================================================================
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+  Description *UltiSnips-description*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+UltiSnips provides snippet management for the Vim editor. A snippet is a short<br>
+piece of text that is either re-used often or contains a lot of redundant<br>
+text. UltiSnips allows you to insert a snippet with only a few key strokes.<br>
+Snippets are common in structured text like source code but can also be used<br>
+for general editing like inserting a signature in an email or inserting the<br>
+current date in a text file.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+<span class="zim-tag">@SirVer</span> posted several short screencasts which make a<br>
+great introduction to<br>
+UltiSnips, illustrating its features and usage.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+<a href="http://www.sirver.net/blog/2011/12/30/first-episode-of-ultisnips-screencast/" title="http://www.sirver.net/blog/2011/12/30/first-episode-of-ultisnips-screencast/" class="http">http://www.sirver.net/blog/2011/12/30/first-episode-of-ultisnips-screencast/</a><br>
+<a href="http://www.sirver.net/blog/2012/01/08/second-episode-of-ultisnips-screencast/" title="http://www.sirver.net/blog/2012/01/08/second-episode-of-ultisnips-screencast/" class="http">http://www.sirver.net/blog/2012/01/08/second-episode-of-ultisnips-screencast/</a><br>
+<a href="http://www.sirver.net/blog/2012/02/05/third-episode-of-ultisnips-screencast/" title="http://www.sirver.net/blog/2012/02/05/third-episode-of-ultisnips-screencast/" class="http">http://www.sirver.net/blog/2012/02/05/third-episode-of-ultisnips-screencast/</a><br>
+<a href="http://www.sirver.net/blog/2012/03/31/fourth-episode-of-ultisnips-screencast/" title="http://www.sirver.net/blog/2012/03/31/fourth-episode-of-ultisnips-screencast/" class="http">http://www.sirver.net/blog/2012/03/31/fourth-episode-of-ultisnips-screencast/</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+Also the excellent [Vimcasts](<a href="http://vimcasts.org" title="http://vimcasts.org" class="http">http://vimcasts.org</a>) dedicated three episodes to<br>
+UltiSnips:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+<a href="http://vimcasts.org/episodes/meet-ultisnips/" title="http://vimcasts.org/episodes/meet-ultisnips/" class="http">http://vimcasts.org/episodes/meet-ultisnips/</a><br>
+<a href="http://vimcasts.org/episodes/ultisnips-python-interpolation/" title="http://vimcasts.org/episodes/ultisnips-python-interpolation/" class="http">http://vimcasts.org/episodes/ultisnips-python-interpolation/</a><br>
+<a href="http://vimcasts.org/episodes/ultisnips-visual-placeholder/" title="http://vimcasts.org/episodes/ultisnips-visual-placeholder/" class="http">http://vimcasts.org/episodes/ultisnips-visual-placeholder/</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+1.1 Requirements *UltiSnips-requirements*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+This plugin works with Vim version 7.4 or later. It only works if the<br>
+'compatible' setting is not set.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+This plugin is tested against Python 2.7 and 3.6 in Vim 7.4 and 8. All other<br>
+combinations are unsupported, but might work.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+The Python 2.x or Python 3.x interface must be available. In other words, Vim<br>
+must be compiled with either the |+python| feature or the |+python3| feature.<br>
+The following commands show how to test if you have python compiled in Vim.<br>
+They print '1' if the python version is compiled in, '0' if not.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 270pt'>
+Test if Vim is compiled with python version 2.x: &gt;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+  :echo has("python")
+</div>
+</p>
+
+<p>
+<div style='padding-left: 270pt'>
+  The python version Vim is linked against can be found with: &gt;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 300pt'>
+:py import sys; print(sys.version)
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 300pt'>
+Test if Vim is compiled with python version 3.x: &gt;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 300pt'>
+  :echo has("python3")
+</div>
+</p>
+
+<p>
+<div style='padding-left: 300pt'>
+  The python version Vim is linked against can be found with: &gt;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 330pt'>
+:py3 import sys; print(sys.version)
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+Note that Vim is maybe not using your system-wide installed python version,<br>
+so<br>
+make sure to check the Python version inside of Vim.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+UltiSnips attempts to auto-detect which python version is compiled into<br>
+Vim.<br>
+Unfortunately, in some versions of Vim this detection does not work.<br>
+In that case you have to explicitly tell UltiSnips which version to use<br>
+using<br>
+the 'UltiSnipsUsePythonVersion' global variable.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+To use python version 2.x: &gt;<br>
+let g:UltiSnipsUsePythonVersion = 2
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+To use python version 3.x: &gt;<br>
+let g:UltiSnipsUsePythonVersion = 3
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+1.2 Acknowledgments *UltiSnips-acknowledgments*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+UltiSnips was inspired by the snippets feature of TextMate<br>
+(<a href="http://macromates.com/" title="http://macromates.com/" class="http">http://macromates.com/</a>), the GUI text editor for Mac OS X. Managing<br>
+snippets<br>
+in Vim is not new. I want to thank Michael Sanders, the author of snipMate,<br>
+for some implementation details I borrowed from his plugin and for the<br>
+permission to use his snippets.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+=============================================================================
+</div>
+</p>
+
+<p>
+<div style='padding-left: 330pt'>
+  Installation and Updating *UltiSnips-install-and-update*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+The recommended way of getting UltiSnips is to track SirVer/ultisnips on<br>
+github. The master branch is always stable.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+Using Pathogen: *UltiSnips-using-pathogen*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+If you are a pathogen user, you can track the official mirror of UltiSnips<br>
+on<br>
+github: &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+$ cd ~/.vim/bundle &amp;amp;&amp;amp; git clone<br>
+<a href="git://github.com/SirVer/ultisnips.git" title="git://github.com/SirVer/ultisnips.git" class="git">git://github.com/SirVer/ultisnips.git</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+If you also want the default snippets, also track &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+$ cd ~/.vim/bundle &amp;amp;&amp;amp; git clone<br>
+<a href="git://github.com/honza/vim-snippets.git" title="git://github.com/honza/vim-snippets.git" class="git">git://github.com/honza/vim-snippets.git</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+See the pathogen documentation for more details on how to update a bundle.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+Using a downloaded packet: *UltiSnips-using-a-downloaded-packet*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+Download the packet and unpack into a directory of your choice. Then add<br>
+this<br>
+directory to your Vim runtime path by adding this line to your vimrc file.<br>
+&gt;<br>
+set runtimepath+=~/.vim/ultisnips_rep
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+UltiSnips also needs Vim files from the ftdetect/ directory. Unfortunately,<br>
+Vim only allows this directory in the .vim directory. You therefore have to<br>
+symlink/copy the files: &gt;<br>
+mkdir -p ~/.vim/ftdetect/<br>
+ln -s ~/.vim/ultisnips_rep/ftdetect/* ~/.vim/ftdetect/
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+Restart Vim and UltiSnips should work. To access the help, use &gt;<br>
+:helptags ~/.vim/ultisnips_rep/doc<br>
+:help UltiSnips
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+UltiSnips comes without snippets. An excellent selection of snippets can be<br>
+found here: <a href="https://github.com/honza/vim-snippets" title="https://github.com/honza/vim-snippets" class="https">https://github.com/honza/vim-snippets</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+=============================================================================
+</div>
+</p>
+
+<p>
+<div style='padding-left: 330pt'>
+  Settings &amp;amp; Commands *UltiSnips-settings*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+3.1 Commands *UltiSnips-commands*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+3.1.1 UltiSnipsEdit *:UltiSnipsEdit*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+The UltiSnipsEdit command opens a private snippet definition file for the<br>
+current filetype. If no snippet file exists, a new file is created. If used<br>
+as<br>
+UltiSnipsEdit! all public snippet files are taken into account too. If<br>
+multiple files match the search, the user gets to choose the file.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+There are several variables associated with the UltiSnipsEdit command.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 330pt'>
+&lt;div style='padding-left: 420pt'&gt;<br>
+  *g:UltiSnipsEditSplit*
+</div>
+</p>
+
+<p>
+<div style='padding-left: 330pt'>
+  g:UltiSnipsEditSplit Defines how the edit window is opened. Possible<br>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 360pt'>
+values:<br>
+|normal| Default. Opens in the current window.<br>
+|tabdo| Opens the window in a new tab.<br>
+|horizontal| Splits the window horizontally.<br>
+|vertical| Splits the window vertically.<br>
+|context| Splits the window vertically or
+</div>
+</p>
+
+<p>
+<div style='padding-left: 360pt'>
+&lt;div style='padding-left: 300pt'&gt;<br>
+  horizontally depending on context.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 360pt'>
+  &lt;div style='padding-left: 420pt'&gt;
+</div>
+<div style='padding-left: 390pt'>
+*g:UltiSnipsSnippetsDir*
+</div>
+</p>
+
+<p>
+<div style='padding-left: 390pt'>
+g:UltiSnipsSnippetsDir<br>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  Defines the directory where private snippet<br>
+  definition files are placed in in.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 390pt'>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 420pt'>
+As example, if the current 'filetype' is "cpp" the<br>
+:UltiSnipsEdit command looks for a file to edit in<br>
+this order:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 420pt'>
+&lt;ol style='padding-left: 210pt' type="1" start="1"&gt;<br>
+  An existing
+</div>
+</p>
+
+<p>
+<div style='padding-left: 420pt'>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  g:UltiSnipsSnippetsDir."/cpp.snippets" file
+</div>
+</p>
+
+<p>
+<div style='padding-left: 420pt'>
+  &lt;ol style='padding-left: 210pt' type="1" start="2"&gt;
+</div>
+<div style='padding-left: 450pt'>
+Find a matching "cpp" snippets file in
+</div>
+</p>
+
+<p>
+<div style='padding-left: 420pt'>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 450pt'>
+g:UltiSnipsSnippetDirectories
+</div>
+</p>
+
+<p>
+<div style='padding-left: 450pt'>
+&lt;ol style='padding-left: 210pt' type="1" start="3"&gt;<br>
+  Create a new
+</div>
+</p>
+
+<p>
+<div style='padding-left: 450pt'>
+&lt;div style='padding-left: 210pt'&gt;<br>
+  g:UltiSnipsSnippetsDir."/cpp.snippets" file
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 450pt'>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 480pt'>
+Note that directories named "snippets" are<br>
+reserved for snipMate snippets and cannot be used.<br>
+Also, this setting does not affect where snippets<br>
+are searched for, so it is possible to change this<br>
+to opening files that are then not found by<br>
+UltiSnips. See |UltiSnips-snippet-search-path| for<br>
+details.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 480pt'>
+&lt;div style='padding-left: 420pt'&gt;<br>
+  *g:UltiSnipsSnippetDirectories*
+</div>
+</p>
+
+<p>
+<div style='padding-left: 480pt'>
+  g:UltiSnipsSnippetDirectories<br>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 510pt'>
+Configures the directories that are searched for<br>
+snippets. Do not mix up this variable with the<br>
+previous one. See<br>
+|UltiSnips-how-snippets-are-loaded|.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 510pt'>
+&lt;div style='padding-left: 420pt'&gt;<br>
+  *g:UltiSnipsEnableSnipMate*
+</div>
+</p>
+
+<p>
+<div style='padding-left: 510pt'>
+  g:UltiSnipsEnableSnipMate<br>
+  &lt;div style='padding-left: 210pt'&gt;
+</div>
+<div style='padding-left: 540pt'>
+Enable looking for SnipMate snippets in<br>
+&amp;amp;runtimepath. UltiSnips will search only<br>
+for<br>
+directories named 'snippets' while looking for<br>
+SnipMate snippets. Defaults to "1", so<br>
+UltiSnips<br>
+will look for SnipMate snippets.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+3.1.2 UltiSnipsAddFiletypes<br>
+*:UltiSnipsAddFiletypes*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+The UltiSnipsAddFiletypes command allows for<br>
+explicit merging of other snippet<br>
+filetypes for the current buffer. For example,<br>
+if you edit a .rst file but<br>
+also want the Lua snippets to be available you<br>
+can issue the command &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+:UltiSnipsAddFiletypes rst.lua
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+using the dotted filetype syntax. Order is<br>
+important, the first filetype in<br>
+this list will be the one used for<br>
+UltiSnipsEdit and the list is<br>
+ordered by evaluation priority. For example you<br>
+might add this to your<br>
+ftplugin/rails.vim &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+:UltiSnipsAddFiletypes rails.ruby
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+I mention rails first because I want to edit<br>
+rails snippets when using<br>
+UltiSnipsEdit and because rails snippets should<br>
+overwrite equivalent ruby<br>
+snippets. The priority will now be rails -&gt;<br>
+ruby -&gt; all. If you have some<br>
+special programming snippets that should have<br>
+lower priority than your ruby<br>
+snippets you can call &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+:UltiSnipsAddFiletypes ruby.programming
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+The priority will then be rails -&gt; ruby<br>
+-&gt; programming -&gt; all.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+3.2 Triggers *UltiSnips-triggers*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+3.2.1 Trigger key mappings<br>
+*UltiSnips-trigger-key-mappings*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 540pt'>
+&lt;div style='padding-left: 180pt'&gt;<br>
+  *g:UltiSnipsExpandTrigger*<br>
+  *g:UltiSnipsListSnippets*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+*g:UltiSnipsJumpForwardTrigger*<br>
+*g:UltiSnipsJumpBackwardTrigger*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+You can define the keys used to trigger<br>
+UltiSnips actions by setting global<br>
+variables. Variables define the keys used<br>
+to expand a snippet, jump forward<br>
+and jump backwards within a snippet, and<br>
+list all available snippets in the<br>
+current expand context. Be advised, that<br>
+some terminal emulators don't send<br>
+&lt;c-tab&gt; (and others, like<br>
+&lt;c-h&gt;) to the running program. The<br>
+variables with<br>
+their default values are: &gt;<br>
+g:UltiSnipsExpandTrigger &lt;tab&gt;<br>
+g:UltiSnipsListSnippets &lt;c-tab&gt;<br>
+g:UltiSnipsJumpForwardTrigger &lt;c-j&gt;<br>
+g:UltiSnipsJumpBackwardTrigger &lt;c-k&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+UltiSnips will only map the jump triggers<br>
+while a snippet is active to<br>
+interfere as little as possible with other<br>
+mappings.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+The default value for<br>
+g:UltiSnipsJumpBackwardTrigger interferes<br>
+with the<br>
+built-in complete function:<br>
+|i_CTRL-X_CTRL-K|. A workaround is to add<br>
+the<br>
+following to your vimrc file or switching<br>
+to a plugin like Supertab or<br>
+YouCompleteMe. &gt;<br>
+inoremap &lt;c-x&gt;&lt;c-k&gt;<br>
+&lt;c-x&gt;&lt;c-k&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+3.2.2 Using your own trigger functions<br>
+*UltiSnips-trigger-functions*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+For advanced users there are four functions<br>
+that you can map directly to a<br>
+key and that correspond to some of the<br>
+triggers previously defined:<br>
+g:UltiSnipsExpandTrigger &lt;--&gt;<br>
+UltiSnips#ExpandSnippet<br>
+g:UltiSnipsJumpForwardTrigger &lt;--&gt;<br>
+UltiSnips#JumpForwards<br>
+g:UltiSnipsJumpBackwardTrigger &lt;--&gt;<br>
+UltiSnips#JumpBackwards
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+If you have g:UltiSnipsExpandTrigger and<br>
+g:UltiSnipsJumpForwardTrigger set<br>
+to the same value then the function you are<br>
+actually going to use is<br>
+UltiSnips#ExpandSnippetOrJump.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+Each time any of the functions<br>
+UltiSnips#ExpandSnippet,<br>
+UltiSnips#ExpandSnippetOrJump,<br>
+UltiSnips#JumpForwards or<br>
+UltiSnips#JumpBackwards is called a global<br>
+variable is set that contains the<br>
+return value of the corresponding function.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+The corresponding variables and functions<br>
+are:<br>
+UltiSnips#ExpandSnippet --&gt;<br>
+g:ulti_expand_res (0: fail, 1: success)<br>
+UltiSnips#ExpandSnippetOrJump --&gt;<br>
+g:ulti_expand_or_jump_res (0: fail,<br>
+&lt;div style='padding-left: 390pt'&gt;<br>
+  1: expand, 2: jump)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 570pt'>
+  UltiSnips#JumpForwards --&gt;<br>
+  g:ulti_jump_forwards_res (0: fail, 1:<br>
+  success)<br>
+  UltiSnips#JumpBackwards --&gt;<br>
+  g:ulti_jump_backwards_res (0: fail, 1:<br>
+  success)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+  To see how these return values may come<br>
+  in handy, suppose that you want to map<br>
+  a key to expand or jump, but if none of<br>
+  these actions is successful you want<br>
+  to call another function. UltiSnips<br>
+  already does this automatically for<br>
+  supertab, but this allows you individual<br>
+  fine tuning of your Tab key usage.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+  Usage is as follows: You define a<br>
+  function &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 570pt'>
+  let g:ulti_expand_or_jump_res = 0<br>
+  "default value, just set once<br>
+  function! Ulti_ExpandOrJump_and_getRes()
+</div>
+</p>
+
+<p>
+<div style='padding-left: 600pt'>
+call UltiSnips#ExpandSnippetOrJump()<br>
+return g:ulti_expand_or_jump_res
+</div>
+</p>
+
+<p>
+<div style='padding-left: 600pt'>
+endfunction
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+then you define your mapping as &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+inoremap &lt;NL&gt;<br>
+&lt;C-R&gt;=(Ulti_ExpandOrJump_and_getRes()<br>
+&gt; 0)?"":IMAP_Jumpfunc('',<br>
+0)&lt;CR&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+and if the you can't expand or jump<br>
+from the current location then the<br>
+alternative function IMAP_Jumpfunc('',<br>
+0) is called.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+3.2.3 Custom autocommands<br>
+*UltiSnips-custom-autocommands*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+Note Autocommands must not change the<br>
+buffer in any way. If lines are added,<br>
+deleted, or modified it will confuse<br>
+UltiSnips which might scramble your<br>
+snippet contents.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+&lt;div style='padding-left: 180pt'&gt;<br>
+  *UltiSnipsEnterFirstSnippet*<br>
+  *UltiSnipsExitLastSnippet*
+</div>
+</p>
+
+<p>
+<div style='padding-left: 600pt'>
+  For maximum compatibility with other<br>
+  plug-ins, UltiSnips sets up some<br>
+  special<br>
+  state, include mappings and<br>
+  autocommands, when a snippet starts<br>
+  being<br>
+  expanded, and tears them down once<br>
+  the last snippet has been exited. In<br>
+  order<br>
+  to make it possible to override these<br>
+  "inner" settings, it fires the<br>
+  following<br>
+  "User" autocommands:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  UltiSnipsEnterFirstSnippet<br>
+  UltiSnipsExitLastSnippet
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  For example, to call a pair of custom<br>
+  functions in response to these<br>
+  events,<br>
+  you might do: &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  autocmd! User<br>
+  UltiSnipsEnterFirstSnippet<br>
+  autocmd User<br>
+  UltiSnipsEnterFirstSnippet call<br>
+  CustomInnerKeyMapper()<br>
+  autocmd! User<br>
+  UltiSnipsExitLastSnippet<br>
+  autocmd User UltiSnipsExitLastSnippet<br>
+  call CustomInnerKeyUnmapper()
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  Note that snippet expansion may be<br>
+  nested, in which case<br>
+  |UltiSnipsEnterFirstSnippet| will<br>
+  fire only as the first (outermost)<br>
+  snippet<br>
+  is entered, and<br>
+  |UltiSnipsExitLastSnippet| will only<br>
+  fire once the last<br>
+  (outermost) snippet have been exited.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  3.2.4 Direct use of Python API<br>
+  *UltiSnips-use-python-api*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  For even more advanced usage, you can<br>
+  directly write python functions using<br>
+  UltiSnip's python modules. This is an<br>
+  internal and therefore unstable API<br>
+  and<br>
+  not recommended though.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  Here is a small example funtion that<br>
+  expands a snippet: &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  function! s:Ulti_ExpandSnip()<br>
+  Python &lt;&lt; EOF<br>
+  import sys, vim<br>
+  from UltiSnips import<br>
+  UltiSnips_Manager<br>
+  UltiSnips_Manager.expand()<br>
+  EOF<br>
+  return ""<br>
+  endfunction
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  3.3 Warning About Select Mode<br>
+  Mappings<br>
+  *UltiSnips-warning-smappings*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  Vim's help document for |mapmode-s|<br>
+  states: &gt;<br>
+  NOTE: Mapping a printable character<br>
+  in Select mode may confuse the user.<br>
+  It's better to explicitly use :xmap<br>
+  and :smap for printable characters.<br>
+  Or<br>
+  use :sunmap after defining the<br>
+  mapping.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  However, most Vim plugins, including<br>
+  some default Vim plugins, do not<br>
+  adhere<br>
+  to this. UltiSnips uses Select mode<br>
+  to mark tabstops in snippets for<br>
+  overwriting. Existing Visual+Select<br>
+  mode mappings will interfere.<br>
+  Therefore,<br>
+  UltiSnips issues a |:sunmap| command<br>
+  to remove each Select mode mapping<br>
+  for<br>
+  printable characters. No other<br>
+  mappings are touched. In particular,<br>
+  UltiSnips<br>
+  does not change existing normal,<br>
+  insert or visual mode mappings.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  If this behavior is not desired, you<br>
+  can disable it by adding this line to<br>
+  your vimrc file. &gt;<br>
+  let<br>
+  g:UltiSnipsRemoveSelectModeMappings =<br>
+  0
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  If you want to disable this feature<br>
+  for specific mappings only, add them<br>
+  to<br>
+  the list of mappings to be ignored.<br>
+  For example, the following lines in<br>
+  your<br>
+  vimrc file will unmap all Select mode<br>
+  mappings except those mappings<br>
+  containing either the string<br>
+  "somePlugin" or the string<br>
+  "otherPlugin" in its<br>
+  complete definition as listed by the<br>
+  |:smap| command. &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  let<br>
+  g:UltiSnipsRemoveSelectModeMappings =<br>
+  1<br>
+  let g:UltiSnipsMappingsToIgnore = [<br>
+  "somePlugin", "otherPlugin" ]
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  3.4 Functions *UltiSnips-functions*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  UltiSnips provides some functions for<br>
+  extending core functionality.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  3.4.1<br>
+  UltiSnips#AddSnippetWithPriority<br>
+  *UltiSnips#AddSnippetWithPriority*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  The first function is<br>
+  UltiSnips#AddSnippetWithPriority(trigger,<br>
+  value, description,<br>
+  options, filetyp, priority). It adds<br>
+  a new snippet to the current list of<br>
+  snippets. See<br>
+  |UltiSnips-authoring-snippets| for<br>
+  details most of the function<br>
+  arguments. The priority is a number<br>
+  that defines which snippet should be<br>
+  preferred over others. See the<br>
+  priority keyword in<br>
+  |UltiSnips-add-snippets|.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  3.4.2 UltiSnips#Anon *UltiSnips#Anon*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  The second function is<br>
+  UltiSnips#Anon(value, ...). It<br>
+  expands an anonymous<br>
+  snippet. Anonymous snippets are<br>
+  defined on the spot, expanded and<br>
+  immediately<br>
+  discarded again. Anonymous snippets<br>
+  are not added to the global list of<br>
+  snippets, so they cannot be expanded<br>
+  a second time unless the function is<br>
+  called again. The function takes<br>
+  three optional arguments, in order:<br>
+  trigger,<br>
+  description, options. Arguments<br>
+  coincide with the arguments of the<br>
+  |UltiSnips#AddSnippetWithPriority|<br>
+  function of the same name. The<br>
+  trigger and<br>
+  options arguments can change the way<br>
+  the snippet expands. Same options<br>
+  can be specified as in the snippet<br>
+  definition. See full list of options<br>
+  at<br>
+  |UltiSnips-snippet-options|. The<br>
+  description is unused at this point.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  An example use case might be this<br>
+  line from a reStructuredText plugin<br>
+  file:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  inoremap &lt;silent&gt; $$<br>
+  $$&lt;C-R&gt;=UltiSnips#Anon(':latex:\`$1\`',<br>
+  '$$')&lt;cr&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  This expands the snippet whenever two<br>
+  $ signs are typed.<br>
+  Note: The right-hand side of the<br>
+  mapping starts with an immediate<br>
+  retype of<br>
+  the '$$' trigger and passes '$$' to<br>
+  the function as the trigger argument.<br>
+  This is required in order for<br>
+  UltiSnips to have access to the<br>
+  characters<br>
+  typed so it can determine if the<br>
+  trigger matches or not. A more<br>
+  elegant way of<br>
+  creating such a snippet could be to<br>
+  use |UltiSnips-autotrigger|.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  3.4.3<br>
+  UltiSnips#SnippetsInCurrentScope<br>
+  *UltiSnips#SnippetsInCurrentScope*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  UltiSnips#SnippetsInCurrentScope<br>
+  returns a vim dictionary with the<br>
+  snippets<br>
+  whose trigger matches the current<br>
+  word. If you need all snippets<br>
+  information<br>
+  for the current buffer, you can<br>
+  simply pass 1 (which means all) as<br>
+  first<br>
+  argument of this function, and use a<br>
+  global variable<br>
+  g:current_ulti_dict_info<br>
+  to get the result (see example<br>
+  below).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  This function does not add any new<br>
+  functionality to ultisnips directly<br>
+  but<br>
+  allows to use third party plugins to<br>
+  integrate the current available<br>
+  snippets.<br>
+  For example, all completion plugins<br>
+  that integrate with UltiSnips use<br>
+  this<br>
+  function.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  Another example on how to use this<br>
+  function consider the following<br>
+  function<br>
+  and mapping definition:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 600pt'>
+  function!<br>
+  ExpandPossibleShorterSnippet()<br>
+  if<br>
+  len(UltiSnips#SnippetsInCurrentScope())<br>
+  == 1 "only one candidate...
+</div>
+</p>
+
+<p>
+<div style='padding-left: 630pt'>
+let curr_key =<br>
+keys(UltiSnips#SnippetsInCurrentScope())[0]<br>
+normal diw<br>
+exe "normal a" . curr_key<br>
+exe "normal a "<br>
+return 1
+</div>
+</p>
+
+<p>
+<div style='padding-left: 630pt'>
+endif<br>
+return 0<br>
+endfunction<br>
+inoremap &lt;silent&gt; &lt;C-L&gt;<br>
+&lt;C-R&gt;=(ExpandPossibleShorterSnippet()<br>
+== 0? '':<br>
+UltiSnips#ExpandSnippet())&lt;CR&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+If the trigger for your snippet is<br>
+lorem, you type lor, and you have<br>
+no other<br>
+snippets whose trigger matches lor<br>
+then hitting &lt;C-L&gt; will<br>
+expand to whatever<br>
+lorem expands to.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+One more example on how to use this<br>
+function to extract all snippets<br>
+available<br>
+in the current buffer: &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+function! GetAllSnippets()<br>
+call<br>
+UltiSnips#SnippetsInCurrentScope(1)<br>
+let list = []<br>
+for [key, info] in<br>
+items(g:current_ulti_dict_info)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 630pt'>
+  let parts = split(info.location,<br>
+  ':')<br>
+  call add(list, {<br>
+  \"key": key,<br>
+  \"path": parts[0],<br>
+  \"linenr": parts[1],<br>
+  \"description": info.description,<br>
+  \})
+</div>
+</p>
+
+<p>
+<div style='padding-left: 630pt'>
+  endfor<br>
+  return list<br>
+  endfunction
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+  3.5 Warning about missing python<br>
+  support<br>
+  *UltiSnips-python-warning*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+  When UltiSnips is loaded, it will<br>
+  check that the running Vim was<br>
+  compiled with<br>
+  python support. If no support is<br>
+  detected, a warning will be<br>
+  displayed and<br>
+  loading of UltiSnips will be<br>
+  skipped.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 630pt'>
+  If you would like to suppress<br>
+  this warning message, you may add<br>
+  the following<br>
+  line to your vimrc file.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+let g:UltiSnipsNoPythonWarning<br>
+= 1
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+This may be useful if your Vim<br>
+configuration files are shared<br>
+across several<br>
+systems where some of them may<br>
+not have Vim compiled with<br>
+python support.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+=============================================================================
+</div>
+</p>
+
+<p>
+<div style='padding-left: 660pt'>
+  Authoring snippets
+</div>
+<div style='padding-left: 690pt'>
+*UltiSnips-authoring-snippets*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+4.1 Basics *UltiSnips-basics*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+4.1.1 How snippets are loaded<br>
+*UltiSnips-how-snippets-are-loaded*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+Snippet definition files are<br>
+stored in snippet directories.<br>
+The main<br>
+controlling variable for where<br>
+these directories are searched<br>
+for is the<br>
+list variable, set by default<br>
+to &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+let<br>
+g:UltiSnipsSnippetDirectories=["UltiSnips"]
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+Note that "snippets" is<br>
+reserved for snipMate snippets<br>
+and cannot be used in<br>
+this list.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+UltiSnips will search each<br>
+'runtimepath' directory for the<br>
+subdirectory names<br>
+defined in<br>
+g:UltiSnipsSnippetDirectories<br>
+in the order they are defined.<br>
+For<br>
+example, if you keep your<br>
+snippets in<br>
+`~/.vim/mycoolsnippets`and you<br>
+want to<br>
+make use of the UltiSnips<br>
+snippets that come with other<br>
+plugins, add the<br>
+following to your vimrc file.<br>
+&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+let<br>
+g:UltiSnipsSnippetDirectories=["UltiSnips",<br>
+"mycoolsnippets"]
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+If you do not want to use the<br>
+third party snippets that come<br>
+with plugins,<br>
+define the variable<br>
+accordingly: &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+let<br>
+g:UltiSnipsSnippetDirectories=["mycoolsnippets"]
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+If the list has only one entry<br>
+that is an absolute path,<br>
+UltiSnips will not<br>
+iterate through<br>
+&amp;amp;runtimepath but only look<br>
+in this one directory for<br>
+snippets.<br>
+This can lead to significant<br>
+speedup. This means you will<br>
+miss out on snippets<br>
+that are shipped with third<br>
+party plugins. You'll need to<br>
+copy them into this<br>
+directory manually.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+An example configuration could<br>
+be: &gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+  let<br>
+  g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+  You can also redefine the<br>
+  search path on a buffer by<br>
+  buffer basis by setting<br>
+  the variable<br>
+  b:UltiSnipsSnippetDirectories.<br>
+  This variable takes<br>
+  precedence<br>
+  over the global variable.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 660pt'>
+  Using a strategy similar to<br>
+  how Vim detects |ftplugins|,<br>
+  UltiSnips iterates<br>
+  over the snippet definition<br>
+  directories looking for files<br>
+  with names of the<br>
+  following patterns:<br>
+  ft.snippets, ft_*.snippets,<br>
+  or ft/*, where "ft" is the<br>
+  'filetype' of the current<br>
+  document and "*" is a<br>
+  shell-like wildcard matching<br>
+  any string including the<br>
+  empty string. The following<br>
+  table shows some typical<br>
+  snippet filenames and their<br>
+  associated filetype.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+snippet filename filetype ~<br>
+ruby.snippets ruby<br>
+perl.snippets perl<br>
+c.snippets c<br>
+c_my.snippets c<br>
+c/a c<br>
+c/b.snippets c<br>
+all.snippets all<br>
+all/a.snippets all
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+The 'all' filetype is<br>
+unique. It represents<br>
+snippets available for use<br>
+when<br>
+editing any document<br>
+regardless of the filetype.<br>
+A date insertion snippet,<br>
+for<br>
+example, would fit well in<br>
+the all.snippets file.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+UltiSnips understands Vim's<br>
+dotted filetype syntax. For<br>
+example, if you define<br>
+a dotted filetype for the<br>
+CUDA C++ framework, e.g.<br>
+":set ft=cuda.cpp", then<br>
+UltiSnips will search for<br>
+and activate snippets for<br>
+both the cuda and cpp<br>
+filetypes.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+4.1.2 Basic syntax<br>
+*UltiSnips-basic-syntax*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+The snippets file syntax is<br>
+simple. All lines starting<br>
+with a # character are<br>
+considered comments.<br>
+Comments are ignored by<br>
+UltiSnips. Use them to<br>
+document<br>
+snippets.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+A line beginning with the<br>
+keyword 'extends' provides<br>
+a way of combining<br>
+snippet files. When the<br>
+'extends' directive is<br>
+included in a snippet file,<br>
+it<br>
+instructs UltiSnips to<br>
+include all snippets from<br>
+the indicated filetypes.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+The syntax looks like this:<br>
+&gt;<br>
+extends ft1, ft2, ft3
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+For example, the first line<br>
+in cpp.snippets looks like<br>
+this: &gt;<br>
+extends c<br>
+When UltiSnips activates<br>
+snippets for a cpp file, it<br>
+first looks for all c<br>
+snippets and activates them<br>
+as well. This is a<br>
+convenient way to create<br>
+specialized snippet files<br>
+from more general ones.<br>
+Multiple 'extends' lines<br>
+are<br>
+permitted in a snippet<br>
+file, and they can be<br>
+included anywhere in the<br>
+file.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+A line beginning with the<br>
+keyword 'priority' sets the<br>
+priority for all<br>
+snippets defined in the<br>
+current file after this<br>
+line. The default priority<br>
+for<br>
+a file is always 0. When a<br>
+snippet should be expanded,<br>
+UltiSnips will collect<br>
+all snippet definitions<br>
+from all sources that match<br>
+the trigger and keep only<br>
+the ones with the highest<br>
+priority. For example, all<br>
+shipped snippets have a<br>
+priority &lt; 0, so that<br>
+user defined snippets<br>
+always overwrite shipped<br>
+snippets.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+A line beginning with the<br>
+keyword 'snippet' marks the<br>
+beginning of a snippet<br>
+definition and a line<br>
+starting with the keyword<br>
+'endsnippet' marks the end.<br>
+The snippet definition is<br>
+placed between the lines.<br>
+Here is a snippet of an<br>
+'if' statement for the Unix<br>
+shell (sh) filetype. &gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 690pt'>
+  snippet if "if ... then<br>
+  (if)"<br>
+  if ${2: ${1:condition} };<br>
+  then
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 720pt'>
+${0:#statements}
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 720pt'>
+  fi<br>
+  endsnippet
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 720pt'>
+  The start line takes<br>
+  the following form:<br>
+  &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 720pt'>
+  snippet trigger_word<br>
+  [ "description" [<br>
+  options ] ]
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 720pt'>
+  The trigger_word is<br>
+  required, but the<br>
+  description and<br>
+  options are optional.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 720pt'>
+  The 'trigger_word' is<br>
+  the word or string<br>
+  sequence used to<br>
+  trigger the snippet.<br>
+  Generally a single<br>
+  word is used but the<br>
+  trigger_word can<br>
+  include spaces. If<br>
+  you<br>
+  wish to include<br>
+  spaces, you must wrap<br>
+  the tab trigger in<br>
+  quotes. &gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 750pt'>
+snippet "tab<br>
+trigger" [<br>
+"description" [<br>
+options ] ]
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 750pt'>
+The quotes are not<br>
+part of the<br>
+trigger. To<br>
+activate the<br>
+snippet type: tab<br>
+trigger<br>
+followed by the<br>
+snippet expand<br>
+character.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 750pt'>
+It is not<br>
+technically<br>
+necessary to use<br>
+quotes to wrap a<br>
+trigger with<br>
+spaces.<br>
+Any matching<br>
+characters will do.<br>
+For example, this<br>
+is a valid snippet<br>
+starting<br>
+line. &gt;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 750pt'>
+  snippet !tab<br>
+  trigger! [<br>
+  "description" [<br>
+  options ] ]
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 750pt'>
+  Quotes can be<br>
+  included as part<br>
+  of the trigger by<br>
+  wrapping the<br>
+  trigger in<br>
+  another<br>
+  character. &gt;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 780pt'>
+snippet !"tab<br>
+trigger"! [<br>
+"description" [<br>
+options ] ]
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 780pt'>
+To activate<br>
+this snippet<br>
+one would type:<br>
+"tab trigger"
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 780pt'>
+The<br>
+'description'<br>
+is a string<br>
+describing the<br>
+trigger. It is<br>
+helpful for<br>
+documenting the<br>
+snippet and for<br>
+distinguishing<br>
+it from other<br>
+snippets with<br>
+the<br>
+same tab<br>
+trigger. When a<br>
+snippet is<br>
+activated and<br>
+more than one<br>
+tab trigger<br>
+match,<br>
+UltiSnips<br>
+displays a list<br>
+of the matching<br>
+snippets with<br>
+their<br>
+descriptions.<br>
+The user then<br>
+selects the<br>
+snippet they<br>
+want.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 780pt'>
+4.1.3 Snippet<br>
+Options:<br>
+*UltiSnips-snippet-options*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 780pt'>
+The 'options'<br>
+control the<br>
+behavior of the<br>
+snippet.<br>
+Options are<br>
+indicated by<br>
+single<br>
+characters. The<br>
+'options'<br>
+characters for<br>
+a snippet are<br>
+combined into<br>
+a word without<br>
+spaces.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 780pt'>
+The options<br>
+currently<br>
+supported are:<br>
+&gt;<br>
+b Beginning of<br>
+line - A<br>
+snippet with<br>
+this option is<br>
+expanded only<br>
+if the
+</div>
+</p>
+
+<p>
+<div style='padding-left: 780pt'>
+  tab trigger<br>
+  is the first<br>
+  word on the<br>
+  line. In<br>
+  other words,<br>
+  if only<br>
+  whitespace<br>
+  precedes the<br>
+  tab trigger,<br>
+  expand. The<br>
+  default is to<br>
+  expand<br>
+  snippets at<br>
+  any position<br>
+  regardless of<br>
+  the preceding<br>
+  non-whitespace<br>
+  characters.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 780pt'>
+  i In-word<br>
+  expansion -<br>
+  By default a<br>
+  snippet is<br>
+  expanded only<br>
+  if the tab
+</div>
+</p>
+
+<p>
+<div style='padding-left: 810pt'>
+trigger is<br>
+the first<br>
+word on the<br>
+line or is<br>
+preceded by<br>
+one or more<br>
+whitespace<br>
+characters.<br>
+A snippet<br>
+with this<br>
+option is<br>
+expanded<br>
+regardless<br>
+of the<br>
+preceding<br>
+character.<br>
+In other<br>
+words, the<br>
+snippet can<br>
+be<br>
+triggered<br>
+in the<br>
+middle of a<br>
+word.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 810pt'>
+w Word<br>
+boundary -<br>
+With this<br>
+option, the<br>
+snippet is<br>
+expanded if
+</div>
+</p>
+
+<p>
+<div style='padding-left: 810pt'>
+  the tab<br>
+  trigger<br>
+  start<br>
+  matches a<br>
+  word<br>
+  boundary<br>
+  and the<br>
+  tab<br>
+  trigger<br>
+  end<br>
+  matches a<br>
+  word<br>
+  boundary.<br>
+  In other<br>
+  words the<br>
+  tab<br>
+  trigger<br>
+  must be<br>
+  preceded<br>
+  and<br>
+  followed<br>
+  by<br>
+  non-word<br>
+  characters.<br>
+  Word<br>
+  characters<br>
+  are<br>
+  defined<br>
+  by the<br>
+  'iskeyword'<br>
+  setting.<br>
+  Use this<br>
+  option,<br>
+  for<br>
+  example,<br>
+  to<br>
+  permit<br>
+  expansion<br>
+  where the<br>
+  tab<br>
+  trigger<br>
+  follows<br>
+  punctuation<br>
+  without<br>
+  expanding<br>
+  suffixes<br>
+  of larger<br>
+  words.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 810pt'>
+  r Regular<br>
+  expression<br>
+  - With<br>
+  this<br>
+  option,<br>
+  the tab<br>
+  trigger<br>
+  is<br>
+  expected<br>
+  to<br>
+  &lt;div
+</div>
+<div style='padding-left: 840pt'>
+style='padding-left: 30pt'&gt;<br>
+be a<br>
+python<br>
+regular<br>
+expression.<br>
+The<br>
+snippet<br>
+is<br>
+expanded<br>
+if the<br>
+recently<br>
+typed<br>
+characters<br>
+match<br>
+the<br>
+regular<br>
+expression.<br>
+Note:<br>
+The<br>
+regular<br>
+expression<br>
+MUST be<br>
+quoted<br>
+(or<br>
+surrounded<br>
+with<br>
+another<br>
+character)<br>
+like a<br>
+multi-word<br>
+tab<br>
+trigger<br>
+(see<br>
+above)<br>
+whether<br>
+it has<br>
+spaces<br>
+or not.<br>
+A<br>
+resulting<br>
+match<br>
+is<br>
+passed<br>
+to any<br>
+python<br>
+code<br>
+blocks<br>
+in the<br>
+snippet<br>
+definition<br>
+as the<br>
+local<br>
+variable<br>
+"match".
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 840pt'>
+t Do<br>
+not<br>
+expand<br>
+tabs -<br>
+If a<br>
+snippet<br>
+definition<br>
+includes<br>
+leading<br>
+tab<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  characters,<br>
+  by<br>
+  default<br>
+  UltiSnips<br>
+  expands<br>
+  the<br>
+  tab<br>
+  characters<br>
+  honoring<br>
+  the<br>
+  Vim<br>
+  'shiftwidth',<br>
+  'softtabstop',<br>
+  'expandtab'<br>
+  and<br>
+  'tabstop'<br>
+  indentation<br>
+  settings.<br>
+  (For<br>
+  example,<br>
+  if<br>
+  'expandtab'<br>
+  is<br>
+  set,<br>
+  the<br>
+  tab<br>
+  is<br>
+  replaced<br>
+  with<br>
+  spaces.)<br>
+  If<br>
+  this<br>
+  option<br>
+  is<br>
+  set,<br>
+  UltiSnips<br>
+  will<br>
+  ignore<br>
+  the<br>
+  Vim<br>
+  settings<br>
+  and<br>
+  insert<br>
+  the<br>
+  tab<br>
+  characters<br>
+  as<br>
+  is.<br>
+  This<br>
+  option<br>
+  is<br>
+  useful<br>
+  for<br>
+  snippets<br>
+  involved<br>
+  with<br>
+  tab<br>
+  delimited<br>
+  formats.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 840pt'>
+  s<br>
+  Remove<br>
+  whitespace<br>
+  immediately<br>
+  before<br>
+  the<br>
+  cursor<br>
+  at<br>
+  the<br>
+  end<br>
+  of a<br>
+  line<br>
+  &lt;div
+</div>
+<div style='padding-left: 870pt'>
+style='padding-left: 30pt'&gt;<br>
+before<br>
+jumping<br>
+to<br>
+the<br>
+next<br>
+tabstop.<br>
+This<br>
+is<br>
+useful<br>
+if<br>
+there<br>
+is<br>
+a<br>
+tabstop<br>
+with<br>
+optional<br>
+text<br>
+at<br>
+the<br>
+end<br>
+of<br>
+a<br>
+line.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 870pt'>
+m<br>
+Trim<br>
+all<br>
+whitespaces<br>
+from<br>
+right<br>
+side<br>
+of<br>
+snippet<br>
+lines.<br>
+Useful<br>
+when<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snippet<br>
+  contains<br>
+  empty<br>
+  lines<br>
+  which<br>
+  should<br>
+  remain<br>
+  empty<br>
+  after<br>
+  expanding.<br>
+  Without<br>
+  this<br>
+  option<br>
+  empty<br>
+  lines<br>
+  in<br>
+  snippets<br>
+  definition<br>
+  will<br>
+  have<br>
+  indentation<br>
+  too.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 870pt'>
+  e<br>
+  Custom<br>
+  context<br>
+  snippet<br>
+  -<br>
+  With<br>
+  this<br>
+  option<br>
+  expansion<br>
+  of<br>
+  snippet<br>
+  can<br>
+  be<br>
+  &lt;div
+</div>
+<div style='padding-left: 900pt'>
+style='padding-left: 30pt'&gt;<br>
+controlled<br>
+not<br>
+only<br>
+by<br>
+previous<br>
+characters<br>
+in<br>
+line,<br>
+but<br>
+by<br>
+any<br>
+given<br>
+python<br>
+expression.<br>
+This<br>
+option<br>
+can<br>
+be<br>
+specified<br>
+along<br>
+with<br>
+other<br>
+options,<br>
+like<br>
+'b'.<br>
+See<br>
+|UltiSnips-custom-context-snippets|<br>
+for<br>
+more<br>
+info.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+A<br>
+Snippet<br>
+will<br>
+be<br>
+triggered<br>
+automatically,<br>
+when<br>
+condition<br>
+matches.<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  See<br>
+  |UltiSnips-autotrigger|<br>
+  for<br>
+  more<br>
+  info.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  The<br>
+  end<br>
+  line<br>
+  is<br>
+  the<br>
+  'endsnippet'<br>
+  keyword<br>
+  on<br>
+  a<br>
+  line<br>
+  by<br>
+  itself.<br>
+  &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  endsnippet
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  When<br>
+  parsing<br>
+  snippet<br>
+  files,<br>
+  UltiSnips<br>
+  chops<br>
+  the<br>
+  trailing<br>
+  newline<br>
+  character<br>
+  from<br>
+  the<br>
+  'endsnippet'<br>
+  end<br>
+  line.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  4.1.4<br>
+  Character<br>
+  Escaping:<br>
+  *UltiSnips-character-escaping*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  In<br>
+  snippet<br>
+  definitions,<br>
+  the<br>
+  characters<br>
+  '`',<br>
+  '{',<br>
+  '$'<br>
+  and<br>
+  '\'<br>
+  have<br>
+  special<br>
+  meaning.<br>
+  If<br>
+  you<br>
+  want<br>
+  to<br>
+  insert<br>
+  one<br>
+  of<br>
+  these<br>
+  characters<br>
+  literally,<br>
+  escape<br>
+  them<br>
+  with<br>
+  a<br>
+  backslash,<br>
+  '\'.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  4.2<br>
+  Plaintext<br>
+  Snippets<br>
+  *UltiSnips-plaintext-snippets*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  To<br>
+  illustrate<br>
+  plaintext<br>
+  snippets,<br>
+  let's<br>
+  begin<br>
+  with<br>
+  a<br>
+  simple<br>
+  example.<br>
+  You<br>
+  can<br>
+  try<br>
+  the<br>
+  examples<br>
+  yourself.<br>
+  Simply<br>
+  edit<br>
+  a<br>
+  new<br>
+  file<br>
+  with<br>
+  Vim.<br>
+  Example<br>
+  snippets<br>
+  will<br>
+  be<br>
+  added<br>
+  to<br>
+  the<br>
+  'all.snippets'<br>
+  file,<br>
+  so<br>
+  you'll<br>
+  want<br>
+  to<br>
+  open<br>
+  it<br>
+  in<br>
+  Vim<br>
+  for<br>
+  editing<br>
+  as<br>
+  well<br>
+  in<br>
+  the<br>
+  same<br>
+  Vim<br>
+  instance.<br>
+  You<br>
+  can<br>
+  use<br>
+  |UltiSnipsEdit|<br>
+  for<br>
+  this,<br>
+  but<br>
+  you<br>
+  can<br>
+  also<br>
+  just<br>
+  run<br>
+  &gt;<br>
+  :tabedit<br>
+  ~/.vim/UltiSnips/all.snippets
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  Add<br>
+  this<br>
+  snippet<br>
+  to<br>
+  'all.snippets'<br>
+  and<br>
+  save<br>
+  the<br>
+  file.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  bye<br>
+  "My<br>
+  mail<br>
+  signature"<br>
+  Good<br>
+  bye,<br>
+  Sir.<br>
+  Hope<br>
+  to<br>
+  talk<br>
+  to<br>
+  you<br>
+  soon.<br>
+  -<br>
+  Arthur,<br>
+  King<br>
+  of<br>
+  Britain<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  UltiSnips<br>
+  detects<br>
+  when<br>
+  you<br>
+  write<br>
+  changes<br>
+  to<br>
+  a<br>
+  snippets<br>
+  file<br>
+  and<br>
+  automatically<br>
+  makes<br>
+  the<br>
+  changes<br>
+  active.<br>
+  So<br>
+  in<br>
+  the<br>
+  empty<br>
+  buffer,<br>
+  type<br>
+  the<br>
+  tab<br>
+  trigger<br>
+  'bye'<br>
+  and<br>
+  then<br>
+  press<br>
+  the<br>
+  &lt;Tab&gt;<br>
+  key.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  bye&lt;Tab&gt;<br>
+  --&gt;<br>
+  Good<br>
+  bye,<br>
+  Sir.<br>
+  Hope<br>
+  to<br>
+  talk<br>
+  to<br>
+  you<br>
+  soon.<br>
+  -<br>
+  Arthur,<br>
+  King<br>
+  of<br>
+  Britain
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  The<br>
+  word<br>
+  'bye'<br>
+  will<br>
+  be<br>
+  replaced<br>
+  with<br>
+  the<br>
+  text<br>
+  of<br>
+  the<br>
+  snippet<br>
+  definition.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  4.3<br>
+  Visual<br>
+  Placeholder<br>
+  *UltiSnips-visual-placeholder*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  Snippets<br>
+  can<br>
+  contain<br>
+  a<br>
+  special<br>
+  placeholder<br>
+  called<br>
+  ${VISUAL}.<br>
+  The<br>
+  ${VISUAL}<br>
+  variable<br>
+  is<br>
+  expanded<br>
+  with<br>
+  the<br>
+  text<br>
+  selected<br>
+  just<br>
+  prior<br>
+  to<br>
+  expanding<br>
+  the<br>
+  snippet.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  To<br>
+  see<br>
+  how<br>
+  a<br>
+  snippet<br>
+  with<br>
+  a<br>
+  ${VISUAL}<br>
+  placeholder<br>
+  works,<br>
+  define<br>
+  a<br>
+  snippet<br>
+  with<br>
+  the<br>
+  placeholder,<br>
+  use<br>
+  Vim's<br>
+  Visual<br>
+  mode<br>
+  to<br>
+  select<br>
+  some<br>
+  text,<br>
+  and<br>
+  then<br>
+  press<br>
+  the<br>
+  key<br>
+  you<br>
+  use<br>
+  to<br>
+  trigger<br>
+  expanding<br>
+  a<br>
+  snippet<br>
+  (see<br>
+  g:UltiSnipsExpandTrigger).<br>
+  The<br>
+  selected<br>
+  text<br>
+  is<br>
+  deleted,<br>
+  and<br>
+  you<br>
+  are<br>
+  dropped<br>
+  into<br>
+  Insert<br>
+  mode.<br>
+  Now<br>
+  type<br>
+  the<br>
+  snippet<br>
+  tab<br>
+  trigger<br>
+  and<br>
+  press<br>
+  the<br>
+  key<br>
+  to<br>
+  trigger<br>
+  expansion.<br>
+  As<br>
+  the<br>
+  snippet<br>
+  expands,<br>
+  the<br>
+  previously<br>
+  selected<br>
+  text<br>
+  is<br>
+  printed<br>
+  in<br>
+  place<br>
+  of<br>
+  the<br>
+  ${VISUAL}<br>
+  placeholder.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 900pt'>
+  The<br>
+  ${VISUAL}<br>
+  placeholder<br>
+  can<br>
+  contain<br>
+  default<br>
+  text<br>
+  to<br>
+  use<br>
+  when<br>
+  the<br>
+  snippet<br>
+  has<br>
+  been<br>
+  triggered<br>
+  when<br>
+  not<br>
+  in<br>
+  Visual<br>
+  mode.<br>
+  The<br>
+  syntax<br>
+  is:<br>
+  &gt;<br>
+  &lt;div
+</div>
+<div style='padding-left: 930pt'>
+style='padding-left: 30pt'&gt;<br>
+${VISUAL:default<br>
+text}
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+The<br>
+${VISUAL}<br>
+placeholder<br>
+can<br>
+also<br>
+define<br>
+a<br>
+transformation<br>
+(see<br>
+|UltiSnips-transformations|).<br>
+The<br>
+syntax<br>
+is:<br>
+&gt;<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  ${VISUAL:default/search/replace/option}.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  Here<br>
+  is<br>
+  a<br>
+  simple<br>
+  example<br>
+  illustrating<br>
+  a<br>
+  visual<br>
+  transformation.<br>
+  The<br>
+  snippet<br>
+  will<br>
+  take<br>
+  selected<br>
+  text,<br>
+  replace<br>
+  every<br>
+  instance<br>
+  of<br>
+  "should"<br>
+  within<br>
+  it<br>
+  with<br>
+  "is",<br>
+  and<br>
+  wrap<br>
+  the<br>
+  result<br>
+  in<br>
+  tags.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  t<br>
+  &lt;tag&gt;${VISUAL:inside<br>
+  text/should/is/g}&lt;/tag&gt;<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  Start<br>
+  with<br>
+  this<br>
+  line<br>
+  of<br>
+  text:<br>
+  &gt;<br>
+  this<br>
+  should<br>
+  be<br>
+  cool
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  Position<br>
+  the<br>
+  cursor<br>
+  on<br>
+  the<br>
+  word<br>
+  "should",<br>
+  then<br>
+  press<br>
+  the<br>
+  key<br>
+  sequence:<br>
+  viw<br>
+  (visual<br>
+  mode<br>
+  -&gt;<br>
+  select<br>
+  inner<br>
+  word).<br>
+  Then<br>
+  press<br>
+  &lt;Tab&gt;,<br>
+  type<br>
+  "t"<br>
+  and<br>
+  press<br>
+  &lt;Tab&gt;<br>
+  again.<br>
+  The<br>
+  result<br>
+  is:<br>
+  &gt;<br>
+  -&gt;<br>
+  this<br>
+  &lt;tag&gt;is&lt;/tag&gt;<br>
+  be<br>
+  cool
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  If<br>
+  you<br>
+  expand<br>
+  this<br>
+  snippet<br>
+  while<br>
+  not<br>
+  in<br>
+  Visual<br>
+  mode<br>
+  (e.g.,<br>
+  in<br>
+  Insert<br>
+  mode<br>
+  type<br>
+  t&lt;Tab&gt;),<br>
+  you<br>
+  will<br>
+  get:<br>
+  &gt;<br>
+  &lt;tag&gt;inside<br>
+  text&lt;/tag&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  4.4<br>
+  Interpolation<br>
+  *UltiSnips-interpolation*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  4.4.1<br>
+  Shellcode:<br>
+  *UltiSnips-shellcode*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  Snippets<br>
+  can<br>
+  include<br>
+  shellcode.<br>
+  Put<br>
+  a<br>
+  shell<br>
+  command<br>
+  in<br>
+  a<br>
+  snippet<br>
+  and<br>
+  when<br>
+  the<br>
+  snippet<br>
+  is<br>
+  expanded,<br>
+  the<br>
+  shell<br>
+  command<br>
+  is<br>
+  replaced<br>
+  by<br>
+  the<br>
+  output<br>
+  produced<br>
+  when<br>
+  the<br>
+  command<br>
+  is<br>
+  executed.<br>
+  The<br>
+  syntax<br>
+  for<br>
+  shellcode<br>
+  is<br>
+  simple:<br>
+  wrap<br>
+  the<br>
+  code<br>
+  in<br>
+  backticks,<br>
+  '`'.<br>
+  When<br>
+  a<br>
+  snippet<br>
+  is<br>
+  expanded,<br>
+  UltiSnips<br>
+  runs<br>
+  shellcode<br>
+  by<br>
+  first<br>
+  writing<br>
+  it<br>
+  to<br>
+  a<br>
+  temporary<br>
+  script<br>
+  and<br>
+  then<br>
+  executing<br>
+  the<br>
+  script.<br>
+  The<br>
+  shellcode<br>
+  is<br>
+  replaced<br>
+  by<br>
+  the<br>
+  standard<br>
+  output.<br>
+  Anything<br>
+  you<br>
+  can<br>
+  run<br>
+  as<br>
+  a<br>
+  script<br>
+  can<br>
+  be<br>
+  used<br>
+  in<br>
+  shellcode.<br>
+  Include<br>
+  a<br>
+  shebang<br>
+  line,<br>
+  for<br>
+  example,<br>
+  #!/usr/bin/perl,<br>
+  and<br>
+  your<br>
+  snippet<br>
+  has<br>
+  the<br>
+  ability<br>
+  to<br>
+  run<br>
+  scripts<br>
+  using<br>
+  other<br>
+  programs,<br>
+  perl,<br>
+  for<br>
+  example.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  Here<br>
+  are<br>
+  some<br>
+  examples.<br>
+  This<br>
+  snippet<br>
+  uses<br>
+  a<br>
+  shell<br>
+  command<br>
+  to<br>
+  insert<br>
+  the<br>
+  current<br>
+  date.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  today<br>
+  Today<br>
+  is<br>
+  the<br>
+  `date<br>
+  +%d.%m.%y`.<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  today&lt;tab&gt;<br>
+  -&gt;<br>
+  Today<br>
+  is<br>
+  the<br>
+  15.07.09.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  This<br>
+  example<br>
+  inserts<br>
+  the<br>
+  current<br>
+  date<br>
+  using<br>
+  perl.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  today<br>
+  Today<br>
+  is<br>
+  `#!/usr/bin/perl<br>
+  &lt;span
+</div>
+<div style='padding-left: 960pt'>
+class="zim-tag"&gt;@a
+</div>
+<div style='padding-left: 930pt'>
+  =<br>
+  localtime();<br>
+  print<br>
+  $a[3]<br>
+  .<br>
+  '.'<br>
+  .<br>
+  $a[4]<br>
+  .<br>
+  '.'<br>
+  .<br>
+  ($a[5]+1900);`.<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  today&lt;tab&gt;<br>
+  -&gt;<br>
+  Today<br>
+  is<br>
+  15.6.2009.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  4.4.2<br>
+  VimScript:<br>
+  *UltiSnips-vimscript*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  You<br>
+  can<br>
+  also<br>
+  use<br>
+  Vim<br>
+  scripts<br>
+  (sometimes<br>
+  called<br>
+  VimL)<br>
+  in<br>
+  interpolation.<br>
+  The<br>
+  syntax<br>
+  is<br>
+  similar<br>
+  to<br>
+  shellcode.<br>
+  Wrap<br>
+  the<br>
+  code<br>
+  in<br>
+  backticks<br>
+  and<br>
+  to<br>
+  distinguish<br>
+  it<br>
+  as<br>
+  a<br>
+  Vim<br>
+  script,<br>
+  start<br>
+  the<br>
+  code<br>
+  with<br>
+  '!v'.<br>
+  Here<br>
+  is<br>
+  an<br>
+  example<br>
+  that<br>
+  counts<br>
+  the<br>
+  indent<br>
+  of<br>
+  the<br>
+  current<br>
+  line:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 930pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  indent<br>
+  Indent<br>
+  is:<br>
+  `!v<br>
+  indent(".")`.<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  &lt;div
+</div>
+<div style='padding-left: 960pt'>
+style='padding-left: 30pt'&gt;<br>
+(note<br>
+the<br>
+4<br>
+spaces<br>
+in<br>
+front):<br>
+indent&lt;tab&gt;<br>
+-&gt;<br>
+(note<br>
+the<br>
+4<br>
+spaces<br>
+in<br>
+front):<br>
+Indent<br>
+is:<br>
+4.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 960pt'>
+4.4.3<br>
+Python:<br>
+*UltiSnips-python*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 960pt'>
+Python<br>
+interpolation<br>
+is<br>
+by<br>
+far<br>
+the<br>
+most<br>
+powerful.<br>
+The<br>
+syntax<br>
+is<br>
+similar<br>
+to<br>
+Vim<br>
+scripts<br>
+except<br>
+code<br>
+is<br>
+started<br>
+with<br>
+'!p'.<br>
+Python<br>
+scripts<br>
+can<br>
+be<br>
+run<br>
+using<br>
+the<br>
+python<br>
+shebang<br>
+'#!/usr/bin/python',<br>
+but<br>
+using<br>
+the<br>
+'!p'<br>
+format<br>
+comes<br>
+with<br>
+some<br>
+predefined<br>
+objects<br>
+and<br>
+variables,<br>
+which<br>
+can<br>
+simplify<br>
+and<br>
+shorten<br>
+code.<br>
+For<br>
+example,<br>
+a<br>
+'snip'<br>
+object<br>
+instance<br>
+is<br>
+implied<br>
+in<br>
+python<br>
+code.<br>
+Python<br>
+code<br>
+using<br>
+the<br>
+'!p'<br>
+indicator<br>
+differs<br>
+also<br>
+in<br>
+another<br>
+way.<br>
+Generally<br>
+when<br>
+a<br>
+snippet<br>
+is<br>
+expanded<br>
+the<br>
+standard<br>
+output<br>
+of<br>
+code<br>
+replaces<br>
+the<br>
+code.<br>
+With<br>
+python<br>
+code<br>
+the<br>
+value<br>
+of<br>
+the<br>
+'snip.rv'<br>
+property<br>
+replaces<br>
+the<br>
+code.<br>
+Standard<br>
+output<br>
+is<br>
+ignored.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 960pt'>
+The<br>
+variables<br>
+automatically<br>
+defined<br>
+in<br>
+python<br>
+code<br>
+are:<br>
+&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 960pt'>
+fn<br>
+-<br>
+The<br>
+current<br>
+filename<br>
+path<br>
+-<br>
+The<br>
+complete<br>
+path<br>
+to<br>
+the<br>
+current<br>
+file<br>
+t<br>
+-<br>
+The<br>
+values<br>
+of<br>
+the<br>
+placeholders,<br>
+t[1]<br>
+is<br>
+the<br>
+text<br>
+of<br>
+${1},<br>
+etc.<br>
+snip<br>
+-<br>
+UltiSnips.TextObjects.SnippetUtil<br>
+object<br>
+instance.<br>
+Has<br>
+methods<br>
+&lt;div<br>
+  style='padding-left: 90pt'&gt;<br>
+  that<br>
+  simplify<br>
+  indentation<br>
+  handling<br>
+  and<br>
+  owns<br>
+  the<br>
+  string<br>
+  that<br>
+  should<br>
+  be<br>
+  inserted<br>
+  for<br>
+  the<br>
+  snippet.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 960pt'>
+  context<br>
+  -<br>
+  Result<br>
+  of<br>
+  context<br>
+  condition.<br>
+  See<br>
+  |UltiSnips-custom-context-snippets|.<br>
+  match<br>
+  -<br>
+  Only<br>
+  in<br>
+  regular<br>
+  expression<br>
+  triggered<br>
+  snippets.<br>
+  This<br>
+  is<br>
+  the<br>
+  return<br>
+  &lt;div
+</div>
+<div style='padding-left: 990pt'>
+style='padding-left: 90pt'&gt;<br>
+value<br>
+of<br>
+the<br>
+match<br>
+of<br>
+the<br>
+regular<br>
+expression.<br>
+See<br>
+<a href="http://docs.python.org/library/re.html#match-objects" title="http://docs.python.org/library/re.html#match-objects" class="http">http://docs.python.org/library/re.html#match-objects</a>
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 990pt'>
+The<br>
+'snip'<br>
+object<br>
+provides<br>
+the<br>
+following<br>
+methods:<br>
+&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 990pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.mkline(line="",<br>
+  indent=None):
+</div>
+</p>
+
+<p>
+<div style='padding-left: 990pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1020pt'>
+style='padding-left: 60pt'&gt;<br>
+Returns<br>
+a<br>
+line<br>
+ready<br>
+to<br>
+be<br>
+appended<br>
+to<br>
+the<br>
+result.<br>
+If<br>
+indent<br>
+is<br>
+None,<br>
+then<br>
+mkline<br>
+prepends<br>
+spaces<br>
+and/or<br>
+tabs<br>
+appropriate<br>
+to<br>
+the<br>
+current<br>
+'tabstop'<br>
+and<br>
+'expandtab'<br>
+variables.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1020pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.shift(amount=1):
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1020pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1050pt'>
+style='padding-left: 60pt'&gt;<br>
+Shifts<br>
+the<br>
+default<br>
+indentation<br>
+level<br>
+used<br>
+by<br>
+mkline<br>
+right<br>
+by<br>
+the<br>
+number<br>
+of<br>
+spaces<br>
+defined<br>
+by<br>
+'shiftwidth',<br>
+'amount'<br>
+times.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1050pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.unshift(amount=1):
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1050pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1080pt'>
+style='padding-left: 60pt'&gt;<br>
+Shifts<br>
+the<br>
+default<br>
+indentation<br>
+level<br>
+used<br>
+by<br>
+mkline<br>
+left<br>
+by<br>
+the<br>
+number<br>
+of<br>
+spaces<br>
+defined<br>
+by<br>
+'shiftwidth',<br>
+'amount'<br>
+times.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1080pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.reset_indent():
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1080pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1110pt'>
+style='padding-left: 60pt'&gt;<br>
+Resets<br>
+the<br>
+indentation<br>
+level<br>
+to<br>
+its<br>
+initial<br>
+value.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1110pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.opt(var,<br>
+  default):
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1110pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1140pt'>
+style='padding-left: 60pt'&gt;<br>
+Checks<br>
+if<br>
+the<br>
+Vim<br>
+variable<br>
+'var'<br>
+has<br>
+been<br>
+set.<br>
+If<br>
+so,<br>
+it<br>
+returns<br>
+the<br>
+variable's<br>
+value;<br>
+otherwise,<br>
+it<br>
+returns<br>
+the<br>
+value<br>
+of<br>
+'default'.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1140pt'>
+The<br>
+'snip'<br>
+object<br>
+provides<br>
+some<br>
+properties<br>
+as<br>
+well:<br>
+&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1140pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.rv:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1140pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1170pt'>
+style='padding-left: 60pt'&gt;<br>
+'rv'<br>
+is<br>
+the<br>
+return<br>
+value,<br>
+the<br>
+text<br>
+that<br>
+will<br>
+replace<br>
+the<br>
+python<br>
+block<br>
+in<br>
+the<br>
+snippet<br>
+definition.<br>
+It<br>
+is<br>
+initialized<br>
+to<br>
+the<br>
+empty<br>
+string.<br>
+This<br>
+deprecates<br>
+the<br>
+'res'<br>
+variable.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1170pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.c:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1170pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1200pt'>
+style='padding-left: 60pt'&gt;<br>
+The<br>
+text<br>
+currently<br>
+in<br>
+the<br>
+python<br>
+block's<br>
+position<br>
+within<br>
+the<br>
+snippet.<br>
+It<br>
+is<br>
+set<br>
+to<br>
+empty<br>
+string<br>
+as<br>
+soon<br>
+as<br>
+interpolation<br>
+is<br>
+completed.<br>
+Thus<br>
+you<br>
+can<br>
+check<br>
+if<br>
+snip.c<br>
+is<br>
+!=<br>
+""<br>
+to<br>
+make<br>
+sure<br>
+that<br>
+the<br>
+interpolation<br>
+is<br>
+only<br>
+done<br>
+once.<br>
+This<br>
+deprecates<br>
+the<br>
+"cur"<br>
+variable.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1200pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.v:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1200pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1230pt'>
+style='padding-left: 60pt'&gt;<br>
+Data<br>
+related<br>
+to<br>
+the<br>
+${VISUAL}<br>
+placeholder.<br>
+This<br>
+has<br>
+two<br>
+attributes:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1230pt'>
+&lt;div<br>
+  style='padding-left: 90pt'&gt;<br>
+  snip.v.mode<br>
+  ('v',<br>
+  'V',<br>
+  '^V',<br>
+  see<br>
+  |visual-mode|<br>
+  )<br>
+  snip.v.text<br>
+  The<br>
+  text<br>
+  that<br>
+  was<br>
+  selected.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1230pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1260pt'>
+style='padding-left: 30pt'&gt;<br>
+snip.fn:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1260pt'>
+&lt;div<br>
+  style='padding-left: 60pt'&gt;<br>
+  The<br>
+  current<br>
+  filename.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1260pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1290pt'>
+style='padding-left: 30pt'&gt;<br>
+snip.basename:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1290pt'>
+&lt;div<br>
+  style='padding-left: 60pt'&gt;<br>
+  The<br>
+  current<br>
+  filename<br>
+  with<br>
+  the<br>
+  extension<br>
+  removed.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1290pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1320pt'>
+style='padding-left: 30pt'&gt;<br>
+snip.ft:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1320pt'>
+&lt;div<br>
+  style='padding-left: 60pt'&gt;<br>
+  The<br>
+  current<br>
+  filetype.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1320pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1350pt'>
+style='padding-left: 30pt'&gt;<br>
+snip.p:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1350pt'>
+&lt;div<br>
+  style='padding-left: 60pt'&gt;<br>
+  Last<br>
+  selected<br>
+  placeholder.<br>
+  Will<br>
+  contain<br>
+  placeholder<br>
+  object<br>
+  with<br>
+  following<br>
+  properties:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1350pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1380pt'>
+style='padding-left: 60pt'&gt;<br>
+'current_text'<br>
+-<br>
+text<br>
+in<br>
+the<br>
+placeholder<br>
+on<br>
+the<br>
+moment<br>
+of<br>
+selection;<br>
+'start'<br>
+-<br>
+placeholder<br>
+start<br>
+on<br>
+the<br>
+moment<br>
+of<br>
+selection;<br>
+'end'<br>
+-<br>
+placeholder<br>
+end<br>
+on<br>
+the<br>
+moment<br>
+of<br>
+selection;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1380pt'>
+For<br>
+your<br>
+convenience,<br>
+the<br>
+'snip'<br>
+object<br>
+also<br>
+provides<br>
+the<br>
+following<br>
+operators:<br>
+&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1380pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip<br>
+  &gt;&gt;<br>
+  amount:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1380pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1410pt'>
+style='padding-left: 60pt'&gt;<br>
+Equivalent<br>
+to<br>
+snip.shift(amount)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1410pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip<br>
+  &lt;&lt;<br>
+  amount:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1410pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1440pt'>
+style='padding-left: 60pt'&gt;<br>
+Equivalent<br>
+to<br>
+snip.unshift(amount)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1440pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip<br>
+  +=<br>
+  line:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1440pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1470pt'>
+style='padding-left: 60pt'&gt;<br>
+Equivalent<br>
+to<br>
+"snip.rv<br>
++=<br>
+'\n'<br>
++<br>
+snip.mkline(line)"
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+Any<br>
+variables<br>
+defined<br>
+in<br>
+a<br>
+python<br>
+block<br>
+can<br>
+be<br>
+used<br>
+in<br>
+other<br>
+python<br>
+blocks<br>
+that<br>
+follow<br>
+within<br>
+the<br>
+same<br>
+snippet.<br>
+Also,<br>
+the<br>
+python<br>
+modules<br>
+'vim',<br>
+'re',<br>
+'os',<br>
+'string'<br>
+and<br>
+'random'<br>
+are<br>
+pre-imported<br>
+within<br>
+the<br>
+scope<br>
+of<br>
+snippet<br>
+code.<br>
+Other<br>
+modules<br>
+can<br>
+be<br>
+imported<br>
+using<br>
+the<br>
+python<br>
+'import'<br>
+command.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+Python<br>
+code<br>
+allows<br>
+for<br>
+very<br>
+flexible<br>
+snippets.<br>
+For<br>
+example,<br>
+the<br>
+following<br>
+snippet<br>
+mirrors<br>
+the<br>
+first<br>
+tabstop<br>
+value<br>
+on<br>
+the<br>
+same<br>
+line<br>
+but<br>
+right<br>
+aligned<br>
+and<br>
+in<br>
+uppercase.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+wow<br>
+${1:Text}`!p<br>
+snip.rv<br>
+=<br>
+(75-2*len(t[1]))*'<br>
+'+t[1].upper()`<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------<br>
+wow&lt;tab&gt;Hello<br>
+World<br>
+-&gt;<br>
+Hello<br>
+World<br>
+HELLO<br>
+WORLD
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+The<br>
+following<br>
+snippet<br>
+uses<br>
+the<br>
+regular<br>
+expression<br>
+option<br>
+and<br>
+illustrates<br>
+regular<br>
+expression<br>
+grouping<br>
+using<br>
+python's<br>
+match<br>
+object.<br>
+It<br>
+shows<br>
+that<br>
+the<br>
+expansion<br>
+of<br>
+a<br>
+snippet<br>
+can<br>
+depend<br>
+on<br>
+the<br>
+tab<br>
+trigger<br>
+used<br>
+to<br>
+define<br>
+the<br>
+snippet,<br>
+and<br>
+that<br>
+tab<br>
+trigger<br>
+itself<br>
+can<br>
+vary.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+"be(gin)?(<br>
+(\S+))?"<br>
+"begin{}<br>
+/<br>
+end{}"<br>
+br<br>
+\begin{${1:`!p<br>
+snip.rv<br>
+=<br>
+match.group(3)<br>
+if<br>
+match.group(2)<br>
+is<br>
+not<br>
+None<br>
+else<br>
+"something"`}}<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  ${2:${VISUAL}}
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1470pt'>
+  \end{$1}$0<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  be&lt;tab&gt;center&lt;c-j&gt;<br>
+  -&gt;<br>
+  \begin{center}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  \end{center}<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  be<br>
+  center&lt;tab&gt;<br>
+  -&gt;<br>
+  \begin{center}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  \end{center}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  The<br>
+  second<br>
+  form<br>
+  is<br>
+  a<br>
+  variation<br>
+  of<br>
+  the<br>
+  first;<br>
+  both<br>
+  produce<br>
+  the<br>
+  same<br>
+  result,<br>
+  but<br>
+  it<br>
+  illustrates<br>
+  how<br>
+  regular<br>
+  expression<br>
+  grouping<br>
+  works.<br>
+  Using<br>
+  regular<br>
+  expressions<br>
+  in<br>
+  this<br>
+  manner<br>
+  has<br>
+  some<br>
+  drawbacks:<br>
+  &lt;ol
+</div>
+<div style='padding-left: 1500pt'>
+type="1"<br>
+start="1"&gt;<br>
+If<br>
+  you<br>
+  use<br>
+  the<br>
+  &lt;Tab&gt;<br>
+  key<br>
+  for<br>
+  both<br>
+  expanding<br>
+  snippets<br>
+  and<br>
+  completion<br>
+  then
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1470pt'>
+  if<br>
+  you<br>
+  typed<br>
+  "be<br>
+  form&lt;Tab&gt;"<br>
+  expecting<br>
+  the<br>
+  completion<br>
+  "be<br>
+  formatted",<br>
+  you<br>
+  would<br>
+  end<br>
+  up<br>
+  with<br>
+  the<br>
+  above<br>
+  SNAP<br>
+  instead,<br>
+  not<br>
+  what<br>
+  you<br>
+  want.<br>
+  &lt;ol
+</div>
+<div style='padding-left: 1500pt'>
+type="1"<br>
+start="2"&gt;<br>
+The<br>
+  snippet<br>
+  is<br>
+  harder<br>
+  to<br>
+  read.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  The<br>
+  biggest<br>
+  advantage,<br>
+  however,<br>
+  is<br>
+  that<br>
+  you<br>
+  can<br>
+  create<br>
+  snippets<br>
+  that<br>
+  take<br>
+  into<br>
+  account<br>
+  the<br>
+  text<br>
+  preceding<br>
+  a<br>
+  "trigger".<br>
+  This<br>
+  way,<br>
+  you<br>
+  can<br>
+  use<br>
+  it<br>
+  to<br>
+  create<br>
+  postfix<br>
+  snippets,<br>
+  which<br>
+  are<br>
+  popular<br>
+  in<br>
+  some<br>
+  IDEs.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  "(\w+).par"<br>
+  "Parenthesis<br>
+  (postfix)"<br>
+  r<br>
+  (`!p<br>
+  snip.rv<br>
+  =<br>
+  match.group(1)`$1)$0<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  something.par&lt;tab&gt;<br>
+  -&gt;<br>
+  (something)
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  "([^\s].*)\.return"<br>
+  "Return<br>
+  (postfix)"<br>
+  r<br>
+  return<br>
+  `!p<br>
+  snip.rv<br>
+  =<br>
+  match.group(1)`$0<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  value.return&lt;tab&gt;<br>
+  -&gt;<br>
+  return<br>
+  value
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  4.4.4<br>
+  Global<br>
+  Snippets:<br>
+  *UltiSnips-globals*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  Global<br>
+  snippets<br>
+  provide<br>
+  a<br>
+  way<br>
+  to<br>
+  reuse<br>
+  common<br>
+  code<br>
+  in<br>
+  multiple<br>
+  snippets.<br>
+  Currently,<br>
+  only<br>
+  python<br>
+  code<br>
+  is<br>
+  supported.<br>
+  The<br>
+  result<br>
+  of<br>
+  executing<br>
+  the<br>
+  contents<br>
+  of<br>
+  a<br>
+  global<br>
+  snippet<br>
+  is<br>
+  put<br>
+  into<br>
+  the<br>
+  globals<br>
+  of<br>
+  each<br>
+  python<br>
+  block<br>
+  in<br>
+  the<br>
+  snippet<br>
+  file.<br>
+  To<br>
+  create<br>
+  a<br>
+  global<br>
+  snippet,<br>
+  use<br>
+  the<br>
+  keyword<br>
+  'global'<br>
+  in<br>
+  place<br>
+  of<br>
+  'snippet',<br>
+  and<br>
+  for<br>
+  python<br>
+  code,<br>
+  you<br>
+  use<br>
+  '!p'<br>
+  for<br>
+  the<br>
+  trigger.<br>
+  For<br>
+  example,<br>
+  the<br>
+  following<br>
+  snippet<br>
+  produces<br>
+  the<br>
+  same<br>
+  output<br>
+  as<br>
+  the<br>
+  last<br>
+  example<br>
+  .<br>
+  However,<br>
+  with<br>
+  this<br>
+  syntax<br>
+  the<br>
+  'upper_right'<br>
+  snippet<br>
+  can<br>
+  be<br>
+  reused<br>
+  by<br>
+  other<br>
+  snippets.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1470pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  global<br>
+  !p<br>
+  def<br>
+  upper_right(inp):<br>
+  &lt;div
+</div>
+<div style='padding-left: 1500pt'>
+style='padding-left: 30pt'&gt;<br>
+return<br>
+(75<br>
+-<br>
+2<br>
+*<br>
+len(inp))*'<br>
+'<br>
++<br>
+inp.upper()
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1500pt'>
+endglobal
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+snippet<br>
+wow<br>
+${1:Text}`!p<br>
+snip.rv<br>
+=<br>
+upper_right(t[1])`<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------<br>
+wow&lt;tab&gt;Hello<br>
+World<br>
+-&gt;<br>
+Hello<br>
+World<br>
+HELLO<br>
+WORLD
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+Python<br>
+global<br>
+functions<br>
+can<br>
+be<br>
+stored<br>
+in<br>
+a<br>
+python<br>
+module<br>
+and<br>
+then<br>
+imported.<br>
+This<br>
+makes<br>
+global<br>
+functions<br>
+easily<br>
+accessible<br>
+to<br>
+all<br>
+snippet<br>
+files.<br>
+Since<br>
+Vim<br>
+7.4<br>
+you<br>
+can<br>
+just<br>
+drop<br>
+python<br>
+files<br>
+into<br>
+~/.vim/pythonx<br>
+and<br>
+import<br>
+them<br>
+directly<br>
+inside<br>
+your<br>
+snippets.<br>
+For<br>
+example<br>
+to<br>
+use<br>
+~/.vim/pythonx/my_snippets_helpers.py<br>
+&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+global<br>
+!p<br>
+from<br>
+my_snippet_helpers<br>
+import<br>
+*<br>
+endglobal
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+4.5<br>
+Tabstops<br>
+and<br>
+Placeholders<br>
+*UltiSnips-tabstops*<br>
+*UltiSnips-placeholders*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+Snippets<br>
+are<br>
+used<br>
+to<br>
+quickly<br>
+insert<br>
+reused<br>
+text<br>
+into<br>
+a<br>
+document.<br>
+Often<br>
+the<br>
+text<br>
+has<br>
+a<br>
+fixed<br>
+structure<br>
+with<br>
+variable<br>
+components.<br>
+Tabstops<br>
+are<br>
+used<br>
+to<br>
+simplify<br>
+modifying<br>
+the<br>
+variable<br>
+content.<br>
+With<br>
+tabstops<br>
+you<br>
+can<br>
+easily<br>
+place<br>
+the<br>
+cursor<br>
+at<br>
+the<br>
+point<br>
+of<br>
+the<br>
+variable<br>
+content,<br>
+enter<br>
+the<br>
+content<br>
+you<br>
+want,<br>
+then<br>
+jump<br>
+to<br>
+the<br>
+next<br>
+variable<br>
+component,<br>
+enter<br>
+that<br>
+content,<br>
+and<br>
+continue<br>
+until<br>
+all<br>
+the<br>
+variable<br>
+components<br>
+are<br>
+complete.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+The<br>
+syntax<br>
+for<br>
+a<br>
+tabstop<br>
+is<br>
+the<br>
+dollar<br>
+sign<br>
+followed<br>
+by<br>
+a<br>
+number,<br>
+for<br>
+example,<br>
+'$1'.<br>
+Tabstops<br>
+start<br>
+at<br>
+number<br>
+1<br>
+and<br>
+are<br>
+followed<br>
+in<br>
+sequential<br>
+order.<br>
+The<br>
+'$0'<br>
+tabstop<br>
+is<br>
+a<br>
+special<br>
+tabstop.<br>
+It<br>
+is<br>
+always<br>
+the<br>
+last<br>
+tabstop<br>
+in<br>
+the<br>
+snippet<br>
+no<br>
+matter<br>
+how<br>
+many<br>
+tabstops<br>
+are<br>
+defined.<br>
+If<br>
+there<br>
+is<br>
+no<br>
+'$0'<br>
+defined,<br>
+'$0'<br>
+tabstop<br>
+will<br>
+be<br>
+defined<br>
+at<br>
+the<br>
+end<br>
+of<br>
+the<br>
+snippet.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+Here<br>
+is<br>
+a<br>
+simple<br>
+example.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+letter<br>
+Dear<br>
+$1,<br>
+$0<br>
+Yours<br>
+sincerely,<br>
+$2<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------<br>
+letter&lt;tab&gt;Ben&lt;c-j&gt;Paul&lt;c-j&gt;Thanks<br>
+for<br>
+suggesting<br>
+UltiSnips!-&gt;<br>
+Dear<br>
+Ben,<br>
+Thanks<br>
+for<br>
+suggesting<br>
+UltiSnips!<br>
+Yours<br>
+sincerely,<br>
+Paul
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+You<br>
+can<br>
+use<br>
+&lt;c-j&gt;<br>
+to<br>
+jump<br>
+to<br>
+the<br>
+next<br>
+tabstop,<br>
+and<br>
+&lt;c-k&gt;<br>
+to<br>
+jump<br>
+to<br>
+the<br>
+previous.<br>
+The<br>
+&lt;Tab&gt;<br>
+key<br>
+was<br>
+not<br>
+used<br>
+for<br>
+jumping<br>
+forward<br>
+because<br>
+it<br>
+is<br>
+commonly<br>
+used<br>
+for<br>
+completion.<br>
+See<br>
+|UltiSnips-triggers|<br>
+for<br>
+help<br>
+on<br>
+defining<br>
+different<br>
+keys<br>
+for<br>
+motions.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+It<br>
+is<br>
+often<br>
+useful<br>
+to<br>
+have<br>
+some<br>
+default<br>
+text<br>
+for<br>
+a<br>
+tabstop.<br>
+The<br>
+default<br>
+text<br>
+may<br>
+be<br>
+a<br>
+value<br>
+commonly<br>
+used<br>
+for<br>
+the<br>
+variable<br>
+component,<br>
+or<br>
+it<br>
+may<br>
+be<br>
+a<br>
+word<br>
+or<br>
+phrase<br>
+that<br>
+reminds<br>
+you<br>
+what<br>
+is<br>
+expected<br>
+for<br>
+the<br>
+variable<br>
+component.<br>
+To<br>
+include<br>
+default<br>
+text,<br>
+the<br>
+syntax<br>
+is<br>
+'${1:value}'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+The<br>
+following<br>
+example<br>
+illustrates<br>
+a<br>
+snippet<br>
+for<br>
+the<br>
+shell<br>
+'case'<br>
+statement.<br>
+The<br>
+tabstops<br>
+use<br>
+default<br>
+values<br>
+to<br>
+remind<br>
+the<br>
+user<br>
+of<br>
+what<br>
+value<br>
+is<br>
+expected.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+case<br>
+case<br>
+${1:word}<br>
+in<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  ${2:pattern}<br>
+  )<br>
+  $0;;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1500pt'>
+  esac<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1500pt'>
+  case&lt;tab&gt;$option&lt;c-j&gt;-v&lt;c-j&gt;verbose=true<br>
+  case<br>
+  $option<br>
+  in<br>
+  &lt;div
+</div>
+<div style='padding-left: 1530pt'>
+style='padding-left: 30pt'&gt;<br>
+-v<br>
+)<br>
+verbose=true;;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1530pt'>
+esac
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1530pt'>
+Sometimes<br>
+it<br>
+is<br>
+useful<br>
+to<br>
+have<br>
+a<br>
+tabstop<br>
+within<br>
+a<br>
+tabstop.<br>
+To<br>
+do<br>
+this,<br>
+simply<br>
+include<br>
+the<br>
+nested<br>
+tabstop<br>
+as<br>
+part<br>
+of<br>
+the<br>
+default<br>
+text.<br>
+Consider<br>
+the<br>
+following<br>
+example<br>
+illustrating<br>
+an<br>
+HTML<br>
+anchor<br>
+snippet.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1530pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+a<br>
+&lt;a<br>
+href="${1:<a href="http://www.${2:example.com" title="http://www.${2:example.com" class="http">http://www.${2:example.com</a>}}"&lt;/a&gt;<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  $0
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1530pt'>
+  &lt;/a&gt;<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1530pt'>
+  When<br>
+  this<br>
+  snippet<br>
+  is<br>
+  expanded,<br>
+  the<br>
+  first<br>
+  tabstop<br>
+  has<br>
+  a<br>
+  default<br>
+  value<br>
+  of<br>
+  '<a href="http://www.example.com" title="http://www.example.com" class="http">http://www.example.com</a>'.<br>
+  If<br>
+  you<br>
+  want<br>
+  the<br>
+  'http://'<br>
+  schema,<br>
+  jump<br>
+  to<br>
+  the<br>
+  next<br>
+  tabstop.<br>
+  It<br>
+  has<br>
+  a<br>
+  default<br>
+  value<br>
+  of<br>
+  'example.com'.<br>
+  This<br>
+  can<br>
+  be<br>
+  replaced<br>
+  by<br>
+  typing<br>
+  whatever<br>
+  domain<br>
+  you<br>
+  want.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1530pt'>
+  a&lt;tab&gt;&lt;c-j&gt;google.com&lt;c-j&gt;Google<br>
+  -&gt;<br>
+  &lt;a<br>
+  href="<a href="http://www.google.com" title="http://www.google.com" class="http">http://www.google.com</a>"&gt;<br>
+  &lt;div
+</div>
+<div style='padding-left: 1560pt'>
+style='padding-left: 30pt'&gt;<br>
+Google
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1560pt'>
+&lt;/a&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1560pt'>
+If<br>
+at<br>
+the<br>
+first<br>
+tabstop<br>
+you<br>
+want<br>
+a<br>
+different<br>
+url<br>
+schema<br>
+or<br>
+want<br>
+to<br>
+replace<br>
+the<br>
+default<br>
+url<br>
+with<br>
+a<br>
+named<br>
+anchor,<br>
+'#name',<br>
+for<br>
+example,<br>
+just<br>
+type<br>
+the<br>
+value<br>
+you<br>
+want.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1560pt'>
+a&lt;tab&gt;#top&lt;c-j&gt;Top<br>
+-&gt;<br>
+&lt;a<br>
+href="#top"&gt;<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  Top
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1560pt'>
+  &lt;/a&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1560pt'>
+  In<br>
+  the<br>
+  last<br>
+  example,<br>
+  typing<br>
+  any<br>
+  text<br>
+  at<br>
+  the<br>
+  first<br>
+  tabstop<br>
+  replaces<br>
+  the<br>
+  default<br>
+  value,<br>
+  including<br>
+  the<br>
+  second<br>
+  tabstop,<br>
+  with<br>
+  the<br>
+  typed<br>
+  text.<br>
+  So<br>
+  the<br>
+  second<br>
+  tabstop<br>
+  is<br>
+  essentially<br>
+  deleted.<br>
+  When<br>
+  a<br>
+  tabstop<br>
+  jump<br>
+  is<br>
+  triggered,<br>
+  UltiSnips<br>
+  moves<br>
+  to<br>
+  the<br>
+  next<br>
+  remaining<br>
+  tabstop<br>
+  '$0'.<br>
+  This<br>
+  feature<br>
+  can<br>
+  be<br>
+  used<br>
+  intentionally<br>
+  as<br>
+  a<br>
+  handy<br>
+  way<br>
+  for<br>
+  providing<br>
+  optional<br>
+  tabstop<br>
+  values<br>
+  to<br>
+  the<br>
+  user.<br>
+  Here<br>
+  is<br>
+  an<br>
+  example<br>
+  to<br>
+  illustrate.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1560pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  a<br>
+  &lt;a<br>
+  href="$1"${2:<br>
+  class="${3:link}"}&gt;<br>
+  &lt;div
+</div>
+<div style='padding-left: 1590pt'>
+style='padding-left: 30pt'&gt;<br>
+$0
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1590pt'>
+&lt;/a&gt;<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1590pt'>
+Here,<br>
+'$1'<br>
+marks<br>
+the<br>
+first<br>
+tabstop.<br>
+It<br>
+is<br>
+assumed<br>
+you<br>
+always<br>
+want<br>
+to<br>
+add<br>
+a<br>
+value<br>
+for<br>
+the<br>
+'href'<br>
+attribute.<br>
+After<br>
+entering<br>
+the<br>
+url<br>
+and<br>
+pressing<br>
+&lt;c-j&gt;,<br>
+the<br>
+snippet<br>
+will<br>
+jump<br>
+to<br>
+the<br>
+second<br>
+tabstop,<br>
+'$2'.<br>
+This<br>
+tabstop<br>
+is<br>
+optional.<br>
+The<br>
+default<br>
+text<br>
+is<br>
+'<br>
+class="link"'.<br>
+You<br>
+can<br>
+press<br>
+&lt;c-j&gt;<br>
+to<br>
+accept<br>
+the<br>
+tabstop,<br>
+and<br>
+the<br>
+snippet<br>
+will<br>
+jump<br>
+to<br>
+the<br>
+third<br>
+tabstop,<br>
+'$3',<br>
+and<br>
+you<br>
+can<br>
+enter<br>
+the<br>
+class<br>
+attribute<br>
+value,<br>
+or,<br>
+at<br>
+the<br>
+second<br>
+tabstop<br>
+you<br>
+can<br>
+press<br>
+the<br>
+backspace<br>
+key<br>
+thereby<br>
+replacing<br>
+the<br>
+second<br>
+tabstop<br>
+default<br>
+with<br>
+an<br>
+empty<br>
+string,<br>
+essentially<br>
+removing<br>
+it.<br>
+In<br>
+either<br>
+case,<br>
+continue<br>
+by<br>
+pressing<br>
+&lt;c-j&gt;<br>
+and<br>
+the<br>
+snippet<br>
+will<br>
+jump<br>
+to<br>
+the<br>
+final<br>
+tabstop<br>
+inside<br>
+the<br>
+anchor.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1590pt'>
+a&lt;tab&gt;<a href="http://www.google.com" title="http://www.google.com" class="http">http://www.google.com</a>&lt;c-j&gt;&lt;c-j&gt;visited&lt;c-j&gt;Google<br>
+-&gt;<br>
+&lt;a<br>
+href="<a href="http://www.google.com" title="http://www.google.com" class="http">http://www.google.com</a>"<br>
+class="visited"&gt;<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  Google
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1590pt'>
+  &lt;/a&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1590pt'>
+  a&lt;tab&gt;<a href="http://www.google.com" title="http://www.google.com" class="http">http://www.google.com</a>&lt;c-j&gt;&lt;BS&gt;&lt;c-j&gt;Google<br>
+  -&gt;<br>
+  &lt;a<br>
+  href="<a href="http://www.google.com" title="http://www.google.com" class="http">http://www.google.com</a>"&gt;<br>
+  &lt;div
+</div>
+<div style='padding-left: 1620pt'>
+style='padding-left: 30pt'&gt;<br>
+Google
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1620pt'>
+&lt;/a&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+The<br>
+default<br>
+text<br>
+of<br>
+tabstops<br>
+can<br>
+also<br>
+contain<br>
+mirrors,<br>
+transformations<br>
+or<br>
+interpolation.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+4.6<br>
+Mirrors<br>
+*UltiSnips-mirrors*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+Mirrors<br>
+repeat<br>
+the<br>
+content<br>
+of<br>
+a<br>
+tabstop.<br>
+During<br>
+snippet<br>
+expansion<br>
+when<br>
+you<br>
+enter<br>
+the<br>
+value<br>
+for<br>
+a<br>
+tabstop,<br>
+all<br>
+mirrors<br>
+of<br>
+that<br>
+tabstop<br>
+are<br>
+replaced<br>
+with<br>
+the<br>
+same<br>
+value.<br>
+To<br>
+mirror<br>
+a<br>
+tabstop<br>
+simply<br>
+insert<br>
+the<br>
+tabstop<br>
+again<br>
+using<br>
+the<br>
+"dollar<br>
+sign<br>
+followed<br>
+by<br>
+a<br>
+number"<br>
+syntax,<br>
+e.g.,<br>
+'$1'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+A<br>
+tabstop<br>
+can<br>
+be<br>
+mirrored<br>
+multiple<br>
+times<br>
+in<br>
+one<br>
+snippet,<br>
+and<br>
+more<br>
+than<br>
+one<br>
+tabstop<br>
+can<br>
+be<br>
+mirrored<br>
+in<br>
+the<br>
+same<br>
+snippet.<br>
+A<br>
+mirrored<br>
+tabstop<br>
+can<br>
+have<br>
+a<br>
+default<br>
+value<br>
+defined.<br>
+Only<br>
+the<br>
+first<br>
+instance<br>
+of<br>
+the<br>
+tabstop<br>
+need<br>
+have<br>
+a<br>
+default<br>
+value.<br>
+Mirrored<br>
+tabstop<br>
+will<br>
+take<br>
+on<br>
+the<br>
+default<br>
+value<br>
+automatically.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+Mirrors<br>
+are<br>
+handy<br>
+for<br>
+start-end<br>
+tags,<br>
+for<br>
+example,<br>
+TeX<br>
+'begin'<br>
+and<br>
+'end'<br>
+tag<br>
+labels,<br>
+XML<br>
+and<br>
+HTML<br>
+tags,<br>
+and<br>
+C<br>
+code<br>
+#ifndef<br>
+blocks.<br>
+Here<br>
+are<br>
+some<br>
+snippet<br>
+examples.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+env<br>
+\begin{${1:enumerate}}<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  $0
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1620pt'>
+  \end{$1}<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  env&lt;tab&gt;itemize<br>
+  -&gt;<br>
+  \begin{itemize}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  \end{itemize}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  ifndef<br>
+  #ifndef<br>
+  ${1:SOME_DEFINE}<br>
+  #define<br>
+  $1<br>
+  $0<br>
+  #endif<br>
+  /*<br>
+  $1<br>
+  */<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  ifndef&lt;tab&gt;WIN32<br>
+  -&gt;<br>
+  #ifndef<br>
+  WIN32<br>
+  #define<br>
+  WIN32
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  #endif<br>
+  /*<br>
+  WIN32<br>
+  */
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  4.7<br>
+  Transformations<br>
+  *UltiSnips-transformations*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  Note:<br>
+  Transformations<br>
+  are<br>
+  a<br>
+  bit<br>
+  difficult<br>
+  to<br>
+  grasp<br>
+  so<br>
+  this<br>
+  chapter<br>
+  is<br>
+  divided<br>
+  into<br>
+  two<br>
+  sections.<br>
+  The<br>
+  first<br>
+  describes<br>
+  transformations<br>
+  and<br>
+  their<br>
+  syntax,<br>
+  and<br>
+  the<br>
+  second<br>
+  illustrates<br>
+  transformations<br>
+  with<br>
+  demos.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  Transformations<br>
+  are<br>
+  like<br>
+  mirrors<br>
+  but<br>
+  instead<br>
+  of<br>
+  just<br>
+  copying<br>
+  text<br>
+  from<br>
+  the<br>
+  original<br>
+  tabstop<br>
+  verbatim,<br>
+  a<br>
+  regular<br>
+  expression<br>
+  is<br>
+  matched<br>
+  to<br>
+  the<br>
+  content<br>
+  of<br>
+  the<br>
+  referenced<br>
+  tabstop<br>
+  and<br>
+  a<br>
+  transformation<br>
+  is<br>
+  then<br>
+  applied<br>
+  to<br>
+  the<br>
+  matched<br>
+  pattern.<br>
+  The<br>
+  syntax<br>
+  and<br>
+  functionality<br>
+  of<br>
+  transformations<br>
+  in<br>
+  UltiSnips<br>
+  follow<br>
+  very<br>
+  closely<br>
+  to<br>
+  TextMate<br>
+  transformations.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  A<br>
+  transformation<br>
+  has<br>
+  the<br>
+  following<br>
+  syntax:<br>
+  &gt;<br>
+  ${&lt;tab_stop_no/regular_expression/replacement/options}
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1620pt'>
+  The<br>
+  components<br>
+  are<br>
+  defined<br>
+  as<br>
+  follows:<br>
+  &gt;<br>
+  tab_stop_no<br>
+  -<br>
+  The<br>
+  number<br>
+  of<br>
+  the<br>
+  tabstop<br>
+  to<br>
+  reference<br>
+  regular_expression<br>
+  -<br>
+  The<br>
+  regular<br>
+  expression<br>
+  the<br>
+  value<br>
+  of<br>
+  the<br>
+  referenced<br>
+  &lt;div
+</div>
+<div style='padding-left: 1650pt'>
+style='padding-left: 180pt'&gt;<br>
+tabstop<br>
+is<br>
+matched<br>
+on
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1650pt'>
+replacement<br>
+-<br>
+The<br>
+replacement<br>
+string,<br>
+explained<br>
+in<br>
+detail<br>
+below<br>
+options<br>
+-<br>
+Options<br>
+for<br>
+the<br>
+regular<br>
+expression
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1650pt'>
+The<br>
+options<br>
+can<br>
+be<br>
+any<br>
+combination<br>
+of<br>
+&gt;<br>
+g<br>
+-<br>
+global<br>
+replace<br>
+&lt;div<br>
+  style='padding-left: 60pt'&gt;<br>
+  By<br>
+  default,<br>
+  only<br>
+  the<br>
+  first<br>
+  match<br>
+  of<br>
+  the<br>
+  regular<br>
+  expression<br>
+  is<br>
+  replaced.<br>
+  With<br>
+  this<br>
+  option<br>
+  all<br>
+  matches<br>
+  are<br>
+  replaced.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1650pt'>
+  i<br>
+  -<br>
+  case<br>
+  insensitive<br>
+  &lt;div
+</div>
+<div style='padding-left: 1680pt'>
+style='padding-left: 60pt'&gt;<br>
+By<br>
+default,<br>
+regular<br>
+expression<br>
+matching<br>
+is<br>
+case<br>
+sensitive.<br>
+With<br>
+this<br>
+option,<br>
+matching<br>
+is<br>
+done<br>
+without<br>
+regard<br>
+to<br>
+case.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1680pt'>
+m<br>
+-<br>
+multiline<br>
+&lt;div<br>
+  style='padding-left: 60pt'&gt;<br>
+  By<br>
+  default,<br>
+  the<br>
+  '^'<br>
+  and<br>
+  '$'<br>
+  special<br>
+  characters<br>
+  only<br>
+  apply<br>
+  to<br>
+  the<br>
+  start<br>
+  and<br>
+  end<br>
+  of<br>
+  the<br>
+  entire<br>
+  string;<br>
+  so<br>
+  if<br>
+  you<br>
+  select<br>
+  multiple<br>
+  lines,<br>
+  transformations<br>
+  are<br>
+  made<br>
+  on<br>
+  them<br>
+  entirely<br>
+  as<br>
+  a<br>
+  whole<br>
+  single<br>
+  line<br>
+  string.<br>
+  With<br>
+  this<br>
+  option,<br>
+  '^'<br>
+  and<br>
+  '$'<br>
+  special<br>
+  characters<br>
+  match<br>
+  the<br>
+  start<br>
+  or<br>
+  end<br>
+  of<br>
+  any<br>
+  line<br>
+  within<br>
+  a<br>
+  string<br>
+  (<br>
+  separated<br>
+  by<br>
+  newline<br>
+  character<br>
+  -<br>
+  '\n'<br>
+  ).
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1680pt'>
+  a<br>
+  -<br>
+  ascii<br>
+  conversion<br>
+  &lt;div
+</div>
+<div style='padding-left: 1710pt'>
+style='padding-left: 60pt'&gt;<br>
+By<br>
+default,<br>
+transformation<br>
+are<br>
+made<br>
+on<br>
+the<br>
+raw<br>
+utf-8<br>
+string.<br>
+With<br>
+this<br>
+option,<br>
+matching<br>
+is<br>
+done<br>
+on<br>
+the<br>
+corresponding<br>
+ASCII<br>
+string<br>
+instead,<br>
+for<br>
+example<br>
+'à'<br>
+will<br>
+become<br>
+'a'.<br>
+This<br>
+option<br>
+required<br>
+the<br>
+python<br>
+package<br>
+'unidecode'.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+The<br>
+syntax<br>
+of<br>
+regular<br>
+expressions<br>
+is<br>
+beyond<br>
+the<br>
+scope<br>
+of<br>
+this<br>
+document.<br>
+Python<br>
+regular<br>
+expressions<br>
+are<br>
+used<br>
+internally,<br>
+so<br>
+the<br>
+python<br>
+'re'<br>
+module<br>
+can<br>
+be<br>
+used<br>
+as<br>
+a<br>
+guide.<br>
+See<br>
+<a href="http://docs.python.org/library/re.html" title="http://docs.python.org/library/re.html" class="http">http://docs.python.org/library/re.html</a>.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+The<br>
+syntax<br>
+for<br>
+the<br>
+replacement<br>
+string<br>
+is<br>
+unique.<br>
+The<br>
+next<br>
+paragraph<br>
+describes<br>
+it<br>
+in<br>
+detail.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+4.7.1<br>
+Replacement<br>
+String:<br>
+*UltiSnips-replacement-string*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+The<br>
+replacement<br>
+string<br>
+can<br>
+contain<br>
+$no<br>
+variables,<br>
+e.g.,<br>
+$1,<br>
+which<br>
+reference<br>
+matched<br>
+groups<br>
+in<br>
+the<br>
+regular<br>
+expression.<br>
+The<br>
+$0<br>
+variable<br>
+is<br>
+special<br>
+and<br>
+yields<br>
+the<br>
+whole<br>
+match.<br>
+The<br>
+replacement<br>
+string<br>
+can<br>
+also<br>
+contain<br>
+special<br>
+escape<br>
+sequences:<br>
+&gt;<br>
+\u<br>
+-<br>
+Uppercase<br>
+next<br>
+letter<br>
+\l<br>
+-<br>
+Lowercase<br>
+next<br>
+letter<br>
+\U<br>
+-<br>
+Uppercase<br>
+everything<br>
+till<br>
+the<br>
+next<br>
+\E<br>
+\L<br>
+-<br>
+Lowercase<br>
+everything<br>
+till<br>
+the<br>
+next<br>
+\E<br>
+\E<br>
+-<br>
+End<br>
+upper<br>
+or<br>
+lowercase<br>
+started<br>
+with<br>
+\L<br>
+or<br>
+\U<br>
+\n<br>
+-<br>
+A<br>
+newline<br>
+\t<br>
+-<br>
+A<br>
+literal<br>
+tab
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+Finally,<br>
+the<br>
+replacement<br>
+string<br>
+can<br>
+contain<br>
+conditional<br>
+replacements<br>
+using<br>
+the<br>
+syntax<br>
+(?no:text:other<br>
+text).<br>
+This<br>
+reads<br>
+as<br>
+follows:<br>
+if<br>
+the<br>
+group<br>
+$no<br>
+has<br>
+matched,<br>
+insert<br>
+"text",<br>
+otherwise<br>
+insert<br>
+"other<br>
+text".<br>
+"other<br>
+text"<br>
+is<br>
+optional<br>
+and<br>
+if<br>
+not<br>
+provided<br>
+defaults<br>
+to<br>
+the<br>
+empty<br>
+string,<br>
+"".<br>
+This<br>
+feature<br>
+is<br>
+very<br>
+powerful.<br>
+It<br>
+allows<br>
+you<br>
+to<br>
+add<br>
+optional<br>
+text<br>
+into<br>
+snippets.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+4.7.2<br>
+Demos:<br>
+*UltiSnips-demos*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+Transformations<br>
+are<br>
+very<br>
+powerful<br>
+but<br>
+often<br>
+the<br>
+syntax<br>
+is<br>
+convoluted.<br>
+Hopefully<br>
+the<br>
+demos<br>
+below<br>
+help<br>
+illustrate<br>
+transformation<br>
+features.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+Demo:<br>
+Uppercase<br>
+one<br>
+character<br>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+title<br>
+"Title<br>
+transformation"<br>
+${1:a<br>
+text}<br>
+${1/\w+\s*/\u$0/}<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------<br>
+title&lt;tab&gt;big<br>
+small<br>
+-&gt;<br>
+big<br>
+small<br>
+Big<br>
+small
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+Demo:<br>
+Uppercase<br>
+one<br>
+character<br>
+and<br>
+global<br>
+replace<br>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+title<br>
+"Titlelize<br>
+in<br>
+the<br>
+Transformation"<br>
+${1:a<br>
+text}<br>
+${1/\w+\s*/\u$0/g}<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------<br>
+title&lt;tab&gt;this<br>
+is<br>
+a<br>
+title<br>
+-&gt;<br>
+this<br>
+is<br>
+a<br>
+title<br>
+This<br>
+Is<br>
+A<br>
+Title
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+Demo:<br>
+ASCII<br>
+transformation<br>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+ascii<br>
+"Replace<br>
+non<br>
+ascii<br>
+chars"<br>
+${1:<br>
+an<br>
+accentued<br>
+text}<br>
+${1/.*/$0/a}<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------<br>
+ascii&lt;tab&gt;à<br>
+la<br>
+pêche<br>
+aux<br>
+moules<br>
+à<br>
+la<br>
+pêche<br>
+aux<br>
+moules<br>
+a<br>
+la<br>
+peche<br>
+aux<br>
+moules
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+Demo:<br>
+Regular<br>
+expression<br>
+grouping<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  This<br>
+  is<br>
+  a<br>
+  clever<br>
+  c-like<br>
+  printf<br>
+  snippet,<br>
+  the<br>
+  second<br>
+  tabstop<br>
+  is<br>
+  only<br>
+  shown<br>
+  when<br>
+  there<br>
+  is<br>
+  a<br>
+  format<br>
+  (%)<br>
+  character<br>
+  in<br>
+  the<br>
+  first<br>
+  tabstop.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  printf<br>
+  printf("${1:%s}\n"${1/([^%]|%%)*(%.)?.*/(?2:,<br>
+  :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------<br>
+  printf&lt;tab&gt;Hello&lt;c-j&gt;<br>
+  //<br>
+  End<br>
+  of<br>
+  line<br>
+  -&gt;<br>
+  printf("Hello\n");<br>
+  //<br>
+  End<br>
+  of<br>
+  line
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  But<br>
+  printf&lt;tab&gt;A<br>
+  is:<br>
+  %s&lt;c-j&gt;A&lt;c-j&gt;<br>
+  //<br>
+  End<br>
+  of<br>
+  line<br>
+  -&gt;<br>
+  printf("A<br>
+  is:<br>
+  %s\n",<br>
+  A);<br>
+  //<br>
+  End<br>
+  of<br>
+  line
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  There<br>
+  are<br>
+  many<br>
+  more<br>
+  examples<br>
+  of<br>
+  what<br>
+  can<br>
+  be<br>
+  done<br>
+  with<br>
+  transformations<br>
+  in<br>
+  the<br>
+  vim-snippets<br>
+  repo.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  4.8<br>
+  Clearing<br>
+  snippets<br>
+  *UltiSnips-clearing-snippets*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  To<br>
+  remove<br>
+  snippets<br>
+  for<br>
+  the<br>
+  current<br>
+  file<br>
+  type,<br>
+  use<br>
+  the<br>
+  'clearsnippets'<br>
+  directive.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  clearsnippets<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  'clearsnippets'<br>
+  removes<br>
+  all<br>
+  snippets<br>
+  with<br>
+  a<br>
+  priority<br>
+  lower<br>
+  than<br>
+  the<br>
+  current<br>
+  one.<br>
+  For<br>
+  example,<br>
+  the<br>
+  following<br>
+  cleares<br>
+  all<br>
+  snippets<br>
+  that<br>
+  have<br>
+  priority<br>
+  &lt;=<br>
+  1,<br>
+  even<br>
+  though<br>
+  the<br>
+  example<br>
+  snippet<br>
+  is<br>
+  defined<br>
+  after<br>
+  the<br>
+  'clearsnippets'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  priority<br>
+  1<br>
+  clearsnippets
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1710pt'>
+  priority<br>
+  -1<br>
+  snippet<br>
+  example<br>
+  "Cleared<br>
+  example"<br>
+  &lt;div
+</div>
+<div style='padding-left: 1740pt'>
+style='padding-left: 30pt'&gt;<br>
+This<br>
+will<br>
+never<br>
+be<br>
+expanded.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1740pt'>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+To<br>
+clear<br>
+one<br>
+or<br>
+more<br>
+specific<br>
+snippet,<br>
+provide<br>
+the<br>
+triggers<br>
+of<br>
+the<br>
+snippets<br>
+as<br>
+arguments<br>
+to<br>
+the<br>
+'clearsnippets'<br>
+command.<br>
+The<br>
+following<br>
+example<br>
+will<br>
+clear<br>
+the<br>
+snippets<br>
+'trigger1'<br>
+and<br>
+'trigger2'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+clearsnippets<br>
+trigger1<br>
+trigger2<br>
+-------------------<br>
+SNAP<br>
+-------------------
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+4.9<br>
+Custom<br>
+context<br>
+snippets<br>
+*UltiSnips-custom-context-snippets*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+Custom<br>
+context<br>
+snippets<br>
+can<br>
+be<br>
+enabled<br>
+by<br>
+using<br>
+the<br>
+'e'<br>
+option<br>
+in<br>
+the<br>
+snippet<br>
+definition.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+In<br>
+that<br>
+case<br>
+snippet<br>
+should<br>
+be<br>
+defined<br>
+using<br>
+this<br>
+syntax:<br>
+&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snippet<br>
+  trigger_word<br>
+  "description"<br>
+  "expression"<br>
+  options
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+  The<br>
+  context<br>
+  can<br>
+  be<br>
+  defined<br>
+  using<br>
+  a<br>
+  special<br>
+  header:<br>
+  &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1740pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1770pt'>
+style='padding-left: 30pt'&gt;<br>
+context<br>
+"python_expression"<br>
+snippet<br>
+trigger_word<br>
+"description"<br>
+options
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1770pt'>
+The<br>
+'expression'<br>
+can<br>
+be<br>
+any<br>
+python<br>
+expression.<br>
+If<br>
+'expression'<br>
+evaluates<br>
+to<br>
+'True',<br>
+then<br>
+this<br>
+snippet<br>
+will<br>
+be<br>
+eligible<br>
+for<br>
+expansion.<br>
+The<br>
+'expression'<br>
+must<br>
+be<br>
+wrapped<br>
+with<br>
+double-quotes.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1770pt'>
+The<br>
+following<br>
+python<br>
+modules<br>
+are<br>
+automatically<br>
+imported<br>
+into<br>
+the<br>
+scope<br>
+before<br>
+'expression'<br>
+is<br>
+evaluated:<br>
+'re',<br>
+'os',<br>
+'vim',<br>
+'string',<br>
+'random'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1770pt'>
+Global<br>
+variable<br>
+`snip`<br>
+will<br>
+be<br>
+available<br>
+with<br>
+following<br>
+properties:<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  'snip.window'<br>
+  -<br>
+  alias<br>
+  for<br>
+  'vim.current.window'<br>
+  'snip.buffer'<br>
+  -<br>
+  alias<br>
+  for<br>
+  'vim.current.window.buffer'<br>
+  'snip.cursor'<br>
+  -<br>
+  cursor<br>
+  object,<br>
+  which<br>
+  behaves<br>
+  like
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1770pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1800pt'>
+style='padding-left: 60pt'&gt;<br>
+'vim.current.window.cursor',<br>
+but<br>
+zero-indexed<br>
+and<br>
+with<br>
+following<br>
+additional<br>
+methods:<br>
+-<br>
+'preserve()'<br>
+-<br>
+special<br>
+method<br>
+for<br>
+executing<br>
+pre/post/jump<br>
+actions;<br>
+-<br>
+'set(line,<br>
+column)'<br>
+-<br>
+sets<br>
+cursor<br>
+to<br>
+specified<br>
+line<br>
+and<br>
+column;<br>
+-<br>
+'to_vim_cursor()'<br>
+-<br>
+returns<br>
+1-indexed<br>
+cursor,<br>
+suitable<br>
+for<br>
+assigning<br>
+to<br>
+'vim.current.window.cursor';
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1800pt'>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  'snip.line'<br>
+  and<br>
+  'snip.column'<br>
+  -<br>
+  aliases<br>
+  for<br>
+  cursor<br>
+  position<br>
+  (zero-indexed);<br>
+  'snip.visual_mode'<br>
+  -<br>
+  ('v',<br>
+  'V',<br>
+  '^V',<br>
+  see<br>
+  |visual-mode|);<br>
+  'snip.visual_text'<br>
+  -<br>
+  last<br>
+  visually-selected<br>
+  text;<br>
+  'snip.last_placeholder'<br>
+  -<br>
+  last<br>
+  active<br>
+  placeholder<br>
+  from<br>
+  previous<br>
+  snippet
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1800pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1830pt'>
+style='padding-left: 60pt'&gt;<br>
+with<br>
+following<br>
+properties:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1830pt'>
+&lt;div<br>
+  style='padding-left: 60pt'&gt;<br>
+  -<br>
+  'current_text'<br>
+  -<br>
+  text<br>
+  in<br>
+  the<br>
+  placeholder<br>
+  on<br>
+  the<br>
+  moment<br>
+  of<br>
+  selection;<br>
+  -<br>
+  'start'<br>
+  -<br>
+  placeholder<br>
+  start<br>
+  on<br>
+  the<br>
+  moment<br>
+  of<br>
+  selection;<br>
+  -<br>
+  'end'<br>
+  -<br>
+  placeholder<br>
+  end<br>
+  on<br>
+  the<br>
+  moment<br>
+  of<br>
+  selection;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1830pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  r<br>
+  "return"<br>
+  "re.match('^\s+if<br>
+  err<br>
+  ',<br>
+  snip.buffer[snip.line-1])"<br>
+  be<br>
+  return<br>
+  err<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1830pt'>
+  That<br>
+  snippet<br>
+  will<br>
+  expand<br>
+  to<br>
+  'return<br>
+  err'<br>
+  only<br>
+  if<br>
+  the<br>
+  previous<br>
+  line<br>
+  is<br>
+  starting<br>
+  from<br>
+  'if<br>
+  err'<br>
+  prefix.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1830pt'>
+  Note:<br>
+  custom<br>
+  context<br>
+  snippets<br>
+  are<br>
+  prioritized<br>
+  over<br>
+  other<br>
+  snippets.<br>
+  It<br>
+  makes<br>
+  possible<br>
+  to<br>
+  use<br>
+  other<br>
+  snippets<br>
+  as<br>
+  a<br>
+  fallback<br>
+  if<br>
+  no<br>
+  context<br>
+  can<br>
+  be<br>
+  matched:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1830pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  i<br>
+  "if<br>
+  ..."<br>
+  b<br>
+  if<br>
+  $1<br>
+  {<br>
+  &lt;div
+</div>
+<div style='padding-left: 1860pt'>
+style='padding-left: 30pt'&gt;<br>
+$2
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1860pt'>
+}<br>
+endsnippet
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1860pt'>
+snippet<br>
+i<br>
+"if<br>
+err<br>
+!=<br>
+nil"<br>
+"re.match('^\s+[^=]*err\s*:?=',<br>
+snip.buffer[snip.line-1])"<br>
+be<br>
+if<br>
+err<br>
+!=<br>
+nil<br>
+{<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  $1
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1860pt'>
+  }<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1860pt'>
+  That<br>
+  snippet<br>
+  will<br>
+  expand<br>
+  into<br>
+  'if<br>
+  err<br>
+  !=<br>
+  nil'<br>
+  if<br>
+  the<br>
+  previous<br>
+  line<br>
+  will<br>
+  match<br>
+  'err<br>
+  :='<br>
+  prefix,<br>
+  otherwise<br>
+  the<br>
+  default<br>
+  'if'<br>
+  snippet<br>
+  will<br>
+  be<br>
+  expanded.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1860pt'>
+  It's<br>
+  a<br>
+  good<br>
+  idea<br>
+  to<br>
+  move<br>
+  context<br>
+  conditions<br>
+  to<br>
+  a<br>
+  separate<br>
+  module,<br>
+  so<br>
+  it<br>
+  can<br>
+  be<br>
+  used<br>
+  by<br>
+  other<br>
+  UltiSnips<br>
+  users.<br>
+  In<br>
+  that<br>
+  case,<br>
+  module<br>
+  should<br>
+  be<br>
+  imported<br>
+  using<br>
+  'global'<br>
+  keyword,<br>
+  like<br>
+  this:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1860pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  global<br>
+  !p<br>
+  import<br>
+  my_utils<br>
+  endglobal
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1860pt'>
+  snippet<br>
+  ,<br>
+  "return<br>
+  ...,<br>
+  nil/err"<br>
+  "my_utils.is_return_argument(snip)"<br>
+  ie<br>
+  ,<br>
+  `!p<br>
+  if<br>
+  my_utils.is_in_err_condition():<br>
+  &lt;div
+</div>
+<div style='padding-left: 1890pt'>
+style='padding-left: 30pt'&gt;<br>
+snip.rv<br>
+=<br>
+"err"
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1890pt'>
+else:<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  snip.rv<br>
+  =<br>
+  "nil"`
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1890pt'>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1890pt'>
+  That<br>
+  snippet<br>
+  will<br>
+  expand<br>
+  only<br>
+  if<br>
+  the<br>
+  cursor<br>
+  is<br>
+  located<br>
+  in<br>
+  the<br>
+  return<br>
+  statement,<br>
+  and<br>
+  then<br>
+  it<br>
+  will<br>
+  expand<br>
+  either<br>
+  to<br>
+  'err'<br>
+  or<br>
+  to<br>
+  'nil'<br>
+  depending<br>
+  on<br>
+  which<br>
+  'if'<br>
+  statement<br>
+  it's<br>
+  located.<br>
+  'is_return_argument'<br>
+  and<br>
+  'is_in_err_condition'<br>
+  are<br>
+  part<br>
+  of<br>
+  custom<br>
+  python<br>
+  module<br>
+  which<br>
+  is<br>
+  called<br>
+  'my_utils'<br>
+  in<br>
+  this<br>
+  example.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1890pt'>
+  Context<br>
+  condition<br>
+  can<br>
+  return<br>
+  any<br>
+  value<br>
+  which<br>
+  python<br>
+  can<br>
+  use<br>
+  as<br>
+  condition<br>
+  in<br>
+  it's<br>
+  'if'<br>
+  statement,<br>
+  and<br>
+  if<br>
+  it's<br>
+  considered<br>
+  'True',<br>
+  then<br>
+  snippet<br>
+  will<br>
+  be<br>
+  expanded.<br>
+  The<br>
+  evaluated<br>
+  value<br>
+  of<br>
+  'condition'<br>
+  is<br>
+  available<br>
+  in<br>
+  the<br>
+  'snip.context'<br>
+  variable<br>
+  inside<br>
+  the<br>
+  snippet:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1890pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  +<br>
+  "var<br>
+  +="<br>
+  "re.match('\s*(.*?)\s*:?=',<br>
+  snip.buffer[snip.line-1])"<br>
+  ie<br>
+  `!p<br>
+  snip.rv<br>
+  =<br>
+  snip.context.group(1)`<br>
+  +=<br>
+  $1<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1890pt'>
+  That<br>
+  snippet<br>
+  will<br>
+  expand<br>
+  to<br>
+  'var1<br>
+  +='<br>
+  after<br>
+  line,<br>
+  which<br>
+  begins<br>
+  from<br>
+  'var1<br>
+  :='.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1890pt'>
+  &lt;div
+</div>
+<div style='padding-left: 1920pt'>
+style='padding-left: 360pt'&gt;<br>
+*UltiSnips-capture-placeholder*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+You<br>
+can<br>
+capture<br>
+placeholder<br>
+text<br>
+from<br>
+the<br>
+previous<br>
+snippet<br>
+by<br>
+using<br>
+the<br>
+following<br>
+trick:<br>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+snippet<br>
+=<br>
+"desc"<br>
+"snip.last_placeholder"<br>
+Ae<br>
+`!p<br>
+snip.rv<br>
+=<br>
+snip.context.current_text`<br>
+==<br>
+nil<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+That<br>
+snippet<br>
+will<br>
+be<br>
+expanded<br>
+only<br>
+if<br>
+you<br>
+will<br>
+replace<br>
+selected<br>
+tabstop<br>
+in<br>
+other<br>
+snippet<br>
+(like,<br>
+as<br>
+in<br>
+'if<br>
+${1:var}')<br>
+and<br>
+will<br>
+replace<br>
+that<br>
+tabstop<br>
+by<br>
+tabstop<br>
+value<br>
+following<br>
+by<br>
+'<br>
+==<br>
+nil'.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+4.10<br>
+Snippets<br>
+actions<br>
+*UltiSnips-snippet-actions*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+A<br>
+snippet<br>
+action<br>
+is<br>
+an<br>
+arbitrary<br>
+python<br>
+code<br>
+which<br>
+can<br>
+be<br>
+executed<br>
+at<br>
+specific<br>
+points<br>
+in<br>
+the<br>
+lifetime<br>
+of<br>
+a<br>
+snippet<br>
+expansion.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+There<br>
+are<br>
+three<br>
+types<br>
+of<br>
+actions:
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+  Pre-expand
+</div>
+<div style='padding-left: 1950pt'>
+-<br>
+invoked<br>
+just<br>
+after<br>
+trigger<br>
+condition<br>
+was<br>
+matched,<br>
+but<br>
+before
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1920pt'>
+snippet<br>
+actually<br>
+expanded;
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1920pt'>
+  Post-expand
+</div>
+<div style='padding-left: 1950pt'>
+-<br>
+invoked<br>
+after<br>
+snippet<br>
+was<br>
+expanded<br>
+and<br>
+interpolations
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1920pt'>
+were<br>
+applied<br>
+for<br>
+the<br>
+first<br>
+time,<br>
+but<br>
+before<br>
+jump<br>
+on<br>
+the<br>
+first<br>
+placeholder.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1920pt'>
+  Jump
+</div>
+<div style='padding-left: 1950pt'>
+-<br>
+invoked<br>
+just<br>
+after<br>
+a<br>
+jump<br>
+to<br>
+the<br>
+next/prev<br>
+placeholder.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+Specified<br>
+code<br>
+will<br>
+be<br>
+evaluated<br>
+at<br>
+stages<br>
+defined<br>
+above<br>
+and<br>
+same<br>
+global<br>
+variables<br>
+and<br>
+modules<br>
+will<br>
+be<br>
+available<br>
+that<br>
+are<br>
+stated<br>
+in<br>
+the<br>
+|UltiSnips-custom-context-snippets|<br>
+section.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+&lt;div<br>
+  style='padding-left: 360pt'&gt;<br>
+  *UltiSnips-buffer-proxy*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+  Note:<br>
+  special<br>
+  variable<br>
+  called<br>
+  'snip.buffer'<br>
+  should<br>
+  be<br>
+  used<br>
+  for<br>
+  all<br>
+  buffer<br>
+  modifications.<br>
+  Not<br>
+  'vim.current.buffer'<br>
+  and<br>
+  not<br>
+  'vim.command("...")',<br>
+  because<br>
+  in<br>
+  that<br>
+  case<br>
+  UltiSnips<br>
+  will<br>
+  not<br>
+  be<br>
+  able<br>
+  to<br>
+  track<br>
+  changes<br>
+  to<br>
+  the<br>
+  buffer<br>
+  correctly.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+  'snip.buffer'<br>
+  has<br>
+  the<br>
+  same<br>
+  interface<br>
+  as<br>
+  'vim.current.window.buffer'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+  4.10.1<br>
+  Pre-expand<br>
+  actions<br>
+  *UltiSnips-pre-expand-actions*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+  Pre-expand<br>
+  actions<br>
+  can<br>
+  be<br>
+  used<br>
+  to<br>
+  match<br>
+  snippet<br>
+  in<br>
+  one<br>
+  location<br>
+  and<br>
+  then<br>
+  expand<br>
+  it<br>
+  in<br>
+  the<br>
+  different<br>
+  location.<br>
+  Some<br>
+  useful<br>
+  cases<br>
+  are:<br>
+  correcting<br>
+  indentation<br>
+  for<br>
+  snippet;<br>
+  expanding<br>
+  snippet<br>
+  for<br>
+  function<br>
+  declaration<br>
+  in<br>
+  another<br>
+  function<br>
+  body<br>
+  with<br>
+  moving<br>
+  expansion<br>
+  point<br>
+  beyond<br>
+  initial<br>
+  function;<br>
+  performing<br>
+  extract<br>
+  method<br>
+  refactoring<br>
+  via<br>
+  expanding<br>
+  snippet<br>
+  in<br>
+  different<br>
+  place.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1920pt'>
+  Pre-expand<br>
+  action<br>
+  declared<br>
+  as<br>
+  follows:<br>
+  &gt;<br>
+  &lt;div
+</div>
+<div style='padding-left: 1950pt'>
+style='padding-left: 30pt'&gt;<br>
+pre_expand<br>
+"python<br>
+code<br>
+here"<br>
+snippet<br>
+...<br>
+endsnippet
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1950pt'>
+Buffer<br>
+can<br>
+be<br>
+modified<br>
+in<br>
+pre-expand<br>
+action<br>
+code<br>
+through<br>
+variable<br>
+called<br>
+'snip.buffer',<br>
+snippet<br>
+expansion<br>
+position<br>
+will<br>
+be<br>
+automatically<br>
+adjusted.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1950pt'>
+If<br>
+cursor<br>
+line<br>
+(where<br>
+trigger<br>
+was<br>
+matched)<br>
+need<br>
+to<br>
+be<br>
+modified,<br>
+then<br>
+special<br>
+variable<br>
+method<br>
+'snip.cursor.set(line,<br>
+column)'<br>
+must<br>
+be<br>
+called<br>
+with<br>
+the<br>
+desired<br>
+cursor<br>
+position.<br>
+In<br>
+that<br>
+case<br>
+UltiSnips<br>
+will<br>
+not<br>
+remove<br>
+any<br>
+matched<br>
+trigger<br>
+text<br>
+and<br>
+it<br>
+should<br>
+be<br>
+done<br>
+manually<br>
+in<br>
+action<br>
+code.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1950pt'>
+To<br>
+addition<br>
+to<br>
+the<br>
+scope<br>
+variables<br>
+defined<br>
+above<br>
+'snip.visual_content'<br>
+will<br>
+be<br>
+also<br>
+declared<br>
+and<br>
+will<br>
+contain<br>
+text<br>
+that<br>
+was<br>
+selected<br>
+before<br>
+snippet<br>
+expansion<br>
+(similar<br>
+to<br>
+$VISUAL<br>
+placeholder).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1950pt'>
+Following<br>
+snippet<br>
+will<br>
+be<br>
+expanded<br>
+at<br>
+4<br>
+spaces<br>
+indentation<br>
+level<br>
+no<br>
+matter<br>
+where<br>
+it<br>
+was<br>
+triggered.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1950pt'>
+-------------------<br>
+SNIP<br>
+-------------------<br>
+pre_expand<br>
+"snip.buffer[snip.line]<br>
+=<br>
+'<br>
+'*4;<br>
+snip.cursor.set(snip.line,<br>
+4)"<br>
+snippet<br>
+d<br>
+def<br>
+$1():<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  $0
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1950pt'>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1950pt'>
+  Following<br>
+  snippet<br>
+  will<br>
+  move<br>
+  the<br>
+  selected<br>
+  code<br>
+  to<br>
+  the<br>
+  end<br>
+  of<br>
+  file<br>
+  and<br>
+  create<br>
+  new<br>
+  method<br>
+  definition<br>
+  for<br>
+  it:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1950pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  pre_expand<br>
+  "del<br>
+  snip.buffer[snip.line];<br>
+  snip.buffer.append('');<br>
+  snip.cursor.set(len(snip.buffer)-1,<br>
+  0)"<br>
+  snippet<br>
+  x<br>
+  def<br>
+  $1():<br>
+  &lt;div
+</div>
+<div style='padding-left: 1980pt'>
+style='padding-left: 30pt'&gt;<br>
+${2:${VISUAL}}
+</div>
+</p>
+
+<p>
+<div style='padding-left: 1980pt'>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+4.10.2<br>
+Post-expand<br>
+actions<br>
+*UltiSnips-post-expand-actions*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+Post-expand<br>
+actions<br>
+can<br>
+be<br>
+used<br>
+to<br>
+perform<br>
+some<br>
+actions<br>
+based<br>
+on<br>
+the<br>
+expanded<br>
+snippet<br>
+text.<br>
+Some<br>
+cases<br>
+are:<br>
+code<br>
+style<br>
+formatting<br>
+(e.g.<br>
+inserting<br>
+newlines<br>
+before<br>
+and<br>
+after<br>
+method<br>
+declaration),<br>
+and<br>
+apply<br>
+actions<br>
+depending<br>
+on<br>
+python<br>
+interpolation<br>
+result.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+Post-expand<br>
+action<br>
+declared<br>
+as<br>
+follows:<br>
+&gt;<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  post_expand<br>
+  "python<br>
+  code<br>
+  here"<br>
+  snippet<br>
+  ...<br>
+  endsnippet
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+  Buffer<br>
+  can<br>
+  be<br>
+  modified<br>
+  in<br>
+  post-expand<br>
+  action<br>
+  code<br>
+  through<br>
+  variable<br>
+  called<br>
+  'snip.buffer',<br>
+  snippet<br>
+  expansion<br>
+  position<br>
+  will<br>
+  be<br>
+  automatically<br>
+  adjusted.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+  Variables<br>
+  'snip.snippet_start'<br>
+  and<br>
+  'snip.snippet_end'<br>
+  will<br>
+  be<br>
+  defined<br>
+  at<br>
+  the<br>
+  action<br>
+  code<br>
+  scope<br>
+  and<br>
+  will<br>
+  point<br>
+  to<br>
+  positions<br>
+  of<br>
+  the<br>
+  start<br>
+  and<br>
+  end<br>
+  of<br>
+  expanded<br>
+  snippet<br>
+  accordingly<br>
+  in<br>
+  the<br>
+  form<br>
+  '(line,<br>
+  column)'.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+  Note:<br>
+  'snip.snippet_start'<br>
+  and<br>
+  'snip.snippet_end'<br>
+  will<br>
+  automatically<br>
+  adjust<br>
+  to<br>
+  the<br>
+  correct<br>
+  positions<br>
+  if<br>
+  post-action<br>
+  will<br>
+  insert<br>
+  or<br>
+  delete<br>
+  lines<br>
+  before<br>
+  expansion.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+  Following<br>
+  snippet<br>
+  will<br>
+  expand<br>
+  to<br>
+  method<br>
+  definition<br>
+  and<br>
+  automatically<br>
+  insert<br>
+  additional<br>
+  newline<br>
+  after<br>
+  end<br>
+  of<br>
+  the<br>
+  snippet.<br>
+  It's<br>
+  very<br>
+  useful<br>
+  to<br>
+  create<br>
+  a<br>
+  function<br>
+  that<br>
+  will<br>
+  insert<br>
+  as<br>
+  many<br>
+  newlines<br>
+  as<br>
+  required<br>
+  in<br>
+  specific<br>
+  context.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 1980pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  post_expand<br>
+  "snip.buffer[snip.snippet_end[0]+1:snip.snippet_end[0]+1]<br>
+  =<br>
+  ['']"<br>
+  snippet<br>
+  d<br>
+  "Description"<br>
+  b<br>
+  def<br>
+  $1():<br>
+  &lt;div
+</div>
+<div style='padding-left: 2010pt'>
+style='padding-left: 30pt'&gt;<br>
+$2
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2010pt'>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+4.10.3<br>
+Post-jump<br>
+actions<br>
+*UltiSnips-post-jump-actions*
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+Post-jump<br>
+actions<br>
+can<br>
+be<br>
+used<br>
+to<br>
+trigger<br>
+some<br>
+code<br>
+based<br>
+on<br>
+user<br>
+input<br>
+into<br>
+the<br>
+placeholders.<br>
+Notable<br>
+use<br>
+cases:<br>
+expand<br>
+another<br>
+snippet<br>
+after<br>
+jump<br>
+or<br>
+anonymous<br>
+snippet<br>
+after<br>
+last<br>
+jump<br>
+(e.g.<br>
+perform<br>
+move<br>
+method<br>
+refactoring<br>
+and<br>
+then<br>
+insert<br>
+new<br>
+method<br>
+invokation);<br>
+insert<br>
+heading<br>
+into<br>
+TOC<br>
+after<br>
+last<br>
+jump.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+Jump-expand<br>
+action<br>
+declared<br>
+as<br>
+follows:<br>
+&gt;<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  post_jump<br>
+  "python<br>
+  code<br>
+  here"<br>
+  snippet<br>
+  ...<br>
+  endsnippet
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  Buffer<br>
+  can<br>
+  be<br>
+  modified<br>
+  in<br>
+  post-jump<br>
+  action<br>
+  code<br>
+  through<br>
+  variable<br>
+  called<br>
+  'snip.buffer',<br>
+  snippet<br>
+  expansion<br>
+  position<br>
+  will<br>
+  be<br>
+  automatically<br>
+  adjusted.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  Next<br>
+  variables<br>
+  and<br>
+  methods<br>
+  will<br>
+  be<br>
+  also<br>
+  defined<br>
+  in<br>
+  the<br>
+  action<br>
+  code<br>
+  scope:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2040pt'>
+'snip.tabstop'<br>
+  -<br>
+  number<br>
+  of<br>
+  tabstop<br>
+  jumped<br>
+  onto;<br>
+'snip.jump_direction'<br>
+  -<br>
+  '1'<br>
+  if<br>
+  jumped<br>
+  forward<br>
+  and<br>
+  '-1'<br>
+  otherwise;<br>
+'snip.tabstops'<br>
+  -<br>
+  list<br>
+  with<br>
+  tabstop<br>
+  objects,<br>
+  see<br>
+  above;<br>
+'snip.snippet_start'<br>
+  -<br>
+  (line,<br>
+  column)<br>
+  of<br>
+  start<br>
+  of<br>
+  the<br>
+  expanded<br>
+  snippet;<br>
+'snip.snippet_end'<br>
+  -<br>
+  (line,<br>
+  column)<br>
+  of<br>
+  end<br>
+  of<br>
+  the<br>
+  expanded<br>
+  snippet;<br>
+'snip.expand_anon()'<br>
+  -<br>
+  alias<br>
+  for<br>
+  'UltiSnips_Manager.expand_anon()';
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  Tabstop<br>
+  object<br>
+  has<br>
+  several<br>
+  useful<br>
+  properties:
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2040pt'>
+'start'<br>
+  -<br>
+  (line,<br>
+  column)<br>
+  of<br>
+  the<br>
+  starting<br>
+  position<br>
+  of<br>
+  the<br>
+  tabstop<br>
+  (also
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2010pt'>
+  accessible<br>
+  as<br>
+  'tabstop.line'<br>
+  and<br>
+  'tabstop.col').
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2040pt'>
+'end'<br>
+  -<br>
+  (line,<br>
+  column)<br>
+  of<br>
+  the<br>
+  ending<br>
+  position;<br>
+'current_text'<br>
+  -<br>
+  text<br>
+  inside<br>
+  the<br>
+  tabstop.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  Following<br>
+  snippet<br>
+  will<br>
+  insert<br>
+  section<br>
+  in<br>
+  the<br>
+  Table<br>
+  of<br>
+  Contents<br>
+  in<br>
+  the<br>
+  vim-help<br>
+  file:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  post_jump<br>
+  "if<br>
+  snip.tabstop<br>
+  ==<br>
+  0:<br>
+  insert_toc_item(snip.tabstops[1],<br>
+  snip.buffer)"<br>
+  snippet<br>
+  s<br>
+  "section"<br>
+  b<br>
+  `!p<br>
+  insert_delimiter_0(snip,<br>
+  t)`$1`!p<br>
+  insert_section_title(snip,<br>
+  t)`<br>
+  `!p<br>
+  insert_delimiter_1(snip,<br>
+  t)`<br>
+  $0<br>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  'insert_toc_item'<br>
+  will<br>
+  be<br>
+  called<br>
+  after<br>
+  first<br>
+  jump<br>
+  and<br>
+  will<br>
+  add<br>
+  newly<br>
+  entered<br>
+  section<br>
+  into<br>
+  the<br>
+  TOC<br>
+  for<br>
+  current<br>
+  file.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  Note:<br>
+  It<br>
+  is<br>
+  also<br>
+  possible<br>
+  to<br>
+  trigger<br>
+  snippet<br>
+  expansion<br>
+  from<br>
+  the<br>
+  jump<br>
+  action.<br>
+  In<br>
+  that<br>
+  case<br>
+  method<br>
+  'snip.cursor.preserve()'<br>
+  should<br>
+  be<br>
+  called,<br>
+  so<br>
+  UltiSnips<br>
+  will<br>
+  know<br>
+  that<br>
+  cursor<br>
+  is<br>
+  already<br>
+  at<br>
+  the<br>
+  required<br>
+  position.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  Following<br>
+  example<br>
+  will<br>
+  insert<br>
+  method<br>
+  call<br>
+  at<br>
+  the<br>
+  end<br>
+  of<br>
+  file<br>
+  after<br>
+  user<br>
+  jump<br>
+  out<br>
+  of<br>
+  method<br>
+  declaration<br>
+  snippet.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2010pt'>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  global<br>
+  !p<br>
+  def<br>
+  insert_method_call(name):<br>
+  &lt;div
+</div>
+<div style='padding-left: 2040pt'>
+style='padding-left: 30pt'&gt;<br>
+vim.command('normal<br>
+G')<br>
+snip.expand_anon(name<br>
++<br>
+'($1)\n')
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2040pt'>
+endglobal
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+post_jump<br>
+"if<br>
+snip.tabstop<br>
+==<br>
+0:<br>
+insert_method_call(snip.tabstops[1].current_text)"<br>
+snippet<br>
+d<br>
+"method<br>
+declaration"<br>
+b<br>
+def<br>
+$1():<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  $2
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2040pt'>
+  endsnippet<br>
+  -------------------<br>
+  SNAP<br>
+  -------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  4.11<br>
+  Autotrigger<br>
+  *UltiSnips-autotrigger*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  &lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  Note:<br>
+  vim<br>
+  must<br>
+  be<br>
+  newer<br>
+  than<br>
+  7.4.214<br>
+  to<br>
+  support<br>
+  this<br>
+  feature.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  Many<br>
+  language<br>
+  constructs<br>
+  can<br>
+  occur<br>
+  only<br>
+  at<br>
+  specific<br>
+  places,<br>
+  so<br>
+  it's<br>
+  possible<br>
+  to<br>
+  use<br>
+  snippets<br>
+  without<br>
+  manually<br>
+  triggering<br>
+  them.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  Snippet<br>
+  can<br>
+  be<br>
+  marked<br>
+  as<br>
+  autotriggered<br>
+  by<br>
+  specifying<br>
+  'A'<br>
+  option<br>
+  in<br>
+  the<br>
+  snippet<br>
+  definition.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  After<br>
+  snippet<br>
+  is<br>
+  defined<br>
+  as<br>
+  being<br>
+  autotriggered,<br>
+  snippet<br>
+  condition<br>
+  will<br>
+  be<br>
+  checked<br>
+  on<br>
+  every<br>
+  typed<br>
+  character<br>
+  and<br>
+  if<br>
+  condition<br>
+  matches,<br>
+  then<br>
+  the<br>
+  snippet<br>
+  will<br>
+  be<br>
+  triggered.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  *Warning:*<br>
+  using<br>
+  of<br>
+  this<br>
+  feature<br>
+  might<br>
+  lead<br>
+  to<br>
+  significant<br>
+  vim<br>
+  slowdown.<br>
+  If<br>
+  you<br>
+  discovered<br>
+  that,<br>
+  please<br>
+  report<br>
+  an<br>
+  issue.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  Consider<br>
+  following<br>
+  useful<br>
+  Go<br>
+  snippets:<br>
+  -------------------<br>
+  SNIP<br>
+  -------------------<br>
+  snippet<br>
+  "^p"<br>
+  "package"<br>
+  rbA<br>
+  package<br>
+  ${1:main}<br>
+  endsnippet
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2040pt'>
+  snippet<br>
+  "^m"<br>
+  "func<br>
+  main"<br>
+  rbA<br>
+  func<br>
+  main()<br>
+  {<br>
+  &lt;div
+</div>
+<div style='padding-left: 2070pt'>
+style='padding-left: 30pt'&gt;<br>
+$1
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2070pt'>
+}<br>
+endsnippet<br>
+-------------------<br>
+SNAP<br>
+-------------------
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+When<br>
+"p"<br>
+character<br>
+will<br>
+occur<br>
+in<br>
+the<br>
+beginning<br>
+of<br>
+the<br>
+line,<br>
+it<br>
+will<br>
+be<br>
+automatically<br>
+expanded<br>
+into<br>
+"package<br>
+main".<br>
+Same<br>
+with<br>
+"m"<br>
+character.<br>
+There<br>
+is<br>
+no<br>
+need<br>
+to<br>
+press<br>
+trigger<br>
+key<br>
+after<br>
+"m""
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+==============================================================================<br>
+&lt;ol<br>
+  type="1"<br>
+  start="5"&gt;<br>
+  UltiSnips
+</div>
+<div style='padding-left: 2100pt'>
+and<br>
+Other<br>
+Plugins<br>
+*UltiSnips-other-plugins*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+5.1<br>
+Existing<br>
+Integrations<br>
+*UltiSnips-integrations*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+UltiSnips<br>
+has<br>
+built-in<br>
+support<br>
+for<br>
+some<br>
+common<br>
+plugins<br>
+and<br>
+there<br>
+are<br>
+others<br>
+that<br>
+are<br>
+aware<br>
+of<br>
+UltiSnips<br>
+and<br>
+use<br>
+it<br>
+to<br>
+improve<br>
+the<br>
+user<br>
+experience.<br>
+This<br>
+is<br>
+an<br>
+incomplete<br>
+list<br>
+-<br>
+if<br>
+you<br>
+want<br>
+to<br>
+have<br>
+your<br>
+plugin<br>
+listed<br>
+here,<br>
+just<br>
+send<br>
+a<br>
+pull<br>
+request.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+&lt;div<br>
+  style='padding-left: 390pt'&gt;<br>
+  *UltiSnips-snipMate*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+  snipMate<br>
+  -<br>
+  UltiSnips<br>
+  is<br>
+  a<br>
+  drop-in<br>
+  replacement<br>
+  for<br>
+  snipMate.<br>
+  It<br>
+  has<br>
+  many<br>
+  more<br>
+  features,<br>
+  so<br>
+  porting<br>
+  snippets<br>
+  is<br>
+  still<br>
+  a<br>
+  good<br>
+  idea,<br>
+  but<br>
+  switching<br>
+  has<br>
+  low<br>
+  friction.<br>
+  UltiSnips<br>
+  is<br>
+  trying<br>
+  hard<br>
+  to<br>
+  truly<br>
+  emulate<br>
+  snipMate,<br>
+  for<br>
+  example<br>
+  recursive<br>
+  tabstops<br>
+  are<br>
+  not<br>
+  supported<br>
+  in<br>
+  snipMate<br>
+  snippets<br>
+  (but<br>
+  of<br>
+  course<br>
+  in<br>
+  UltiSnips<br>
+  snippets).
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+  YouCompleteMe<br>
+  -<br>
+  comes<br>
+  with<br>
+  out<br>
+  of<br>
+  the<br>
+  box<br>
+  completion<br>
+  support<br>
+  for<br>
+  UltiSnips.<br>
+  It<br>
+  offers<br>
+  a<br>
+  really<br>
+  nice<br>
+  completion<br>
+  dialogue<br>
+  for<br>
+  snippets.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+  neocomplete<br>
+  -<br>
+  UltiSnips<br>
+  ships<br>
+  with<br>
+  a<br>
+  source<br>
+  for<br>
+  neocomplete<br>
+  and<br>
+  therefore<br>
+  offers<br>
+  out<br>
+  of<br>
+  the<br>
+  box<br>
+  completion<br>
+  dialogue<br>
+  support<br>
+  for<br>
+  it<br>
+  too.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+  deoplete<br>
+  -<br>
+  The<br>
+  successor<br>
+  of<br>
+  neocomplete<br>
+  is<br>
+  also<br>
+  supported.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+  unite<br>
+  -<br>
+  UltiSnips<br>
+  has<br>
+  a<br>
+  source<br>
+  for<br>
+  unite.<br>
+  As<br>
+  an<br>
+  example<br>
+  of<br>
+  how<br>
+  you<br>
+  can<br>
+  use<br>
+  it<br>
+  add<br>
+  the<br>
+  following<br>
+  function<br>
+  and<br>
+  mappings<br>
+  to<br>
+  your<br>
+  vimrc:<br>
+  &gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2070pt'>
+  function!<br>
+  UltiSnipsCallUnite()<br>
+  &lt;div
+</div>
+<div style='padding-left: 2100pt'>
+style='padding-left: 30pt'&gt;<br>
+Unite<br>
+-start-insert<br>
+-winheight=100<br>
+-immediately<br>
+-no-empty<br>
+ultisnips<br>
+return<br>
+''
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2100pt'>
+endfunction
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+inoremap<br>
+&lt;silent&gt;<br>
+&lt;F12&gt;<br>
+&lt;C-R&gt;=(pumvisible()?<br>
+"\&lt;LT&gt;C-E&gt;":"")&lt;CR&gt;&lt;C-R&gt;=UltiSnipsCallUnite()&lt;CR&gt;<br>
+nnoremap<br>
+&lt;silent&gt;<br>
+&lt;F12&gt;<br>
+a&lt;C-R&gt;=(pumvisible()?<br>
+"\&lt;LT&gt;C-E&gt;":"")&lt;CR&gt;&lt;C-R&gt;=UltiSnipsCallUnite()&lt;CR&gt;
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+When<br>
+typing<br>
+&lt;F12&gt;<br>
+in<br>
+either<br>
+insert<br>
+or<br>
+normal<br>
+mode<br>
+you<br>
+will<br>
+get<br>
+the<br>
+unite<br>
+interface<br>
+with<br>
+matching<br>
+snippets.<br>
+Pressing<br>
+enter<br>
+will<br>
+expand<br>
+the<br>
+corresponding<br>
+snippet.<br>
+If<br>
+only<br>
+one<br>
+snippet<br>
+matches<br>
+the<br>
+text<br>
+in<br>
+front<br>
+of<br>
+the<br>
+cursor<br>
+will<br>
+be<br>
+expanded<br>
+when<br>
+you<br>
+press<br>
+the<br>
+&lt;F12&gt;<br>
+key.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+Supertab<br>
+-<br>
+UltiSnips<br>
+has<br>
+built-in<br>
+support<br>
+for<br>
+Supertab.<br>
+Just<br>
+use<br>
+a<br>
+recent<br>
+enough<br>
+version<br>
+of<br>
+both<br>
+plugins<br>
+and<br>
+&lt;tab&gt;<br>
+will<br>
+either<br>
+expand<br>
+a<br>
+snippet<br>
+or<br>
+defer<br>
+to<br>
+Supertab<br>
+for<br>
+expansion.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+5.2<br>
+Extending<br>
+UltiSnips<br>
+*UltiSnips-extending*
+</div>
+</p>
+
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+&lt;hr&gt;
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+UltiSnips<br>
+allows<br>
+other<br>
+plugins<br>
+to<br>
+add<br>
+new<br>
+snippets<br>
+on<br>
+the<br>
+fly.<br>
+Since<br>
+UltiSnips<br>
+is<br>
+written<br>
+in<br>
+python,<br>
+the<br>
+integration<br>
+is<br>
+also<br>
+on<br>
+a<br>
+python<br>
+basis.<br>
+A<br>
+small<br>
+example<br>
+can<br>
+be<br>
+found<br>
+in<br>
+`test/test_UltiSnipsFunc.py`,<br>
+search<br>
+for<br>
+AddNewSnippetSource.<br>
+Please<br>
+contact<br>
+us<br>
+on<br>
+github<br>
+if<br>
+you<br>
+integrate<br>
+UltiSnips<br>
+with<br>
+your<br>
+plugin<br>
+so<br>
+it<br>
+can<br>
+be<br>
+listed<br>
+in<br>
+the<br>
+docs.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+=============================================================================<br>
+&lt;ol<br>
+  type="1"<br>
+  start="6"&gt;<br>
+  FAQ
+</div>
+<div style='padding-left: 2130pt'>
+*UltiSnips-FAQ*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+Q:<br>
+Do<br>
+I<br>
+have<br>
+to<br>
+call<br>
+UltiSnips#ExpandSnippet()<br>
+to<br>
+check<br>
+if<br>
+a<br>
+snippet<br>
+is<br>
+expandable?<br>
+Is<br>
+there<br>
+instead<br>
+an<br>
+analog<br>
+of<br>
+neosnippet#expandable?<br>
+A:<br>
+Yes<br>
+there<br>
+is,<br>
+try
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+function<br>
+UltiSnips#IsExpandable()<br>
+&lt;div<br>
+  style='padding-left: 30pt'&gt;<br>
+  return<br>
+  !empty(UltiSnips#SnippetsInCurrentScope())
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2100pt'>
+  endfunction
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+  Consider<br>
+  that<br>
+  UltiSnips#SnippetsInCurrentScope()<br>
+  will<br>
+  return<br>
+  all<br>
+  the<br>
+  snippets<br>
+  you<br>
+  have<br>
+  if<br>
+  you<br>
+  call<br>
+  it<br>
+  after<br>
+  a<br>
+  space<br>
+  character.<br>
+  If<br>
+  you<br>
+  want<br>
+  UltiSnips#IsExpandable()<br>
+  to<br>
+  return<br>
+  false<br>
+  when<br>
+  you<br>
+  call<br>
+  it<br>
+  after<br>
+  a<br>
+  space<br>
+  character<br>
+  use<br>
+  this<br>
+  a<br>
+  bit<br>
+  more<br>
+  complicated<br>
+  implementation:
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2100pt'>
+  function<br>
+  UltiSnips#IsExpandable()<br>
+  &lt;div
+</div>
+<div style='padding-left: 2130pt'>
+style='padding-left: 30pt'&gt;<br>
+return<br>
+!(<br>
+\<br>
+col('.')<br>
+&lt;=<br>
+1<br>
+\<br>
+||<br>
+!empty(matchstr(getline('.'),<br>
+'\%'<br>
+.<br>
+(col('.')<br>
+-<br>
+1)<br>
+.<br>
+'c\s'))<br>
+\<br>
+||<br>
+empty(UltiSnips#SnippetsInCurrentScope())<br>
+\<br>
+)
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2130pt'>
+endfunction
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+=============================================================================<br>
+&lt;ol<br>
+  type="1"<br>
+  start="7"&gt;<br>
+  Helping
+</div>
+<div style='padding-left: 2160pt'>
+Out<br>
+*UltiSnips-helping*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+UltiSnips<br>
+needs<br>
+the<br>
+help<br>
+of<br>
+the<br>
+Vim<br>
+community<br>
+to<br>
+keep<br>
+improving.<br>
+Please<br>
+consider<br>
+joining<br>
+this<br>
+effort<br>
+by<br>
+providing<br>
+new<br>
+features<br>
+or<br>
+bug<br>
+reports.
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+  Clone
+</div>
+<div style='padding-left: 2160pt'>
+the<br>
+repository<br>
+on<br>
+GitHub<br>
+(git<br>
+clone
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2130pt'>
+make<br>
+your<br>
+changes<br>
+and<br>
+send<br>
+a<br>
+pull<br>
+request<br>
+on<br>
+GitHub.
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2130pt'>
+  Make
+</div>
+<div style='padding-left: 2160pt'>
+a<br>
+patch,<br>
+report<br>
+a<br>
+bug/feature<br>
+request<br>
+(see<br>
+below)<br>
+and<br>
+attach<br>
+the<br>
+patch
+</div>
+</p>
+
+<p>
+<div style='padding-left: 2130pt'>
+to<br>
+it.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+You<br>
+can<br>
+contribute<br>
+by<br>
+fixing<br>
+or<br>
+reporting<br>
+bugs<br>
+in<br>
+our<br>
+issue<br>
+tracker:<br>
+<a href="https://github.com/sirver/ultisnips/issues" title="https://github.com/sirver/ultisnips/issues" class="https">https://github.com/sirver/ultisnips/issues</a>
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+=============================================================================<br>
+&lt;ol<br>
+  type="1"<br>
+  start="8"&gt;<br>
+  Contributors
+</div>
+<div style='padding-left: 2160pt'>
+*UltiSnips-contributors*
+</div>
+</p>
+
+<br>
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+UltiSnips<br>
+has<br>
+been<br>
+started<br>
+and<br>
+maintained<br>
+from<br>
+Jun<br>
+2009<br>
+-<br>
+Dec<br>
+2015<br>
+by<br>
+Holger<br>
+Rapp<br>
+(@SirVer,<br>
+<a href="mailto:SirVer@gmx.de" title="SirVer@gmx.de" class="mailto">SirVer@gmx.de</a>).<br>
+Up<br>
+to<br>
+April<br>
+2018<br>
+it<br>
+was<br>
+maintained<br>
+by<br>
+Stanislav<br>
+Seletskiy<br>
+(@seletskiy).<br>
+Now,<br>
+it<br>
+is<br>
+maintained<br>
+by<br>
+a<br>
+growing<br>
+set<br>
+of<br>
+contributors.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+This<br>
+is<br>
+the<br>
+list<br>
+of<br>
+contributors<br>
+pre-git<br>
+in<br>
+chronological<br>
+order.<br>
+For<br>
+a<br>
+full<br>
+list<br>
+of<br>
+contributors<br>
+take<br>
+the<br>
+union<br>
+of<br>
+this<br>
+set<br>
+and<br>
+the<br>
+authors<br>
+according<br>
+to<br>
+git<br>
+log.
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+JCEB<br>
+-<br>
+Jan<br>
+Christoph<br>
+Ebersbach<br>
+Michael<br>
+Henry<br>
+Chris<br>
+Chambers<br>
+Ryan<br>
+Wooden<br>
+rupa<br>
+-<br>
+Rupa<br>
+Deadwyler<br>
+Timo<br>
+Schmiade<br>
+blueyed<br>
+-<br>
+Daniel<br>
+Hahler<br>
+expelledboy<br>
+-<br>
+Anthony<br>
+Jackson<br>
+allait<br>
+-<br>
+Alexey<br>
+Bezhan<br>
+peacech<br>
+-<br>
+Charles<br>
+Gunawan<br>
+guns<br>
+-<br>
+Sung<br>
+Pae<br>
+shlomif<br>
+-<br>
+Shlomi<br>
+Fish<br>
+pberndt<br>
+-<br>
+Phillip<br>
+Berndt<br>
+thanatermesis-elive<br>
+-<br>
+Thanatermesis<br>
+rico-ambiescent<br>
+-<br>
+Rico<br>
+Sta.<br>
+Cruz<br>
+Cody<br>
+Frazer<br>
+suy<br>
+-<br>
+Alejandro<br>
+Exojo<br>
+grota<br>
+-<br>
+Giuseppe<br>
+Rota<br>
+iiijjjii<br>
+-<br>
+Jim<br>
+Karsten<br>
+fgalassi<br>
+-<br>
+Federico<br>
+Galassi<br>
+lucapette<br>
+Psycojoker<br>
+-<br>
+Laurent<br>
+Peuch<br>
+aschrab<br>
+-<br>
+Aaron<br>
+Schrab<br>
+stardiviner<br>
+-<br>
+NagatoPain<br>
+skeept<br>
+-<br>
+Jorge<br>
+Rodrigues<br>
+buztard<br>
+stephenmckinney<br>
+-<br>
+Steve<br>
+McKinney<br>
+Pedro<br>
+Algarvio<br>
+-<br>
+s0undt3ch<br>
+Eric<br>
+Van<br>
+Dewoestine<br>
+-<br>
+ervandew<br>
+Matt<br>
+Patterson<br>
+-<br>
+fidothe<br>
+Mike<br>
+Morearty<br>
+-<br>
+mmorearty<br>
+Stanislav<br>
+Golovanov<br>
+-<br>
+JazzCore<br>
+David<br>
+Briscoe<br>
+-<br>
+DavidBriscoe<br>
+Keith<br>
+Welch<br>
+-<br>
+paralogiki<br>
+Zhao<br>
+Cai<br>
+-<br>
+zhaocai<br>
+John<br>
+Szakmeister<br>
+-<br>
+jszakmeister<br>
+Jonas<br>
+Diemer<br>
+-<br>
+diemer<br>
+Romain<br>
+Giot<br>
+-<br>
+rgiot<br>
+Sergey<br>
+Alexandrov<br>
+-<br>
+taketwo<br>
+Brian<br>
+Mock<br>
+-<br>
+saikobee<br>
+Gernot<br>
+Höflechner<br>
+-<br>
+LFDM<br>
+Marcelo<br>
+D<br>
+Montu<br>
+-<br>
+mMontu<br>
+Karl<br>
+Yngve<br>
+Lervåg<br>
+-<br>
+lervag<br>
+Pedro<br>
+Ferrari<br>
+-<br>
+petobens<br>
+Ches<br>
+Martin<br>
+-<br>
+ches<br>
+Christian<br>
+-<br>
+Oberon00<br>
+Andrew<br>
+Ruder<br>
+-<br>
+aeruder<br>
+Mathias<br>
+Fußenegger<br>
+-<br>
+mfussenegger<br>
+Kevin<br>
+Ballard<br>
+-<br>
+kballard<br>
+Ahbong<br>
+Chang<br>
+-<br>
+cwahbong<br>
+Glenn<br>
+Griffin<br>
+-<br>
+ggriffiniii<br>
+Michael<br>
+-<br>
+Pyrohh<br>
+Stanislav<br>
+Seletskiy<br>
+-<br>
+seletskiy<br>
+Pawel<br>
+Palucki<br>
+-<br>
+ppalucki<br>
+Dettorer<br>
+-<br>
+dettorer<br>
+Zhao<br>
+Jiarong<br>
+-<br>
+kawing-chiu<br>
+Ye<br>
+Ding<br>
+-<br>
+dyng<br>
+Greg<br>
+Hurrell<br>
+-<br>
+wincent
+</div>
+</p>
+
+<br>
+<br>
+
+<p>
+<div style='padding-left: 2130pt'>
+vim:tw=78:ts=8:ft=help:norl:
+</div>
+</p>
+
+
+<!-- End wiki content -->
+
+</body>
+
+</html>

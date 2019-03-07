@@ -1,0 +1,13 @@
+====== List and Copy Files With Extension ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+List and Copy Files With Extension
+
+
+Created Monday 14 May 2018
+
+
+
+find . -name \*.xls -exec cp {} newDir \;

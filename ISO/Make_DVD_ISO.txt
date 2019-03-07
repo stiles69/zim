@@ -1,0 +1,13 @@
+====== Make DVD ISO ======
+
+Content-Type: text/x-zim-wiki Wiki-Format: zim 0.4
+
+
+Make DVD ISO
+
+
+Created Tuesday 19 June 2018
+
+
+
+# mkisofs -dvd-video -iso-level 3 /home/brettsalemink/Videos/DirectoryOne > MOMSBANGTEENS.iso
